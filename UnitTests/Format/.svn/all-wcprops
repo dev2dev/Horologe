@@ -1,0 +1,125 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/horologe/!svn/ver/29/Horologe/trunk/UnitTests/Format
+END
+HLDateTimeFormatTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/horologe/!svn/ver/29/Horologe/trunk/UnitTests/Format/HLDateTimeFormatTest.h
+END
+HLISOPeriodFormatTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/horologe/!svn/ver/29/Horologe/trunk/UnitTests/Format/HLISOPeriodFormatTest.h
+END
+HLPeriodFormatterTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/horologe/!svn/ver/29/Horologe/trunk/UnitTests/Format/HLPeriodFormatterTest.h
+END
+HLDateTimeParserBucketTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/horologe/!svn/ver/29/Horologe/trunk/UnitTests/Format/HLDateTimeParserBucketTest.h
+END
+HLFormatUtilsTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/horologe/!svn/ver/29/Horologe/trunk/UnitTests/Format/HLFormatUtilsTest.h
+END
+HLDateTimeFormatTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/horologe/!svn/ver/29/Horologe/trunk/UnitTests/Format/HLDateTimeFormatTest.m
+END
+HLISOPeriodFormatTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/horologe/!svn/ver/29/Horologe/trunk/UnitTests/Format/HLISOPeriodFormatTest.m
+END
+HLPeriodFormatterTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/horologe/!svn/ver/29/Horologe/trunk/UnitTests/Format/HLPeriodFormatterTest.m
+END
+HLDateTimeParserBucketTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/horologe/!svn/ver/29/Horologe/trunk/UnitTests/Format/HLDateTimeParserBucketTest.m
+END
+HLPeriodFormatterBuilderTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/horologe/!svn/ver/29/Horologe/trunk/UnitTests/Format/HLPeriodFormatterBuilderTest.h
+END
+HLFormatUtilsTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/horologe/!svn/ver/29/Horologe/trunk/UnitTests/Format/HLFormatUtilsTest.m
+END
+HLISODateTimeFormatTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/horologe/!svn/ver/29/Horologe/trunk/UnitTests/Format/HLISODateTimeFormatTest.h
+END
+HLDateTimeFormatterTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/horologe/!svn/ver/29/Horologe/trunk/UnitTests/Format/HLDateTimeFormatterTest.h
+END
+HLPeriodFormatterBuilderTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/horologe/!svn/ver/29/Horologe/trunk/UnitTests/Format/HLPeriodFormatterBuilderTest.m
+END
+HLISODateTimeFormatTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/horologe/!svn/ver/29/Horologe/trunk/UnitTests/Format/HLISODateTimeFormatTest.m
+END
+HLDateTimeFormatterTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/horologe/!svn/ver/29/Horologe/trunk/UnitTests/Format/HLDateTimeFormatterTest.m
+END
+HLPeriodFormatTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/horologe/!svn/ver/29/Horologe/trunk/UnitTests/Format/HLPeriodFormatTest.h
+END
+HLPeriodParserTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/horologe/!svn/ver/29/Horologe/trunk/UnitTests/Format/HLPeriodParserTest.h
+END
+HLPeriodFormatTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/horologe/!svn/ver/29/Horologe/trunk/UnitTests/Format/HLPeriodFormatTest.m
+END
+HLPeriodParserTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/horologe/!svn/ver/29/Horologe/trunk/UnitTests/Format/HLPeriodParserTest.m
+END

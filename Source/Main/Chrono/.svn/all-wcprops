@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/horologe/!svn/ver/57/Horologe/trunk/Source/Main/Chrono
+END
+HLBasicChronology.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/horologe/!svn/ver/69/Horologe/trunk/Source/Main/Chrono/HLBasicChronology.h
+END
+HLBasicDayOfYearDateTimeField.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/horologe/!svn/ver/69/Horologe/trunk/Source/Main/Chrono/HLBasicDayOfYearDateTimeField.h
+END
+HLBasicGJChronology.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/horologe/!svn/ver/69/Horologe/trunk/Source/Main/Chrono/HLBasicGJChronology.h
+END
+HLAssembledChronology.m
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/horologe/!svn/ver/74/Horologe/trunk/Source/Main/Chrono/HLAssembledChronology.m
+END
+HLBasicChronology.m
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/horologe/!svn/ver/69/Horologe/trunk/Source/Main/Chrono/HLBasicChronology.m
+END
+HLBasicDayOfMonthDateTimeField.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/horologe/!svn/ver/69/Horologe/trunk/Source/Main/Chrono/HLBasicDayOfMonthDateTimeField.h
+END
+HLBasicFixedMonthChronology.h
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/horologe/!svn/ver/69/Horologe/trunk/Source/Main/Chrono/HLBasicFixedMonthChronology.h
+END
+HLBasicMonthOfYearDateTimeField.h
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/horologe/!svn/ver/69/Horologe/trunk/Source/Main/Chrono/HLBasicMonthOfYearDateTimeField.h
+END
+HLAssembledChronology.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/horologe/!svn/ver/71/Horologe/trunk/Source/Main/Chrono/HLAssembledChronology.h
+END

@@ -1,0 +1,53 @@
+/*
+ * HLPeriodPrinter.h
+ * 
+ * Horologe
+ * Copyright (c) 2010 Pilgrimage Software
+ *
+ * A Cocoa version of the Joda-Time Java date/time library.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+#import <Foundation/Foundation.h>
+
+#import "HLReadablePeriod.h"
+
+
+@protocol HLPeriodPrinter 
+
+/**
+ */
+- (NSInteger)calculatePrintedLength:(id<HLReadablePeriod>)period
+                             locale:(NSLocale*)locale;
+
+/**
+ */
+- (NSInteger)countFieldsToPrint:(id<HLReadablePeriod>)period
+                         stopAt:(NSInteger)stopAt
+                         locale:(NSLocale*)locale;
+
+//-----------------------------------------------------------------------
+/**
+ */
+- (void)printToString:(NSMutableString*)buf
+               period:(id<HLReadablePeriod>)period
+               locale:(NSLocale*)locale;
+
+/**
+ */
+- (void)printToWriter:(NSOutputStream*)writer
+               period:(id<HLReadablePeriod>)period
+               locale:(NSLocale*)locale;
+
+@end

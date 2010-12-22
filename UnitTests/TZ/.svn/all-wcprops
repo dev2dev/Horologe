@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svnroot/horologe/!svn/ver/29/Horologe/trunk/UnitTests/TZ
+END
+HLCachedDateTimeZoneTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/horologe/!svn/ver/29/Horologe/trunk/UnitTests/TZ/HLCachedDateTimeZoneTest.m
+END
+HLDefaultNameProviderTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/horologe/!svn/ver/29/Horologe/trunk/UnitTests/TZ/HLDefaultNameProviderTest.m
+END
+HLUTCProviderTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/horologe/!svn/ver/29/Horologe/trunk/UnitTests/TZ/HLUTCProviderTest.h
+END
+HLZoneInfoProviderTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/horologe/!svn/ver/29/Horologe/trunk/UnitTests/TZ/HLZoneInfoProviderTest.m
+END
+HLFixedDateTimeZoneTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/horologe/!svn/ver/29/Horologe/trunk/UnitTests/TZ/HLFixedDateTimeZoneTest.h
+END
+HLUTCProviderTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/horologe/!svn/ver/29/Horologe/trunk/UnitTests/TZ/HLUTCProviderTest.m
+END
+HLFixedDateTimeZoneTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/horologe/!svn/ver/29/Horologe/trunk/UnitTests/TZ/HLFixedDateTimeZoneTest.m
+END
+HLDateTimeZoneBuilderTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/horologe/!svn/ver/29/Horologe/trunk/UnitTests/TZ/HLDateTimeZoneBuilderTest.h
+END
+HLCachedDateTimeZoneTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/horologe/!svn/ver/29/Horologe/trunk/UnitTests/TZ/HLCachedDateTimeZoneTest.h
+END
+HLDefaultNameProviderTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/horologe/!svn/ver/29/Horologe/trunk/UnitTests/TZ/HLDefaultNameProviderTest.h
+END
+HLZoneInfoProviderTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/horologe/!svn/ver/29/Horologe/trunk/UnitTests/TZ/HLZoneInfoProviderTest.h
+END
+HLDateTimeZoneBuilderTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/horologe/!svn/ver/29/Horologe/trunk/UnitTests/TZ/HLDateTimeZoneBuilderTest.m
+END

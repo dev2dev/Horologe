@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/horologe/!svn/ver/59/Horologe/trunk/Source/Main/Base
+END
+HLBaseDuration.m
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/horologe/!svn/ver/59/Horologe/trunk/Source/Main/Base/HLBaseDuration.m
+END
+HLBaseLocal.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/horologe/!svn/ver/59/Horologe/trunk/Source/Main/Base/HLBaseLocal.h
+END
+HLBaseDateTime.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/horologe/!svn/ver/59/Horologe/trunk/Source/Main/Base/HLBaseDateTime.h
+END
+HLBasePartial.h
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/horologe/!svn/ver/59/Horologe/trunk/Source/Main/Base/HLBasePartial.h
+END
+HLBaseSingleFieldPeriod.m
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/horologe/!svn/ver/60/Horologe/trunk/Source/Main/Base/HLBaseSingleFieldPeriod.m
+END
+HLBaseLocal.m
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/horologe/!svn/ver/59/Horologe/trunk/Source/Main/Base/HLBaseLocal.m
+END
+HLBaseDateTime.m
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/horologe/!svn/ver/59/Horologe/trunk/Source/Main/Base/HLBaseDateTime.m
+END
+HLBasePartial.m
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/horologe/!svn/ver/59/Horologe/trunk/Source/Main/Base/HLBasePartial.m
+END
+HLBaseDuration.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/horologe/!svn/ver/59/Horologe/trunk/Source/Main/Base/HLBaseDuration.h
+END
+HLBasePeriod.m
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/horologe/!svn/ver/59/Horologe/trunk/Source/Main/Base/HLBasePeriod.m
+END
+HLBaseSingleFieldPeriod.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/horologe/!svn/ver/60/Horologe/trunk/Source/Main/Base/HLBaseSingleFieldPeriod.h
+END
+HLBaseInterval.m
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/horologe/!svn/ver/59/Horologe/trunk/Source/Main/Base/HLBaseInterval.m
+END

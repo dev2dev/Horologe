@@ -1,0 +1,401 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core
+END
+HLYearMonthTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLYearMonthTest.h
+END
+HLLocalTimeTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLLocalTimeTest.h
+END
+HLYearMonthTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLYearMonthTest.m
+END
+HLLocalTimeTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLLocalTimeTest.m
+END
+HLYearsTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLYearsTest.h
+END
+HLChronologyTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLChronologyTest.h
+END
+HLDateTimeComparatorTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLDateTimeComparatorTest.h
+END
+HLPeriodTypeTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLPeriodTypeTest.h
+END
+HLDurationTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLDurationTest.h
+END
+HLYearsTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLYearsTest.m
+END
+HLLocalDateTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLLocalDateTest.h
+END
+HLChronologyTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLChronologyTest.m
+END
+HLDateTimeComparatorTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLDateTimeComparatorTest.m
+END
+HLPeriodTypeTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLPeriodTypeTest.m
+END
+HLDurationTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLDurationTest.m
+END
+HLDateTimeTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLDateTimeTest.h
+END
+HLLocalDateTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLLocalDateTest.m
+END
+HLHoursTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLHoursTest.h
+END
+HLDateTimeTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLDateTimeTest.m
+END
+HLDateTimeFieldTypeTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLDateTimeFieldTypeTest.h
+END
+HLHoursTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLHoursTest.m
+END
+HLMutableDateTimeTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLMutableDateTimeTest.h
+END
+HLDateTimeFieldTypeTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLDateTimeFieldTypeTest.m
+END
+HLMutableDateTimeTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLMutableDateTimeTest.m
+END
+HLTimeOfDayTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLTimeOfDayTest.h
+END
+HLPeriodTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLPeriodTest.h
+END
+HLMinutesTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLMinutesTest.h
+END
+HLTimeOfDayTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLTimeOfDayTest.m
+END
+HLPeriodTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLPeriodTest.m
+END
+HLMinutesTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLMinutesTest.m
+END
+HLDurationFieldTypeTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLDurationFieldTypeTest.h
+END
+HLMutablePeriodTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLMutablePeriodTest.h
+END
+HLPartialTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLPartialTest.h
+END
+HLSecondsTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLSecondsTest.h
+END
+HLDurationFieldTypeTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLDurationFieldTypeTest.m
+END
+HLDateTimeFieldTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLDateTimeFieldTest.h
+END
+HLMutablePeriodTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLMutablePeriodTest.m
+END
+HLPartialTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLPartialTest.m
+END
+HLSecondsTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLSecondsTest.m
+END
+HLDateTimeFieldTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLDateTimeFieldTest.m
+END
+HLLocalDateTimeTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLLocalDateTimeTest.h
+END
+HLMonthsTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLMonthsTest.h
+END
+HLLocalDateTimeTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLLocalDateTimeTest.m
+END
+HLDateTimeUtilsTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLDateTimeUtilsTest.h
+END
+HLMonthsTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLMonthsTest.m
+END
+HLInstantTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLInstantTest.h
+END
+HLDateTimeUtilsTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLDateTimeUtilsTest.m
+END
+HLMonthDayTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLMonthDayTest.h
+END
+HLInstantTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLInstantTest.m
+END
+HLMonthDayTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLMonthDayTest.m
+END
+HLDurationFieldTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLDurationFieldTest.h
+END
+HLDurationFieldTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLDurationFieldTest.m
+END
+HLDaysTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLDaysTest.h
+END
+HLDateMidnightTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLDateMidnightTest.h
+END
+HLYearMonthDayTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLYearMonthDayTest.h
+END
+HLDaysTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLDaysTest.m
+END
+HLDateMidnightTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLDateMidnightTest.m
+END
+HLYearMonthDayTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLYearMonthDayTest.m
+END
+HLWeeksTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLWeeksTest.h
+END
+HLWeeksTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLWeeksTest.m
+END
+HLIntervalTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLIntervalTest.h
+END
+HLDateTimeZoneTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLDateTimeZoneTest.h
+END
+HLIntervalTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLIntervalTest.m
+END
+HLDateTimeZoneTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLDateTimeZoneTest.m
+END
+HLMutableIntervalTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLMutableIntervalTest.h
+END
+HLMutableIntervalTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/horologe/!svn/ver/47/Horologe/trunk/UnitTests/Core/HLMutableIntervalTest.m
+END
