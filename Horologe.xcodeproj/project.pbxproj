@@ -1,0 +1,433 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5B69112813A70B6400C913B7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B69112713A70B6400C913B7 /* Cocoa.framework */; };
+		5B69113213A70B6400C913B7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5B69113013A70B6400C913B7 /* InfoPlist.strings */; };
+		5B69113B13A70B6400C913B7 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B69113A13A70B6400C913B7 /* SenTestingKit.framework */; };
+		5B69113C13A70B6400C913B7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B69112713A70B6400C913B7 /* Cocoa.framework */; };
+		5B69113F13A70B6400C913B7 /* Horologe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B69112413A70B6400C913B7 /* Horologe.framework */; };
+		5B69114513A70B6400C913B7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5B69114313A70B6400C913B7 /* InfoPlist.strings */; };
+		5B69114713A70B6400C913B7 /* HorologeTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 5B69114613A70B6400C913B7 /* HorologeTests.h */; };
+		5B69114913A70B6400C913B7 /* HorologeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69114813A70B6400C913B7 /* HorologeTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5B69113D13A70B6400C913B7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5B69111A13A70B6300C913B7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5B69112313A70B6300C913B7;
+			remoteInfo = Horologe;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5B69112413A70B6400C913B7 /* Horologe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Horologe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B69112713A70B6400C913B7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		5B69112A13A70B6400C913B7 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		5B69112B13A70B6400C913B7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		5B69112C13A70B6400C913B7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5B69112F13A70B6400C913B7 /* Horologe-Info.plist */ = {isa = PBXFileReference; path = "Horologe-Info.plist"; sourceTree = "<group>"; };
+		5B69113113A70B6400C913B7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5B69113313A70B6400C913B7 /* Horologe-Prefix.pch */ = {isa = PBXFileReference; path = "Horologe-Prefix.pch"; sourceTree = "<group>"; };
+		5B69113913A70B6400C913B7 /* HorologeTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HorologeTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B69113A13A70B6400C913B7 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		5B69114213A70B6400C913B7 /* HorologeTests-Info.plist */ = {isa = PBXFileReference; path = "HorologeTests-Info.plist"; sourceTree = "<group>"; };
+		5B69114413A70B6400C913B7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5B69114613A70B6400C913B7 /* HorologeTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HorologeTests.h; sourceTree = "<group>"; };
+		5B69114813A70B6400C913B7 /* HorologeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HorologeTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5B69112013A70B6300C913B7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B69112813A70B6400C913B7 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B69113513A70B6400C913B7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B69113B13A70B6400C913B7 /* SenTestingKit.framework in Frameworks */,
+				5B69113C13A70B6400C913B7 /* Cocoa.framework in Frameworks */,
+				5B69113F13A70B6400C913B7 /* Horologe.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5B69111813A70B6300C913B7 = {
+			isa = PBXGroup;
+			children = (
+				5B69112D13A70B6400C913B7 /* Horologe */,
+				5B69114013A70B6400C913B7 /* HorologeTests */,
+				5B69112613A70B6400C913B7 /* Frameworks */,
+				5B69112513A70B6400C913B7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5B69112513A70B6400C913B7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5B69112413A70B6400C913B7 /* Horologe.framework */,
+				5B69113913A70B6400C913B7 /* HorologeTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5B69112613A70B6400C913B7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5B69112713A70B6400C913B7 /* Cocoa.framework */,
+				5B69113A13A70B6400C913B7 /* SenTestingKit.framework */,
+				5B69112913A70B6400C913B7 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5B69112913A70B6400C913B7 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5B69112A13A70B6400C913B7 /* AppKit.framework */,
+				5B69112B13A70B6400C913B7 /* CoreData.framework */,
+				5B69112C13A70B6400C913B7 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		5B69112D13A70B6400C913B7 /* Horologe */ = {
+			isa = PBXGroup;
+			children = (
+				5B69112E13A70B6400C913B7 /* Supporting Files */,
+			);
+			path = Horologe;
+			sourceTree = "<group>";
+		};
+		5B69112E13A70B6400C913B7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5B69112F13A70B6400C913B7 /* Horologe-Info.plist */,
+				5B69113013A70B6400C913B7 /* InfoPlist.strings */,
+				5B69113313A70B6400C913B7 /* Horologe-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5B69114013A70B6400C913B7 /* HorologeTests */ = {
+			isa = PBXGroup;
+			children = (
+				5B69114613A70B6400C913B7 /* HorologeTests.h */,
+				5B69114813A70B6400C913B7 /* HorologeTests.m */,
+				5B69114113A70B6400C913B7 /* Supporting Files */,
+			);
+			path = HorologeTests;
+			sourceTree = "<group>";
+		};
+		5B69114113A70B6400C913B7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5B69114213A70B6400C913B7 /* HorologeTests-Info.plist */,
+				5B69114313A70B6400C913B7 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		5B69112113A70B6300C913B7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		5B69112313A70B6300C913B7 /* Horologe */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B69114C13A70B6400C913B7 /* Build configuration list for PBXNativeTarget "Horologe" */;
+			buildPhases = (
+				5B69111F13A70B6300C913B7 /* Sources */,
+				5B69112013A70B6300C913B7 /* Frameworks */,
+				5B69112113A70B6300C913B7 /* Headers */,
+				5B69112213A70B6300C913B7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Horologe;
+			productName = Horologe;
+			productReference = 5B69112413A70B6400C913B7 /* Horologe.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		5B69113813A70B6400C913B7 /* HorologeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B69114F13A70B6400C913B7 /* Build configuration list for PBXNativeTarget "HorologeTests" */;
+			buildPhases = (
+				5B69113413A70B6400C913B7 /* Sources */,
+				5B69113513A70B6400C913B7 /* Frameworks */,
+				5B69113613A70B6400C913B7 /* Resources */,
+				5B69113713A70B6400C913B7 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5B69113E13A70B6400C913B7 /* PBXTargetDependency */,
+			);
+			name = HorologeTests;
+			productName = HorologeTests;
+			productReference = 5B69113913A70B6400C913B7 /* HorologeTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5B69111A13A70B6300C913B7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Pilgrimage Software";
+			};
+			buildConfigurationList = 5B69111D13A70B6300C913B7 /* Build configuration list for PBXProject "Horologe" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5B69111813A70B6300C913B7;
+			productRefGroup = 5B69112513A70B6400C913B7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5B69112313A70B6300C913B7 /* Horologe */,
+				5B69113813A70B6400C913B7 /* HorologeTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5B69112213A70B6300C913B7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B69113213A70B6400C913B7 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B69113613A70B6400C913B7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B69114513A70B6400C913B7 /* InfoPlist.strings in Resources */,
+				5B69114713A70B6400C913B7 /* HorologeTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5B69113713A70B6400C913B7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5B69111F13A70B6300C913B7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B69113413A70B6400C913B7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B69114913A70B6400C913B7 /* HorologeTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5B69113E13A70B6400C913B7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5B69112313A70B6300C913B7 /* Horologe */;
+			targetProxy = 5B69113D13A70B6400C913B7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5B69113013A70B6400C913B7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B69113113A70B6400C913B7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		5B69114313A70B6400C913B7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B69114413A70B6400C913B7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5B69114A13A70B6400C913B7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		5B69114B13A70B6400C913B7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		5B69114D13A70B6400C913B7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Horologe/Horologe-Prefix.pch";
+				INFOPLIST_FILE = "Horologe/Horologe-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		5B69114E13A70B6400C913B7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Horologe/Horologe-Prefix.pch";
+				INFOPLIST_FILE = "Horologe/Horologe-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		5B69115013A70B6400C913B7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Horologe/Horologe-Prefix.pch";
+				INFOPLIST_FILE = "HorologeTests/HorologeTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		5B69115113A70B6400C913B7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Horologe/Horologe-Prefix.pch";
+				INFOPLIST_FILE = "HorologeTests/HorologeTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5B69111D13A70B6300C913B7 /* Build configuration list for PBXProject "Horologe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B69114A13A70B6400C913B7 /* Debug */,
+				5B69114B13A70B6400C913B7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5B69114C13A70B6400C913B7 /* Build configuration list for PBXNativeTarget "Horologe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B69114D13A70B6400C913B7 /* Debug */,
+				5B69114E13A70B6400C913B7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		5B69114F13A70B6400C913B7 /* Build configuration list for PBXNativeTarget "HorologeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B69115013A70B6400C913B7 /* Debug */,
+				5B69115113A70B6400C913B7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5B69111A13A70B6300C913B7 /* Project object */;
+}
