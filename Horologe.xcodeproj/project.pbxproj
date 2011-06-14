@@ -8,13 +8,334 @@
 
 /* Begin PBXBuildFile section */
 		5B69112813A70B6400C913B7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B69112713A70B6400C913B7 /* Cocoa.framework */; };
-		5B69113213A70B6400C913B7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5B69113013A70B6400C913B7 /* InfoPlist.strings */; };
 		5B69113B13A70B6400C913B7 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B69113A13A70B6400C913B7 /* SenTestingKit.framework */; };
 		5B69113C13A70B6400C913B7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B69112713A70B6400C913B7 /* Cocoa.framework */; };
 		5B69113F13A70B6400C913B7 /* Horologe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B69112413A70B6400C913B7 /* Horologe.framework */; };
 		5B69114513A70B6400C913B7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5B69114313A70B6400C913B7 /* InfoPlist.strings */; };
 		5B69114713A70B6400C913B7 /* HorologeTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 5B69114613A70B6400C913B7 /* HorologeTests.h */; };
 		5B69114913A70B6400C913B7 /* HorologeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69114813A70B6400C913B7 /* HorologeTests.m */; };
+		5B69128C13A70D7100C913B7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5B69115313A70D7000C913B7 /* InfoPlist.strings */; };
+		5B69128D13A70D7100C913B7 /* Horologe-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B69115513A70D7100C913B7 /* Horologe-Info.plist */; };
+		5B6913CF13A7156200C913B7 /* africa in Resources */ = {isa = PBXBuildFile; fileRef = 5B6913C413A7156200C913B7 /* africa */; };
+		5B6913D013A7156200C913B7 /* antarctica in Resources */ = {isa = PBXBuildFile; fileRef = 5B6913C513A7156200C913B7 /* antarctica */; };
+		5B6913D113A7156200C913B7 /* asia in Resources */ = {isa = PBXBuildFile; fileRef = 5B6913C613A7156200C913B7 /* asia */; };
+		5B6913D213A7156200C913B7 /* australasia in Resources */ = {isa = PBXBuildFile; fileRef = 5B6913C713A7156200C913B7 /* australasia */; };
+		5B6913D313A7156200C913B7 /* backward in Resources */ = {isa = PBXBuildFile; fileRef = 5B6913C813A7156200C913B7 /* backward */; };
+		5B6913D413A7156200C913B7 /* etcetera in Resources */ = {isa = PBXBuildFile; fileRef = 5B6913C913A7156200C913B7 /* etcetera */; };
+		5B6913D513A7156200C913B7 /* europe in Resources */ = {isa = PBXBuildFile; fileRef = 5B6913CA13A7156200C913B7 /* europe */; };
+		5B6913D613A7156200C913B7 /* northamerica in Resources */ = {isa = PBXBuildFile; fileRef = 5B6913CB13A7156200C913B7 /* northamerica */; };
+		5B6913D713A7156200C913B7 /* pacificnew in Resources */ = {isa = PBXBuildFile; fileRef = 5B6913CC13A7156200C913B7 /* pacificnew */; };
+		5B6913D813A7156200C913B7 /* southamerica in Resources */ = {isa = PBXBuildFile; fileRef = 5B6913CD13A7156200C913B7 /* southamerica */; };
+		5B6913D913A7156200C913B7 /* systemv in Resources */ = {isa = PBXBuildFile; fileRef = 5B6913CE13A7156200C913B7 /* systemv */; };
+		5B6915F713A7158000C913B7 /* Horologe-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 5B6914C313A7157E00C913B7 /* Horologe-Prefix.pch */; settings = {ATTRIBUTES = (Public, ); }; };
+		5B69164713A715B600C913B7 /* Horologe.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69164613A715B600C913B7 /* Horologe.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5B69178113A7194900C913B7 /* HLAbstractDateTime.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69164913A7194600C913B7 /* HLAbstractDateTime.h */; };
+		5B69178213A7194900C913B7 /* HLAbstractDateTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69164A13A7194600C913B7 /* HLAbstractDateTime.m */; };
+		5B69178313A7194900C913B7 /* HLAbstractDuration.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69164B13A7194600C913B7 /* HLAbstractDuration.h */; };
+		5B69178413A7194900C913B7 /* HLAbstractDuration.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69164C13A7194600C913B7 /* HLAbstractDuration.m */; };
+		5B69178513A7194900C913B7 /* HLAbstractInstant.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69164D13A7194600C913B7 /* HLAbstractInstant.h */; };
+		5B69178613A7194900C913B7 /* HLAbstractInstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69164E13A7194600C913B7 /* HLAbstractInstant.m */; };
+		5B69178713A7194900C913B7 /* HLAbstractInterval.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69164F13A7194600C913B7 /* HLAbstractInterval.h */; };
+		5B69178813A7194900C913B7 /* HLAbstractInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69165013A7194600C913B7 /* HLAbstractInterval.m */; };
+		5B69178913A7194900C913B7 /* HLAbstractPartial.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69165113A7194600C913B7 /* HLAbstractPartial.h */; };
+		5B69178A13A7194900C913B7 /* HLAbstractPartial.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69165213A7194600C913B7 /* HLAbstractPartial.m */; };
+		5B69178B13A7194900C913B7 /* HLAbstractPeriod.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69165313A7194600C913B7 /* HLAbstractPeriod.h */; };
+		5B69178C13A7194900C913B7 /* HLAbstractPeriod.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69165413A7194600C913B7 /* HLAbstractPeriod.m */; };
+		5B69178D13A7194900C913B7 /* HLBaseDateTime.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69165513A7194600C913B7 /* HLBaseDateTime.h */; };
+		5B69178E13A7194900C913B7 /* HLBaseDateTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69165613A7194600C913B7 /* HLBaseDateTime.m */; };
+		5B69178F13A7194900C913B7 /* HLBaseDuration.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69165713A7194600C913B7 /* HLBaseDuration.h */; };
+		5B69179013A7194900C913B7 /* HLBaseDuration.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69165813A7194600C913B7 /* HLBaseDuration.m */; };
+		5B69179113A7194900C913B7 /* HLBaseInterval.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69165913A7194600C913B7 /* HLBaseInterval.h */; };
+		5B69179213A7194900C913B7 /* HLBaseInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69165A13A7194600C913B7 /* HLBaseInterval.m */; };
+		5B69179313A7194900C913B7 /* HLBaseLocal.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69165B13A7194600C913B7 /* HLBaseLocal.h */; };
+		5B69179413A7194900C913B7 /* HLBaseLocal.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69165C13A7194600C913B7 /* HLBaseLocal.m */; };
+		5B69179513A7194900C913B7 /* HLBasePartial.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69165D13A7194600C913B7 /* HLBasePartial.h */; };
+		5B69179613A7194900C913B7 /* HLBasePartial.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69165E13A7194600C913B7 /* HLBasePartial.m */; };
+		5B69179713A7194900C913B7 /* HLBasePeriod.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69165F13A7194600C913B7 /* HLBasePeriod.h */; };
+		5B69179813A7194900C913B7 /* HLBasePeriod.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69166013A7194600C913B7 /* HLBasePeriod.m */; };
+		5B69179913A7194900C913B7 /* HLBaseSingleFieldPeriod.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69166113A7194600C913B7 /* HLBaseSingleFieldPeriod.h */; };
+		5B69179A13A7194900C913B7 /* HLBaseSingleFieldPeriod.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69166213A7194600C913B7 /* HLBaseSingleFieldPeriod.m */; };
+		5B69179B13A7194900C913B7 /* HLAssembledChronology.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69166413A7194600C913B7 /* HLAssembledChronology.h */; };
+		5B69179C13A7194900C913B7 /* HLAssembledChronology.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69166513A7194600C913B7 /* HLAssembledChronology.m */; };
+		5B69179D13A7194900C913B7 /* HLBaseChronology.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69166613A7194600C913B7 /* HLBaseChronology.h */; };
+		5B69179E13A7194900C913B7 /* HLBaseChronology.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69166713A7194600C913B7 /* HLBaseChronology.m */; };
+		5B69179F13A7194900C913B7 /* HLBasicChronology.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69166813A7194600C913B7 /* HLBasicChronology.h */; };
+		5B6917A013A7194900C913B7 /* HLBasicChronology.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69166913A7194600C913B7 /* HLBasicChronology.m */; };
+		5B6917A113A7194900C913B7 /* HLBasicDayOfMonthDateTimeField.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69166A13A7194600C913B7 /* HLBasicDayOfMonthDateTimeField.h */; };
+		5B6917A213A7194900C913B7 /* HLBasicDayOfMonthDateTimeField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69166B13A7194600C913B7 /* HLBasicDayOfMonthDateTimeField.m */; };
+		5B6917A313A7194900C913B7 /* HLBasicDayOfYearDateTimeField.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69166C13A7194600C913B7 /* HLBasicDayOfYearDateTimeField.h */; };
+		5B6917A413A7194900C913B7 /* HLBasicDayOfYearDateTimeField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69166D13A7194600C913B7 /* HLBasicDayOfYearDateTimeField.m */; };
+		5B6917A513A7194900C913B7 /* HLBasicFixedMonthChronology.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69166E13A7194600C913B7 /* HLBasicFixedMonthChronology.h */; };
+		5B6917A613A7194900C913B7 /* HLBasicFixedMonthChronology.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69166F13A7194600C913B7 /* HLBasicFixedMonthChronology.m */; };
+		5B6917A713A7194900C913B7 /* HLBasicGJChronology.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69167013A7194600C913B7 /* HLBasicGJChronology.h */; };
+		5B6917A813A7194900C913B7 /* HLBasicGJChronology.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69167113A7194600C913B7 /* HLBasicGJChronology.m */; };
+		5B6917A913A7194900C913B7 /* HLBasicMonthOfYearDateTimeField.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69167213A7194600C913B7 /* HLBasicMonthOfYearDateTimeField.h */; };
+		5B6917AA13A7194900C913B7 /* HLBasicMonthOfYearDateTimeField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69167313A7194600C913B7 /* HLBasicMonthOfYearDateTimeField.m */; };
+		5B6917AB13A7194900C913B7 /* HLBasicSingleEraDateTimeField.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69167413A7194600C913B7 /* HLBasicSingleEraDateTimeField.h */; };
+		5B6917AC13A7194900C913B7 /* HLBasicSingleEraDateTimeField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69167513A7194600C913B7 /* HLBasicSingleEraDateTimeField.m */; };
+		5B6917AD13A7194900C913B7 /* HLBasicWeekOfWeekyearDateTimeField.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69167613A7194600C913B7 /* HLBasicWeekOfWeekyearDateTimeField.h */; };
+		5B6917AE13A7194900C913B7 /* HLBasicWeekOfWeekyearDateTimeField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69167713A7194600C913B7 /* HLBasicWeekOfWeekyearDateTimeField.m */; };
+		5B6917AF13A7194900C913B7 /* HLBasicWeekyearDateTimeField.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69167813A7194600C913B7 /* HLBasicWeekyearDateTimeField.h */; };
+		5B6917B013A7194900C913B7 /* HLBasicWeekyearDateTimeField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69167913A7194600C913B7 /* HLBasicWeekyearDateTimeField.m */; };
+		5B6917B113A7194900C913B7 /* HLBasicYearDateTimeField.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69167A13A7194600C913B7 /* HLBasicYearDateTimeField.h */; };
+		5B6917B213A7194900C913B7 /* HLBasicYearDateTimeField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69167B13A7194600C913B7 /* HLBasicYearDateTimeField.m */; };
+		5B6917B313A7194900C913B7 /* HLBuddhistChronology.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69167C13A7194600C913B7 /* HLBuddhistChronology.h */; };
+		5B6917B413A7194900C913B7 /* HLBuddhistChronology.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69167D13A7194600C913B7 /* HLBuddhistChronology.m */; };
+		5B6917B513A7194900C913B7 /* HLCopticChronology.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69167E13A7194600C913B7 /* HLCopticChronology.h */; };
+		5B6917B613A7194900C913B7 /* HLCopticChronology.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69167F13A7194600C913B7 /* HLCopticChronology.m */; };
+		5B6917B713A7194900C913B7 /* HLEthiopicChronology.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69168013A7194600C913B7 /* HLEthiopicChronology.h */; };
+		5B6917B813A7194900C913B7 /* HLEthiopicChronology.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69168113A7194600C913B7 /* HLEthiopicChronology.m */; };
+		5B6917B913A7194900C913B7 /* HLGJChronology.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69168213A7194600C913B7 /* HLGJChronology.h */; };
+		5B6917BA13A7194900C913B7 /* HLGJChronology.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69168313A7194600C913B7 /* HLGJChronology.m */; };
+		5B6917BB13A7194900C913B7 /* HLGJDayOfWeekDateTimeField.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69168413A7194600C913B7 /* HLGJDayOfWeekDateTimeField.h */; };
+		5B6917BC13A7194900C913B7 /* HLGJDayOfWeekDateTimeField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69168513A7194600C913B7 /* HLGJDayOfWeekDateTimeField.m */; };
+		5B6917BD13A7194900C913B7 /* HLGJEraDateTimeField.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69168613A7194600C913B7 /* HLGJEraDateTimeField.h */; };
+		5B6917BE13A7194900C913B7 /* HLGJEraDateTimeField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69168713A7194600C913B7 /* HLGJEraDateTimeField.m */; };
+		5B6917BF13A7194900C913B7 /* HLGJLocaleSymbols.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69168813A7194600C913B7 /* HLGJLocaleSymbols.h */; };
+		5B6917C013A7194900C913B7 /* HLGJLocaleSymbols.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69168913A7194600C913B7 /* HLGJLocaleSymbols.m */; };
+		5B6917C113A7194900C913B7 /* HLGJMonthOfYearDateTimeField.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69168A13A7194600C913B7 /* HLGJMonthOfYearDateTimeField.h */; };
+		5B6917C213A7194900C913B7 /* HLGJMonthOfYearDateTimeField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69168B13A7194600C913B7 /* HLGJMonthOfYearDateTimeField.m */; };
+		5B6917C313A7194900C913B7 /* HLGJYearOfEraDateTimeField.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69168C13A7194600C913B7 /* HLGJYearOfEraDateTimeField.h */; };
+		5B6917C413A7194900C913B7 /* HLGJYearOfEraDateTimeField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69168D13A7194600C913B7 /* HLGJYearOfEraDateTimeField.m */; };
+		5B6917C513A7194900C913B7 /* HLGregorianChronology.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69168E13A7194600C913B7 /* HLGregorianChronology.h */; };
+		5B6917C613A7194900C913B7 /* HLGregorianChronology.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69168F13A7194600C913B7 /* HLGregorianChronology.m */; };
+		5B6917C713A7194900C913B7 /* HLIslamicChronology.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69169013A7194600C913B7 /* HLIslamicChronology.h */; };
+		5B6917C813A7194900C913B7 /* HLIslamicChronology.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69169113A7194600C913B7 /* HLIslamicChronology.m */; };
+		5B6917C913A7194900C913B7 /* HLISOChronology.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69169213A7194600C913B7 /* HLISOChronology.h */; };
+		5B6917CA13A7194900C913B7 /* HLISOChronology.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69169313A7194600C913B7 /* HLISOChronology.m */; };
+		5B6917CB13A7194900C913B7 /* HLISOYearOfEraDateTimeField.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69169413A7194600C913B7 /* HLISOYearOfEraDateTimeField.h */; };
+		5B6917CC13A7194900C913B7 /* HLISOYearOfEraDateTimeField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69169513A7194600C913B7 /* HLISOYearOfEraDateTimeField.m */; };
+		5B6917CD13A7194900C913B7 /* HLJulianChronology.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69169613A7194600C913B7 /* HLJulianChronology.h */; };
+		5B6917CE13A7194900C913B7 /* HLJulianChronology.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69169713A7194600C913B7 /* HLJulianChronology.m */; };
+		5B6917CF13A7194900C913B7 /* HLLenientChronology.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69169813A7194600C913B7 /* HLLenientChronology.h */; };
+		5B6917D013A7194900C913B7 /* HLLenientChronology.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69169913A7194600C913B7 /* HLLenientChronology.m */; };
+		5B6917D113A7194900C913B7 /* HLLimitChronology.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69169A13A7194600C913B7 /* HLLimitChronology.h */; };
+		5B6917D213A7194900C913B7 /* HLLimitChronology.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69169B13A7194600C913B7 /* HLLimitChronology.m */; };
+		5B6917D313A7194900C913B7 /* HLStrictChronology.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69169C13A7194600C913B7 /* HLStrictChronology.h */; };
+		5B6917D413A7194900C913B7 /* HLStrictChronology.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69169D13A7194600C913B7 /* HLStrictChronology.m */; };
+		5B6917D513A7194900C913B7 /* HLZonedChronology.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69169E13A7194600C913B7 /* HLZonedChronology.h */; };
+		5B6917D613A7194900C913B7 /* HLZonedChronology.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69169F13A7194600C913B7 /* HLZonedChronology.m */; };
+		5B6917D713A7194900C913B7 /* HLAbstractConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916A113A7194600C913B7 /* HLAbstractConverter.h */; };
+		5B6917D813A7194900C913B7 /* HLAbstractConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916A213A7194600C913B7 /* HLAbstractConverter.m */; };
+		5B6917D913A7194900C913B7 /* HLCalendarConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916A313A7194600C913B7 /* HLCalendarConverter.h */; };
+		5B6917DA13A7194900C913B7 /* HLCalendarConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916A413A7194600C913B7 /* HLCalendarConverter.m */; };
+		5B6917DB13A7194900C913B7 /* HLConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916A513A7194600C913B7 /* HLConverter.h */; };
+		5B6917DC13A7194900C913B7 /* HLConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916A613A7194600C913B7 /* HLConverter.m */; };
+		5B6917DD13A7194900C913B7 /* HLConverterManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916A713A7194600C913B7 /* HLConverterManager.h */; };
+		5B6917DE13A7194900C913B7 /* HLConverterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916A813A7194600C913B7 /* HLConverterManager.m */; };
+		5B6917DF13A7194900C913B7 /* HLConverterSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916A913A7194600C913B7 /* HLConverterSet.h */; };
+		5B6917E013A7194900C913B7 /* HLConverterSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916AA13A7194600C913B7 /* HLConverterSet.m */; };
+		5B6917E113A7194900C913B7 /* HLDateConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916AB13A7194600C913B7 /* HLDateConverter.h */; };
+		5B6917E213A7194900C913B7 /* HLDateConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916AC13A7194600C913B7 /* HLDateConverter.m */; };
+		5B6917E313A7194900C913B7 /* HLDurationConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916AD13A7194600C913B7 /* HLDurationConverter.h */; };
+		5B6917E413A7194900C913B7 /* HLDurationConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916AE13A7194600C913B7 /* HLDurationConverter.m */; };
+		5B6917E513A7194900C913B7 /* HLInstantConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916AF13A7194600C913B7 /* HLInstantConverter.h */; };
+		5B6917E613A7194900C913B7 /* HLInstantConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916B013A7194600C913B7 /* HLInstantConverter.m */; };
+		5B6917E713A7194900C913B7 /* HLIntervalConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916B113A7194600C913B7 /* HLIntervalConverter.h */; };
+		5B6917E813A7194900C913B7 /* HLIntervalConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916B213A7194600C913B7 /* HLIntervalConverter.m */; };
+		5B6917E913A7194900C913B7 /* HLLongConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916B313A7194600C913B7 /* HLLongConverter.h */; };
+		5B6917EA13A7194900C913B7 /* HLLongConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916B413A7194600C913B7 /* HLLongConverter.m */; };
+		5B6917EB13A7194A00C913B7 /* HLNullConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916B513A7194600C913B7 /* HLNullConverter.h */; };
+		5B6917EC13A7194A00C913B7 /* HLNullConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916B613A7194600C913B7 /* HLNullConverter.m */; };
+		5B6917ED13A7194A00C913B7 /* HLPartialConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916B713A7194600C913B7 /* HLPartialConverter.h */; };
+		5B6917EE13A7194A00C913B7 /* HLPartialConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916B813A7194600C913B7 /* HLPartialConverter.m */; };
+		5B6917EF13A7194A00C913B7 /* HLPeriodConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916B913A7194600C913B7 /* HLPeriodConverter.h */; };
+		5B6917F013A7194A00C913B7 /* HLPeriodConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916BA13A7194600C913B7 /* HLPeriodConverter.m */; };
+		5B6917F113A7194A00C913B7 /* HLReadableDurationConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916BB13A7194600C913B7 /* HLReadableDurationConverter.h */; };
+		5B6917F213A7194A00C913B7 /* HLReadableDurationConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916BC13A7194600C913B7 /* HLReadableDurationConverter.m */; };
+		5B6917F313A7194A00C913B7 /* HLReadableInstantConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916BD13A7194600C913B7 /* HLReadableInstantConverter.h */; };
+		5B6917F413A7194A00C913B7 /* HLReadableInstantConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916BE13A7194600C913B7 /* HLReadableInstantConverter.m */; };
+		5B6917F513A7194A00C913B7 /* HLReadableIntervalConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916BF13A7194600C913B7 /* HLReadableIntervalConverter.h */; };
+		5B6917F613A7194A00C913B7 /* HLReadableIntervalConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916C013A7194600C913B7 /* HLReadableIntervalConverter.m */; };
+		5B6917F713A7194A00C913B7 /* HLReadablePartialConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916C113A7194600C913B7 /* HLReadablePartialConverter.h */; };
+		5B6917F813A7194A00C913B7 /* HLReadablePartialConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916C213A7194600C913B7 /* HLReadablePartialConverter.m */; };
+		5B6917F913A7194A00C913B7 /* HLReadablePeriodConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916C313A7194600C913B7 /* HLReadablePeriodConverter.h */; };
+		5B6917FA13A7194A00C913B7 /* HLReadablePeriodConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916C413A7194600C913B7 /* HLReadablePeriodConverter.m */; };
+		5B6917FB13A7194A00C913B7 /* HLStringConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916C513A7194600C913B7 /* HLStringConverter.h */; };
+		5B6917FC13A7194A00C913B7 /* HLStringConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916C613A7194600C913B7 /* HLStringConverter.m */; };
+		5B6917FD13A7194A00C913B7 /* HLAbstractPartialFieldProperty.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916C813A7194600C913B7 /* HLAbstractPartialFieldProperty.h */; };
+		5B6917FE13A7194A00C913B7 /* HLAbstractPartialFieldProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916C913A7194600C913B7 /* HLAbstractPartialFieldProperty.m */; };
+		5B6917FF13A7194A00C913B7 /* HLAbstractReadableInstantFieldProperty.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916CA13A7194600C913B7 /* HLAbstractReadableInstantFieldProperty.h */; };
+		5B69180013A7194A00C913B7 /* HLAbstractReadableInstantFieldProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916CB13A7194600C913B7 /* HLAbstractReadableInstantFieldProperty.m */; };
+		5B69180113A7194A00C913B7 /* HLBaseDateTimeField.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916CC13A7194600C913B7 /* HLBaseDateTimeField.h */; };
+		5B69180213A7194A00C913B7 /* HLBaseDateTimeField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916CD13A7194600C913B7 /* HLBaseDateTimeField.m */; };
+		5B69180313A7194A00C913B7 /* HLBaseDurationField.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916CE13A7194600C913B7 /* HLBaseDurationField.h */; };
+		5B69180413A7194A00C913B7 /* HLBaseDurationField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916CF13A7194600C913B7 /* HLBaseDurationField.m */; };
+		5B69180513A7194A00C913B7 /* HLDecoratedDateTimeField.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916D013A7194600C913B7 /* HLDecoratedDateTimeField.h */; };
+		5B69180613A7194A00C913B7 /* HLDecoratedDateTimeField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916D113A7194600C913B7 /* HLDecoratedDateTimeField.m */; };
+		5B69180713A7194A00C913B7 /* HLDecoratedDurationField.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916D213A7194600C913B7 /* HLDecoratedDurationField.h */; };
+		5B69180813A7194A00C913B7 /* HLDecoratedDurationField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916D313A7194600C913B7 /* HLDecoratedDurationField.m */; };
+		5B69180913A7194A00C913B7 /* HLDelegatedDateTimeField.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916D413A7194600C913B7 /* HLDelegatedDateTimeField.h */; };
+		5B69180A13A7194A00C913B7 /* HLDelegatedDateTimeField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916D513A7194600C913B7 /* HLDelegatedDateTimeField.m */; };
+		5B69180B13A7194A00C913B7 /* HLDelegatedDurationField.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916D613A7194600C913B7 /* HLDelegatedDurationField.h */; };
+		5B69180C13A7194A00C913B7 /* HLDelegatedDurationField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916D713A7194600C913B7 /* HLDelegatedDurationField.m */; };
+		5B69180D13A7194A00C913B7 /* HLDividedDateTimeField.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916D813A7194600C913B7 /* HLDividedDateTimeField.h */; };
+		5B69180E13A7194A00C913B7 /* HLDividedDateTimeField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916D913A7194600C913B7 /* HLDividedDateTimeField.m */; };
+		5B69180F13A7194A00C913B7 /* HLFieldUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916DA13A7194600C913B7 /* HLFieldUtils.h */; };
+		5B69181013A7194A00C913B7 /* HLFieldUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916DB13A7194600C913B7 /* HLFieldUtils.m */; };
+		5B69181113A7194A00C913B7 /* HLImpreciseDateTimeField.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916DC13A7194600C913B7 /* HLImpreciseDateTimeField.h */; };
+		5B69181213A7194A00C913B7 /* HLImpreciseDateTimeField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916DD13A7194600C913B7 /* HLImpreciseDateTimeField.m */; };
+		5B69181313A7194A00C913B7 /* HLLenientDateTimeField.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916DE13A7194600C913B7 /* HLLenientDateTimeField.h */; };
+		5B69181413A7194A00C913B7 /* HLLenientDateTimeField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916DF13A7194600C913B7 /* HLLenientDateTimeField.m */; };
+		5B69181513A7194A00C913B7 /* HLMillisDurationField.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916E013A7194600C913B7 /* HLMillisDurationField.h */; };
+		5B69181613A7194A00C913B7 /* HLMillisDurationField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916E113A7194600C913B7 /* HLMillisDurationField.m */; };
+		5B69181713A7194A00C913B7 /* HLOffsetDateTimeField.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916E213A7194600C913B7 /* HLOffsetDateTimeField.h */; };
+		5B69181813A7194A00C913B7 /* HLOffsetDateTimeField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916E313A7194600C913B7 /* HLOffsetDateTimeField.m */; };
+		5B69181913A7194A00C913B7 /* HLPreciseDateTimeField.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916E413A7194600C913B7 /* HLPreciseDateTimeField.h */; };
+		5B69181A13A7194A00C913B7 /* HLPreciseDateTimeField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916E513A7194600C913B7 /* HLPreciseDateTimeField.m */; };
+		5B69181B13A7194A00C913B7 /* HLPreciseDurationDateTimeField.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916E613A7194600C913B7 /* HLPreciseDurationDateTimeField.h */; };
+		5B69181C13A7194A00C913B7 /* HLPreciseDurationDateTimeField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916E713A7194600C913B7 /* HLPreciseDurationDateTimeField.m */; };
+		5B69181D13A7194A00C913B7 /* HLPreciseDurationField.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916E813A7194600C913B7 /* HLPreciseDurationField.h */; };
+		5B69181E13A7194A00C913B7 /* HLPreciseDurationField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916E913A7194600C913B7 /* HLPreciseDurationField.m */; };
+		5B69181F13A7194A00C913B7 /* HLRemainderDateTimeField.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916EA13A7194600C913B7 /* HLRemainderDateTimeField.h */; };
+		5B69182013A7194A00C913B7 /* HLRemainderDateTimeField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916EB13A7194600C913B7 /* HLRemainderDateTimeField.m */; };
+		5B69182113A7194A00C913B7 /* HLScaledDurationField.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916EC13A7194600C913B7 /* HLScaledDurationField.h */; };
+		5B69182213A7194A00C913B7 /* HLScaledDurationField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916ED13A7194600C913B7 /* HLScaledDurationField.m */; };
+		5B69182313A7194A00C913B7 /* HLSkipDateTimeField.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916EE13A7194600C913B7 /* HLSkipDateTimeField.h */; };
+		5B69182413A7194A00C913B7 /* HLSkipDateTimeField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916EF13A7194600C913B7 /* HLSkipDateTimeField.m */; };
+		5B69182513A7194A00C913B7 /* HLSkipUndoDateTimeField.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916F013A7194600C913B7 /* HLSkipUndoDateTimeField.h */; };
+		5B69182613A7194A00C913B7 /* HLSkipUndoDateTimeField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916F113A7194600C913B7 /* HLSkipUndoDateTimeField.m */; };
+		5B69182713A7194A00C913B7 /* HLStrictDateTimeField.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916F213A7194600C913B7 /* HLStrictDateTimeField.h */; };
+		5B69182813A7194A00C913B7 /* HLStrictDateTimeField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916F313A7194600C913B7 /* HLStrictDateTimeField.m */; };
+		5B69182913A7194A00C913B7 /* HLUnsupportedDateTimeField.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916F413A7194600C913B7 /* HLUnsupportedDateTimeField.h */; };
+		5B69182A13A7194A00C913B7 /* HLUnsupportedDateTimeField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916F513A7194600C913B7 /* HLUnsupportedDateTimeField.m */; };
+		5B69182B13A7194A00C913B7 /* HLUnsupportedDurationField.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916F613A7194600C913B7 /* HLUnsupportedDurationField.h */; };
+		5B69182C13A7194A00C913B7 /* HLUnsupportedDurationField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916F713A7194600C913B7 /* HLUnsupportedDurationField.m */; };
+		5B69182D13A7194A00C913B7 /* HLZeroIsMaxDateTimeField.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916F813A7194600C913B7 /* HLZeroIsMaxDateTimeField.h */; };
+		5B69182E13A7194A00C913B7 /* HLZeroIsMaxDateTimeField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916F913A7194600C913B7 /* HLZeroIsMaxDateTimeField.m */; };
+		5B69182F13A7194A00C913B7 /* HLDateTimeFormat.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916FB13A7194600C913B7 /* HLDateTimeFormat.h */; };
+		5B69183013A7194A00C913B7 /* HLDateTimeFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916FC13A7194600C913B7 /* HLDateTimeFormat.m */; };
+		5B69183113A7194A00C913B7 /* HLDateTimeFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916FD13A7194600C913B7 /* HLDateTimeFormatter.h */; };
+		5B69183213A7194A00C913B7 /* HLDateTimeFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916FE13A7194600C913B7 /* HLDateTimeFormatter.m */; };
+		5B69183313A7194A00C913B7 /* HLDateTimeFormatterBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916FF13A7194600C913B7 /* HLDateTimeFormatterBuilder.h */; };
+		5B69183413A7194A00C913B7 /* HLDateTimeFormatterBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69170013A7194600C913B7 /* HLDateTimeFormatterBuilder.m */; };
+		5B69183513A7194A00C913B7 /* HLDateTimeParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69170113A7194600C913B7 /* HLDateTimeParser.h */; };
+		5B69183613A7194A00C913B7 /* HLDateTimeParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69170213A7194600C913B7 /* HLDateTimeParser.m */; };
+		5B69183713A7194A00C913B7 /* HLDateTimeParserBucket.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69170313A7194600C913B7 /* HLDateTimeParserBucket.h */; };
+		5B69183813A7194A00C913B7 /* HLDateTimeParserBucket.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69170413A7194600C913B7 /* HLDateTimeParserBucket.m */; };
+		5B69183913A7194A00C913B7 /* HLDateTimePrinter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69170513A7194600C913B7 /* HLDateTimePrinter.h */; };
+		5B69183A13A7194A00C913B7 /* HLDateTimePrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69170613A7194600C913B7 /* HLDateTimePrinter.m */; };
+		5B69183B13A7194A00C913B7 /* HLFormatUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69170713A7194600C913B7 /* HLFormatUtils.h */; };
+		5B69183C13A7194A00C913B7 /* HLFormatUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69170813A7194600C913B7 /* HLFormatUtils.m */; };
+		5B69183D13A7194A00C913B7 /* HLISODateTimeFormat.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69170913A7194600C913B7 /* HLISODateTimeFormat.h */; };
+		5B69183E13A7194A00C913B7 /* HLISODateTimeFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69170A13A7194600C913B7 /* HLISODateTimeFormat.m */; };
+		5B69183F13A7194A00C913B7 /* HLISOPeriodFormat.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69170B13A7194600C913B7 /* HLISOPeriodFormat.h */; };
+		5B69184013A7194A00C913B7 /* HLISOPeriodFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69170C13A7194600C913B7 /* HLISOPeriodFormat.m */; };
+		5B69184113A7194A00C913B7 /* HLPeriodFormat.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69170D13A7194600C913B7 /* HLPeriodFormat.h */; };
+		5B69184213A7194A00C913B7 /* HLPeriodFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69170E13A7194600C913B7 /* HLPeriodFormat.m */; };
+		5B69184313A7194A00C913B7 /* HLPeriodFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69170F13A7194600C913B7 /* HLPeriodFormatter.h */; };
+		5B69184413A7194A00C913B7 /* HLPeriodFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69171013A7194600C913B7 /* HLPeriodFormatter.m */; };
+		5B69184513A7194A00C913B7 /* HLPeriodFormatterBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69171113A7194600C913B7 /* HLPeriodFormatterBuilder.h */; };
+		5B69184613A7194A00C913B7 /* HLPeriodFormatterBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69171213A7194600C913B7 /* HLPeriodFormatterBuilder.m */; };
+		5B69184713A7194A00C913B7 /* HLPeriodParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69171313A7194600C913B7 /* HLPeriodParser.h */; };
+		5B69184813A7194A00C913B7 /* HLPeriodParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69171413A7194600C913B7 /* HLPeriodParser.m */; };
+		5B69184913A7194A00C913B7 /* HLPeriodPrinter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69171513A7194600C913B7 /* HLPeriodPrinter.h */; };
+		5B69184A13A7194A00C913B7 /* HLPeriodPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69171613A7194600C913B7 /* HLPeriodPrinter.m */; };
+		5B69184B13A7194A00C913B7 /* HLChronology.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69171713A7194600C913B7 /* HLChronology.h */; };
+		5B69184C13A7194A00C913B7 /* HLChronology.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69171813A7194600C913B7 /* HLChronology.m */; };
+		5B69184D13A7194A00C913B7 /* HLDateMidnight.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69171913A7194600C913B7 /* HLDateMidnight.h */; };
+		5B69184E13A7194A00C913B7 /* HLDateMidnight.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69171A13A7194600C913B7 /* HLDateMidnight.m */; };
+		5B69184F13A7194A00C913B7 /* HLDateTime.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69171B13A7194600C913B7 /* HLDateTime.h */; };
+		5B69185013A7194A00C913B7 /* HLDateTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69171C13A7194600C913B7 /* HLDateTime.m */; };
+		5B69185113A7194A00C913B7 /* HLDateTimeComparator.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69171D13A7194600C913B7 /* HLDateTimeComparator.h */; };
+		5B69185213A7194A00C913B7 /* HLDateTimeComparator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69171E13A7194600C913B7 /* HLDateTimeComparator.m */; };
+		5B69185313A7194A00C913B7 /* HLDateTimeConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69171F13A7194600C913B7 /* HLDateTimeConstants.h */; };
+		5B69185413A7194A00C913B7 /* HLDateTimeConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69172013A7194600C913B7 /* HLDateTimeConstants.m */; };
+		5B69185513A7194A00C913B7 /* HLDateTimeField.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69172113A7194600C913B7 /* HLDateTimeField.h */; };
+		5B69185613A7194A00C913B7 /* HLDateTimeField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69172213A7194600C913B7 /* HLDateTimeField.m */; };
+		5B69185713A7194A00C913B7 /* HLDateTimeFieldType.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69172313A7194600C913B7 /* HLDateTimeFieldType.h */; };
+		5B69185813A7194A00C913B7 /* HLDateTimeFieldType.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69172413A7194600C913B7 /* HLDateTimeFieldType.m */; };
+		5B69185913A7194A00C913B7 /* HLDateTimeUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69172513A7194600C913B7 /* HLDateTimeUtils.h */; };
+		5B69185A13A7194A00C913B7 /* HLDateTimeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69172613A7194600C913B7 /* HLDateTimeUtils.m */; };
+		5B69185B13A7194A00C913B7 /* HLDateTimeZone.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69172713A7194600C913B7 /* HLDateTimeZone.h */; };
+		5B69185C13A7194A00C913B7 /* HLDateTimeZone.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69172813A7194700C913B7 /* HLDateTimeZone.m */; };
+		5B69185D13A7194A00C913B7 /* HLDays.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69172913A7194700C913B7 /* HLDays.h */; };
+		5B69185E13A7194A00C913B7 /* HLDays.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69172A13A7194700C913B7 /* HLDays.m */; };
+		5B69185F13A7194A00C913B7 /* HLDuration.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69172B13A7194700C913B7 /* HLDuration.h */; };
+		5B69186013A7194A00C913B7 /* HLDuration.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69172C13A7194700C913B7 /* HLDuration.m */; };
+		5B69186113A7194A00C913B7 /* HLDurationField.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69172D13A7194700C913B7 /* HLDurationField.h */; };
+		5B69186213A7194A00C913B7 /* HLDurationField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69172E13A7194700C913B7 /* HLDurationField.m */; };
+		5B69186313A7194A00C913B7 /* HLDurationFieldType.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69172F13A7194700C913B7 /* HLDurationFieldType.h */; };
+		5B69186413A7194A00C913B7 /* HLDurationFieldType.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69173013A7194700C913B7 /* HLDurationFieldType.m */; };
+		5B69186513A7194A00C913B7 /* HLHours.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69173113A7194700C913B7 /* HLHours.h */; };
+		5B69186613A7194A00C913B7 /* HLHours.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69173213A7194700C913B7 /* HLHours.m */; };
+		5B69186713A7194A00C913B7 /* HLIllegalFieldValueException.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69173313A7194700C913B7 /* HLIllegalFieldValueException.h */; };
+		5B69186813A7194A00C913B7 /* HLIllegalFieldValueException.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69173413A7194700C913B7 /* HLIllegalFieldValueException.m */; };
+		5B69186913A7194A00C913B7 /* HLInstant.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69173513A7194700C913B7 /* HLInstant.h */; };
+		5B69186A13A7194A00C913B7 /* HLInstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69173613A7194700C913B7 /* HLInstant.m */; };
+		5B69186B13A7194A00C913B7 /* HLInterval.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69173713A7194700C913B7 /* HLInterval.h */; };
+		5B69186C13A7194A00C913B7 /* HLInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69173813A7194700C913B7 /* HLInterval.m */; };
+		5B69186D13A7194A00C913B7 /* HLJodaTimePermission.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69173913A7194700C913B7 /* HLJodaTimePermission.h */; };
+		5B69186E13A7194A00C913B7 /* HLJodaTimePermission.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69173A13A7194700C913B7 /* HLJodaTimePermission.m */; };
+		5B69186F13A7194A00C913B7 /* HLLocalDate.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69173B13A7194700C913B7 /* HLLocalDate.h */; };
+		5B69187013A7194A00C913B7 /* HLLocalDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69173C13A7194700C913B7 /* HLLocalDate.m */; };
+		5B69187113A7194A00C913B7 /* HLLocalDateTime.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69173D13A7194700C913B7 /* HLLocalDateTime.h */; };
+		5B69187213A7194A00C913B7 /* HLLocalDateTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69173E13A7194700C913B7 /* HLLocalDateTime.m */; };
+		5B69187313A7194A00C913B7 /* HLLocalTime.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69173F13A7194700C913B7 /* HLLocalTime.h */; };
+		5B69187413A7194A00C913B7 /* HLLocalTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69174013A7194700C913B7 /* HLLocalTime.m */; };
+		5B69187513A7194A00C913B7 /* HLMinutes.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69174113A7194700C913B7 /* HLMinutes.h */; };
+		5B69187613A7194A00C913B7 /* HLMinutes.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69174213A7194700C913B7 /* HLMinutes.m */; };
+		5B69187713A7194A00C913B7 /* HLMonths.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69174313A7194700C913B7 /* HLMonths.h */; };
+		5B69187813A7194A00C913B7 /* HLMonths.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69174413A7194700C913B7 /* HLMonths.m */; };
+		5B69187913A7194A00C913B7 /* HLMutableDateTime.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69174513A7194700C913B7 /* HLMutableDateTime.h */; };
+		5B69187A13A7194A00C913B7 /* HLMutableDateTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69174613A7194700C913B7 /* HLMutableDateTime.m */; };
+		5B69187B13A7194A00C913B7 /* HLMutableInterval.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69174713A7194700C913B7 /* HLMutableInterval.h */; };
+		5B69187C13A7194A00C913B7 /* HLMutableInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69174813A7194700C913B7 /* HLMutableInterval.m */; };
+		5B69187D13A7194A00C913B7 /* HLMutablePeriod.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69174913A7194700C913B7 /* HLMutablePeriod.h */; };
+		5B69187E13A7194A00C913B7 /* HLMutablePeriod.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69174A13A7194700C913B7 /* HLMutablePeriod.m */; };
+		5B69187F13A7194A00C913B7 /* HLPartial.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69174B13A7194700C913B7 /* HLPartial.h */; };
+		5B69188013A7194A00C913B7 /* HLPartial.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69174C13A7194700C913B7 /* HLPartial.m */; };
+		5B69188113A7194A00C913B7 /* HLPeriod.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69174D13A7194700C913B7 /* HLPeriod.h */; };
+		5B69188213A7194A00C913B7 /* HLPeriod.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69174E13A7194700C913B7 /* HLPeriod.m */; };
+		5B69188313A7194A00C913B7 /* HLPeriodType.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69174F13A7194700C913B7 /* HLPeriodType.h */; };
+		5B69188413A7194A00C913B7 /* HLPeriodType.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69175013A7194700C913B7 /* HLPeriodType.m */; };
+		5B69188513A7194A00C913B7 /* HLReadableDateTime.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69175113A7194700C913B7 /* HLReadableDateTime.h */; };
+		5B69188613A7194A00C913B7 /* HLReadableDateTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69175213A7194700C913B7 /* HLReadableDateTime.m */; };
+		5B69188713A7194A00C913B7 /* HLReadableDuration.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69175313A7194700C913B7 /* HLReadableDuration.h */; };
+		5B69188813A7194A00C913B7 /* HLReadableDuration.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69175413A7194700C913B7 /* HLReadableDuration.m */; };
+		5B69188913A7194A00C913B7 /* HLReadableInstant.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69175513A7194700C913B7 /* HLReadableInstant.h */; };
+		5B69188A13A7194A00C913B7 /* HLReadableInstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69175613A7194700C913B7 /* HLReadableInstant.m */; };
+		5B69188B13A7194A00C913B7 /* HLReadableInterval.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69175713A7194700C913B7 /* HLReadableInterval.h */; };
+		5B69188C13A7194A00C913B7 /* HLReadableInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69175813A7194700C913B7 /* HLReadableInterval.m */; };
+		5B69188D13A7194A00C913B7 /* HLReadablePartial.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69175913A7194700C913B7 /* HLReadablePartial.h */; };
+		5B69188E13A7194A00C913B7 /* HLReadablePartial.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69175A13A7194700C913B7 /* HLReadablePartial.m */; };
+		5B69188F13A7194A00C913B7 /* HLReadablePeriod.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69175B13A7194700C913B7 /* HLReadablePeriod.h */; };
+		5B69189013A7194A00C913B7 /* HLReadablePeriod.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69175C13A7194700C913B7 /* HLReadablePeriod.m */; };
+		5B69189113A7194A00C913B7 /* HLReadWritableDateTime.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69175D13A7194700C913B7 /* HLReadWritableDateTime.h */; };
+		5B69189213A7194A00C913B7 /* HLReadWritableDateTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69175E13A7194700C913B7 /* HLReadWritableDateTime.m */; };
+		5B69189313A7194A00C913B7 /* HLReadWritableInstant.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69175F13A7194700C913B7 /* HLReadWritableInstant.h */; };
+		5B69189413A7194A00C913B7 /* HLReadWritableInstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69176013A7194700C913B7 /* HLReadWritableInstant.m */; };
+		5B69189513A7194A00C913B7 /* HLReadWritableInterval.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69176113A7194700C913B7 /* HLReadWritableInterval.h */; };
+		5B69189613A7194A00C913B7 /* HLReadWritableInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69176213A7194700C913B7 /* HLReadWritableInterval.m */; };
+		5B69189713A7194A00C913B7 /* HLReadWritablePeriod.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69176313A7194700C913B7 /* HLReadWritablePeriod.h */; };
+		5B69189813A7194A00C913B7 /* HLReadWritablePeriod.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69176413A7194700C913B7 /* HLReadWritablePeriod.m */; };
+		5B69189913A7194A00C913B7 /* HLrename.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69176513A7194700C913B7 /* HLrename.h */; };
+		5B69189A13A7194A00C913B7 /* HLSeconds.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69176613A7194700C913B7 /* HLSeconds.h */; };
+		5B69189B13A7194A00C913B7 /* HLSeconds.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69176713A7194700C913B7 /* HLSeconds.m */; };
+		5B69189C13A7194A00C913B7 /* HLTimeOfDay.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69176813A7194900C913B7 /* HLTimeOfDay.h */; };
+		5B69189D13A7194A00C913B7 /* HLTimeOfDay.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69176913A7194900C913B7 /* HLTimeOfDay.m */; };
+		5B69189E13A7194A00C913B7 /* HLWeeks.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69176A13A7194900C913B7 /* HLWeeks.h */; };
+		5B69189F13A7194A00C913B7 /* HLWeeks.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69176B13A7194900C913B7 /* HLWeeks.m */; };
+		5B6918A013A7194A00C913B7 /* HLYearMonthDay.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69176C13A7194900C913B7 /* HLYearMonthDay.h */; };
+		5B6918A113A7194A00C913B7 /* HLYearMonthDay.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69176D13A7194900C913B7 /* HLYearMonthDay.m */; };
+		5B6918A213A7194A00C913B7 /* HLYears.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69176E13A7194900C913B7 /* HLYears.h */; };
+		5B6918A313A7194A00C913B7 /* HLYears.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69176F13A7194900C913B7 /* HLYears.m */; };
+		5B6918A413A7194A00C913B7 /* HLCachedDateTimeZone.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69177113A7194900C913B7 /* HLCachedDateTimeZone.h */; };
+		5B6918A513A7194A00C913B7 /* HLCachedDateTimeZone.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69177213A7194900C913B7 /* HLCachedDateTimeZone.m */; };
+		5B6918A613A7194A00C913B7 /* HLDateTimeZoneBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69177313A7194900C913B7 /* HLDateTimeZoneBuilder.h */; };
+		5B6918A713A7194A00C913B7 /* HLDateTimeZoneBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69177413A7194900C913B7 /* HLDateTimeZoneBuilder.m */; };
+		5B6918A813A7194A00C913B7 /* HLDefaultNameProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69177513A7194900C913B7 /* HLDefaultNameProvider.h */; };
+		5B6918A913A7194A00C913B7 /* HLDefaultNameProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69177613A7194900C913B7 /* HLDefaultNameProvider.m */; };
+		5B6918AA13A7194A00C913B7 /* HLFixedDateTimeZone.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69177713A7194900C913B7 /* HLFixedDateTimeZone.h */; };
+		5B6918AB13A7194A00C913B7 /* HLFixedDateTimeZone.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69177813A7194900C913B7 /* HLFixedDateTimeZone.m */; };
+		5B6918AC13A7194A00C913B7 /* HLNameProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69177913A7194900C913B7 /* HLNameProvider.h */; };
+		5B6918AD13A7194A00C913B7 /* HLNameProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69177A13A7194900C913B7 /* HLNameProvider.m */; };
+		5B6918AE13A7194A00C913B7 /* HLProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69177B13A7194900C913B7 /* HLProvider.h */; };
+		5B6918AF13A7194A00C913B7 /* HLProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69177C13A7194900C913B7 /* HLProvider.m */; };
+		5B6918B013A7194A00C913B7 /* HLUTCProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69177D13A7194900C913B7 /* HLUTCProvider.h */; };
+		5B6918B113A7194A00C913B7 /* HLUTCProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69177E13A7194900C913B7 /* HLUTCProvider.m */; };
+		5B6918B213A7194A00C913B7 /* HLZoneInfoProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69177F13A7194900C913B7 /* HLZoneInfoProvider.h */; };
+		5B6918B313A7194A00C913B7 /* HLZoneInfoProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69178013A7194900C913B7 /* HLZoneInfoProvider.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,15 +354,334 @@
 		5B69112A13A70B6400C913B7 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		5B69112B13A70B6400C913B7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		5B69112C13A70B6400C913B7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		5B69112F13A70B6400C913B7 /* Horologe-Info.plist */ = {isa = PBXFileReference; path = "Horologe-Info.plist"; sourceTree = "<group>"; };
-		5B69113113A70B6400C913B7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		5B69113313A70B6400C913B7 /* Horologe-Prefix.pch */ = {isa = PBXFileReference; path = "Horologe-Prefix.pch"; sourceTree = "<group>"; };
 		5B69113913A70B6400C913B7 /* HorologeTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HorologeTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B69113A13A70B6400C913B7 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		5B69114213A70B6400C913B7 /* HorologeTests-Info.plist */ = {isa = PBXFileReference; path = "HorologeTests-Info.plist"; sourceTree = "<group>"; };
+		5B69114213A70B6400C913B7 /* HorologeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HorologeTests-Info.plist"; sourceTree = "<group>"; };
 		5B69114413A70B6400C913B7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5B69114613A70B6400C913B7 /* HorologeTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HorologeTests.h; sourceTree = "<group>"; };
 		5B69114813A70B6400C913B7 /* HorologeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HorologeTests.m; sourceTree = "<group>"; };
+		5B69115413A70D7000C913B7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5B69115513A70D7100C913B7 /* Horologe-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Horologe-Info.plist"; sourceTree = "<group>"; };
+		5B6913C413A7156200C913B7 /* africa */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = africa; sourceTree = "<group>"; };
+		5B6913C513A7156200C913B7 /* antarctica */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = antarctica; sourceTree = "<group>"; };
+		5B6913C613A7156200C913B7 /* asia */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = asia; sourceTree = "<group>"; };
+		5B6913C713A7156200C913B7 /* australasia */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = australasia; sourceTree = "<group>"; };
+		5B6913C813A7156200C913B7 /* backward */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = backward; sourceTree = "<group>"; };
+		5B6913C913A7156200C913B7 /* etcetera */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = etcetera; sourceTree = "<group>"; };
+		5B6913CA13A7156200C913B7 /* europe */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = europe; sourceTree = "<group>"; };
+		5B6913CB13A7156200C913B7 /* northamerica */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = northamerica; sourceTree = "<group>"; };
+		5B6913CC13A7156200C913B7 /* pacificnew */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pacificnew; sourceTree = "<group>"; };
+		5B6913CD13A7156200C913B7 /* southamerica */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = southamerica; sourceTree = "<group>"; };
+		5B6913CE13A7156200C913B7 /* systemv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = systemv; sourceTree = "<group>"; };
+		5B6914C313A7157E00C913B7 /* Horologe-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Horologe-Prefix.pch"; sourceTree = "<group>"; };
+		5B69164613A715B600C913B7 /* Horologe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Horologe.h; sourceTree = "<group>"; };
+		5B69164913A7194600C913B7 /* HLAbstractDateTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLAbstractDateTime.h; sourceTree = "<group>"; };
+		5B69164A13A7194600C913B7 /* HLAbstractDateTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLAbstractDateTime.m; sourceTree = "<group>"; };
+		5B69164B13A7194600C913B7 /* HLAbstractDuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLAbstractDuration.h; sourceTree = "<group>"; };
+		5B69164C13A7194600C913B7 /* HLAbstractDuration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLAbstractDuration.m; sourceTree = "<group>"; };
+		5B69164D13A7194600C913B7 /* HLAbstractInstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLAbstractInstant.h; sourceTree = "<group>"; };
+		5B69164E13A7194600C913B7 /* HLAbstractInstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLAbstractInstant.m; sourceTree = "<group>"; };
+		5B69164F13A7194600C913B7 /* HLAbstractInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLAbstractInterval.h; sourceTree = "<group>"; };
+		5B69165013A7194600C913B7 /* HLAbstractInterval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLAbstractInterval.m; sourceTree = "<group>"; };
+		5B69165113A7194600C913B7 /* HLAbstractPartial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLAbstractPartial.h; sourceTree = "<group>"; };
+		5B69165213A7194600C913B7 /* HLAbstractPartial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLAbstractPartial.m; sourceTree = "<group>"; };
+		5B69165313A7194600C913B7 /* HLAbstractPeriod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLAbstractPeriod.h; sourceTree = "<group>"; };
+		5B69165413A7194600C913B7 /* HLAbstractPeriod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLAbstractPeriod.m; sourceTree = "<group>"; };
+		5B69165513A7194600C913B7 /* HLBaseDateTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLBaseDateTime.h; sourceTree = "<group>"; };
+		5B69165613A7194600C913B7 /* HLBaseDateTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLBaseDateTime.m; sourceTree = "<group>"; };
+		5B69165713A7194600C913B7 /* HLBaseDuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLBaseDuration.h; sourceTree = "<group>"; };
+		5B69165813A7194600C913B7 /* HLBaseDuration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLBaseDuration.m; sourceTree = "<group>"; };
+		5B69165913A7194600C913B7 /* HLBaseInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLBaseInterval.h; sourceTree = "<group>"; };
+		5B69165A13A7194600C913B7 /* HLBaseInterval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLBaseInterval.m; sourceTree = "<group>"; };
+		5B69165B13A7194600C913B7 /* HLBaseLocal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLBaseLocal.h; sourceTree = "<group>"; };
+		5B69165C13A7194600C913B7 /* HLBaseLocal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLBaseLocal.m; sourceTree = "<group>"; };
+		5B69165D13A7194600C913B7 /* HLBasePartial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLBasePartial.h; sourceTree = "<group>"; };
+		5B69165E13A7194600C913B7 /* HLBasePartial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLBasePartial.m; sourceTree = "<group>"; };
+		5B69165F13A7194600C913B7 /* HLBasePeriod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLBasePeriod.h; sourceTree = "<group>"; };
+		5B69166013A7194600C913B7 /* HLBasePeriod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLBasePeriod.m; sourceTree = "<group>"; };
+		5B69166113A7194600C913B7 /* HLBaseSingleFieldPeriod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLBaseSingleFieldPeriod.h; sourceTree = "<group>"; };
+		5B69166213A7194600C913B7 /* HLBaseSingleFieldPeriod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLBaseSingleFieldPeriod.m; sourceTree = "<group>"; };
+		5B69166413A7194600C913B7 /* HLAssembledChronology.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLAssembledChronology.h; sourceTree = "<group>"; };
+		5B69166513A7194600C913B7 /* HLAssembledChronology.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLAssembledChronology.m; sourceTree = "<group>"; };
+		5B69166613A7194600C913B7 /* HLBaseChronology.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLBaseChronology.h; sourceTree = "<group>"; };
+		5B69166713A7194600C913B7 /* HLBaseChronology.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLBaseChronology.m; sourceTree = "<group>"; };
+		5B69166813A7194600C913B7 /* HLBasicChronology.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLBasicChronology.h; sourceTree = "<group>"; };
+		5B69166913A7194600C913B7 /* HLBasicChronology.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLBasicChronology.m; sourceTree = "<group>"; };
+		5B69166A13A7194600C913B7 /* HLBasicDayOfMonthDateTimeField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLBasicDayOfMonthDateTimeField.h; sourceTree = "<group>"; };
+		5B69166B13A7194600C913B7 /* HLBasicDayOfMonthDateTimeField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLBasicDayOfMonthDateTimeField.m; sourceTree = "<group>"; };
+		5B69166C13A7194600C913B7 /* HLBasicDayOfYearDateTimeField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLBasicDayOfYearDateTimeField.h; sourceTree = "<group>"; };
+		5B69166D13A7194600C913B7 /* HLBasicDayOfYearDateTimeField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLBasicDayOfYearDateTimeField.m; sourceTree = "<group>"; };
+		5B69166E13A7194600C913B7 /* HLBasicFixedMonthChronology.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLBasicFixedMonthChronology.h; sourceTree = "<group>"; };
+		5B69166F13A7194600C913B7 /* HLBasicFixedMonthChronology.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLBasicFixedMonthChronology.m; sourceTree = "<group>"; };
+		5B69167013A7194600C913B7 /* HLBasicGJChronology.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLBasicGJChronology.h; sourceTree = "<group>"; };
+		5B69167113A7194600C913B7 /* HLBasicGJChronology.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLBasicGJChronology.m; sourceTree = "<group>"; };
+		5B69167213A7194600C913B7 /* HLBasicMonthOfYearDateTimeField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLBasicMonthOfYearDateTimeField.h; sourceTree = "<group>"; };
+		5B69167313A7194600C913B7 /* HLBasicMonthOfYearDateTimeField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLBasicMonthOfYearDateTimeField.m; sourceTree = "<group>"; };
+		5B69167413A7194600C913B7 /* HLBasicSingleEraDateTimeField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLBasicSingleEraDateTimeField.h; sourceTree = "<group>"; };
+		5B69167513A7194600C913B7 /* HLBasicSingleEraDateTimeField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLBasicSingleEraDateTimeField.m; sourceTree = "<group>"; };
+		5B69167613A7194600C913B7 /* HLBasicWeekOfWeekyearDateTimeField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLBasicWeekOfWeekyearDateTimeField.h; sourceTree = "<group>"; };
+		5B69167713A7194600C913B7 /* HLBasicWeekOfWeekyearDateTimeField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLBasicWeekOfWeekyearDateTimeField.m; sourceTree = "<group>"; };
+		5B69167813A7194600C913B7 /* HLBasicWeekyearDateTimeField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLBasicWeekyearDateTimeField.h; sourceTree = "<group>"; };
+		5B69167913A7194600C913B7 /* HLBasicWeekyearDateTimeField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLBasicWeekyearDateTimeField.m; sourceTree = "<group>"; };
+		5B69167A13A7194600C913B7 /* HLBasicYearDateTimeField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLBasicYearDateTimeField.h; sourceTree = "<group>"; };
+		5B69167B13A7194600C913B7 /* HLBasicYearDateTimeField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLBasicYearDateTimeField.m; sourceTree = "<group>"; };
+		5B69167C13A7194600C913B7 /* HLBuddhistChronology.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLBuddhistChronology.h; sourceTree = "<group>"; };
+		5B69167D13A7194600C913B7 /* HLBuddhistChronology.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLBuddhistChronology.m; sourceTree = "<group>"; };
+		5B69167E13A7194600C913B7 /* HLCopticChronology.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLCopticChronology.h; sourceTree = "<group>"; };
+		5B69167F13A7194600C913B7 /* HLCopticChronology.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLCopticChronology.m; sourceTree = "<group>"; };
+		5B69168013A7194600C913B7 /* HLEthiopicChronology.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLEthiopicChronology.h; sourceTree = "<group>"; };
+		5B69168113A7194600C913B7 /* HLEthiopicChronology.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLEthiopicChronology.m; sourceTree = "<group>"; };
+		5B69168213A7194600C913B7 /* HLGJChronology.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLGJChronology.h; sourceTree = "<group>"; };
+		5B69168313A7194600C913B7 /* HLGJChronology.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLGJChronology.m; sourceTree = "<group>"; };
+		5B69168413A7194600C913B7 /* HLGJDayOfWeekDateTimeField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLGJDayOfWeekDateTimeField.h; sourceTree = "<group>"; };
+		5B69168513A7194600C913B7 /* HLGJDayOfWeekDateTimeField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLGJDayOfWeekDateTimeField.m; sourceTree = "<group>"; };
+		5B69168613A7194600C913B7 /* HLGJEraDateTimeField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLGJEraDateTimeField.h; sourceTree = "<group>"; };
+		5B69168713A7194600C913B7 /* HLGJEraDateTimeField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLGJEraDateTimeField.m; sourceTree = "<group>"; };
+		5B69168813A7194600C913B7 /* HLGJLocaleSymbols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLGJLocaleSymbols.h; sourceTree = "<group>"; };
+		5B69168913A7194600C913B7 /* HLGJLocaleSymbols.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLGJLocaleSymbols.m; sourceTree = "<group>"; };
+		5B69168A13A7194600C913B7 /* HLGJMonthOfYearDateTimeField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLGJMonthOfYearDateTimeField.h; sourceTree = "<group>"; };
+		5B69168B13A7194600C913B7 /* HLGJMonthOfYearDateTimeField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLGJMonthOfYearDateTimeField.m; sourceTree = "<group>"; };
+		5B69168C13A7194600C913B7 /* HLGJYearOfEraDateTimeField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLGJYearOfEraDateTimeField.h; sourceTree = "<group>"; };
+		5B69168D13A7194600C913B7 /* HLGJYearOfEraDateTimeField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLGJYearOfEraDateTimeField.m; sourceTree = "<group>"; };
+		5B69168E13A7194600C913B7 /* HLGregorianChronology.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLGregorianChronology.h; sourceTree = "<group>"; };
+		5B69168F13A7194600C913B7 /* HLGregorianChronology.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLGregorianChronology.m; sourceTree = "<group>"; };
+		5B69169013A7194600C913B7 /* HLIslamicChronology.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLIslamicChronology.h; sourceTree = "<group>"; };
+		5B69169113A7194600C913B7 /* HLIslamicChronology.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLIslamicChronology.m; sourceTree = "<group>"; };
+		5B69169213A7194600C913B7 /* HLISOChronology.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLISOChronology.h; sourceTree = "<group>"; };
+		5B69169313A7194600C913B7 /* HLISOChronology.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLISOChronology.m; sourceTree = "<group>"; };
+		5B69169413A7194600C913B7 /* HLISOYearOfEraDateTimeField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLISOYearOfEraDateTimeField.h; sourceTree = "<group>"; };
+		5B69169513A7194600C913B7 /* HLISOYearOfEraDateTimeField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLISOYearOfEraDateTimeField.m; sourceTree = "<group>"; };
+		5B69169613A7194600C913B7 /* HLJulianChronology.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLJulianChronology.h; sourceTree = "<group>"; };
+		5B69169713A7194600C913B7 /* HLJulianChronology.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLJulianChronology.m; sourceTree = "<group>"; };
+		5B69169813A7194600C913B7 /* HLLenientChronology.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLLenientChronology.h; sourceTree = "<group>"; };
+		5B69169913A7194600C913B7 /* HLLenientChronology.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLLenientChronology.m; sourceTree = "<group>"; };
+		5B69169A13A7194600C913B7 /* HLLimitChronology.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLLimitChronology.h; sourceTree = "<group>"; };
+		5B69169B13A7194600C913B7 /* HLLimitChronology.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLLimitChronology.m; sourceTree = "<group>"; };
+		5B69169C13A7194600C913B7 /* HLStrictChronology.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLStrictChronology.h; sourceTree = "<group>"; };
+		5B69169D13A7194600C913B7 /* HLStrictChronology.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLStrictChronology.m; sourceTree = "<group>"; };
+		5B69169E13A7194600C913B7 /* HLZonedChronology.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLZonedChronology.h; sourceTree = "<group>"; };
+		5B69169F13A7194600C913B7 /* HLZonedChronology.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLZonedChronology.m; sourceTree = "<group>"; };
+		5B6916A113A7194600C913B7 /* HLAbstractConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLAbstractConverter.h; sourceTree = "<group>"; };
+		5B6916A213A7194600C913B7 /* HLAbstractConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLAbstractConverter.m; sourceTree = "<group>"; };
+		5B6916A313A7194600C913B7 /* HLCalendarConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLCalendarConverter.h; sourceTree = "<group>"; };
+		5B6916A413A7194600C913B7 /* HLCalendarConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLCalendarConverter.m; sourceTree = "<group>"; };
+		5B6916A513A7194600C913B7 /* HLConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLConverter.h; sourceTree = "<group>"; };
+		5B6916A613A7194600C913B7 /* HLConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLConverter.m; sourceTree = "<group>"; };
+		5B6916A713A7194600C913B7 /* HLConverterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLConverterManager.h; sourceTree = "<group>"; };
+		5B6916A813A7194600C913B7 /* HLConverterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLConverterManager.m; sourceTree = "<group>"; };
+		5B6916A913A7194600C913B7 /* HLConverterSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLConverterSet.h; sourceTree = "<group>"; };
+		5B6916AA13A7194600C913B7 /* HLConverterSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLConverterSet.m; sourceTree = "<group>"; };
+		5B6916AB13A7194600C913B7 /* HLDateConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLDateConverter.h; sourceTree = "<group>"; };
+		5B6916AC13A7194600C913B7 /* HLDateConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLDateConverter.m; sourceTree = "<group>"; };
+		5B6916AD13A7194600C913B7 /* HLDurationConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLDurationConverter.h; sourceTree = "<group>"; };
+		5B6916AE13A7194600C913B7 /* HLDurationConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLDurationConverter.m; sourceTree = "<group>"; };
+		5B6916AF13A7194600C913B7 /* HLInstantConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLInstantConverter.h; sourceTree = "<group>"; };
+		5B6916B013A7194600C913B7 /* HLInstantConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLInstantConverter.m; sourceTree = "<group>"; };
+		5B6916B113A7194600C913B7 /* HLIntervalConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLIntervalConverter.h; sourceTree = "<group>"; };
+		5B6916B213A7194600C913B7 /* HLIntervalConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLIntervalConverter.m; sourceTree = "<group>"; };
+		5B6916B313A7194600C913B7 /* HLLongConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLLongConverter.h; sourceTree = "<group>"; };
+		5B6916B413A7194600C913B7 /* HLLongConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLLongConverter.m; sourceTree = "<group>"; };
+		5B6916B513A7194600C913B7 /* HLNullConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLNullConverter.h; sourceTree = "<group>"; };
+		5B6916B613A7194600C913B7 /* HLNullConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLNullConverter.m; sourceTree = "<group>"; };
+		5B6916B713A7194600C913B7 /* HLPartialConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLPartialConverter.h; sourceTree = "<group>"; };
+		5B6916B813A7194600C913B7 /* HLPartialConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLPartialConverter.m; sourceTree = "<group>"; };
+		5B6916B913A7194600C913B7 /* HLPeriodConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLPeriodConverter.h; sourceTree = "<group>"; };
+		5B6916BA13A7194600C913B7 /* HLPeriodConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLPeriodConverter.m; sourceTree = "<group>"; };
+		5B6916BB13A7194600C913B7 /* HLReadableDurationConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLReadableDurationConverter.h; sourceTree = "<group>"; };
+		5B6916BC13A7194600C913B7 /* HLReadableDurationConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLReadableDurationConverter.m; sourceTree = "<group>"; };
+		5B6916BD13A7194600C913B7 /* HLReadableInstantConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLReadableInstantConverter.h; sourceTree = "<group>"; };
+		5B6916BE13A7194600C913B7 /* HLReadableInstantConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLReadableInstantConverter.m; sourceTree = "<group>"; };
+		5B6916BF13A7194600C913B7 /* HLReadableIntervalConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLReadableIntervalConverter.h; sourceTree = "<group>"; };
+		5B6916C013A7194600C913B7 /* HLReadableIntervalConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLReadableIntervalConverter.m; sourceTree = "<group>"; };
+		5B6916C113A7194600C913B7 /* HLReadablePartialConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLReadablePartialConverter.h; sourceTree = "<group>"; };
+		5B6916C213A7194600C913B7 /* HLReadablePartialConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLReadablePartialConverter.m; sourceTree = "<group>"; };
+		5B6916C313A7194600C913B7 /* HLReadablePeriodConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLReadablePeriodConverter.h; sourceTree = "<group>"; };
+		5B6916C413A7194600C913B7 /* HLReadablePeriodConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLReadablePeriodConverter.m; sourceTree = "<group>"; };
+		5B6916C513A7194600C913B7 /* HLStringConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLStringConverter.h; sourceTree = "<group>"; };
+		5B6916C613A7194600C913B7 /* HLStringConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLStringConverter.m; sourceTree = "<group>"; };
+		5B6916C813A7194600C913B7 /* HLAbstractPartialFieldProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLAbstractPartialFieldProperty.h; sourceTree = "<group>"; };
+		5B6916C913A7194600C913B7 /* HLAbstractPartialFieldProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLAbstractPartialFieldProperty.m; sourceTree = "<group>"; };
+		5B6916CA13A7194600C913B7 /* HLAbstractReadableInstantFieldProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLAbstractReadableInstantFieldProperty.h; sourceTree = "<group>"; };
+		5B6916CB13A7194600C913B7 /* HLAbstractReadableInstantFieldProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLAbstractReadableInstantFieldProperty.m; sourceTree = "<group>"; };
+		5B6916CC13A7194600C913B7 /* HLBaseDateTimeField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLBaseDateTimeField.h; sourceTree = "<group>"; };
+		5B6916CD13A7194600C913B7 /* HLBaseDateTimeField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLBaseDateTimeField.m; sourceTree = "<group>"; };
+		5B6916CE13A7194600C913B7 /* HLBaseDurationField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLBaseDurationField.h; sourceTree = "<group>"; };
+		5B6916CF13A7194600C913B7 /* HLBaseDurationField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLBaseDurationField.m; sourceTree = "<group>"; };
+		5B6916D013A7194600C913B7 /* HLDecoratedDateTimeField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLDecoratedDateTimeField.h; sourceTree = "<group>"; };
+		5B6916D113A7194600C913B7 /* HLDecoratedDateTimeField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLDecoratedDateTimeField.m; sourceTree = "<group>"; };
+		5B6916D213A7194600C913B7 /* HLDecoratedDurationField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLDecoratedDurationField.h; sourceTree = "<group>"; };
+		5B6916D313A7194600C913B7 /* HLDecoratedDurationField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLDecoratedDurationField.m; sourceTree = "<group>"; };
+		5B6916D413A7194600C913B7 /* HLDelegatedDateTimeField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLDelegatedDateTimeField.h; sourceTree = "<group>"; };
+		5B6916D513A7194600C913B7 /* HLDelegatedDateTimeField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLDelegatedDateTimeField.m; sourceTree = "<group>"; };
+		5B6916D613A7194600C913B7 /* HLDelegatedDurationField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLDelegatedDurationField.h; sourceTree = "<group>"; };
+		5B6916D713A7194600C913B7 /* HLDelegatedDurationField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLDelegatedDurationField.m; sourceTree = "<group>"; };
+		5B6916D813A7194600C913B7 /* HLDividedDateTimeField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLDividedDateTimeField.h; sourceTree = "<group>"; };
+		5B6916D913A7194600C913B7 /* HLDividedDateTimeField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLDividedDateTimeField.m; sourceTree = "<group>"; };
+		5B6916DA13A7194600C913B7 /* HLFieldUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLFieldUtils.h; sourceTree = "<group>"; };
+		5B6916DB13A7194600C913B7 /* HLFieldUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLFieldUtils.m; sourceTree = "<group>"; };
+		5B6916DC13A7194600C913B7 /* HLImpreciseDateTimeField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLImpreciseDateTimeField.h; sourceTree = "<group>"; };
+		5B6916DD13A7194600C913B7 /* HLImpreciseDateTimeField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLImpreciseDateTimeField.m; sourceTree = "<group>"; };
+		5B6916DE13A7194600C913B7 /* HLLenientDateTimeField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLLenientDateTimeField.h; sourceTree = "<group>"; };
+		5B6916DF13A7194600C913B7 /* HLLenientDateTimeField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLLenientDateTimeField.m; sourceTree = "<group>"; };
+		5B6916E013A7194600C913B7 /* HLMillisDurationField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLMillisDurationField.h; sourceTree = "<group>"; };
+		5B6916E113A7194600C913B7 /* HLMillisDurationField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLMillisDurationField.m; sourceTree = "<group>"; };
+		5B6916E213A7194600C913B7 /* HLOffsetDateTimeField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLOffsetDateTimeField.h; sourceTree = "<group>"; };
+		5B6916E313A7194600C913B7 /* HLOffsetDateTimeField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLOffsetDateTimeField.m; sourceTree = "<group>"; };
+		5B6916E413A7194600C913B7 /* HLPreciseDateTimeField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLPreciseDateTimeField.h; sourceTree = "<group>"; };
+		5B6916E513A7194600C913B7 /* HLPreciseDateTimeField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLPreciseDateTimeField.m; sourceTree = "<group>"; };
+		5B6916E613A7194600C913B7 /* HLPreciseDurationDateTimeField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLPreciseDurationDateTimeField.h; sourceTree = "<group>"; };
+		5B6916E713A7194600C913B7 /* HLPreciseDurationDateTimeField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLPreciseDurationDateTimeField.m; sourceTree = "<group>"; };
+		5B6916E813A7194600C913B7 /* HLPreciseDurationField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLPreciseDurationField.h; sourceTree = "<group>"; };
+		5B6916E913A7194600C913B7 /* HLPreciseDurationField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLPreciseDurationField.m; sourceTree = "<group>"; };
+		5B6916EA13A7194600C913B7 /* HLRemainderDateTimeField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLRemainderDateTimeField.h; sourceTree = "<group>"; };
+		5B6916EB13A7194600C913B7 /* HLRemainderDateTimeField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLRemainderDateTimeField.m; sourceTree = "<group>"; };
+		5B6916EC13A7194600C913B7 /* HLScaledDurationField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLScaledDurationField.h; sourceTree = "<group>"; };
+		5B6916ED13A7194600C913B7 /* HLScaledDurationField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLScaledDurationField.m; sourceTree = "<group>"; };
+		5B6916EE13A7194600C913B7 /* HLSkipDateTimeField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLSkipDateTimeField.h; sourceTree = "<group>"; };
+		5B6916EF13A7194600C913B7 /* HLSkipDateTimeField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLSkipDateTimeField.m; sourceTree = "<group>"; };
+		5B6916F013A7194600C913B7 /* HLSkipUndoDateTimeField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLSkipUndoDateTimeField.h; sourceTree = "<group>"; };
+		5B6916F113A7194600C913B7 /* HLSkipUndoDateTimeField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLSkipUndoDateTimeField.m; sourceTree = "<group>"; };
+		5B6916F213A7194600C913B7 /* HLStrictDateTimeField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLStrictDateTimeField.h; sourceTree = "<group>"; };
+		5B6916F313A7194600C913B7 /* HLStrictDateTimeField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLStrictDateTimeField.m; sourceTree = "<group>"; };
+		5B6916F413A7194600C913B7 /* HLUnsupportedDateTimeField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLUnsupportedDateTimeField.h; sourceTree = "<group>"; };
+		5B6916F513A7194600C913B7 /* HLUnsupportedDateTimeField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLUnsupportedDateTimeField.m; sourceTree = "<group>"; };
+		5B6916F613A7194600C913B7 /* HLUnsupportedDurationField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLUnsupportedDurationField.h; sourceTree = "<group>"; };
+		5B6916F713A7194600C913B7 /* HLUnsupportedDurationField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLUnsupportedDurationField.m; sourceTree = "<group>"; };
+		5B6916F813A7194600C913B7 /* HLZeroIsMaxDateTimeField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLZeroIsMaxDateTimeField.h; sourceTree = "<group>"; };
+		5B6916F913A7194600C913B7 /* HLZeroIsMaxDateTimeField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLZeroIsMaxDateTimeField.m; sourceTree = "<group>"; };
+		5B6916FB13A7194600C913B7 /* HLDateTimeFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLDateTimeFormat.h; sourceTree = "<group>"; };
+		5B6916FC13A7194600C913B7 /* HLDateTimeFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLDateTimeFormat.m; sourceTree = "<group>"; };
+		5B6916FD13A7194600C913B7 /* HLDateTimeFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLDateTimeFormatter.h; sourceTree = "<group>"; };
+		5B6916FE13A7194600C913B7 /* HLDateTimeFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLDateTimeFormatter.m; sourceTree = "<group>"; };
+		5B6916FF13A7194600C913B7 /* HLDateTimeFormatterBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLDateTimeFormatterBuilder.h; sourceTree = "<group>"; };
+		5B69170013A7194600C913B7 /* HLDateTimeFormatterBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLDateTimeFormatterBuilder.m; sourceTree = "<group>"; };
+		5B69170113A7194600C913B7 /* HLDateTimeParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLDateTimeParser.h; sourceTree = "<group>"; };
+		5B69170213A7194600C913B7 /* HLDateTimeParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLDateTimeParser.m; sourceTree = "<group>"; };
+		5B69170313A7194600C913B7 /* HLDateTimeParserBucket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLDateTimeParserBucket.h; sourceTree = "<group>"; };
+		5B69170413A7194600C913B7 /* HLDateTimeParserBucket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLDateTimeParserBucket.m; sourceTree = "<group>"; };
+		5B69170513A7194600C913B7 /* HLDateTimePrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLDateTimePrinter.h; sourceTree = "<group>"; };
+		5B69170613A7194600C913B7 /* HLDateTimePrinter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLDateTimePrinter.m; sourceTree = "<group>"; };
+		5B69170713A7194600C913B7 /* HLFormatUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLFormatUtils.h; sourceTree = "<group>"; };
+		5B69170813A7194600C913B7 /* HLFormatUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLFormatUtils.m; sourceTree = "<group>"; };
+		5B69170913A7194600C913B7 /* HLISODateTimeFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLISODateTimeFormat.h; sourceTree = "<group>"; };
+		5B69170A13A7194600C913B7 /* HLISODateTimeFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLISODateTimeFormat.m; sourceTree = "<group>"; };
+		5B69170B13A7194600C913B7 /* HLISOPeriodFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLISOPeriodFormat.h; sourceTree = "<group>"; };
+		5B69170C13A7194600C913B7 /* HLISOPeriodFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLISOPeriodFormat.m; sourceTree = "<group>"; };
+		5B69170D13A7194600C913B7 /* HLPeriodFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLPeriodFormat.h; sourceTree = "<group>"; };
+		5B69170E13A7194600C913B7 /* HLPeriodFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLPeriodFormat.m; sourceTree = "<group>"; };
+		5B69170F13A7194600C913B7 /* HLPeriodFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLPeriodFormatter.h; sourceTree = "<group>"; };
+		5B69171013A7194600C913B7 /* HLPeriodFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLPeriodFormatter.m; sourceTree = "<group>"; };
+		5B69171113A7194600C913B7 /* HLPeriodFormatterBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLPeriodFormatterBuilder.h; sourceTree = "<group>"; };
+		5B69171213A7194600C913B7 /* HLPeriodFormatterBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLPeriodFormatterBuilder.m; sourceTree = "<group>"; };
+		5B69171313A7194600C913B7 /* HLPeriodParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLPeriodParser.h; sourceTree = "<group>"; };
+		5B69171413A7194600C913B7 /* HLPeriodParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLPeriodParser.m; sourceTree = "<group>"; };
+		5B69171513A7194600C913B7 /* HLPeriodPrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLPeriodPrinter.h; sourceTree = "<group>"; };
+		5B69171613A7194600C913B7 /* HLPeriodPrinter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLPeriodPrinter.m; sourceTree = "<group>"; };
+		5B69171713A7194600C913B7 /* HLChronology.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLChronology.h; sourceTree = "<group>"; };
+		5B69171813A7194600C913B7 /* HLChronology.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLChronology.m; sourceTree = "<group>"; };
+		5B69171913A7194600C913B7 /* HLDateMidnight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLDateMidnight.h; sourceTree = "<group>"; };
+		5B69171A13A7194600C913B7 /* HLDateMidnight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLDateMidnight.m; sourceTree = "<group>"; };
+		5B69171B13A7194600C913B7 /* HLDateTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLDateTime.h; sourceTree = "<group>"; };
+		5B69171C13A7194600C913B7 /* HLDateTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLDateTime.m; sourceTree = "<group>"; };
+		5B69171D13A7194600C913B7 /* HLDateTimeComparator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLDateTimeComparator.h; sourceTree = "<group>"; };
+		5B69171E13A7194600C913B7 /* HLDateTimeComparator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLDateTimeComparator.m; sourceTree = "<group>"; };
+		5B69171F13A7194600C913B7 /* HLDateTimeConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLDateTimeConstants.h; sourceTree = "<group>"; };
+		5B69172013A7194600C913B7 /* HLDateTimeConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLDateTimeConstants.m; sourceTree = "<group>"; };
+		5B69172113A7194600C913B7 /* HLDateTimeField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLDateTimeField.h; sourceTree = "<group>"; };
+		5B69172213A7194600C913B7 /* HLDateTimeField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLDateTimeField.m; sourceTree = "<group>"; };
+		5B69172313A7194600C913B7 /* HLDateTimeFieldType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLDateTimeFieldType.h; sourceTree = "<group>"; };
+		5B69172413A7194600C913B7 /* HLDateTimeFieldType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLDateTimeFieldType.m; sourceTree = "<group>"; };
+		5B69172513A7194600C913B7 /* HLDateTimeUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLDateTimeUtils.h; sourceTree = "<group>"; };
+		5B69172613A7194600C913B7 /* HLDateTimeUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLDateTimeUtils.m; sourceTree = "<group>"; };
+		5B69172713A7194600C913B7 /* HLDateTimeZone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLDateTimeZone.h; sourceTree = "<group>"; };
+		5B69172813A7194700C913B7 /* HLDateTimeZone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLDateTimeZone.m; sourceTree = "<group>"; };
+		5B69172913A7194700C913B7 /* HLDays.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLDays.h; sourceTree = "<group>"; };
+		5B69172A13A7194700C913B7 /* HLDays.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLDays.m; sourceTree = "<group>"; };
+		5B69172B13A7194700C913B7 /* HLDuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLDuration.h; sourceTree = "<group>"; };
+		5B69172C13A7194700C913B7 /* HLDuration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLDuration.m; sourceTree = "<group>"; };
+		5B69172D13A7194700C913B7 /* HLDurationField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLDurationField.h; sourceTree = "<group>"; };
+		5B69172E13A7194700C913B7 /* HLDurationField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLDurationField.m; sourceTree = "<group>"; };
+		5B69172F13A7194700C913B7 /* HLDurationFieldType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLDurationFieldType.h; sourceTree = "<group>"; };
+		5B69173013A7194700C913B7 /* HLDurationFieldType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLDurationFieldType.m; sourceTree = "<group>"; };
+		5B69173113A7194700C913B7 /* HLHours.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLHours.h; sourceTree = "<group>"; };
+		5B69173213A7194700C913B7 /* HLHours.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLHours.m; sourceTree = "<group>"; };
+		5B69173313A7194700C913B7 /* HLIllegalFieldValueException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLIllegalFieldValueException.h; sourceTree = "<group>"; };
+		5B69173413A7194700C913B7 /* HLIllegalFieldValueException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLIllegalFieldValueException.m; sourceTree = "<group>"; };
+		5B69173513A7194700C913B7 /* HLInstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLInstant.h; sourceTree = "<group>"; };
+		5B69173613A7194700C913B7 /* HLInstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLInstant.m; sourceTree = "<group>"; };
+		5B69173713A7194700C913B7 /* HLInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLInterval.h; sourceTree = "<group>"; };
+		5B69173813A7194700C913B7 /* HLInterval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLInterval.m; sourceTree = "<group>"; };
+		5B69173913A7194700C913B7 /* HLJodaTimePermission.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLJodaTimePermission.h; sourceTree = "<group>"; };
+		5B69173A13A7194700C913B7 /* HLJodaTimePermission.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLJodaTimePermission.m; sourceTree = "<group>"; };
+		5B69173B13A7194700C913B7 /* HLLocalDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLLocalDate.h; sourceTree = "<group>"; };
+		5B69173C13A7194700C913B7 /* HLLocalDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLLocalDate.m; sourceTree = "<group>"; };
+		5B69173D13A7194700C913B7 /* HLLocalDateTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLLocalDateTime.h; sourceTree = "<group>"; };
+		5B69173E13A7194700C913B7 /* HLLocalDateTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLLocalDateTime.m; sourceTree = "<group>"; };
+		5B69173F13A7194700C913B7 /* HLLocalTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLLocalTime.h; sourceTree = "<group>"; };
+		5B69174013A7194700C913B7 /* HLLocalTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLLocalTime.m; sourceTree = "<group>"; };
+		5B69174113A7194700C913B7 /* HLMinutes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLMinutes.h; sourceTree = "<group>"; };
+		5B69174213A7194700C913B7 /* HLMinutes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLMinutes.m; sourceTree = "<group>"; };
+		5B69174313A7194700C913B7 /* HLMonths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLMonths.h; sourceTree = "<group>"; };
+		5B69174413A7194700C913B7 /* HLMonths.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLMonths.m; sourceTree = "<group>"; };
+		5B69174513A7194700C913B7 /* HLMutableDateTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLMutableDateTime.h; sourceTree = "<group>"; };
+		5B69174613A7194700C913B7 /* HLMutableDateTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLMutableDateTime.m; sourceTree = "<group>"; };
+		5B69174713A7194700C913B7 /* HLMutableInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLMutableInterval.h; sourceTree = "<group>"; };
+		5B69174813A7194700C913B7 /* HLMutableInterval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLMutableInterval.m; sourceTree = "<group>"; };
+		5B69174913A7194700C913B7 /* HLMutablePeriod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLMutablePeriod.h; sourceTree = "<group>"; };
+		5B69174A13A7194700C913B7 /* HLMutablePeriod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLMutablePeriod.m; sourceTree = "<group>"; };
+		5B69174B13A7194700C913B7 /* HLPartial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLPartial.h; sourceTree = "<group>"; };
+		5B69174C13A7194700C913B7 /* HLPartial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLPartial.m; sourceTree = "<group>"; };
+		5B69174D13A7194700C913B7 /* HLPeriod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLPeriod.h; sourceTree = "<group>"; };
+		5B69174E13A7194700C913B7 /* HLPeriod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLPeriod.m; sourceTree = "<group>"; };
+		5B69174F13A7194700C913B7 /* HLPeriodType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLPeriodType.h; sourceTree = "<group>"; };
+		5B69175013A7194700C913B7 /* HLPeriodType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLPeriodType.m; sourceTree = "<group>"; };
+		5B69175113A7194700C913B7 /* HLReadableDateTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLReadableDateTime.h; sourceTree = "<group>"; };
+		5B69175213A7194700C913B7 /* HLReadableDateTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLReadableDateTime.m; sourceTree = "<group>"; };
+		5B69175313A7194700C913B7 /* HLReadableDuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLReadableDuration.h; sourceTree = "<group>"; };
+		5B69175413A7194700C913B7 /* HLReadableDuration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLReadableDuration.m; sourceTree = "<group>"; };
+		5B69175513A7194700C913B7 /* HLReadableInstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLReadableInstant.h; sourceTree = "<group>"; };
+		5B69175613A7194700C913B7 /* HLReadableInstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLReadableInstant.m; sourceTree = "<group>"; };
+		5B69175713A7194700C913B7 /* HLReadableInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLReadableInterval.h; sourceTree = "<group>"; };
+		5B69175813A7194700C913B7 /* HLReadableInterval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLReadableInterval.m; sourceTree = "<group>"; };
+		5B69175913A7194700C913B7 /* HLReadablePartial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLReadablePartial.h; sourceTree = "<group>"; };
+		5B69175A13A7194700C913B7 /* HLReadablePartial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLReadablePartial.m; sourceTree = "<group>"; };
+		5B69175B13A7194700C913B7 /* HLReadablePeriod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLReadablePeriod.h; sourceTree = "<group>"; };
+		5B69175C13A7194700C913B7 /* HLReadablePeriod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLReadablePeriod.m; sourceTree = "<group>"; };
+		5B69175D13A7194700C913B7 /* HLReadWritableDateTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLReadWritableDateTime.h; sourceTree = "<group>"; };
+		5B69175E13A7194700C913B7 /* HLReadWritableDateTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLReadWritableDateTime.m; sourceTree = "<group>"; };
+		5B69175F13A7194700C913B7 /* HLReadWritableInstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLReadWritableInstant.h; sourceTree = "<group>"; };
+		5B69176013A7194700C913B7 /* HLReadWritableInstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLReadWritableInstant.m; sourceTree = "<group>"; };
+		5B69176113A7194700C913B7 /* HLReadWritableInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLReadWritableInterval.h; sourceTree = "<group>"; };
+		5B69176213A7194700C913B7 /* HLReadWritableInterval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLReadWritableInterval.m; sourceTree = "<group>"; };
+		5B69176313A7194700C913B7 /* HLReadWritablePeriod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLReadWritablePeriod.h; sourceTree = "<group>"; };
+		5B69176413A7194700C913B7 /* HLReadWritablePeriod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLReadWritablePeriod.m; sourceTree = "<group>"; };
+		5B69176513A7194700C913B7 /* HLrename.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLrename.h; sourceTree = "<group>"; };
+		5B69176613A7194700C913B7 /* HLSeconds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLSeconds.h; sourceTree = "<group>"; };
+		5B69176713A7194700C913B7 /* HLSeconds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLSeconds.m; sourceTree = "<group>"; };
+		5B69176813A7194900C913B7 /* HLTimeOfDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLTimeOfDay.h; sourceTree = "<group>"; };
+		5B69176913A7194900C913B7 /* HLTimeOfDay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLTimeOfDay.m; sourceTree = "<group>"; };
+		5B69176A13A7194900C913B7 /* HLWeeks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLWeeks.h; sourceTree = "<group>"; };
+		5B69176B13A7194900C913B7 /* HLWeeks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLWeeks.m; sourceTree = "<group>"; };
+		5B69176C13A7194900C913B7 /* HLYearMonthDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLYearMonthDay.h; sourceTree = "<group>"; };
+		5B69176D13A7194900C913B7 /* HLYearMonthDay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLYearMonthDay.m; sourceTree = "<group>"; };
+		5B69176E13A7194900C913B7 /* HLYears.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLYears.h; sourceTree = "<group>"; };
+		5B69176F13A7194900C913B7 /* HLYears.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLYears.m; sourceTree = "<group>"; };
+		5B69177113A7194900C913B7 /* HLCachedDateTimeZone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLCachedDateTimeZone.h; sourceTree = "<group>"; };
+		5B69177213A7194900C913B7 /* HLCachedDateTimeZone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLCachedDateTimeZone.m; sourceTree = "<group>"; };
+		5B69177313A7194900C913B7 /* HLDateTimeZoneBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLDateTimeZoneBuilder.h; sourceTree = "<group>"; };
+		5B69177413A7194900C913B7 /* HLDateTimeZoneBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLDateTimeZoneBuilder.m; sourceTree = "<group>"; };
+		5B69177513A7194900C913B7 /* HLDefaultNameProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLDefaultNameProvider.h; sourceTree = "<group>"; };
+		5B69177613A7194900C913B7 /* HLDefaultNameProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLDefaultNameProvider.m; sourceTree = "<group>"; };
+		5B69177713A7194900C913B7 /* HLFixedDateTimeZone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLFixedDateTimeZone.h; sourceTree = "<group>"; };
+		5B69177813A7194900C913B7 /* HLFixedDateTimeZone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLFixedDateTimeZone.m; sourceTree = "<group>"; };
+		5B69177913A7194900C913B7 /* HLNameProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLNameProvider.h; sourceTree = "<group>"; };
+		5B69177A13A7194900C913B7 /* HLNameProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLNameProvider.m; sourceTree = "<group>"; };
+		5B69177B13A7194900C913B7 /* HLProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLProvider.h; sourceTree = "<group>"; };
+		5B69177C13A7194900C913B7 /* HLProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLProvider.m; sourceTree = "<group>"; };
+		5B69177D13A7194900C913B7 /* HLUTCProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLUTCProvider.h; sourceTree = "<group>"; };
+		5B69177E13A7194900C913B7 /* HLUTCProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLUTCProvider.m; sourceTree = "<group>"; };
+		5B69177F13A7194900C913B7 /* HLZoneInfoProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLZoneInfoProvider.h; sourceTree = "<group>"; };
+		5B69178013A7194900C913B7 /* HLZoneInfoProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLZoneInfoProvider.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,19 +748,10 @@
 		5B69112D13A70B6400C913B7 /* Horologe */ = {
 			isa = PBXGroup;
 			children = (
-				5B69112E13A70B6400C913B7 /* Supporting Files */,
+				5B69115213A70D7000C913B7 /* Resources */,
+				5B69115613A70D7100C913B7 /* Source */,
 			);
 			path = Horologe;
-			sourceTree = "<group>";
-		};
-		5B69112E13A70B6400C913B7 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				5B69112F13A70B6400C913B7 /* Horologe-Info.plist */,
-				5B69113013A70B6400C913B7 /* InfoPlist.strings */,
-				5B69113313A70B6400C913B7 /* Horologe-Prefix.pch */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		5B69114013A70B6400C913B7 /* HorologeTests */ = {
@@ -142,6 +773,398 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		5B69115213A70D7000C913B7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5B6913C313A7154800C913B7 /* Time Zones */,
+				5B69115313A70D7000C913B7 /* InfoPlist.strings */,
+				5B69115513A70D7100C913B7 /* Horologe-Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		5B69115613A70D7100C913B7 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				5B69164813A7194600C913B7 /* Base */,
+				5B69166313A7194600C913B7 /* Chrono */,
+				5B6916A013A7194600C913B7 /* Convert */,
+				5B6916C713A7194600C913B7 /* Field */,
+				5B6916FA13A7194600C913B7 /* Format */,
+				5B69171713A7194600C913B7 /* HLChronology.h */,
+				5B69171813A7194600C913B7 /* HLChronology.m */,
+				5B69171913A7194600C913B7 /* HLDateMidnight.h */,
+				5B69171A13A7194600C913B7 /* HLDateMidnight.m */,
+				5B69171B13A7194600C913B7 /* HLDateTime.h */,
+				5B69171C13A7194600C913B7 /* HLDateTime.m */,
+				5B69171D13A7194600C913B7 /* HLDateTimeComparator.h */,
+				5B69171E13A7194600C913B7 /* HLDateTimeComparator.m */,
+				5B69171F13A7194600C913B7 /* HLDateTimeConstants.h */,
+				5B69172013A7194600C913B7 /* HLDateTimeConstants.m */,
+				5B69172113A7194600C913B7 /* HLDateTimeField.h */,
+				5B69172213A7194600C913B7 /* HLDateTimeField.m */,
+				5B69172313A7194600C913B7 /* HLDateTimeFieldType.h */,
+				5B69172413A7194600C913B7 /* HLDateTimeFieldType.m */,
+				5B69172513A7194600C913B7 /* HLDateTimeUtils.h */,
+				5B69172613A7194600C913B7 /* HLDateTimeUtils.m */,
+				5B69172713A7194600C913B7 /* HLDateTimeZone.h */,
+				5B69172813A7194700C913B7 /* HLDateTimeZone.m */,
+				5B69172913A7194700C913B7 /* HLDays.h */,
+				5B69172A13A7194700C913B7 /* HLDays.m */,
+				5B69172B13A7194700C913B7 /* HLDuration.h */,
+				5B69172C13A7194700C913B7 /* HLDuration.m */,
+				5B69172D13A7194700C913B7 /* HLDurationField.h */,
+				5B69172E13A7194700C913B7 /* HLDurationField.m */,
+				5B69172F13A7194700C913B7 /* HLDurationFieldType.h */,
+				5B69173013A7194700C913B7 /* HLDurationFieldType.m */,
+				5B69173113A7194700C913B7 /* HLHours.h */,
+				5B69173213A7194700C913B7 /* HLHours.m */,
+				5B69173313A7194700C913B7 /* HLIllegalFieldValueException.h */,
+				5B69173413A7194700C913B7 /* HLIllegalFieldValueException.m */,
+				5B69173513A7194700C913B7 /* HLInstant.h */,
+				5B69173613A7194700C913B7 /* HLInstant.m */,
+				5B69173713A7194700C913B7 /* HLInterval.h */,
+				5B69173813A7194700C913B7 /* HLInterval.m */,
+				5B69173913A7194700C913B7 /* HLJodaTimePermission.h */,
+				5B69173A13A7194700C913B7 /* HLJodaTimePermission.m */,
+				5B69173B13A7194700C913B7 /* HLLocalDate.h */,
+				5B69173C13A7194700C913B7 /* HLLocalDate.m */,
+				5B69173D13A7194700C913B7 /* HLLocalDateTime.h */,
+				5B69173E13A7194700C913B7 /* HLLocalDateTime.m */,
+				5B69173F13A7194700C913B7 /* HLLocalTime.h */,
+				5B69174013A7194700C913B7 /* HLLocalTime.m */,
+				5B69174113A7194700C913B7 /* HLMinutes.h */,
+				5B69174213A7194700C913B7 /* HLMinutes.m */,
+				5B69174313A7194700C913B7 /* HLMonths.h */,
+				5B69174413A7194700C913B7 /* HLMonths.m */,
+				5B69174513A7194700C913B7 /* HLMutableDateTime.h */,
+				5B69174613A7194700C913B7 /* HLMutableDateTime.m */,
+				5B69174713A7194700C913B7 /* HLMutableInterval.h */,
+				5B69174813A7194700C913B7 /* HLMutableInterval.m */,
+				5B69174913A7194700C913B7 /* HLMutablePeriod.h */,
+				5B69174A13A7194700C913B7 /* HLMutablePeriod.m */,
+				5B69174B13A7194700C913B7 /* HLPartial.h */,
+				5B69174C13A7194700C913B7 /* HLPartial.m */,
+				5B69174D13A7194700C913B7 /* HLPeriod.h */,
+				5B69174E13A7194700C913B7 /* HLPeriod.m */,
+				5B69174F13A7194700C913B7 /* HLPeriodType.h */,
+				5B69175013A7194700C913B7 /* HLPeriodType.m */,
+				5B69175113A7194700C913B7 /* HLReadableDateTime.h */,
+				5B69175213A7194700C913B7 /* HLReadableDateTime.m */,
+				5B69175313A7194700C913B7 /* HLReadableDuration.h */,
+				5B69175413A7194700C913B7 /* HLReadableDuration.m */,
+				5B69175513A7194700C913B7 /* HLReadableInstant.h */,
+				5B69175613A7194700C913B7 /* HLReadableInstant.m */,
+				5B69175713A7194700C913B7 /* HLReadableInterval.h */,
+				5B69175813A7194700C913B7 /* HLReadableInterval.m */,
+				5B69175913A7194700C913B7 /* HLReadablePartial.h */,
+				5B69175A13A7194700C913B7 /* HLReadablePartial.m */,
+				5B69175B13A7194700C913B7 /* HLReadablePeriod.h */,
+				5B69175C13A7194700C913B7 /* HLReadablePeriod.m */,
+				5B69175D13A7194700C913B7 /* HLReadWritableDateTime.h */,
+				5B69175E13A7194700C913B7 /* HLReadWritableDateTime.m */,
+				5B69175F13A7194700C913B7 /* HLReadWritableInstant.h */,
+				5B69176013A7194700C913B7 /* HLReadWritableInstant.m */,
+				5B69176113A7194700C913B7 /* HLReadWritableInterval.h */,
+				5B69176213A7194700C913B7 /* HLReadWritableInterval.m */,
+				5B69176313A7194700C913B7 /* HLReadWritablePeriod.h */,
+				5B69176413A7194700C913B7 /* HLReadWritablePeriod.m */,
+				5B69176513A7194700C913B7 /* HLrename.h */,
+				5B69176613A7194700C913B7 /* HLSeconds.h */,
+				5B69176713A7194700C913B7 /* HLSeconds.m */,
+				5B69176813A7194900C913B7 /* HLTimeOfDay.h */,
+				5B69176913A7194900C913B7 /* HLTimeOfDay.m */,
+				5B69176A13A7194900C913B7 /* HLWeeks.h */,
+				5B69176B13A7194900C913B7 /* HLWeeks.m */,
+				5B69176C13A7194900C913B7 /* HLYearMonthDay.h */,
+				5B69176D13A7194900C913B7 /* HLYearMonthDay.m */,
+				5B69176E13A7194900C913B7 /* HLYears.h */,
+				5B69176F13A7194900C913B7 /* HLYears.m */,
+				5B69177013A7194900C913B7 /* TimeZone */,
+				5B6914C313A7157E00C913B7 /* Horologe-Prefix.pch */,
+				5B69164613A715B600C913B7 /* Horologe.h */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		5B6913C313A7154800C913B7 /* Time Zones */ = {
+			isa = PBXGroup;
+			children = (
+				5B6913C413A7156200C913B7 /* africa */,
+				5B6913C513A7156200C913B7 /* antarctica */,
+				5B6913C613A7156200C913B7 /* asia */,
+				5B6913C713A7156200C913B7 /* australasia */,
+				5B6913C813A7156200C913B7 /* backward */,
+				5B6913C913A7156200C913B7 /* etcetera */,
+				5B6913CA13A7156200C913B7 /* europe */,
+				5B6913CB13A7156200C913B7 /* northamerica */,
+				5B6913CC13A7156200C913B7 /* pacificnew */,
+				5B6913CD13A7156200C913B7 /* southamerica */,
+				5B6913CE13A7156200C913B7 /* systemv */,
+			);
+			name = "Time Zones";
+			sourceTree = "<group>";
+		};
+		5B69164813A7194600C913B7 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				5B69164913A7194600C913B7 /* HLAbstractDateTime.h */,
+				5B69164A13A7194600C913B7 /* HLAbstractDateTime.m */,
+				5B69164B13A7194600C913B7 /* HLAbstractDuration.h */,
+				5B69164C13A7194600C913B7 /* HLAbstractDuration.m */,
+				5B69164D13A7194600C913B7 /* HLAbstractInstant.h */,
+				5B69164E13A7194600C913B7 /* HLAbstractInstant.m */,
+				5B69164F13A7194600C913B7 /* HLAbstractInterval.h */,
+				5B69165013A7194600C913B7 /* HLAbstractInterval.m */,
+				5B69165113A7194600C913B7 /* HLAbstractPartial.h */,
+				5B69165213A7194600C913B7 /* HLAbstractPartial.m */,
+				5B69165313A7194600C913B7 /* HLAbstractPeriod.h */,
+				5B69165413A7194600C913B7 /* HLAbstractPeriod.m */,
+				5B69165513A7194600C913B7 /* HLBaseDateTime.h */,
+				5B69165613A7194600C913B7 /* HLBaseDateTime.m */,
+				5B69165713A7194600C913B7 /* HLBaseDuration.h */,
+				5B69165813A7194600C913B7 /* HLBaseDuration.m */,
+				5B69165913A7194600C913B7 /* HLBaseInterval.h */,
+				5B69165A13A7194600C913B7 /* HLBaseInterval.m */,
+				5B69165B13A7194600C913B7 /* HLBaseLocal.h */,
+				5B69165C13A7194600C913B7 /* HLBaseLocal.m */,
+				5B69165D13A7194600C913B7 /* HLBasePartial.h */,
+				5B69165E13A7194600C913B7 /* HLBasePartial.m */,
+				5B69165F13A7194600C913B7 /* HLBasePeriod.h */,
+				5B69166013A7194600C913B7 /* HLBasePeriod.m */,
+				5B69166113A7194600C913B7 /* HLBaseSingleFieldPeriod.h */,
+				5B69166213A7194600C913B7 /* HLBaseSingleFieldPeriod.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		5B69166313A7194600C913B7 /* Chrono */ = {
+			isa = PBXGroup;
+			children = (
+				5B69166413A7194600C913B7 /* HLAssembledChronology.h */,
+				5B69166513A7194600C913B7 /* HLAssembledChronology.m */,
+				5B69166613A7194600C913B7 /* HLBaseChronology.h */,
+				5B69166713A7194600C913B7 /* HLBaseChronology.m */,
+				5B69166813A7194600C913B7 /* HLBasicChronology.h */,
+				5B69166913A7194600C913B7 /* HLBasicChronology.m */,
+				5B69166A13A7194600C913B7 /* HLBasicDayOfMonthDateTimeField.h */,
+				5B69166B13A7194600C913B7 /* HLBasicDayOfMonthDateTimeField.m */,
+				5B69166C13A7194600C913B7 /* HLBasicDayOfYearDateTimeField.h */,
+				5B69166D13A7194600C913B7 /* HLBasicDayOfYearDateTimeField.m */,
+				5B69166E13A7194600C913B7 /* HLBasicFixedMonthChronology.h */,
+				5B69166F13A7194600C913B7 /* HLBasicFixedMonthChronology.m */,
+				5B69167013A7194600C913B7 /* HLBasicGJChronology.h */,
+				5B69167113A7194600C913B7 /* HLBasicGJChronology.m */,
+				5B69167213A7194600C913B7 /* HLBasicMonthOfYearDateTimeField.h */,
+				5B69167313A7194600C913B7 /* HLBasicMonthOfYearDateTimeField.m */,
+				5B69167413A7194600C913B7 /* HLBasicSingleEraDateTimeField.h */,
+				5B69167513A7194600C913B7 /* HLBasicSingleEraDateTimeField.m */,
+				5B69167613A7194600C913B7 /* HLBasicWeekOfWeekyearDateTimeField.h */,
+				5B69167713A7194600C913B7 /* HLBasicWeekOfWeekyearDateTimeField.m */,
+				5B69167813A7194600C913B7 /* HLBasicWeekyearDateTimeField.h */,
+				5B69167913A7194600C913B7 /* HLBasicWeekyearDateTimeField.m */,
+				5B69167A13A7194600C913B7 /* HLBasicYearDateTimeField.h */,
+				5B69167B13A7194600C913B7 /* HLBasicYearDateTimeField.m */,
+				5B69167C13A7194600C913B7 /* HLBuddhistChronology.h */,
+				5B69167D13A7194600C913B7 /* HLBuddhistChronology.m */,
+				5B69167E13A7194600C913B7 /* HLCopticChronology.h */,
+				5B69167F13A7194600C913B7 /* HLCopticChronology.m */,
+				5B69168013A7194600C913B7 /* HLEthiopicChronology.h */,
+				5B69168113A7194600C913B7 /* HLEthiopicChronology.m */,
+				5B69168213A7194600C913B7 /* HLGJChronology.h */,
+				5B69168313A7194600C913B7 /* HLGJChronology.m */,
+				5B69168413A7194600C913B7 /* HLGJDayOfWeekDateTimeField.h */,
+				5B69168513A7194600C913B7 /* HLGJDayOfWeekDateTimeField.m */,
+				5B69168613A7194600C913B7 /* HLGJEraDateTimeField.h */,
+				5B69168713A7194600C913B7 /* HLGJEraDateTimeField.m */,
+				5B69168813A7194600C913B7 /* HLGJLocaleSymbols.h */,
+				5B69168913A7194600C913B7 /* HLGJLocaleSymbols.m */,
+				5B69168A13A7194600C913B7 /* HLGJMonthOfYearDateTimeField.h */,
+				5B69168B13A7194600C913B7 /* HLGJMonthOfYearDateTimeField.m */,
+				5B69168C13A7194600C913B7 /* HLGJYearOfEraDateTimeField.h */,
+				5B69168D13A7194600C913B7 /* HLGJYearOfEraDateTimeField.m */,
+				5B69168E13A7194600C913B7 /* HLGregorianChronology.h */,
+				5B69168F13A7194600C913B7 /* HLGregorianChronology.m */,
+				5B69169013A7194600C913B7 /* HLIslamicChronology.h */,
+				5B69169113A7194600C913B7 /* HLIslamicChronology.m */,
+				5B69169213A7194600C913B7 /* HLISOChronology.h */,
+				5B69169313A7194600C913B7 /* HLISOChronology.m */,
+				5B69169413A7194600C913B7 /* HLISOYearOfEraDateTimeField.h */,
+				5B69169513A7194600C913B7 /* HLISOYearOfEraDateTimeField.m */,
+				5B69169613A7194600C913B7 /* HLJulianChronology.h */,
+				5B69169713A7194600C913B7 /* HLJulianChronology.m */,
+				5B69169813A7194600C913B7 /* HLLenientChronology.h */,
+				5B69169913A7194600C913B7 /* HLLenientChronology.m */,
+				5B69169A13A7194600C913B7 /* HLLimitChronology.h */,
+				5B69169B13A7194600C913B7 /* HLLimitChronology.m */,
+				5B69169C13A7194600C913B7 /* HLStrictChronology.h */,
+				5B69169D13A7194600C913B7 /* HLStrictChronology.m */,
+				5B69169E13A7194600C913B7 /* HLZonedChronology.h */,
+				5B69169F13A7194600C913B7 /* HLZonedChronology.m */,
+			);
+			path = Chrono;
+			sourceTree = "<group>";
+		};
+		5B6916A013A7194600C913B7 /* Convert */ = {
+			isa = PBXGroup;
+			children = (
+				5B6916A113A7194600C913B7 /* HLAbstractConverter.h */,
+				5B6916A213A7194600C913B7 /* HLAbstractConverter.m */,
+				5B6916A313A7194600C913B7 /* HLCalendarConverter.h */,
+				5B6916A413A7194600C913B7 /* HLCalendarConverter.m */,
+				5B6916A513A7194600C913B7 /* HLConverter.h */,
+				5B6916A613A7194600C913B7 /* HLConverter.m */,
+				5B6916A713A7194600C913B7 /* HLConverterManager.h */,
+				5B6916A813A7194600C913B7 /* HLConverterManager.m */,
+				5B6916A913A7194600C913B7 /* HLConverterSet.h */,
+				5B6916AA13A7194600C913B7 /* HLConverterSet.m */,
+				5B6916AB13A7194600C913B7 /* HLDateConverter.h */,
+				5B6916AC13A7194600C913B7 /* HLDateConverter.m */,
+				5B6916AD13A7194600C913B7 /* HLDurationConverter.h */,
+				5B6916AE13A7194600C913B7 /* HLDurationConverter.m */,
+				5B6916AF13A7194600C913B7 /* HLInstantConverter.h */,
+				5B6916B013A7194600C913B7 /* HLInstantConverter.m */,
+				5B6916B113A7194600C913B7 /* HLIntervalConverter.h */,
+				5B6916B213A7194600C913B7 /* HLIntervalConverter.m */,
+				5B6916B313A7194600C913B7 /* HLLongConverter.h */,
+				5B6916B413A7194600C913B7 /* HLLongConverter.m */,
+				5B6916B513A7194600C913B7 /* HLNullConverter.h */,
+				5B6916B613A7194600C913B7 /* HLNullConverter.m */,
+				5B6916B713A7194600C913B7 /* HLPartialConverter.h */,
+				5B6916B813A7194600C913B7 /* HLPartialConverter.m */,
+				5B6916B913A7194600C913B7 /* HLPeriodConverter.h */,
+				5B6916BA13A7194600C913B7 /* HLPeriodConverter.m */,
+				5B6916BB13A7194600C913B7 /* HLReadableDurationConverter.h */,
+				5B6916BC13A7194600C913B7 /* HLReadableDurationConverter.m */,
+				5B6916BD13A7194600C913B7 /* HLReadableInstantConverter.h */,
+				5B6916BE13A7194600C913B7 /* HLReadableInstantConverter.m */,
+				5B6916BF13A7194600C913B7 /* HLReadableIntervalConverter.h */,
+				5B6916C013A7194600C913B7 /* HLReadableIntervalConverter.m */,
+				5B6916C113A7194600C913B7 /* HLReadablePartialConverter.h */,
+				5B6916C213A7194600C913B7 /* HLReadablePartialConverter.m */,
+				5B6916C313A7194600C913B7 /* HLReadablePeriodConverter.h */,
+				5B6916C413A7194600C913B7 /* HLReadablePeriodConverter.m */,
+				5B6916C513A7194600C913B7 /* HLStringConverter.h */,
+				5B6916C613A7194600C913B7 /* HLStringConverter.m */,
+			);
+			path = Convert;
+			sourceTree = "<group>";
+		};
+		5B6916C713A7194600C913B7 /* Field */ = {
+			isa = PBXGroup;
+			children = (
+				5B6916C813A7194600C913B7 /* HLAbstractPartialFieldProperty.h */,
+				5B6916C913A7194600C913B7 /* HLAbstractPartialFieldProperty.m */,
+				5B6916CA13A7194600C913B7 /* HLAbstractReadableInstantFieldProperty.h */,
+				5B6916CB13A7194600C913B7 /* HLAbstractReadableInstantFieldProperty.m */,
+				5B6916CC13A7194600C913B7 /* HLBaseDateTimeField.h */,
+				5B6916CD13A7194600C913B7 /* HLBaseDateTimeField.m */,
+				5B6916CE13A7194600C913B7 /* HLBaseDurationField.h */,
+				5B6916CF13A7194600C913B7 /* HLBaseDurationField.m */,
+				5B6916D013A7194600C913B7 /* HLDecoratedDateTimeField.h */,
+				5B6916D113A7194600C913B7 /* HLDecoratedDateTimeField.m */,
+				5B6916D213A7194600C913B7 /* HLDecoratedDurationField.h */,
+				5B6916D313A7194600C913B7 /* HLDecoratedDurationField.m */,
+				5B6916D413A7194600C913B7 /* HLDelegatedDateTimeField.h */,
+				5B6916D513A7194600C913B7 /* HLDelegatedDateTimeField.m */,
+				5B6916D613A7194600C913B7 /* HLDelegatedDurationField.h */,
+				5B6916D713A7194600C913B7 /* HLDelegatedDurationField.m */,
+				5B6916D813A7194600C913B7 /* HLDividedDateTimeField.h */,
+				5B6916D913A7194600C913B7 /* HLDividedDateTimeField.m */,
+				5B6916DA13A7194600C913B7 /* HLFieldUtils.h */,
+				5B6916DB13A7194600C913B7 /* HLFieldUtils.m */,
+				5B6916DC13A7194600C913B7 /* HLImpreciseDateTimeField.h */,
+				5B6916DD13A7194600C913B7 /* HLImpreciseDateTimeField.m */,
+				5B6916DE13A7194600C913B7 /* HLLenientDateTimeField.h */,
+				5B6916DF13A7194600C913B7 /* HLLenientDateTimeField.m */,
+				5B6916E013A7194600C913B7 /* HLMillisDurationField.h */,
+				5B6916E113A7194600C913B7 /* HLMillisDurationField.m */,
+				5B6916E213A7194600C913B7 /* HLOffsetDateTimeField.h */,
+				5B6916E313A7194600C913B7 /* HLOffsetDateTimeField.m */,
+				5B6916E413A7194600C913B7 /* HLPreciseDateTimeField.h */,
+				5B6916E513A7194600C913B7 /* HLPreciseDateTimeField.m */,
+				5B6916E613A7194600C913B7 /* HLPreciseDurationDateTimeField.h */,
+				5B6916E713A7194600C913B7 /* HLPreciseDurationDateTimeField.m */,
+				5B6916E813A7194600C913B7 /* HLPreciseDurationField.h */,
+				5B6916E913A7194600C913B7 /* HLPreciseDurationField.m */,
+				5B6916EA13A7194600C913B7 /* HLRemainderDateTimeField.h */,
+				5B6916EB13A7194600C913B7 /* HLRemainderDateTimeField.m */,
+				5B6916EC13A7194600C913B7 /* HLScaledDurationField.h */,
+				5B6916ED13A7194600C913B7 /* HLScaledDurationField.m */,
+				5B6916EE13A7194600C913B7 /* HLSkipDateTimeField.h */,
+				5B6916EF13A7194600C913B7 /* HLSkipDateTimeField.m */,
+				5B6916F013A7194600C913B7 /* HLSkipUndoDateTimeField.h */,
+				5B6916F113A7194600C913B7 /* HLSkipUndoDateTimeField.m */,
+				5B6916F213A7194600C913B7 /* HLStrictDateTimeField.h */,
+				5B6916F313A7194600C913B7 /* HLStrictDateTimeField.m */,
+				5B6916F413A7194600C913B7 /* HLUnsupportedDateTimeField.h */,
+				5B6916F513A7194600C913B7 /* HLUnsupportedDateTimeField.m */,
+				5B6916F613A7194600C913B7 /* HLUnsupportedDurationField.h */,
+				5B6916F713A7194600C913B7 /* HLUnsupportedDurationField.m */,
+				5B6916F813A7194600C913B7 /* HLZeroIsMaxDateTimeField.h */,
+				5B6916F913A7194600C913B7 /* HLZeroIsMaxDateTimeField.m */,
+			);
+			path = Field;
+			sourceTree = "<group>";
+		};
+		5B6916FA13A7194600C913B7 /* Format */ = {
+			isa = PBXGroup;
+			children = (
+				5B6916FB13A7194600C913B7 /* HLDateTimeFormat.h */,
+				5B6916FC13A7194600C913B7 /* HLDateTimeFormat.m */,
+				5B6916FD13A7194600C913B7 /* HLDateTimeFormatter.h */,
+				5B6916FE13A7194600C913B7 /* HLDateTimeFormatter.m */,
+				5B6916FF13A7194600C913B7 /* HLDateTimeFormatterBuilder.h */,
+				5B69170013A7194600C913B7 /* HLDateTimeFormatterBuilder.m */,
+				5B69170113A7194600C913B7 /* HLDateTimeParser.h */,
+				5B69170213A7194600C913B7 /* HLDateTimeParser.m */,
+				5B69170313A7194600C913B7 /* HLDateTimeParserBucket.h */,
+				5B69170413A7194600C913B7 /* HLDateTimeParserBucket.m */,
+				5B69170513A7194600C913B7 /* HLDateTimePrinter.h */,
+				5B69170613A7194600C913B7 /* HLDateTimePrinter.m */,
+				5B69170713A7194600C913B7 /* HLFormatUtils.h */,
+				5B69170813A7194600C913B7 /* HLFormatUtils.m */,
+				5B69170913A7194600C913B7 /* HLISODateTimeFormat.h */,
+				5B69170A13A7194600C913B7 /* HLISODateTimeFormat.m */,
+				5B69170B13A7194600C913B7 /* HLISOPeriodFormat.h */,
+				5B69170C13A7194600C913B7 /* HLISOPeriodFormat.m */,
+				5B69170D13A7194600C913B7 /* HLPeriodFormat.h */,
+				5B69170E13A7194600C913B7 /* HLPeriodFormat.m */,
+				5B69170F13A7194600C913B7 /* HLPeriodFormatter.h */,
+				5B69171013A7194600C913B7 /* HLPeriodFormatter.m */,
+				5B69171113A7194600C913B7 /* HLPeriodFormatterBuilder.h */,
+				5B69171213A7194600C913B7 /* HLPeriodFormatterBuilder.m */,
+				5B69171313A7194600C913B7 /* HLPeriodParser.h */,
+				5B69171413A7194600C913B7 /* HLPeriodParser.m */,
+				5B69171513A7194600C913B7 /* HLPeriodPrinter.h */,
+				5B69171613A7194600C913B7 /* HLPeriodPrinter.m */,
+			);
+			path = Format;
+			sourceTree = "<group>";
+		};
+		5B69177013A7194900C913B7 /* TimeZone */ = {
+			isa = PBXGroup;
+			children = (
+				5B69177113A7194900C913B7 /* HLCachedDateTimeZone.h */,
+				5B69177213A7194900C913B7 /* HLCachedDateTimeZone.m */,
+				5B69177313A7194900C913B7 /* HLDateTimeZoneBuilder.h */,
+				5B69177413A7194900C913B7 /* HLDateTimeZoneBuilder.m */,
+				5B69177513A7194900C913B7 /* HLDefaultNameProvider.h */,
+				5B69177613A7194900C913B7 /* HLDefaultNameProvider.m */,
+				5B69177713A7194900C913B7 /* HLFixedDateTimeZone.h */,
+				5B69177813A7194900C913B7 /* HLFixedDateTimeZone.m */,
+				5B69177913A7194900C913B7 /* HLNameProvider.h */,
+				5B69177A13A7194900C913B7 /* HLNameProvider.m */,
+				5B69177B13A7194900C913B7 /* HLProvider.h */,
+				5B69177C13A7194900C913B7 /* HLProvider.m */,
+				5B69177D13A7194900C913B7 /* HLUTCProvider.h */,
+				5B69177E13A7194900C913B7 /* HLUTCProvider.m */,
+				5B69177F13A7194900C913B7 /* HLZoneInfoProvider.h */,
+				5B69178013A7194900C913B7 /* HLZoneInfoProvider.m */,
+			);
+			path = TimeZone;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -149,6 +1172,162 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B6915F713A7158000C913B7 /* Horologe-Prefix.pch in Headers */,
+				5B69164713A715B600C913B7 /* Horologe.h in Headers */,
+				5B69178113A7194900C913B7 /* HLAbstractDateTime.h in Headers */,
+				5B69178313A7194900C913B7 /* HLAbstractDuration.h in Headers */,
+				5B69178513A7194900C913B7 /* HLAbstractInstant.h in Headers */,
+				5B69178713A7194900C913B7 /* HLAbstractInterval.h in Headers */,
+				5B69178913A7194900C913B7 /* HLAbstractPartial.h in Headers */,
+				5B69178B13A7194900C913B7 /* HLAbstractPeriod.h in Headers */,
+				5B69178D13A7194900C913B7 /* HLBaseDateTime.h in Headers */,
+				5B69178F13A7194900C913B7 /* HLBaseDuration.h in Headers */,
+				5B69179113A7194900C913B7 /* HLBaseInterval.h in Headers */,
+				5B69179313A7194900C913B7 /* HLBaseLocal.h in Headers */,
+				5B69179513A7194900C913B7 /* HLBasePartial.h in Headers */,
+				5B69179713A7194900C913B7 /* HLBasePeriod.h in Headers */,
+				5B69179913A7194900C913B7 /* HLBaseSingleFieldPeriod.h in Headers */,
+				5B69179B13A7194900C913B7 /* HLAssembledChronology.h in Headers */,
+				5B69179D13A7194900C913B7 /* HLBaseChronology.h in Headers */,
+				5B69179F13A7194900C913B7 /* HLBasicChronology.h in Headers */,
+				5B6917A113A7194900C913B7 /* HLBasicDayOfMonthDateTimeField.h in Headers */,
+				5B6917A313A7194900C913B7 /* HLBasicDayOfYearDateTimeField.h in Headers */,
+				5B6917A513A7194900C913B7 /* HLBasicFixedMonthChronology.h in Headers */,
+				5B6917A713A7194900C913B7 /* HLBasicGJChronology.h in Headers */,
+				5B6917A913A7194900C913B7 /* HLBasicMonthOfYearDateTimeField.h in Headers */,
+				5B6917AB13A7194900C913B7 /* HLBasicSingleEraDateTimeField.h in Headers */,
+				5B6917AD13A7194900C913B7 /* HLBasicWeekOfWeekyearDateTimeField.h in Headers */,
+				5B6917AF13A7194900C913B7 /* HLBasicWeekyearDateTimeField.h in Headers */,
+				5B6917B113A7194900C913B7 /* HLBasicYearDateTimeField.h in Headers */,
+				5B6917B313A7194900C913B7 /* HLBuddhistChronology.h in Headers */,
+				5B6917B513A7194900C913B7 /* HLCopticChronology.h in Headers */,
+				5B6917B713A7194900C913B7 /* HLEthiopicChronology.h in Headers */,
+				5B6917B913A7194900C913B7 /* HLGJChronology.h in Headers */,
+				5B6917BB13A7194900C913B7 /* HLGJDayOfWeekDateTimeField.h in Headers */,
+				5B6917BD13A7194900C913B7 /* HLGJEraDateTimeField.h in Headers */,
+				5B6917BF13A7194900C913B7 /* HLGJLocaleSymbols.h in Headers */,
+				5B6917C113A7194900C913B7 /* HLGJMonthOfYearDateTimeField.h in Headers */,
+				5B6917C313A7194900C913B7 /* HLGJYearOfEraDateTimeField.h in Headers */,
+				5B6917C513A7194900C913B7 /* HLGregorianChronology.h in Headers */,
+				5B6917C713A7194900C913B7 /* HLIslamicChronology.h in Headers */,
+				5B6917C913A7194900C913B7 /* HLISOChronology.h in Headers */,
+				5B6917CB13A7194900C913B7 /* HLISOYearOfEraDateTimeField.h in Headers */,
+				5B6917CD13A7194900C913B7 /* HLJulianChronology.h in Headers */,
+				5B6917CF13A7194900C913B7 /* HLLenientChronology.h in Headers */,
+				5B6917D113A7194900C913B7 /* HLLimitChronology.h in Headers */,
+				5B6917D313A7194900C913B7 /* HLStrictChronology.h in Headers */,
+				5B6917D513A7194900C913B7 /* HLZonedChronology.h in Headers */,
+				5B6917D713A7194900C913B7 /* HLAbstractConverter.h in Headers */,
+				5B6917D913A7194900C913B7 /* HLCalendarConverter.h in Headers */,
+				5B6917DB13A7194900C913B7 /* HLConverter.h in Headers */,
+				5B6917DD13A7194900C913B7 /* HLConverterManager.h in Headers */,
+				5B6917DF13A7194900C913B7 /* HLConverterSet.h in Headers */,
+				5B6917E113A7194900C913B7 /* HLDateConverter.h in Headers */,
+				5B6917E313A7194900C913B7 /* HLDurationConverter.h in Headers */,
+				5B6917E513A7194900C913B7 /* HLInstantConverter.h in Headers */,
+				5B6917E713A7194900C913B7 /* HLIntervalConverter.h in Headers */,
+				5B6917E913A7194900C913B7 /* HLLongConverter.h in Headers */,
+				5B6917EB13A7194A00C913B7 /* HLNullConverter.h in Headers */,
+				5B6917ED13A7194A00C913B7 /* HLPartialConverter.h in Headers */,
+				5B6917EF13A7194A00C913B7 /* HLPeriodConverter.h in Headers */,
+				5B6917F113A7194A00C913B7 /* HLReadableDurationConverter.h in Headers */,
+				5B6917F313A7194A00C913B7 /* HLReadableInstantConverter.h in Headers */,
+				5B6917F513A7194A00C913B7 /* HLReadableIntervalConverter.h in Headers */,
+				5B6917F713A7194A00C913B7 /* HLReadablePartialConverter.h in Headers */,
+				5B6917F913A7194A00C913B7 /* HLReadablePeriodConverter.h in Headers */,
+				5B6917FB13A7194A00C913B7 /* HLStringConverter.h in Headers */,
+				5B6917FD13A7194A00C913B7 /* HLAbstractPartialFieldProperty.h in Headers */,
+				5B6917FF13A7194A00C913B7 /* HLAbstractReadableInstantFieldProperty.h in Headers */,
+				5B69180113A7194A00C913B7 /* HLBaseDateTimeField.h in Headers */,
+				5B69180313A7194A00C913B7 /* HLBaseDurationField.h in Headers */,
+				5B69180513A7194A00C913B7 /* HLDecoratedDateTimeField.h in Headers */,
+				5B69180713A7194A00C913B7 /* HLDecoratedDurationField.h in Headers */,
+				5B69180913A7194A00C913B7 /* HLDelegatedDateTimeField.h in Headers */,
+				5B69180B13A7194A00C913B7 /* HLDelegatedDurationField.h in Headers */,
+				5B69180D13A7194A00C913B7 /* HLDividedDateTimeField.h in Headers */,
+				5B69180F13A7194A00C913B7 /* HLFieldUtils.h in Headers */,
+				5B69181113A7194A00C913B7 /* HLImpreciseDateTimeField.h in Headers */,
+				5B69181313A7194A00C913B7 /* HLLenientDateTimeField.h in Headers */,
+				5B69181513A7194A00C913B7 /* HLMillisDurationField.h in Headers */,
+				5B69181713A7194A00C913B7 /* HLOffsetDateTimeField.h in Headers */,
+				5B69181913A7194A00C913B7 /* HLPreciseDateTimeField.h in Headers */,
+				5B69181B13A7194A00C913B7 /* HLPreciseDurationDateTimeField.h in Headers */,
+				5B69181D13A7194A00C913B7 /* HLPreciseDurationField.h in Headers */,
+				5B69181F13A7194A00C913B7 /* HLRemainderDateTimeField.h in Headers */,
+				5B69182113A7194A00C913B7 /* HLScaledDurationField.h in Headers */,
+				5B69182313A7194A00C913B7 /* HLSkipDateTimeField.h in Headers */,
+				5B69182513A7194A00C913B7 /* HLSkipUndoDateTimeField.h in Headers */,
+				5B69182713A7194A00C913B7 /* HLStrictDateTimeField.h in Headers */,
+				5B69182913A7194A00C913B7 /* HLUnsupportedDateTimeField.h in Headers */,
+				5B69182B13A7194A00C913B7 /* HLUnsupportedDurationField.h in Headers */,
+				5B69182D13A7194A00C913B7 /* HLZeroIsMaxDateTimeField.h in Headers */,
+				5B69182F13A7194A00C913B7 /* HLDateTimeFormat.h in Headers */,
+				5B69183113A7194A00C913B7 /* HLDateTimeFormatter.h in Headers */,
+				5B69183313A7194A00C913B7 /* HLDateTimeFormatterBuilder.h in Headers */,
+				5B69183513A7194A00C913B7 /* HLDateTimeParser.h in Headers */,
+				5B69183713A7194A00C913B7 /* HLDateTimeParserBucket.h in Headers */,
+				5B69183913A7194A00C913B7 /* HLDateTimePrinter.h in Headers */,
+				5B69183B13A7194A00C913B7 /* HLFormatUtils.h in Headers */,
+				5B69183D13A7194A00C913B7 /* HLISODateTimeFormat.h in Headers */,
+				5B69183F13A7194A00C913B7 /* HLISOPeriodFormat.h in Headers */,
+				5B69184113A7194A00C913B7 /* HLPeriodFormat.h in Headers */,
+				5B69184313A7194A00C913B7 /* HLPeriodFormatter.h in Headers */,
+				5B69184513A7194A00C913B7 /* HLPeriodFormatterBuilder.h in Headers */,
+				5B69184713A7194A00C913B7 /* HLPeriodParser.h in Headers */,
+				5B69184913A7194A00C913B7 /* HLPeriodPrinter.h in Headers */,
+				5B69184B13A7194A00C913B7 /* HLChronology.h in Headers */,
+				5B69184D13A7194A00C913B7 /* HLDateMidnight.h in Headers */,
+				5B69184F13A7194A00C913B7 /* HLDateTime.h in Headers */,
+				5B69185113A7194A00C913B7 /* HLDateTimeComparator.h in Headers */,
+				5B69185313A7194A00C913B7 /* HLDateTimeConstants.h in Headers */,
+				5B69185513A7194A00C913B7 /* HLDateTimeField.h in Headers */,
+				5B69185713A7194A00C913B7 /* HLDateTimeFieldType.h in Headers */,
+				5B69185913A7194A00C913B7 /* HLDateTimeUtils.h in Headers */,
+				5B69185B13A7194A00C913B7 /* HLDateTimeZone.h in Headers */,
+				5B69185D13A7194A00C913B7 /* HLDays.h in Headers */,
+				5B69185F13A7194A00C913B7 /* HLDuration.h in Headers */,
+				5B69186113A7194A00C913B7 /* HLDurationField.h in Headers */,
+				5B69186313A7194A00C913B7 /* HLDurationFieldType.h in Headers */,
+				5B69186513A7194A00C913B7 /* HLHours.h in Headers */,
+				5B69186713A7194A00C913B7 /* HLIllegalFieldValueException.h in Headers */,
+				5B69186913A7194A00C913B7 /* HLInstant.h in Headers */,
+				5B69186B13A7194A00C913B7 /* HLInterval.h in Headers */,
+				5B69186D13A7194A00C913B7 /* HLJodaTimePermission.h in Headers */,
+				5B69186F13A7194A00C913B7 /* HLLocalDate.h in Headers */,
+				5B69187113A7194A00C913B7 /* HLLocalDateTime.h in Headers */,
+				5B69187313A7194A00C913B7 /* HLLocalTime.h in Headers */,
+				5B69187513A7194A00C913B7 /* HLMinutes.h in Headers */,
+				5B69187713A7194A00C913B7 /* HLMonths.h in Headers */,
+				5B69187913A7194A00C913B7 /* HLMutableDateTime.h in Headers */,
+				5B69187B13A7194A00C913B7 /* HLMutableInterval.h in Headers */,
+				5B69187D13A7194A00C913B7 /* HLMutablePeriod.h in Headers */,
+				5B69187F13A7194A00C913B7 /* HLPartial.h in Headers */,
+				5B69188113A7194A00C913B7 /* HLPeriod.h in Headers */,
+				5B69188313A7194A00C913B7 /* HLPeriodType.h in Headers */,
+				5B69188513A7194A00C913B7 /* HLReadableDateTime.h in Headers */,
+				5B69188713A7194A00C913B7 /* HLReadableDuration.h in Headers */,
+				5B69188913A7194A00C913B7 /* HLReadableInstant.h in Headers */,
+				5B69188B13A7194A00C913B7 /* HLReadableInterval.h in Headers */,
+				5B69188D13A7194A00C913B7 /* HLReadablePartial.h in Headers */,
+				5B69188F13A7194A00C913B7 /* HLReadablePeriod.h in Headers */,
+				5B69189113A7194A00C913B7 /* HLReadWritableDateTime.h in Headers */,
+				5B69189313A7194A00C913B7 /* HLReadWritableInstant.h in Headers */,
+				5B69189513A7194A00C913B7 /* HLReadWritableInterval.h in Headers */,
+				5B69189713A7194A00C913B7 /* HLReadWritablePeriod.h in Headers */,
+				5B69189913A7194A00C913B7 /* HLrename.h in Headers */,
+				5B69189A13A7194A00C913B7 /* HLSeconds.h in Headers */,
+				5B69189C13A7194A00C913B7 /* HLTimeOfDay.h in Headers */,
+				5B69189E13A7194A00C913B7 /* HLWeeks.h in Headers */,
+				5B6918A013A7194A00C913B7 /* HLYearMonthDay.h in Headers */,
+				5B6918A213A7194A00C913B7 /* HLYears.h in Headers */,
+				5B6918A413A7194A00C913B7 /* HLCachedDateTimeZone.h in Headers */,
+				5B6918A613A7194A00C913B7 /* HLDateTimeZoneBuilder.h in Headers */,
+				5B6918A813A7194A00C913B7 /* HLDefaultNameProvider.h in Headers */,
+				5B6918AA13A7194A00C913B7 /* HLFixedDateTimeZone.h in Headers */,
+				5B6918AC13A7194A00C913B7 /* HLNameProvider.h in Headers */,
+				5B6918AE13A7194A00C913B7 /* HLProvider.h in Headers */,
+				5B6918B013A7194A00C913B7 /* HLUTCProvider.h in Headers */,
+				5B6918B213A7194A00C913B7 /* HLZoneInfoProvider.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,7 +1402,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B69113213A70B6400C913B7 /* InfoPlist.strings in Resources */,
+				5B69128C13A70D7100C913B7 /* InfoPlist.strings in Resources */,
+				5B69128D13A70D7100C913B7 /* Horologe-Info.plist in Resources */,
+				5B6913CF13A7156200C913B7 /* africa in Resources */,
+				5B6913D013A7156200C913B7 /* antarctica in Resources */,
+				5B6913D113A7156200C913B7 /* asia in Resources */,
+				5B6913D213A7156200C913B7 /* australasia in Resources */,
+				5B6913D313A7156200C913B7 /* backward in Resources */,
+				5B6913D413A7156200C913B7 /* etcetera in Resources */,
+				5B6913D513A7156200C913B7 /* europe in Resources */,
+				5B6913D613A7156200C913B7 /* northamerica in Resources */,
+				5B6913D713A7156200C913B7 /* pacificnew in Resources */,
+				5B6913D813A7156200C913B7 /* southamerica in Resources */,
+				5B6913D913A7156200C913B7 /* systemv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +1450,159 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B69178213A7194900C913B7 /* HLAbstractDateTime.m in Sources */,
+				5B69178413A7194900C913B7 /* HLAbstractDuration.m in Sources */,
+				5B69178613A7194900C913B7 /* HLAbstractInstant.m in Sources */,
+				5B69178813A7194900C913B7 /* HLAbstractInterval.m in Sources */,
+				5B69178A13A7194900C913B7 /* HLAbstractPartial.m in Sources */,
+				5B69178C13A7194900C913B7 /* HLAbstractPeriod.m in Sources */,
+				5B69178E13A7194900C913B7 /* HLBaseDateTime.m in Sources */,
+				5B69179013A7194900C913B7 /* HLBaseDuration.m in Sources */,
+				5B69179213A7194900C913B7 /* HLBaseInterval.m in Sources */,
+				5B69179413A7194900C913B7 /* HLBaseLocal.m in Sources */,
+				5B69179613A7194900C913B7 /* HLBasePartial.m in Sources */,
+				5B69179813A7194900C913B7 /* HLBasePeriod.m in Sources */,
+				5B69179A13A7194900C913B7 /* HLBaseSingleFieldPeriod.m in Sources */,
+				5B69179C13A7194900C913B7 /* HLAssembledChronology.m in Sources */,
+				5B69179E13A7194900C913B7 /* HLBaseChronology.m in Sources */,
+				5B6917A013A7194900C913B7 /* HLBasicChronology.m in Sources */,
+				5B6917A213A7194900C913B7 /* HLBasicDayOfMonthDateTimeField.m in Sources */,
+				5B6917A413A7194900C913B7 /* HLBasicDayOfYearDateTimeField.m in Sources */,
+				5B6917A613A7194900C913B7 /* HLBasicFixedMonthChronology.m in Sources */,
+				5B6917A813A7194900C913B7 /* HLBasicGJChronology.m in Sources */,
+				5B6917AA13A7194900C913B7 /* HLBasicMonthOfYearDateTimeField.m in Sources */,
+				5B6917AC13A7194900C913B7 /* HLBasicSingleEraDateTimeField.m in Sources */,
+				5B6917AE13A7194900C913B7 /* HLBasicWeekOfWeekyearDateTimeField.m in Sources */,
+				5B6917B013A7194900C913B7 /* HLBasicWeekyearDateTimeField.m in Sources */,
+				5B6917B213A7194900C913B7 /* HLBasicYearDateTimeField.m in Sources */,
+				5B6917B413A7194900C913B7 /* HLBuddhistChronology.m in Sources */,
+				5B6917B613A7194900C913B7 /* HLCopticChronology.m in Sources */,
+				5B6917B813A7194900C913B7 /* HLEthiopicChronology.m in Sources */,
+				5B6917BA13A7194900C913B7 /* HLGJChronology.m in Sources */,
+				5B6917BC13A7194900C913B7 /* HLGJDayOfWeekDateTimeField.m in Sources */,
+				5B6917BE13A7194900C913B7 /* HLGJEraDateTimeField.m in Sources */,
+				5B6917C013A7194900C913B7 /* HLGJLocaleSymbols.m in Sources */,
+				5B6917C213A7194900C913B7 /* HLGJMonthOfYearDateTimeField.m in Sources */,
+				5B6917C413A7194900C913B7 /* HLGJYearOfEraDateTimeField.m in Sources */,
+				5B6917C613A7194900C913B7 /* HLGregorianChronology.m in Sources */,
+				5B6917C813A7194900C913B7 /* HLIslamicChronology.m in Sources */,
+				5B6917CA13A7194900C913B7 /* HLISOChronology.m in Sources */,
+				5B6917CC13A7194900C913B7 /* HLISOYearOfEraDateTimeField.m in Sources */,
+				5B6917CE13A7194900C913B7 /* HLJulianChronology.m in Sources */,
+				5B6917D013A7194900C913B7 /* HLLenientChronology.m in Sources */,
+				5B6917D213A7194900C913B7 /* HLLimitChronology.m in Sources */,
+				5B6917D413A7194900C913B7 /* HLStrictChronology.m in Sources */,
+				5B6917D613A7194900C913B7 /* HLZonedChronology.m in Sources */,
+				5B6917D813A7194900C913B7 /* HLAbstractConverter.m in Sources */,
+				5B6917DA13A7194900C913B7 /* HLCalendarConverter.m in Sources */,
+				5B6917DC13A7194900C913B7 /* HLConverter.m in Sources */,
+				5B6917DE13A7194900C913B7 /* HLConverterManager.m in Sources */,
+				5B6917E013A7194900C913B7 /* HLConverterSet.m in Sources */,
+				5B6917E213A7194900C913B7 /* HLDateConverter.m in Sources */,
+				5B6917E413A7194900C913B7 /* HLDurationConverter.m in Sources */,
+				5B6917E613A7194900C913B7 /* HLInstantConverter.m in Sources */,
+				5B6917E813A7194900C913B7 /* HLIntervalConverter.m in Sources */,
+				5B6917EA13A7194900C913B7 /* HLLongConverter.m in Sources */,
+				5B6917EC13A7194A00C913B7 /* HLNullConverter.m in Sources */,
+				5B6917EE13A7194A00C913B7 /* HLPartialConverter.m in Sources */,
+				5B6917F013A7194A00C913B7 /* HLPeriodConverter.m in Sources */,
+				5B6917F213A7194A00C913B7 /* HLReadableDurationConverter.m in Sources */,
+				5B6917F413A7194A00C913B7 /* HLReadableInstantConverter.m in Sources */,
+				5B6917F613A7194A00C913B7 /* HLReadableIntervalConverter.m in Sources */,
+				5B6917F813A7194A00C913B7 /* HLReadablePartialConverter.m in Sources */,
+				5B6917FA13A7194A00C913B7 /* HLReadablePeriodConverter.m in Sources */,
+				5B6917FC13A7194A00C913B7 /* HLStringConverter.m in Sources */,
+				5B6917FE13A7194A00C913B7 /* HLAbstractPartialFieldProperty.m in Sources */,
+				5B69180013A7194A00C913B7 /* HLAbstractReadableInstantFieldProperty.m in Sources */,
+				5B69180213A7194A00C913B7 /* HLBaseDateTimeField.m in Sources */,
+				5B69180413A7194A00C913B7 /* HLBaseDurationField.m in Sources */,
+				5B69180613A7194A00C913B7 /* HLDecoratedDateTimeField.m in Sources */,
+				5B69180813A7194A00C913B7 /* HLDecoratedDurationField.m in Sources */,
+				5B69180A13A7194A00C913B7 /* HLDelegatedDateTimeField.m in Sources */,
+				5B69180C13A7194A00C913B7 /* HLDelegatedDurationField.m in Sources */,
+				5B69180E13A7194A00C913B7 /* HLDividedDateTimeField.m in Sources */,
+				5B69181013A7194A00C913B7 /* HLFieldUtils.m in Sources */,
+				5B69181213A7194A00C913B7 /* HLImpreciseDateTimeField.m in Sources */,
+				5B69181413A7194A00C913B7 /* HLLenientDateTimeField.m in Sources */,
+				5B69181613A7194A00C913B7 /* HLMillisDurationField.m in Sources */,
+				5B69181813A7194A00C913B7 /* HLOffsetDateTimeField.m in Sources */,
+				5B69181A13A7194A00C913B7 /* HLPreciseDateTimeField.m in Sources */,
+				5B69181C13A7194A00C913B7 /* HLPreciseDurationDateTimeField.m in Sources */,
+				5B69181E13A7194A00C913B7 /* HLPreciseDurationField.m in Sources */,
+				5B69182013A7194A00C913B7 /* HLRemainderDateTimeField.m in Sources */,
+				5B69182213A7194A00C913B7 /* HLScaledDurationField.m in Sources */,
+				5B69182413A7194A00C913B7 /* HLSkipDateTimeField.m in Sources */,
+				5B69182613A7194A00C913B7 /* HLSkipUndoDateTimeField.m in Sources */,
+				5B69182813A7194A00C913B7 /* HLStrictDateTimeField.m in Sources */,
+				5B69182A13A7194A00C913B7 /* HLUnsupportedDateTimeField.m in Sources */,
+				5B69182C13A7194A00C913B7 /* HLUnsupportedDurationField.m in Sources */,
+				5B69182E13A7194A00C913B7 /* HLZeroIsMaxDateTimeField.m in Sources */,
+				5B69183013A7194A00C913B7 /* HLDateTimeFormat.m in Sources */,
+				5B69183213A7194A00C913B7 /* HLDateTimeFormatter.m in Sources */,
+				5B69183413A7194A00C913B7 /* HLDateTimeFormatterBuilder.m in Sources */,
+				5B69183613A7194A00C913B7 /* HLDateTimeParser.m in Sources */,
+				5B69183813A7194A00C913B7 /* HLDateTimeParserBucket.m in Sources */,
+				5B69183A13A7194A00C913B7 /* HLDateTimePrinter.m in Sources */,
+				5B69183C13A7194A00C913B7 /* HLFormatUtils.m in Sources */,
+				5B69183E13A7194A00C913B7 /* HLISODateTimeFormat.m in Sources */,
+				5B69184013A7194A00C913B7 /* HLISOPeriodFormat.m in Sources */,
+				5B69184213A7194A00C913B7 /* HLPeriodFormat.m in Sources */,
+				5B69184413A7194A00C913B7 /* HLPeriodFormatter.m in Sources */,
+				5B69184613A7194A00C913B7 /* HLPeriodFormatterBuilder.m in Sources */,
+				5B69184813A7194A00C913B7 /* HLPeriodParser.m in Sources */,
+				5B69184A13A7194A00C913B7 /* HLPeriodPrinter.m in Sources */,
+				5B69184C13A7194A00C913B7 /* HLChronology.m in Sources */,
+				5B69184E13A7194A00C913B7 /* HLDateMidnight.m in Sources */,
+				5B69185013A7194A00C913B7 /* HLDateTime.m in Sources */,
+				5B69185213A7194A00C913B7 /* HLDateTimeComparator.m in Sources */,
+				5B69185413A7194A00C913B7 /* HLDateTimeConstants.m in Sources */,
+				5B69185613A7194A00C913B7 /* HLDateTimeField.m in Sources */,
+				5B69185813A7194A00C913B7 /* HLDateTimeFieldType.m in Sources */,
+				5B69185A13A7194A00C913B7 /* HLDateTimeUtils.m in Sources */,
+				5B69185C13A7194A00C913B7 /* HLDateTimeZone.m in Sources */,
+				5B69185E13A7194A00C913B7 /* HLDays.m in Sources */,
+				5B69186013A7194A00C913B7 /* HLDuration.m in Sources */,
+				5B69186213A7194A00C913B7 /* HLDurationField.m in Sources */,
+				5B69186413A7194A00C913B7 /* HLDurationFieldType.m in Sources */,
+				5B69186613A7194A00C913B7 /* HLHours.m in Sources */,
+				5B69186813A7194A00C913B7 /* HLIllegalFieldValueException.m in Sources */,
+				5B69186A13A7194A00C913B7 /* HLInstant.m in Sources */,
+				5B69186C13A7194A00C913B7 /* HLInterval.m in Sources */,
+				5B69186E13A7194A00C913B7 /* HLJodaTimePermission.m in Sources */,
+				5B69187013A7194A00C913B7 /* HLLocalDate.m in Sources */,
+				5B69187213A7194A00C913B7 /* HLLocalDateTime.m in Sources */,
+				5B69187413A7194A00C913B7 /* HLLocalTime.m in Sources */,
+				5B69187613A7194A00C913B7 /* HLMinutes.m in Sources */,
+				5B69187813A7194A00C913B7 /* HLMonths.m in Sources */,
+				5B69187A13A7194A00C913B7 /* HLMutableDateTime.m in Sources */,
+				5B69187C13A7194A00C913B7 /* HLMutableInterval.m in Sources */,
+				5B69187E13A7194A00C913B7 /* HLMutablePeriod.m in Sources */,
+				5B69188013A7194A00C913B7 /* HLPartial.m in Sources */,
+				5B69188213A7194A00C913B7 /* HLPeriod.m in Sources */,
+				5B69188413A7194A00C913B7 /* HLPeriodType.m in Sources */,
+				5B69188613A7194A00C913B7 /* HLReadableDateTime.m in Sources */,
+				5B69188813A7194A00C913B7 /* HLReadableDuration.m in Sources */,
+				5B69188A13A7194A00C913B7 /* HLReadableInstant.m in Sources */,
+				5B69188C13A7194A00C913B7 /* HLReadableInterval.m in Sources */,
+				5B69188E13A7194A00C913B7 /* HLReadablePartial.m in Sources */,
+				5B69189013A7194A00C913B7 /* HLReadablePeriod.m in Sources */,
+				5B69189213A7194A00C913B7 /* HLReadWritableDateTime.m in Sources */,
+				5B69189413A7194A00C913B7 /* HLReadWritableInstant.m in Sources */,
+				5B69189613A7194A00C913B7 /* HLReadWritableInterval.m in Sources */,
+				5B69189813A7194A00C913B7 /* HLReadWritablePeriod.m in Sources */,
+				5B69189B13A7194A00C913B7 /* HLSeconds.m in Sources */,
+				5B69189D13A7194A00C913B7 /* HLTimeOfDay.m in Sources */,
+				5B69189F13A7194A00C913B7 /* HLWeeks.m in Sources */,
+				5B6918A113A7194A00C913B7 /* HLYearMonthDay.m in Sources */,
+				5B6918A313A7194A00C913B7 /* HLYears.m in Sources */,
+				5B6918A513A7194A00C913B7 /* HLCachedDateTimeZone.m in Sources */,
+				5B6918A713A7194A00C913B7 /* HLDateTimeZoneBuilder.m in Sources */,
+				5B6918A913A7194A00C913B7 /* HLDefaultNameProvider.m in Sources */,
+				5B6918AB13A7194A00C913B7 /* HLFixedDateTimeZone.m in Sources */,
+				5B6918AD13A7194A00C913B7 /* HLNameProvider.m in Sources */,
+				5B6918AF13A7194A00C913B7 /* HLProvider.m in Sources */,
+				5B6918B113A7194A00C913B7 /* HLUTCProvider.m in Sources */,
+				5B6918B313A7194A00C913B7 /* HLZoneInfoProvider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,18 +1625,18 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		5B69113013A70B6400C913B7 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5B69113113A70B6400C913B7 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		5B69114313A70B6400C913B7 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				5B69114413A70B6400C913B7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		5B69115313A70D7000C913B7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B69115413A70D7000C913B7 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -321,7 +1665,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
@@ -342,7 +1686,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -354,8 +1698,8 @@
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Horologe/Horologe-Prefix.pch";
-				INFOPLIST_FILE = "Horologe/Horologe-Info.plist";
+				GCC_PREFIX_HEADER = "Horologe/Source/Horologe-Prefix.pch";
+				INFOPLIST_FILE = "Horologe/Resources/Horologe-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = framework;
 			};
@@ -368,8 +1712,8 @@
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Horologe/Horologe-Prefix.pch";
-				INFOPLIST_FILE = "Horologe/Horologe-Info.plist";
+				GCC_PREFIX_HEADER = "Horologe/Source/Horologe-Prefix.pch";
+				INFOPLIST_FILE = "Horologe/Resources/Horologe-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = framework;
 			};
