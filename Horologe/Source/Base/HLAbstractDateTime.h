@@ -65,7 +65,7 @@
  * @return the value of that field
  * @throws IllegalArgumentException if the field type is nil
  */
-- (NSInteger)get:(HLDateTimeFieldType)type;
+- (NSInteger)get:(HLDateTimeFieldType*)type;
 
 //-----------------------------------------------------------------------
 /**
@@ -73,63 +73,63 @@
  * 
  * @return the era
  */
-- (NSInteger)getEra;
+- (NSInteger)era;
 
 /**
  * Get the year of era field value.
  * 
  * @return the year of era
  */
-- (NSInteger)getCenturyOfEra;
+- (NSInteger)centuryOfEra;
 
 /**
  * Get the year of era field value.
  * 
  * @return the year of era
  */
-- (NSInteger)getYearOfEra;
+- (NSInteger)yearOfEra;
 
 /**
  * Get the year of century field value.
  * 
  * @return the year of century
  */
-- (NSInteger)getYearOfCentury;
+- (NSInteger)yearOfCentury;
 
 /**
  * Get the year field value.
  * 
  * @return the year
  */
-- (NSInteger)getYear;
+- (NSInteger)year;
 
 /**
  * Get the weekyear field value.
  * 
  * @return the year of a week based year
  */
-- (NSInteger)getWeekyear;
+- (NSInteger)weekyear;
 
 /**
  * Get the month of year field value.
  * 
  * @return the month of year
  */
-- (NSInteger)getMonthOfYear;
+- (NSInteger)monthOfYear;
 
 /**
  * Get the week of weekyear field value.
  * 
  * @return the week of a week based year
  */
-- (NSInteger)getWeekOfWeekyear;
+- (NSInteger)weekOfWeekyear;
 
 /**
  * Get the day of year field value.
  * 
  * @return the day of year
  */
-- (NSInteger)getDayOfYear;
+- (NSInteger)dayOfYear;
 
 /**
  * Get the day of month field value.
@@ -138,7 +138,7 @@
  * 
  * @return the day of month
  */
-- (NSInteger)getDayOfMonth;
+- (NSInteger)dayOfMonth;
 
 /**
  * Get the day of week field value.
@@ -147,7 +147,7 @@
  * 
  * @return the day of week
  */
-- (NSInteger)getDayOfWeek;
+- (NSInteger)dayOfWeek;
 
 //-----------------------------------------------------------------------
 /**
@@ -155,49 +155,49 @@
  *
  * @return the hour of day
  */
-- (NSInteger)getHourOfDay;
+- (NSInteger)hourOfDay;
 
 /**
  * Get the minute of day field value.
  *
  * @return the minute of day
  */
-- (NSInteger)getMinuteOfDay;
+- (NSInteger)minuteOfDay;
 
 /**
  * Get the minute of hour field value.
  *
  * @return the minute of hour
  */
-- (NSInteger)getMinuteOfHour;
+- (NSInteger)minuteOfHour;
 
 /**
  * Get the second of day field value.
  *
  * @return the second of day
  */
-- (NSInteger)getSecondOfDay;
+- (NSInteger)secondOfDay;
 
 /**
  * Get the second of minute field value.
  *
  * @return the second of minute
  */
-- (NSInteger)getSecondOfMinute;
+- (NSInteger)secondOfMinute;
 
 /**
  * Get the millis of day field value.
  *
  * @return the millis of day
  */
-- (NSInteger)getMillisOfDay;
+- (NSInteger)millisOfDay;
 
 /**
  * Get the millis of second field value.
  *
  * @return the millis of second
  */
-- (NSInteger)getMillisOfSecond;
+- (NSInteger)millisOfSecond;
 
 //-----------------------------------------------------------------------
 /**
@@ -217,7 +217,7 @@
  * @param locale  the locale to get the Calendar for, or default if nil
  * @return a localized Calendar initialised with this datetime
  */
-- (NSCalendar*)calendarWithLocale:(NSLocale*)locale;
+- (NSDate*)calendarDateWithLocale:(NSLocale*)locale;
 
 /**
  * Get the date time as a <code>java.util.GregorianCalendar</code>,
@@ -233,7 +233,7 @@
  *
  * @return a GregorianCalendar initialised with this datetime
  */
-- (NSCalendar*)gregorianCalendar;
+- (NSDate*)gregorianCalendarDate;
 
 //-----------------------------------------------------------------------
 /**

@@ -22,12 +22,11 @@
 
 #import "HLAbstractDateTime.h"
 
+#import "HLConstants.h"
+
 
 @implementation HLAbstractDateTime
 
-    /**
-     * Constructor.
-     */
 - (id)_init {
     self = [super init];
     if(self) {
@@ -38,16 +37,6 @@
     }
 
     //-----------------------------------------------------------------------
-    /**
-     * Get the value of one of the fields of a datetime.
-     * <p>
-     * This method uses the chronology of the datetime to obtain the value.
-     * It is essentially a generic way of calling one of the get methods.
-     *
-     * @param type  a field type, usually obtained from DateTimeFieldType
-     * @return the value of that field
-     * @throws IllegalArgumentException if the field type is nil
-     */
 - (NSInteger)get:(HLDateTimeFieldType*)type {
         if(type == nil) {
             [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
@@ -58,251 +47,138 @@
     }
 
     //-----------------------------------------------------------------------
-    /**
-     * Get the era field value.
-     * 
-     * @return the era
-     */
     - (NSInteger)getEra {
-        return getChronology().era().get(getMillis());
+        return [[[self chronology] eraObject] get:[self millis]];getChronology().era().get(getMillis());
     }
 
-    /**
-     * Get the year of era field value.
-     * 
-     * @return the year of era
-     */
     - (NSInteger)getCenturyOfEra {
-        return getChronology().centuryOfEra().get(getMillis());
+        return [[[self chronology] centuryOfEraObject] get:[self millis]];getChronology().centuryOfEra().get(getMillis());
     }
 
-    /**
-     * Get the year of era field value.
-     * 
-     * @return the year of era
-     */
     - (NSInteger)getYearOfEra {
-        return getChronology().yearOfEra().get(getMillis());
+        return [[[self chronology] yearOfEraObject] get:[self millis]];getChronology().yearOfEra().get(getMillis());
     }
 
-    /**
-     * Get the year of century field value.
-     * 
-     * @return the year of century
-     */
     - (NSInteger)getYearOfCentury {
-        return getChronology().yearOfCentury().get(getMillis());
+        return [[[self chronology] yearOfCenturyObject] get:[self millis]];getChronology().yearOfCentury().get(getMillis());
     }
 
-    /**
-     * Get the year field value.
-     * 
-     * @return the year
-     */
     - (NSInteger)getYear {
-        return getChronology().year().get(getMillis());
+        return [[[self chronology] yearObject] get:[self millis]];getChronology().year().get(getMillis());
     }
 
-    /**
-     * Get the weekyear field value.
-     * 
-     * @return the year of a week based year
-     */
     - (NSInteger)getWeekyear {
-        return getChronology().weekyear().get(getMillis());
+        return [[[self chronology] weekyearObject] get:[self millis]];getChronology().weekyear().get(getMillis());
     }
 
-    /**
-     * Get the month of year field value.
-     * 
-     * @return the month of year
-     */
     - (NSInteger)getMonthOfYear {
-        return getChronology().monthOfYear().get(getMillis());
+        return [[[self chronology] monthOfYearObject] get:[self millis]];getChronology().monthOfYear().get(getMillis());
     }
 
-    /**
-     * Get the week of weekyear field value.
-     * 
-     * @return the week of a week based year
-     */
     - (NSInteger)getWeekOfWeekyear {
-        return getChronology().weekOfWeekyear().get(getMillis());
+        return [[[self chronology] weekOfWeekyearObject] get:[self millis]];getChronology().weekOfWeekyear().get(getMillis());
     }
 
-    /**
-     * Get the day of year field value.
-     * 
-     * @return the day of year
-     */
     - (NSInteger)getDayOfYear {
-        return getChronology().dayOfYear().get(getMillis());
+        return [[[self chronology] dayOfYearObject] get:[self millis]];getChronology().dayOfYear().get(getMillis());
     }
 
-    /**
-     * Get the day of month field value.
-     * <p>
-     * The values for the day of month are defined in {@link org.joda.time.DateTimeConstants}.
-     * 
-     * @return the day of month
-     */
     - (NSInteger)getDayOfMonth {
-        return getChronology().dayOfMonth().get(getMillis());
+        return [[[self chronology] dayOfMonthObject] get:[self millis]];getChronology().dayOfMonth().get(getMillis());
     }
 
-    /**
-     * Get the day of week field value.
-     * <p>
-     * The values for the day of week are defined in {@link org.joda.time.DateTimeConstants}.
-     * 
-     * @return the day of week
-     */
     - (NSInteger)getDayOfWeek {
-        return getChronology().dayOfWeek().get(getMillis());
+        return [[[self chronology] dayOfWeekObject] get:[self millis]];getChronology().dayOfWeek().get(getMillis());
     }
 
     //-----------------------------------------------------------------------
-    /**
-     * Get the hour of day field value.
-     *
-     * @return the hour of day
-     */
     - (NSInteger)getHourOfDay {
-        return getChronology().hourOfDay().get(getMillis());
+        return [[[self chronology] hourOfDayObject] get:[self millis]];getChronology().hourOfDay().get(getMillis());
     }
 
-    /**
-     * Get the minute of day field value.
-     *
-     * @return the minute of day
-     */
     - (NSInteger)getMinuteOfDay {
-        return getChronology().minuteOfDay().get(getMillis());
+        return [[[self chronology] minuteOfDayObject] get:[self millis]];getChronology().minuteOfDay().get(getMillis());
     }
 
-    /**
-     * Get the minute of hour field value.
-     *
-     * @return the minute of hour
-     */
     - (NSInteger)getMinuteOfHour {
-        return getChronology().minuteOfHour().get(getMillis());
+        return [[[self chronology] minuteOfHourObject] get:[self millis]];getChronology().minuteOfHour().get(getMillis());
     }
 
-    /**
-     * Get the second of day field value.
-     *
-     * @return the second of day
-     */
     - (NSInteger)getSecondOfDay {
-        return getChronology().secondOfDay().get(getMillis());
+        return [[[self chronology] secondOfDayObject] get:[self millis]];getChronology().secondOfDay().get(getMillis());
     }
 
-    /**
-     * Get the second of minute field value.
-     *
-     * @return the second of minute
-     */
     - (NSInteger)getSecondOfMinute {
-        return getChronology().secondOfMinute().get(getMillis());
+        return [[[self chronology] secondOfMinuteObject] get:[self millis]];getChronology().secondOfMinute().get(getMillis());
     }
 
-    /**
-     * Get the millis of day field value.
-     *
-     * @return the millis of day
-     */
     - (NSInteger)getMillisOfDay {
-        return getChronology().millisOfDay().get(getMillis());
+        return [[[self chronology] millisOfDayObject] get:[self millis]];
     }
 
-    /**
-     * Get the millis of second field value.
-     *
-     * @return the millis of second
-     */
     - (NSInteger)getMillisOfSecond {
-        return getChronology().millisOfSecond().get(getMillis());
+        return [[[self chronology] millisOfSecondObject] get:[self millis]];
     }
 
     //-----------------------------------------------------------------------
-    /**
-     * Get the date time as a <code>java.util.Calendar</code>, assigning
-     * exactly the same millisecond instant.
-     * The locale is passed in, enabling Calendar to select the correct
-     * localized subclass.
-     * <p>
-     * The JDK and Joda-Time both have time zone implementations and these
-     * differ in accuracy. Joda-Time's implementation is generally more up to
-     * date and thus more accurate - for example JDK1.3 has no historical data.
-     * The effect of this is that the field values of the <code>Calendar</code>
-     * may differ from those of this object, even though the milliseond value
-     * is the same. Most of the time this just means that the JDK field values
-     * are wrong, as our time zone information is more up to date.
-     *
-     * @param locale  the locale to get the Calendar for, or default if nil
-     * @return a localized Calendar initialised with this datetime
-     */
-    - (NSCalendar*)calendarWithLocale:(NSLocale*)locale {
+    - (NSDate*)calendarDateWithLocale:(NSLocale*)locale {
         if (locale == nil) {
-            locale = Locale.getDefault();
+            locale = [NSLocale systemLocale];
         }
-        DateTimeZone zone = getZone();
-        Calendar cal = Calendar.getInstance(zone.toTimeZone(), locale);
-        cal.setTime(toDate());
-        return cal;
+        HLDateTimeZone* zone = [self dateTimeZone];
+        NSCalendar* cal = [locale displayNameForKey:NSLocaleCalendar
+                            value:[locale localeIdentifier]];
+        NSDateComponents* comp = [[NSDateComponents alloc] init];    
+        [comp setYear:[self year]];
+        [comp setMonth:[self monthOfYear]];
+        [comp setDay:[self dayOfMonth]];
+        [comp setHour:[self hourOfDay]];
+        [comp setMinute:[self minuteOfHour]];
+        [comp setSecond:[self secondOfMinute]];
+        [comp setTimeZone:[zone timeZone]];
+        
+        NSDate* date = [cal dateFromComponents:comp];
+        [comp release];
+
+        return date;
     }
 
-    /**
-     * Get the date time as a <code>java.util.GregorianCalendar</code>,
-     * assigning exactly the same millisecond instant.
-     * <p>
-     * The JDK and Joda-Time both have time zone implementations and these
-     * differ in accuracy. Joda-Time's implementation is generally more up to
-     * date and thus more accurate - for example JDK1.3 has no historical data.
-     * The effect of this is that the field values of the <code>Calendar</code>
-     * may differ from those of this object, even though the milliseond value
-     * is the same. Most of the time this just means that the JDK field values
-     * are wrong, as our time zone information is more up to date.
-     *
-     * @return a GregorianCalendar initialised with this datetime
-     */
-    public GregorianCalendar toGregorianCalendar {
-        DateTimeZone zone = getZone();
-        GregorianCalendar cal = new GregorianCalendar(zone.toTimeZone());
-        cal.setTime(toDate());
+- (NSDate*)gregorianCalendarDate {
+        HLDateTimeZone* zone = [self dateTimeZone];
+    NSCalendar* cal = [[[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar] autorelease];
+    NSDateComponents* comp = [[NSDateComponents alloc] init];    
+    [comp setYear:[self year]];
+    [comp setMonth:[self monthOfYear]];
+    [comp setDay:[self dayOfMonth]];
+    [comp setHour:[self hourOfDay]];
+    [comp setMinute:[self minuteOfHour]];
+    [comp setSecond:[self secondOfMinute]];
+    [comp setTimeZone:[zone timeZone]];
+    
+    NSDate* date = [cal dateFromComponents:comp];
+    [comp release];
+    
         return cal;
     }
 
     //-----------------------------------------------------------------------
-    /**
-     * Output the instant using the specified format pattern.
-     *
-     * @param pattern  the pattern specification, nil means use <code>toString</code>
-     * @see  org.joda.time.format.DateTimeFormat
-     */
-    - (NSString*)stringWithPattern:(NSString*)pattern) {
+    - (NSString*)stringWithPattern:(NSString*)pattern {
         if (pattern == nil) {
-            return toString();
+            return [self description];
         }
-        return DateTimeFormat.forPattern(pattern).print(this);
+        
+        return [[HLDateTimeFormat forPattern:pattern] print:self];
     }
 
-    /**
-     * Output the instant using the specified format pattern.
-     *
-     * @param pattern  the pattern specification, nil means use <code>toString</code>
-     * @param locale  Locale to use, nil means default
-     * @see  org.joda.time.format.DateTimeFormat
-     */
-    - (NSString*)stringWithPattern:(NSString*)pattern locale:(NSLocale*)locale throws IllegalArgumentException {
+    - (NSString*)stringWithPattern:(NSString*)pattern 
+                            locale:(NSLocale*)locale {
         if (pattern == nil) {
-            return toString();
+            return [self description];
         }
-        return DateTimeFormat.forPattern(pattern).withLocale(locale).print(this);
+        
+        return [[HLDateTimeFormat forPattern:pattern withLocale:locale] print:self];
     }
 
 }
-
 
 @end
