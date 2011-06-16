@@ -149,7 +149,7 @@ public class PreciseDurationField extends BaseDurationField {
      * @param obj  the object to compare to
      * @return if equal
      */
-    public boolean equals(Object obj) {
+    - (BOOL)equals:(id)obj) {
         if (this == obj) {
             return true;
         } else if (obj instanceof PreciseDurationField) {
@@ -164,7 +164,7 @@ public class PreciseDurationField extends BaseDurationField {
      * 
      * @return a suitable hashcode
      */
-    - (NSInteger)hashCode {
+    - (NSUInteger)hash {
         long millis = iUnitMillis;
         int hash = (int) (millis ^ (millis >>> 32));
         hash += getType().hashCode();

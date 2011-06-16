@@ -190,7 +190,7 @@ public final class DateTime
      * @param instant  the datetime object, nil means now
      * @throws IllegalArgumentException if the instant is invalid
      */
-    public DateTime(Object instant) {
+    public DateTime:(id)instant) {
         super(instant, (Chronology) nil);
     }
 
@@ -214,7 +214,7 @@ public final class DateTime
      * @param zone  the time zone, nil means default time zone
      * @throws IllegalArgumentException if the instant is invalid
      */
-    public DateTime(Object instant, DateTimeZone zone) {
+    public DateTime:(id)instant, DateTimeZone zone) {
         super(instant, zone);
     }
 
@@ -235,7 +235,7 @@ public final class DateTime
      * @param chronology  the chronology, nil means ISO in default zone
      * @throws IllegalArgumentException if the instant is invalid
      */
-    public DateTime(Object instant, Chronology chronology) {
+    public DateTime:(id)instant, Chronology chronology) {
         super(instant, DateTimeUtils.getChronology(chronology));
     }
 
@@ -607,7 +607,7 @@ public final class DateTime
      * @return a copy of this datetime with the duration added
      * @throws ArithmeticException if the new datetime exceeds the capacity of a long
      */
-    public DateTime withDurationAdded(ReadableDuration durationToAdd :(NSInteger)scalar) {
+    public DateTime withDurationAdded:(id<HLReadableDuration>)durationToAdd :(NSInteger)scalar) {
         if (durationToAdd == nil || scalar == 0) {
             return this;
         }
@@ -662,7 +662,7 @@ public final class DateTime
      * @return a copy of this datetime with the duration added
      * @throws ArithmeticException if the new datetime exceeds the capacity of a long
      */
-    public DateTime plus(ReadableDuration duration) {
+    public DateTime plus:(id<HLReadableDuration>)duration) {
         return withDurationAdded(duration, 1);
     }
 
@@ -950,7 +950,7 @@ public final class DateTime
      * @return a copy of this datetime with the duration taken away
      * @throws ArithmeticException if the new datetime exceeds the capacity of a long
      */
-    public DateTime minus(ReadableDuration duration) {
+    public DateTime minus:(id<HLReadableDuration>)duration) {
         return withDurationAdded(duration, -1);
     }
 

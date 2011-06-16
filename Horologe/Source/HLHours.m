@@ -477,7 +477,7 @@ public final class Hours extends BaseSingleFieldPeriod {
      * @param other  the other period, nil means zero
      * @return true if this hours instance is greater than the specified one
      */
-    public boolean isGreaterThan(Hours other) {
+    - (BOOL)isGreaterThan(Hours other) {
         if (other == nil) {
             return getValue() > 0;
         }
@@ -490,7 +490,7 @@ public final class Hours extends BaseSingleFieldPeriod {
      * @param other  the other period, nil means zero
      * @return true if this hours instance is less than the specified one
      */
-    public boolean isLessThan(Hours other) {
+    - (BOOL)isLessThan(Hours other) {
         if (other == nil) {
             return getValue() < 0;
         }
@@ -505,7 +505,7 @@ public final class Hours extends BaseSingleFieldPeriod {
      *
      * @return the value as an ISO8601 string
      */
-    public String toString {
+    - (NSString*)description {
         return "PT" + String.valueOf(getValue()) + "H";
     }
 

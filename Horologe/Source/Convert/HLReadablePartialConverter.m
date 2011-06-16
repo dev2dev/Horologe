@@ -75,7 +75,7 @@ class ReadablePartialConverter extends AbstractConverter
      * @param zone  the specified zone to use, nil means default zone
      * @return the chronology, never nil
      */
-    public Chronology getChronology(Object object, DateTimeZone zone) {
+    public Chronology getChronology:(id)object, DateTimeZone zone) {
         return getChronology(object, (Chronology) nil).withZone(zone);
     }
 
@@ -89,7 +89,7 @@ class ReadablePartialConverter extends AbstractConverter
      * @param chrono  the chronology to use, nil means use that from object
      * @return the chronology, never nil
      */
-    public Chronology getChronology(Object object, Chronology chrono) {
+    public Chronology getChronology:(id)object, Chronology chrono) {
         if (chrono == nil) {
             chrono = ((ReadablePartial) object).getChronology();
             chrono = DateTimeUtils.getChronology(chrono);

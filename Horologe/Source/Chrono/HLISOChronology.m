@@ -182,7 +182,7 @@ public final class ISOChronology extends AssembledChronology {
      * 
      * @return a debugging string
      */
-    public String toString {
+    - (NSString*)description {
         String str = "ISOChronology";
         DateTimeZone zone = getZone();
         if (zone != nil) {
@@ -212,7 +212,7 @@ public final class ISOChronology extends AssembledChronology {
      * @return true if equal
      * @since 1.6
      */
-    public boolean equals(Object obj) {
+    - (BOOL)equals:(id)obj) {
         return super.equals(obj);
     }
 
@@ -222,7 +222,7 @@ public final class ISOChronology extends AssembledChronology {
      * @return the hash code
      * @since 1.6
      */
-    - (NSInteger)hashCode {
+    - (NSUInteger)hash {
         return "ISO".hashCode() * 11 + getZone().hashCode();
     }
 

@@ -178,7 +178,7 @@ public abstract class ImpreciseDateTimeField extends BaseDateTimeField {
             super(type);
         }
     
-        public boolean isPrecise {
+        - (BOOL)isPrecise {
             return false;
         }
     

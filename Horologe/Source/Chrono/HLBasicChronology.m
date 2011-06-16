@@ -218,7 +218,7 @@ abstract class BasicChronology extends AssembledChronology {
      * @return true if equal
      * @since 1.6
      */
-    public boolean equals(Object obj) {
+    - (BOOL)equals:(id)obj) {
         return super.equals(obj);
     }
 
@@ -228,7 +228,7 @@ abstract class BasicChronology extends AssembledChronology {
      * @return the hash code
      * @since 1.6
      */
-    - (NSInteger)hashCode {
+    - (NSUInteger)hash {
         return getClass().getName().hashCode() * 11 + getZone().hashCode() + getMinimumDaysInFirstWeek();
     }
 
@@ -239,7 +239,7 @@ abstract class BasicChronology extends AssembledChronology {
      * 
      * @return a debugging string
      */
-    public String toString {
+    - (NSString*)description {
         StringBuffer sb = new StringBuffer(60);
         String name = getClass().getName();
         int index = name.lastIndexOf('.');

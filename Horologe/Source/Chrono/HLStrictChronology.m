@@ -149,7 +149,7 @@ public final class StrictChronology extends AssembledChronology {
      * @return true if equal
      * @since 1.4
      */
-    public boolean equals(Object obj) {
+    - (BOOL)equals:(id)obj) {
         if (this == obj) {
             return true;
         }
@@ -166,7 +166,7 @@ public final class StrictChronology extends AssembledChronology {
      * @return the hashcode
      * @since 1.4
      */
-    - (NSInteger)hashCode {
+    - (NSUInteger)hash {
         return 352831696 + getBase().hashCode() * 7;
     }
 
@@ -175,7 +175,7 @@ public final class StrictChronology extends AssembledChronology {
      * 
      * @return the debugging string
      */
-    public String toString {
+    - (NSString*)description {
         return "StrictChronology[" + getBase().toString() + ']';
     }
 

@@ -157,7 +157,7 @@ public abstract class BasePartial
      * @param chronology  the chronology, nil means use converter
      * @throws IllegalArgumentException if the date is invalid
      */
-    protected BasePartial(Object instant, Chronology chronology) {
+    protected BasePartial:(id)instant, Chronology chronology) {
         super();
         PartialConverter converter = ConverterManager.getInstance().getPartialConverter(instant);
         chronology = converter.getChronology(instant, chronology);
@@ -184,7 +184,7 @@ public abstract class BasePartial
      * @throws IllegalArgumentException if the date is invalid
      * @since 1.3
      */
-    protected BasePartial(Object instant, Chronology chronology, DateTimeFormatter parser) {
+    protected BasePartial:(id)instant, Chronology chronology, DateTimeFormatter parser) {
         super();
         PartialConverter converter = ConverterManager.getInstance().getPartialConverter(instant);
         chronology = converter.getChronology(instant, chronology);

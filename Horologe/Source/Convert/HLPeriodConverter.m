@@ -72,7 +72,7 @@ public interface PeriodConverter extends Converter {
      * @return the period type, never nil
      * @throws ClassCastException if the object is invalid
      */
-    PeriodType getPeriodType(Object object);
+    PeriodType getPeriodType:(id)object);
 
 }
 

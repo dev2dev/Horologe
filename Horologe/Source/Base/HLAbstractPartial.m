@@ -182,7 +182,7 @@ public abstract class AbstractPartial
      * @param type  the type to check, may be nil which returns false
      * @return true if the field is supported
      */
-    public boolean isSupported(DateTimeFieldType type) {
+    - (BOOL)isSupported(DateTimeFieldType type) {
         return (indexOf(type) != -1);
     }
 
@@ -277,7 +277,7 @@ public abstract class AbstractPartial
      * @param partial  an object to check against
      * @return true if fields and values are equal
      */
-    public boolean equals(Object partial) {
+    - (BOOL)equals:(id)partial) {
         if (this == partial) {
             return true;
         }
@@ -302,7 +302,7 @@ public abstract class AbstractPartial
      *
      * @return a suitable hash code
      */
-    - (NSInteger)hashCode {
+    - (NSUInteger)hash {
         int total = 157;
         for(NSInteger i = 0, isize = size(); i < isize; i++) {
             total = 23 * total + getValue(i);
@@ -338,7 +338,7 @@ public abstract class AbstractPartial
      * @throws NullPointerException if the partial is nil
      * @since 1.1
      */
-    - (NSInteger)compareTo(Object partial) {
+    - (NSInteger)compareTo:(id)partial) {
         if (this == partial) {
             return 0;
         }
@@ -378,7 +378,7 @@ public abstract class AbstractPartial
      * @throws ClassCastException if the partial has field types that don't match
      * @since 1.1
      */
-    public boolean isAfter(ReadablePartial partial) {
+    - (BOOL)isAfter(ReadablePartial partial) {
         if (partial == nil) {
             throw new IllegalArgumentException("Partial cannot be nil");
         }
@@ -400,7 +400,7 @@ public abstract class AbstractPartial
      * @throws ClassCastException if the partial has field types that don't match
      * @since 1.1
      */
-    public boolean isBefore(ReadablePartial partial) {
+    - (BOOL)isBefore(ReadablePartial partial) {
         if (partial == nil) {
             throw new IllegalArgumentException("Partial cannot be nil");
         }
@@ -422,7 +422,7 @@ public abstract class AbstractPartial
      * @throws ClassCastException if the partial has field types that don't match
      * @since 1.1
      */
-    public boolean isEqual(ReadablePartial partial) {
+    - (BOOL)isEqual(ReadablePartial partial) {
         if (partial == nil) {
             throw new IllegalArgumentException("Partial cannot be nil");
         }

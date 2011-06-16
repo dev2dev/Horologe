@@ -292,7 +292,7 @@ public final class LocalDateTime
      * @param instant  the datetime object
      * @throws IllegalArgumentException if the instant is invalid
      */
-    public LocalDateTime(Object instant) {
+    public LocalDateTime:(id)instant) {
         this(instant, (Chronology) nil);
     }
 
@@ -314,7 +314,7 @@ public final class LocalDateTime
      * @param zone  the time zone
      * @throws IllegalArgumentException if the instant is invalid
      */
-    public LocalDateTime(Object instant, DateTimeZone zone) {
+    public LocalDateTime:(id)instant, DateTimeZone zone) {
         PartialConverter converter = ConverterManager.getInstance().getPartialConverter(instant);
         Chronology chronology = converter.getChronology(instant, zone);
         chronology = DateTimeUtils.getChronology(chronology);
@@ -340,7 +340,7 @@ public final class LocalDateTime
      * @param chronology  the chronology
      * @throws IllegalArgumentException if the instant is invalid
      */
-    public LocalDateTime(Object instant, Chronology chronology) {
+    public LocalDateTime:(id)instant, Chronology chronology) {
         PartialConverter converter = ConverterManager.getInstance().getPartialConverter(instant);
         chronology = converter.getChronology(instant, chronology);
         chronology = DateTimeUtils.getChronology(chronology);
@@ -538,7 +538,7 @@ public final class LocalDateTime
      * @param type  a field type, usually obtained from DateTimeFieldType
      * @return true if the field type is supported
      */
-    public boolean isSupported(DateTimeFieldType type) {
+    - (BOOL)isSupported(DateTimeFieldType type) {
         if (type == nil) {
             return false;
         }
@@ -552,7 +552,7 @@ public final class LocalDateTime
      * @param type  a duration type, usually obtained from DurationFieldType
      * @return true if the field type is supported
      */
-    public boolean isSupported(DurationFieldType type) {
+    - (BOOL)isSupported(DurationFieldType type) {
         if (type == nil) {
             return false;
         }
@@ -588,7 +588,7 @@ public final class LocalDateTime
      * @param partial  an object to check against
      * @return true if fields and values are equal
      */
-    public boolean equals(Object partial) {
+    - (BOOL)equals:(id)partial) {
         // override to perform faster
         if (this == partial) {
             return true;
@@ -626,7 +626,7 @@ public final class LocalDateTime
      *  or if it has field types that don't match
      * @throws NullPointerException if the partial is nil
      */
-    - (NSInteger)compareTo(Object partial) {
+    - (NSInteger)compareTo:(id)partial) {
         // override to perform faster
         if (this == partial) {
             return 0;
@@ -850,7 +850,7 @@ public final class LocalDateTime
      * @return a copy of this datetime with the duration added
      * @throws ArithmeticException if the result exceeds the internal capacity
      */
-    public LocalDateTime withDurationAdded(ReadableDuration durationToAdd :(NSInteger)scalar) {
+    public LocalDateTime withDurationAdded:(id<HLReadableDuration>)durationToAdd :(NSInteger)scalar) {
         if (durationToAdd == nil || scalar == 0) {
             return this;
         }
@@ -891,7 +891,7 @@ public final class LocalDateTime
      * @return a copy of this datetime with the duration added
      * @throws ArithmeticException if the result exceeds the internal capacity
      */
-    public LocalDateTime plus(ReadableDuration duration) {
+    public LocalDateTime plus:(id<HLReadableDuration>)duration) {
         return withDurationAdded(duration, 1);
     }
 
@@ -1108,7 +1108,7 @@ public final class LocalDateTime
      * @return a copy of this datetime with the duration taken away
      * @throws ArithmeticException if the result exceeds the internal capacity
      */
-    public LocalDateTime minus(ReadableDuration duration) {
+    public LocalDateTime minus:(id<HLReadableDuration>)duration) {
         return withDurationAdded(duration, -1);
     }
 
@@ -1884,7 +1884,7 @@ public final class LocalDateTime
      * 
      * @return ISO8601 time formatted string.
      */
-    public String toString {
+    - (NSString*)description {
         return ISODateTimeFormat.dateTime().print(this);
     }
 

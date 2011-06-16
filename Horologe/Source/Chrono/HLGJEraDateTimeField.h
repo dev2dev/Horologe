@@ -77,7 +77,7 @@ final class GJEraDateTimeField extends BaseDateTimeField {
         iChronology = chronology;
     }
 
-    public boolean isLenient;
+    - (BOOL)isLenient;
         return false;
     }
 

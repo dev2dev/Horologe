@@ -288,7 +288,7 @@ public class DateTimeParserBucket {
      * @param savedState opaque saved state, returned from saveState
      * @return true state object is valid and state restored
      */
-    public boolean restoreState(Object savedState) {
+    - (BOOL)restoreState:(id)savedState) {
         if (savedState instanceof SavedState) {
             if (((SavedState) savedState).restoreState(this)) {
                 iSavedState = savedState;
@@ -471,7 +471,7 @@ public class DateTimeParserBucket {
          * nil is considered infinite. If the ranges match, then the field
          * with the longer duration is ordered first.
          */
-        - (NSInteger)compareTo(Object obj) {
+        - (NSInteger)compareTo:(id)obj) {
             DateTimeField other = ((SavedField)obj).iField;
             int result = compareReverse
                 (iField.getRangeDurationField(), other.getRangeDurationField());

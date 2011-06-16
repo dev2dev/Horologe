@@ -179,7 +179,7 @@ public class OffsetDateTimeField extends DecoratedDateTimeField {
         return super.set(instant, value - iOffset);
     }
 
-    public boolean isLeap:(NSInteger)instant) {
+    - (BOOL)isLeap:(NSInteger)instant) {
         return getWrappedField().isLeap(instant);
     }
 

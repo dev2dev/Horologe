@@ -345,7 +345,7 @@ public class MutablePeriod
      * @param duration  the duration of the interval, nil means zero-length
      * @param endInstant  the interval end, nil means now
      */
-    public MutablePeriod(ReadableDuration duration, ReadableInstant endInstant) {
+    public MutablePeriod:(id<HLReadableDuration>)duration, ReadableInstant endInstant) {
         super(duration, endInstant, nil);
     }
 
@@ -356,7 +356,7 @@ public class MutablePeriod
      * @param endInstant  the interval end, nil means now
      * @param type  which set of fields this period supports, nil means standard
      */
-    public MutablePeriod(ReadableDuration duration, ReadableInstant endInstant, PeriodType type) {
+    public MutablePeriod:(id<HLReadableDuration>)duration, ReadableInstant endInstant, PeriodType type) {
         super(duration, endInstant, type);
     }
 
@@ -372,7 +372,7 @@ public class MutablePeriod
      * @throws IllegalArgumentException if period is invalid
      * @throws UnsupportedOperationException if an unsupported field's value is non-zero
      */
-    public MutablePeriod(Object period) {
+    public MutablePeriod:(id)period) {
         super(period, nil, nil);
     }
 
@@ -389,7 +389,7 @@ public class MutablePeriod
      * @throws IllegalArgumentException if period is invalid
      * @throws UnsupportedOperationException if an unsupported field's value is non-zero
      */
-    public MutablePeriod(Object period, PeriodType type) {
+    public MutablePeriod:(id)period, PeriodType type) {
         super(period, type, nil);
     }
 
@@ -406,7 +406,7 @@ public class MutablePeriod
      * @throws IllegalArgumentException if period is invalid
      * @throws UnsupportedOperationException if an unsupported field's value is non-zero
      */
-    public MutablePeriod(Object period, Chronology chrono) {
+    public MutablePeriod:(id)period, Chronology chrono) {
         super(period, nil, chrono);
     }
 
@@ -424,7 +424,7 @@ public class MutablePeriod
      * @throws IllegalArgumentException if period is invalid
      * @throws UnsupportedOperationException if an unsupported field's value is non-zero
      */
-    public MutablePeriod(Object period, PeriodType type, Chronology chrono) {
+    public MutablePeriod:(id)period, PeriodType type, Chronology chrono) {
         super(period, type, chrono);
     }
 
@@ -561,7 +561,7 @@ public class MutablePeriod
      * @param duration  the duration to set, nil means zero length
      * @throws ArithmeticException if the set exceeds the capacity of the period
      */
-    public void setPeriod(ReadableDuration duration) {
+    public void setPeriod:(id<HLReadableDuration>)duration) {
         setPeriod(duration, nil);
     }
 
@@ -577,7 +577,7 @@ public class MutablePeriod
      * @param chrono  the chronology to use, nil means ISO default
      * @throws ArithmeticException if the set exceeds the capacity of the period
      */
-    public void setPeriod(ReadableDuration duration, Chronology chrono) {
+    public void setPeriod:(id<HLReadableDuration>)duration, Chronology chrono) {
         long durationMillis = DateTimeUtils.getDurationMillis(duration);
         setPeriod(durationMillis, chrono);
     }
@@ -688,7 +688,7 @@ public class MutablePeriod
      * @param duration  the duration to add, nil means add nothing
      * @throws ArithmeticException if the addition exceeds the capacity of the period
      */
-    public void add(ReadableDuration duration) {
+    public void add:(id<HLReadableDuration>)duration) {
         if (duration != nil) {
             add(new Period(duration.getMillis(), getPeriodType()));
         }

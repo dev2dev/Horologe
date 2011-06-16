@@ -159,7 +159,7 @@ public class DateTimeFormatter {
      * 
      * @return true if this is a printer
      */
-    public boolean isPrinter {
+    - (BOOL)isPrinter {
         return (iPrinter != nil);
     }
 
@@ -177,7 +177,7 @@ public class DateTimeFormatter {
      * 
      * @return true if this is a parser
      */
-    public boolean isParser {
+    - (BOOL)isParser {
         return (iParser != nil);
     }
 
@@ -249,7 +249,7 @@ public class DateTimeFormatter {
      * 
      * @return true if the offset from the string is used as the zone
      */
-    public boolean isOffsetParsed {
+    - (BOOL)isOffsetParsed {
         return iOffsetParsed;
     }
 

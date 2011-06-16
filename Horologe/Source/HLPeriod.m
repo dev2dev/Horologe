@@ -589,7 +589,7 @@ public final class Period
      * @param duration  the duration of the interval, nil means zero-length
      * @param endInstant  the interval end, nil means now
      */
-    public Period(ReadableDuration duration, ReadableInstant endInstant) {
+    public Period:(id<HLReadableDuration>)duration, ReadableInstant endInstant) {
         super(duration, endInstant, nil);
     }
 
@@ -600,7 +600,7 @@ public final class Period
      * @param endInstant  the interval end, nil means now
      * @param type  which set of fields this period supports, nil means standard
      */
-    public Period(ReadableDuration duration, ReadableInstant endInstant, PeriodType type) {
+    public Period:(id<HLReadableDuration>)duration, ReadableInstant endInstant, PeriodType type) {
         super(duration, endInstant, type);
     }
 
@@ -616,7 +616,7 @@ public final class Period
      * @throws IllegalArgumentException if period is invalid
      * @throws UnsupportedOperationException if an unsupported field's value is non-zero
      */
-    public Period(Object period) {
+    public Period:(id)period) {
         super(period, nil, nil);
     }
 
@@ -633,7 +633,7 @@ public final class Period
      * @throws IllegalArgumentException if period is invalid
      * @throws UnsupportedOperationException if an unsupported field's value is non-zero
      */
-    public Period(Object period, PeriodType type) {
+    public Period:(id)period, PeriodType type) {
         super(period, type, nil);
     }
 
@@ -650,7 +650,7 @@ public final class Period
      * @throws IllegalArgumentException if period is invalid
      * @throws UnsupportedOperationException if an unsupported field's value is non-zero
      */
-    public Period(Object period, Chronology chrono) {
+    public Period:(id)period, Chronology chrono) {
         super(period, nil, chrono);
     }
 
@@ -668,7 +668,7 @@ public final class Period
      * @throws IllegalArgumentException if period is invalid
      * @throws UnsupportedOperationException if an unsupported field's value is non-zero
      */
-    public Period(Object period, PeriodType type, Chronology chrono) {
+    public Period:(id)period, PeriodType type, Chronology chrono) {
         super(period, type, chrono);
     }
 

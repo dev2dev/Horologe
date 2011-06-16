@@ -92,7 +92,7 @@ public abstract class PreciseDurationDateTimeField extends BaseDateTimeField {
     /**
      * Returns false by default.
      */
-    public boolean isLenient;
+    - (BOOL)isLenient;
         return false;
     }
 

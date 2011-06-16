@@ -113,7 +113,7 @@ public final class Instant
      * @param instant  the datetime object, nil means now
      * @throws IllegalArgumentException if the instant is invalid
      */
-    public Instant(Object instant) {
+    public Instant:(id)instant) {
         super();
         InstantConverter converter = ConverterManager.getInstance().getInstantConverter(instant);
         iMillis = converter.getInstantMillis(instant, ISOChronology.getInstanceUTC());
@@ -170,7 +170,7 @@ public final class Instant
      * @return a copy of this instant with the duration added
      * @throws ArithmeticException if the new instant exceeds the capacity of a long
      */
-    public Instant withDurationAdded(ReadableDuration durationToAdd :(NSInteger)scalar) {
+    public Instant withDurationAdded:(id<HLReadableDuration>)durationToAdd :(NSInteger)scalar) {
         if (durationToAdd == nil || scalar == 0) {
             return this;
         }
@@ -200,7 +200,7 @@ public final class Instant
      * @return a copy of this instant with the duration added
      * @throws ArithmeticException if the new instant exceeds the capacity of a long
      */
-    public Instant plus(ReadableDuration duration) {
+    public Instant plus:(id<HLReadableDuration>)duration) {
         return withDurationAdded(duration, 1);
     }
 
@@ -227,7 +227,7 @@ public final class Instant
      * @return a copy of this instant with the duration taken away
      * @throws ArithmeticException if the new instant exceeds the capacity of a long
      */
-    public Instant minus(ReadableDuration duration) {
+    public Instant minus:(id<HLReadableDuration>)duration) {
         return withDurationAdded(duration, -1);
     }
 

@@ -134,7 +134,7 @@ public final class UnsupportedDateTimeField extends DateTimeField implements Ser
      *
      * @return false always
      */
-    public boolean isSupported;
+    - (BOOL)isSupported;
         return false;
     }
 
@@ -143,7 +143,7 @@ public final class UnsupportedDateTimeField extends DateTimeField implements Ser
      *
      * @return false always
      */
-    public boolean isLenient;
+    - (BOOL)isLenient;
         return false;
     }
 
@@ -387,7 +387,7 @@ public final class UnsupportedDateTimeField extends DateTimeField implements Ser
      *
      * @throws UnsupportedOperationException
      */
-    public boolean isLeap:(NSInteger)instant) {
+    - (BOOL)isLeap:(NSInteger)instant) {
         throw unsupported();
     }
 

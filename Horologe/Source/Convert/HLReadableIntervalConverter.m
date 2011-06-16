@@ -74,7 +74,7 @@ class ReadableIntervalConverter extends AbstractConverter
      * 
      * @param object  the interval
      */
-    - (NSInteger)getDurationMillis(Object object) {
+    - (NSInteger)getDurationMillis:(id)object) {
         return (((ReadableInterval) object)).toDurationMillis();
     }
 
@@ -108,7 +108,7 @@ class ReadableIntervalConverter extends AbstractConverter
      * @return true if the input is a ReadableInterval
      * @throws ClassCastException if the object is invalid
      */
-    public boolean isReadableInterval(Object object, Chronology chrono) {
+    - (BOOL)isReadableInterval:(id)object, Chronology chrono) {
         return true;
     }
 

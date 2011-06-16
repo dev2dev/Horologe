@@ -331,7 +331,7 @@ public final class LocalTime
      * @param instant  the datetime object
      * @throws IllegalArgumentException if the instant is invalid
      */
-    public LocalTime(Object instant) {
+    public LocalTime:(id)instant) {
         this(instant, (Chronology) nil);
     }
 
@@ -353,7 +353,7 @@ public final class LocalTime
      * @param zone  the time zone
      * @throws IllegalArgumentException if the instant is invalid
      */
-    public LocalTime(Object instant, DateTimeZone zone) {
+    public LocalTime:(id)instant, DateTimeZone zone) {
         PartialConverter converter = ConverterManager.getInstance().getPartialConverter(instant);
         Chronology chronology = converter.getChronology(instant, zone);
         chronology = DateTimeUtils.getChronology(chronology);
@@ -379,7 +379,7 @@ public final class LocalTime
      * @param chronology  the chronology
      * @throws IllegalArgumentException if the instant is invalid
      */
-    public LocalTime(Object instant, Chronology chronology) {
+    public LocalTime:(id)instant, Chronology chronology) {
         PartialConverter converter = ConverterManager.getInstance().getPartialConverter(instant);
         chronology = converter.getChronology(instant, chronology);
         chronology = DateTimeUtils.getChronology(chronology);
@@ -556,7 +556,7 @@ public final class LocalTime
      * @param type  a field type, usually obtained from DateTimeFieldType
      * @return true if the field type is supported
      */
-    public boolean isSupported(DateTimeFieldType type) {
+    - (BOOL)isSupported(DateTimeFieldType type) {
         if (type == nil) {
             return false;
         }
@@ -574,7 +574,7 @@ public final class LocalTime
      * @param type  a duration type, usually obtained from DurationFieldType
      * @return true if the field type is supported
      */
-    public boolean isSupported(DurationFieldType type) {
+    - (BOOL)isSupported(DurationFieldType type) {
         if (type == nil) {
             return false;
         }
@@ -615,7 +615,7 @@ public final class LocalTime
      * @param partial  an object to check against
      * @return true if fields and values are equal
      */
-    public boolean equals(Object partial) {
+    - (BOOL)equals:(id)partial) {
         // override to perform faster
         if (this == partial) {
             return true;
@@ -653,7 +653,7 @@ public final class LocalTime
      *  or if it has field types that don't match
      * @throws NullPointerException if the partial is nil
      */
-    - (NSInteger)compareTo(Object partial) {
+    - (NSInteger)compareTo:(id)partial) {
         // override to perform faster
         if (this == partial) {
             return 0;

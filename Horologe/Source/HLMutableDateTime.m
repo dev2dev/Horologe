@@ -205,7 +205,7 @@ public class MutableDateTime
      * @param instant  the datetime object, nil means now
      * @throws IllegalArgumentException if the instant is invalid
      */
-    public MutableDateTime(Object instant) {
+    public MutableDateTime:(id)instant) {
         super(instant, (Chronology) nil);
     }
 
@@ -228,7 +228,7 @@ public class MutableDateTime
      * @param zone  the time zone, nil means default time zone
      * @throws IllegalArgumentException if the instant is invalid
      */
-    public MutableDateTime(Object instant, DateTimeZone zone) {
+    public MutableDateTime:(id)instant, DateTimeZone zone) {
         super(instant, zone);
     }
 
@@ -248,7 +248,7 @@ public class MutableDateTime
      * @param chronology  the chronology, nil means ISOChronology in default zone
      * @throws IllegalArgumentException if the instant is invalid
      */
-    public MutableDateTime(Object instant, Chronology chronology) {
+    public MutableDateTime:(id)instant, Chronology chronology) {
         super(instant, DateTimeUtils.getChronology(chronology));
     }
 
@@ -458,7 +458,7 @@ public class MutableDateTime
      * @param duration  the duration to add, nil means add zero
      * @throws ArithmeticException if the result exceeds the capacity of the instant
      */
-    public void add(ReadableDuration duration) {
+    public void add:(id<HLReadableDuration>)duration) {
         add(duration, 1);
     }
 
@@ -471,7 +471,7 @@ public class MutableDateTime
      * @param scalar  direction and amount to add, which may be negative
      * @throws ArithmeticException if the result exceeds the capacity of the instant
      */
-    public void add(ReadableDuration duration :(NSInteger)scalar) {
+    public void add:(id<HLReadableDuration>)duration :(NSInteger)scalar) {
         if (duration != nil) {
             add(FieldUtils.safeMultiply(duration.getMillis(), scalar));
         }
@@ -1171,7 +1171,7 @@ public class MutableDateTime
      * 
      * @return ISO8601 time formatted string.
      */
-    public String toString {
+    - (NSString*)description {
         return ISODateTimeFormat.dateTime().print(this);
     }
 

@@ -95,7 +95,7 @@ public class DecoratedDurationField extends BaseDurationField {
         return iField;
     }
 
-    public boolean isPrecise {
+    - (BOOL)isPrecise {
         return iField.isPrecise();
     }
 

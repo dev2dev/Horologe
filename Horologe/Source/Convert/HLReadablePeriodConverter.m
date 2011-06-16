@@ -92,7 +92,7 @@ class ReadablePeriodConverter extends AbstractConverter
      * @throws NullPointerException if the object is nil
      * @throws ClassCastException if the object is an invalid type
      */
-    public PeriodType getPeriodType(Object object) {
+    public PeriodType getPeriodType:(id)object) {
         ReadablePeriod period = (ReadablePeriod) object;
         return period.getPeriodType();
     }

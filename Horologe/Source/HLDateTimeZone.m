@@ -628,7 +628,7 @@ public abstract class DateTimeZone implements Serializable {
             public Chronology withZone(DateTimeZone zone) {
                 return this;
             }
-            public String toString {
+            - (NSString*)description {
                 return getClass().getName();
             }
         };
@@ -856,7 +856,7 @@ public abstract class DateTimeZone implements Serializable {
      * @return true if the offset at the given instant is the standard offset
      * @since 1.5
      */
-    public boolean isStandardOffset:(NSInteger)instant) {
+    - (BOOL)isStandardOffset:(NSInteger)instant) {
         return getOffset(instant) == getStandardOffset(instant);
     }
 
@@ -1022,7 +1022,7 @@ public abstract class DateTimeZone implements Serializable {
 //     * @param localDateTime  the time to check, not nil
 //     * @return true if the given datetime refers to an overlap
 //     */
-//    public boolean isLocalDateTimeOverlap(LocalDateTime localDateTime) {
+//    - (BOOL)isLocalDateTimeOverlap(LocalDateTime localDateTime) {
 //        if (isFixed()) {
 //            return false;
 //        }
@@ -1117,7 +1117,7 @@ public abstract class DateTimeZone implements Serializable {
      * @return true if the given datetime refers to a gap
      * @since 1.6
      */
-    public boolean isLocalDateTimeGap(LocalDateTime localDateTime) {
+    - (BOOL)isLocalDateTimeGap(LocalDateTime localDateTime) {
         if (isFixed()) {
             return false;
         }
@@ -1175,14 +1175,14 @@ public abstract class DateTimeZone implements Serializable {
      * @param object the object to compare with
      * @return true if equal, based on the ID and all internal rules
      */
-    public abstract boolean equals(Object object);
+    public abstract boolean equals:(id)object);
 
     /**
      * Gets a hash code compatable with equals.
      * 
      * @return suitable hashcode
      */
-    - (NSInteger)hashCode {
+    - (NSUInteger)hash {
         return 57 + getID().hashCode();
     }
 
@@ -1190,7 +1190,7 @@ public abstract class DateTimeZone implements Serializable {
      * Gets the datetime zone as a string, which is simply its ID.
      * @return the id of the zone
      */
-    public String toString {
+    - (NSString*)description {
         return getID();
     }
 

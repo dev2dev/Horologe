@@ -340,7 +340,7 @@ public class FieldUtils {
      * @return true if equal
      * @since 1.4
      */
-    public static boolean equals(Object object1, Object object2) {
+    public static boolean equals:(id)object1, Object object2) {
         if (object1 == object2) {
             return true;
         }

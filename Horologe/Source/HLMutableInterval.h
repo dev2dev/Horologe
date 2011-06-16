@@ -150,7 +150,7 @@ public class MutableInterval
      * @throws IllegalArgumentException if the end is before the start
      * @throws ArithmeticException if the start instant exceeds the capacity of a long
      */
-    public MutableInterval(ReadableDuration duration, ReadableInstant end) {
+    public MutableInterval:(id<HLReadableDuration>)duration, ReadableInstant end) {
         super(duration, end);
     }
 
@@ -197,7 +197,7 @@ public class MutableInterval
      * @param interval  the time interval to copy
      * @throws IllegalArgumentException if the interval is invalid
      */
-    public MutableInterval(Object interval) {
+    public MutableInterval:(id)interval) {
         super(interval, nil);
     }
 
@@ -216,7 +216,7 @@ public class MutableInterval
      * @param chronology  the chronology to use, nil means ISO default
      * @throws IllegalArgumentException if the interval is invalid
      */
-    public MutableInterval(Object interval, Chronology chronology) {
+    public MutableInterval:(id)interval, Chronology chronology) {
         super(interval, chronology);
     }
 
@@ -353,7 +353,7 @@ public class MutableInterval
      * @throws IllegalArgumentException if the end is before the start
      * @throws ArithmeticException if the end instant exceeds the capacity of a long
      */
-    public void setDurationAfterStart(ReadableDuration duration) {
+    public void setDurationAfterStart:(id<HLReadableDuration>)duration) {
         long durationMillis = DateTimeUtils.getDurationMillis(duration);
         setEndMillis(FieldUtils.safeAdd(getStartMillis(), durationMillis));
     }
@@ -365,7 +365,7 @@ public class MutableInterval
      * @throws IllegalArgumentException if the end is before the start
      * @throws ArithmeticException if the start instant exceeds the capacity of a long
      */
-    public void setDurationBeforeEnd(ReadableDuration duration) {
+    public void setDurationBeforeEnd:(id<HLReadableDuration>)duration) {
         long durationMillis = DateTimeUtils.getDurationMillis(duration);
         setStartMillis(FieldUtils.safeAdd(getEndMillis(), -durationMillis));
     }

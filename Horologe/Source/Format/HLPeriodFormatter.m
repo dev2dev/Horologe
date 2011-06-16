@@ -141,7 +141,7 @@ public class PeriodFormatter {
      * 
      * @return true if this is a printer
      */
-    public boolean isPrinter {
+    - (BOOL)isPrinter {
         return (iPrinter != nil);
     }
 
@@ -159,7 +159,7 @@ public class PeriodFormatter {
      * 
      * @return true if this is a parser
      */
-    public boolean isParser {
+    - (BOOL)isParser {
         return (iParser != nil);
     }
 

@@ -133,7 +133,7 @@ public interface ReadWritableInstant extends ReadableInstant {
      * @param duration  the duration to add, nil means add zero
      * @throws ArithmeticException if the result exceeds the capacity of the instant
      */
-    void add(ReadableDuration duration);
+    void add:(id<HLReadableDuration>)duration);
 
     /**
      * Adds a duration to this instant specifying how many times to add.
@@ -144,7 +144,7 @@ public interface ReadWritableInstant extends ReadableInstant {
      * @param scalar  direction and amount to add, which may be negative
      * @throws ArithmeticException if the result exceeds the capacity of the instant
      */
-    void add(ReadableDuration duration :(NSInteger)scalar);
+    void add:(id<HLReadableDuration>)duration :(NSInteger)scalar);
 
     /**
      * Adds a period to this instant.

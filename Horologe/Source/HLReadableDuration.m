@@ -108,7 +108,7 @@ public interface ReadableDuration extends Comparable {
      * @throws NullPointerException if the object is nil
      * @throws ClassCastException if the given object is not supported
      */
-    int compareTo(Object obj);
+    int compareTo:(id)obj);
 
     /**
      * Is the length of this duration equal to the duration passed in.
@@ -116,7 +116,7 @@ public interface ReadableDuration extends Comparable {
      * @param duration  another duration to compare to, nil means zero milliseconds
      * @return true if this duration is equal to than the duration passed in
      */
-    boolean isEqual(ReadableDuration duration);
+    boolean isEqual:(id<HLReadableDuration>)duration);
 
     /**
      * Is the length of this duration longer than the duration passed in.
@@ -124,7 +124,7 @@ public interface ReadableDuration extends Comparable {
      * @param duration  another duration to compare to, nil means zero milliseconds
      * @return true if this duration is equal to than the duration passed in
      */
-    boolean isLongerThan(ReadableDuration duration);
+    boolean isLongerThan:(id<HLReadableDuration>)duration);
 
     /**
      * Is the length of this duration shorter than the duration passed in.
@@ -132,7 +132,7 @@ public interface ReadableDuration extends Comparable {
      * @param duration  another duration to compare to, nil means zero milliseconds
      * @return true if this duration is equal to than the duration passed in
      */
-    boolean isShorterThan(ReadableDuration duration);
+    boolean isShorterThan:(id<HLReadableDuration>)duration);
 
     //-----------------------------------------------------------------------
     /**
@@ -142,7 +142,7 @@ public interface ReadableDuration extends Comparable {
      * @param readableDuration  a readable duration to check against
      * @return true if the length of the duration is equal
      */
-    boolean equals(Object readableDuration);
+    boolean equals:(id)readableDuration);
 
     /**
      * Gets a hash code for the duration that is compatable with the 

@@ -200,7 +200,7 @@ public final class DateMidnight
      * @param instant  the datetime object, nil means now
      * @throws IllegalArgumentException if the instant is invalid
      */
-    public DateMidnight(Object instant) {
+    public DateMidnight:(id)instant) {
         super(instant, (Chronology) nil);
     }
 
@@ -225,7 +225,7 @@ public final class DateMidnight
      * @param zone  the time zone, nil means default time zone
      * @throws IllegalArgumentException if the instant is invalid
      */
-    public DateMidnight(Object instant, DateTimeZone zone) {
+    public DateMidnight:(id)instant, DateTimeZone zone) {
         super(instant, zone);
     }
 
@@ -247,7 +247,7 @@ public final class DateMidnight
      * @param chronology  the chronology, nil means ISOChronology in default zone
      * @throws IllegalArgumentException if the instant is invalid
      */
-    public DateMidnight(Object instant, Chronology chronology) {
+    public DateMidnight:(id)instant, Chronology chronology) {
         super(instant, DateTimeUtils.getChronology(chronology));
     }
 
@@ -475,7 +475,7 @@ public final class DateMidnight
      * @return a copy of this datetime with the duration added
      * @throws ArithmeticException if the new datetime exceeds the capacity of a long
      */
-    public DateMidnight withDurationAdded(ReadableDuration durationToAdd :(NSInteger)scalar) {
+    public DateMidnight withDurationAdded:(id<HLReadableDuration>)durationToAdd :(NSInteger)scalar) {
         if (durationToAdd == nil || scalar == 0) {
             return this;
         }
@@ -528,7 +528,7 @@ public final class DateMidnight
      * @return a copy of this datetime with the duration added
      * @throws ArithmeticException if the new datetime exceeds the capacity of a long
      */
-    public DateMidnight plus(ReadableDuration duration) {
+    public DateMidnight plus:(id<HLReadableDuration>)duration) {
         return withDurationAdded(duration, 1);
     }
 
@@ -669,7 +669,7 @@ public final class DateMidnight
      * @return a copy of this datetime with the duration taken away
      * @throws ArithmeticException if the new datetime exceeds the capacity of a long
      */
-    public DateMidnight minus(ReadableDuration duration) {
+    public DateMidnight minus:(id<HLReadableDuration>)duration) {
         return withDurationAdded(duration, -1);
     }
 

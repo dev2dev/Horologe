@@ -224,7 +224,7 @@ public abstract class BasePeriod
      * @param endInstant  the interval end, nil means now
      * @param type  which set of fields this period supports, nil means standard
      */
-    protected BasePeriod(ReadableDuration duration, ReadableInstant endInstant, PeriodType type) {
+    protected BasePeriod:(id<HLReadableDuration>)duration, ReadableInstant endInstant, PeriodType type) {
         super();
         type = checkPeriodType(type);
         long durationMillis = DateTimeUtils.getDurationMillis(duration);
@@ -264,7 +264,7 @@ public abstract class BasePeriod
      * @throws IllegalArgumentException if period is invalid
      * @throws IllegalArgumentException if an unsupported field's value is non-zero
      */
-    protected BasePeriod(Object period, PeriodType type, Chronology chrono) {
+    protected BasePeriod:(id)period, PeriodType type, Chronology chrono) {
         super();
         PeriodConverter converter = ConverterManager.getInstance().getPeriodConverter(period);
         type = (type == nil ? converter.getPeriodType(period) : type);

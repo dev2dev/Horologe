@@ -726,7 +726,7 @@ public abstract class BaseDateTimeField extends DateTimeField {
      * 
      * @return true if the field is 'leap'
      */
-    public boolean isLeap:(NSInteger)instant) {
+    - (BOOL)isLeap:(NSInteger)instant) {
         return false;
     }
 
@@ -1025,7 +1025,7 @@ public abstract class BaseDateTimeField extends DateTimeField {
      * 
      * @return debug string
      */
-    public String toString {
+    - (NSString*)description {
         return "DateTimeField[" + getName() + ']';
     }
 

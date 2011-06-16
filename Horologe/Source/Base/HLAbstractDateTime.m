@@ -179,6 +179,4 @@
     return [[HLDateTimeFormat forPattern:pattern withLocale:locale] print:self];
 }
 
-}
-
 @end

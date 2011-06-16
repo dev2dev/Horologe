@@ -146,7 +146,7 @@ public abstract class BaseInterval
      * @throws IllegalArgumentException if the end is before the start
      * @throws ArithmeticException if the start instant exceeds the capacity of a long
      */
-    protected BaseInterval(ReadableDuration duration, ReadableInstant end) {
+    protected BaseInterval:(id<HLReadableDuration>)duration, ReadableInstant end) {
         super();
         iChronology = DateTimeUtils.getInstantChronology(end);
         iEndMillis = DateTimeUtils.getInstantMillis(end);
@@ -211,7 +211,7 @@ public abstract class BaseInterval
      * @param chrono  the chronology to use, nil means let converter decide
      * @throws IllegalArgumentException if the interval is invalid
      */
-    protected BaseInterval(Object interval, Chronology chrono) {
+    protected BaseInterval:(id)interval, Chronology chrono) {
         super();
         IntervalConverter converter = ConverterManager.getInstance().getIntervalConverter(interval);
         if (converter.isReadableInterval(interval, chrono)) {

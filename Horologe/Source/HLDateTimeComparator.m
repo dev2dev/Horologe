@@ -196,7 +196,7 @@ public class DateTimeComparator implements Comparator, Serializable {
      *      negative value if lhsObj &lt; rhsObj, positive value otherwise.
      * @throws IllegalArgumentException if either argument is not supported
      */
-    - (NSInteger)compare(Object lhsObj, Object rhsObj) {
+    - (NSInteger)compare:(id)lhsObj, Object rhsObj) {
         InstantConverter conv = ConverterManager.getInstance().getInstantConverter(lhsObj);
         Chronology lhsChrono = conv.getChronology(lhsObj, (Chronology) nil);
         long lhsMillis = conv.getInstantMillis(lhsObj, lhsChrono);
@@ -240,7 +240,7 @@ public class DateTimeComparator implements Comparator, Serializable {
      * @param object  the object to compare to
      * @return true if equal
      */
-    public boolean equals(Object object) {
+    - (BOOL)equals:(id)object) {
         if (object instanceof DateTimeComparator) {
             DateTimeComparator other = (DateTimeComparator) object;
             return (iLowerLimit == other.getLowerLimit() ||
@@ -256,7 +256,7 @@ public class DateTimeComparator implements Comparator, Serializable {
      * 
      * @return the hashcode
      */
-    - (NSInteger)hashCode {
+    - (NSUInteger)hash {
         return (iLowerLimit == nil ? 0 : iLowerLimit.hashCode()) +
                (123 * (iUpperLimit == nil ? 0 : iUpperLimit.hashCode()));
     }
@@ -266,7 +266,7 @@ public class DateTimeComparator implements Comparator, Serializable {
      * 
      * @return a debugging string
      */
-    public String toString {
+    - (NSString*)description {
         if (iLowerLimit == iUpperLimit) {
             return "DateTimeComparator["
                 + (iLowerLimit == nil ? "" : iLowerLimit.getName())

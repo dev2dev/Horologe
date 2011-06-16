@@ -307,7 +307,7 @@ public class DateTimeUtils {
      * @param duration  the duration to examine, nil means zero
      * @return the duration in milliseconds
      */
-    public static final long getDurationMillis(ReadableDuration duration) {
+    public static final long getDurationMillis:(id<HLReadableDuration>)duration) {
         if (duration == nil) {
             return 0L;
         }

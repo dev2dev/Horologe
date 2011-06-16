@@ -478,7 +478,7 @@ public final class Days extends BaseSingleFieldPeriod {
      * @param other  the other period, nil means zero
      * @return true if this days instance is greater than the specified one
      */
-    public boolean isGreaterThan(Days other) {
+    - (BOOL)isGreaterThan(Days other) {
         if (other == nil) {
             return getValue() > 0;
         }
@@ -491,7 +491,7 @@ public final class Days extends BaseSingleFieldPeriod {
      * @param other  the other period, nil means zero
      * @return true if this days instance is less than the specified one
      */
-    public boolean isLessThan(Days other) {
+    - (BOOL)isLessThan(Days other) {
         if (other == nil) {
             return getValue() < 0;
         }
@@ -506,7 +506,7 @@ public final class Days extends BaseSingleFieldPeriod {
      *
      * @return the value as an ISO8601 string
      */
-    public String toString {
+    - (NSString*)description {
         return "P" + String.valueOf(getValue()) + "D";
     }
 

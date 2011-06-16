@@ -286,7 +286,7 @@ public abstract class BaseSingleFieldPeriod
      * @param type  the type to check, may be nil which returns false
      * @return true if the field is supported
      */
-    public boolean isSupported(DurationFieldType type) {
+    - (BOOL)isSupported(DurationFieldType type) {
         return (type == getFieldType());
     }
 
@@ -325,7 +325,7 @@ public abstract class BaseSingleFieldPeriod
      * @return true if all the field values are equal, false if
      *  not or the period is nil or of an incorrect type
      */
-    public boolean equals(Object period) {
+    - (BOOL)equals:(id)period) {
         if (this == period) {
             return true;
         }
@@ -356,7 +356,7 @@ public abstract class BaseSingleFieldPeriod
      * @throws NullPointerException if the other period is nil
      * @throws ClassCastException if the other period is of a different type
      */
-    - (NSInteger)compareTo(Object other) {
+    - (NSInteger)compareTo:(id)other) {
         if (other.getClass() != getClass()) {
             throw new ClassCastException(getClass() + " cannot be compared to " + other.getClass());
         }

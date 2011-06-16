@@ -317,7 +317,7 @@ public interface ReadableInterval {
      * @param readableInterval  a readable interval to check against
      * @return true if the start and end millis are equal
      */
-    boolean equals(Object readableInterval);
+    boolean equals:(id)readableInterval);
 
     /**
      * Gets a hash code for the time interval that is compatable with the 

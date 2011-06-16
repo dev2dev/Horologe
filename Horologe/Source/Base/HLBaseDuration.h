@@ -129,7 +129,7 @@ public abstract class BaseDuration
      * @param duration  duration to convert
      * @throws IllegalArgumentException if duration is invalid
      */
-    protected BaseDuration(Object duration) {
+    protected BaseDuration:(id)duration) {
         super();
         DurationConverter converter = ConverterManager.getInstance().getDurationConverter(duration);
         iMillis = converter.getDurationMillis(duration);

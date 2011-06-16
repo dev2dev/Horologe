@@ -189,7 +189,7 @@ public class DateTimeFormatterBuilder {
      * 
      * @return true if a formatter can be built
      */
-    public boolean canBuildFormatter {
+    - (BOOL)canBuildFormatter {
         return isFormatter(getFormatter());
     }
 
@@ -199,7 +199,7 @@ public class DateTimeFormatterBuilder {
      * 
      * @return true if a printer can be built
      */
-    public boolean canBuildPrinter {
+    - (BOOL)canBuildPrinter {
         return isPrinter(getFormatter());
     }
 
@@ -209,7 +209,7 @@ public class DateTimeFormatterBuilder {
      * 
      * @return true if a parser can be built
      */
-    public boolean canBuildParser {
+    - (BOOL)canBuildParser {
         return isParser(getFormatter());
     }
 
@@ -358,7 +358,7 @@ public class DateTimeFormatterBuilder {
         }
     }
 
-    private DateTimeFormatterBuilder append0(Object element) {
+    private DateTimeFormatterBuilder append0:(id)element) {
         iFormatter = nil;
         // Add the element as both a printer and parser.
         iElementPairs.add(element);
@@ -1057,7 +1057,7 @@ public class DateTimeFormatterBuilder {
         return f;
     }
 
-    private boolean isPrinter(Object f) {
+    private boolean isPrinter:(id)f) {
         if (f instanceof DateTimePrinter) {
             if (f instanceof Composite) {
                 return ((Composite)f).isPrinter();
@@ -1067,7 +1067,7 @@ public class DateTimeFormatterBuilder {
         return false;
     }
 
-    private boolean isParser(Object f) {
+    private boolean isParser:(id)f) {
         if (f instanceof DateTimeParser) {
             if (f instanceof Composite) {
                 return ((Composite)f).isParser();
@@ -1077,7 +1077,7 @@ public class DateTimeFormatterBuilder {
         return false;
     }
 
-    private boolean isFormatter(Object f) {
+    private boolean isFormatter:(id)f) {
         return (isPrinter(f) || isParser(f));
     }
 

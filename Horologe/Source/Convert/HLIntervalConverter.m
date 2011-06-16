@@ -63,7 +63,7 @@ public interface IntervalConverter extends Converter {
      * @return true if the input is a ReadableInterval
      * @throws ClassCastException if the object is invalid
      */
-    boolean isReadableInterval(Object object, Chronology chrono);
+    boolean isReadableInterval:(id)object, Chronology chrono);
 
     /**
      * Extracts interval endpoint values from an object of this converter's

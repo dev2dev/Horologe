@@ -664,7 +664,7 @@ public class PeriodType implements Serializable {
      * @param type  the type to check, may be nil which returns false
      * @return true if the field is supported
      */
-    public boolean isSupported(DurationFieldType type) {
+    - (BOOL)isSupported(DurationFieldType type) {
         return (indexOf(type) >= 0);
     }
 
@@ -861,7 +861,7 @@ public class PeriodType implements Serializable {
      * @param obj  the object to compare to
      * @return true if equal
      */
-    public boolean equals(Object obj) {
+    - (BOOL)equals:(id)obj) {
         if (this == obj) {
             return true;
         }

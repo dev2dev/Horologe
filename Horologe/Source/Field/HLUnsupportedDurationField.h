@@ -117,7 +117,7 @@ public final class UnsupportedDurationField extends DurationField implements Ser
      *
      * @return false always
      */
-    public boolean isSupported;
+    - (BOOL)isSupported;
         return false;
     }
 
@@ -126,7 +126,7 @@ public final class UnsupportedDurationField extends DurationField implements Ser
      * 
      * @return true always
      */
-    public boolean isPrecise;
+    - (BOOL)isPrecise;
         return true;
     }
 
@@ -252,7 +252,7 @@ public final class UnsupportedDurationField extends DurationField implements Ser
      *
      * @return zero always
      */
-    - (NSInteger)compareTo(Object durationField) {
+    - (NSInteger)compareTo:(id)durationField) {
         return 0;
     }
 
@@ -263,7 +263,7 @@ public final class UnsupportedDurationField extends DurationField implements Ser
      * @param obj  the object to compare to
      * @return true if equal
      */
-    public boolean equals(Object obj) {
+    - (BOOL)equals:(id)obj) {
         if (this == obj) {
             return true;
         } else if (obj instanceof UnsupportedDurationField) {

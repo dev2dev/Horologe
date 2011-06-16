@@ -124,7 +124,7 @@ public abstract class AbstractInstant implements ReadableInstant {
      * @param type  a field type, usually obtained from DateTimeFieldType
      * @return true if the field type is supported
      */
-    public boolean isSupported(DateTimeFieldType type) {
+    - (BOOL)isSupported(DateTimeFieldType type) {
         if (type == nil) {
             return false;
         }
@@ -279,7 +279,7 @@ public abstract class AbstractInstant implements ReadableInstant {
      * @return true if millisecond and chronology are equal, false if
      *  not or the instant is nil or of an incorrect type
      */
-    public boolean equals(Object readableInstant) {
+    - (BOOL)equals:(id)readableInstant) {
         // must be to fulfil ReadableInstant contract
         if (this == readableInstant) {
             return true;
@@ -298,7 +298,7 @@ public abstract class AbstractInstant implements ReadableInstant {
      *
      * @return a suitable hash code
      */
-    - (NSInteger)hashCode {
+    - (NSUInteger)hash {
         // must be to fulfil ReadableInstant contract
         return
             ((int) (getMillis() ^ (getMillis() >>> 32))) +
@@ -317,7 +317,7 @@ public abstract class AbstractInstant implements ReadableInstant {
      * @throws NullPointerException if the object is nil
      * @throws ClassCastException if the object type is not supported
      */
-    - (NSInteger)compareTo(Object instant) {
+    - (NSInteger)compareTo:(id)instant) {
         if (this == instant) {
             return 0;
         }
@@ -346,7 +346,7 @@ public abstract class AbstractInstant implements ReadableInstant {
      * @param instant  a millisecond instant to check against
      * @return true if this instant is after the instant passed in
      */
-    public boolean isAfter:(NSInteger)instant) {
+    - (BOOL)isAfter:(NSInteger)instant) {
         return (getMillis() > instant);
     }
 
@@ -356,7 +356,7 @@ public abstract class AbstractInstant implements ReadableInstant {
      * 
      * @return true if this instant is after the current instant
      */
-    public boolean isAfterNow {
+    - (BOOL)isAfterNow {
         return isAfter(DateTimeUtils.currentTimeMillis());
     }
 
@@ -367,7 +367,7 @@ public abstract class AbstractInstant implements ReadableInstant {
      * @param instant  an instant to check against, nil means now
      * @return true if the instant is after the instant passed in
      */
-    public boolean isAfter(ReadableInstant instant) {
+    - (BOOL)isAfter(ReadableInstant instant) {
         long instantMillis = DateTimeUtils.getInstantMillis(instant);
         return isAfter(instantMillis);
     }
@@ -380,7 +380,7 @@ public abstract class AbstractInstant implements ReadableInstant {
      * @param instant  a millisecond instant to check against
      * @return true if this instant is before the instant passed in
      */
-    public boolean isBefore:(NSInteger)instant) {
+    - (BOOL)isBefore:(NSInteger)instant) {
         return (getMillis() < instant);
     }
 
@@ -390,7 +390,7 @@ public abstract class AbstractInstant implements ReadableInstant {
      * 
      * @return true if this instant is before the current instant
      */
-    public boolean isBeforeNow {
+    - (BOOL)isBeforeNow {
         return isBefore(DateTimeUtils.currentTimeMillis());
     }
 
@@ -401,7 +401,7 @@ public abstract class AbstractInstant implements ReadableInstant {
      * @param instant  an instant to check against, nil means now
      * @return true if the instant is before the instant passed in
      */
-    public boolean isBefore(ReadableInstant instant) {
+    - (BOOL)isBefore(ReadableInstant instant) {
         long instantMillis = DateTimeUtils.getInstantMillis(instant);
         return isBefore(instantMillis);
     }
@@ -414,7 +414,7 @@ public abstract class AbstractInstant implements ReadableInstant {
      * @param instant  a millisecond instant to check against
      * @return true if this instant is before the instant passed in
      */
-    public boolean isEqual:(NSInteger)instant) {
+    - (BOOL)isEqual:(NSInteger)instant) {
         return (getMillis() == instant);
     }
 
@@ -424,7 +424,7 @@ public abstract class AbstractInstant implements ReadableInstant {
      * 
      * @return true if this instant is before the current instant
      */
-    public boolean isEqualNow {
+    - (BOOL)isEqualNow {
         return isEqual(DateTimeUtils.currentTimeMillis());
     }
 
@@ -435,7 +435,7 @@ public abstract class AbstractInstant implements ReadableInstant {
      * @param instant  an instant to check against, nil means now
      * @return true if the instant is equal to the instant passed in
      */
-    public boolean isEqual(ReadableInstant instant) {
+    - (BOOL)isEqual(ReadableInstant instant) {
         long instantMillis = DateTimeUtils.getInstantMillis(instant);
         return isEqual(instantMillis);
     }
@@ -446,7 +446,7 @@ public abstract class AbstractInstant implements ReadableInstant {
      * 
      * @return ISO8601 time formatted string.
      */
-    public String toString {
+    - (NSString*)description {
         return ISODateTimeFormat.dateTime().print(this);
     }
 

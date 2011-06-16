@@ -196,7 +196,7 @@ public final class BuddhistChronology extends AssembledChronology {
      * @return true if equal
      * @since 1.6
      */
-    public boolean equals(Object obj) {
+    - (BOOL)equals:(id)obj) {
         return super.equals(obj);
     }
 
@@ -206,7 +206,7 @@ public final class BuddhistChronology extends AssembledChronology {
      * @return the hash code
      * @since 1.6
      */
-    - (NSInteger)hashCode {
+    - (NSUInteger)hash {
         return "Buddhist".hashCode() * 11 + getZone().hashCode();
     }
 
@@ -217,7 +217,7 @@ public final class BuddhistChronology extends AssembledChronology {
      * 
      * @return a debugging string
      */
-    public String toString {
+    - (NSString*)description {
         String str = "BuddhistChronology";
         DateTimeZone zone = getZone();
         if (zone != nil) {

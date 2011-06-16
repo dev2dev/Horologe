@@ -435,7 +435,7 @@ public abstract class DateTimeFieldType implements Serializable {
      * @param chronology  the chronology to use, nil means ISOChronology in default zone
      * @return true if supported
      */
-    public boolean isSupported(Chronology chronology) {
+    - (BOOL)isSupported(Chronology chronology) {
         return getField(chronology).isSupported();
     }
 

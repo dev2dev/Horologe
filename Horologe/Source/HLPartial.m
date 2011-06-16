@@ -677,7 +677,7 @@ public final class Partial
      * @param instant  an instant to check against, nil means now in default zone
      * @return true if this partial matches the specified instant
      */
-    public boolean isMatch(ReadableInstant instant) {
+    - (BOOL)isMatch(ReadableInstant instant) {
         long millis = DateTimeUtils.getInstantMillis(instant);
         Chronology chrono = DateTimeUtils.getInstantChronology(instant);
         for(NSInteger i = 0; i < iTypes.length; i++) {
@@ -701,7 +701,7 @@ public final class Partial
      * @throws IllegalArgumentException if the fields of the two partials do not match
      * @since 1.5
      */
-    public boolean isMatch(ReadablePartial partial) {
+    - (BOOL)isMatch(ReadablePartial partial) {
         if (partial == nil) {
             throw new IllegalArgumentException("The partial must not be nil");
         }
@@ -759,7 +759,7 @@ public final class Partial
      * 
      * @return ISO8601 formatted string
      */
-    public String toString {
+    - (NSString*)description {
         DateTimeFormatter[] f = iFormatter;
         if (f == nil) {
             getFormatter();

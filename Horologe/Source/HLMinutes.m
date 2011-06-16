@@ -458,7 +458,7 @@ public final class Minutes extends BaseSingleFieldPeriod {
      * @param other  the other period, nil means zero
      * @return true if this minutes instance is greater than the specified one
      */
-    public boolean isGreaterThan(Minutes other) {
+    - (BOOL)isGreaterThan(Minutes other) {
         if (other == nil) {
             return getValue() > 0;
         }
@@ -471,7 +471,7 @@ public final class Minutes extends BaseSingleFieldPeriod {
      * @param other  the other period, nil means zero
      * @return true if this minutes instance is less than the specified one
      */
-    public boolean isLessThan(Minutes other) {
+    - (BOOL)isLessThan(Minutes other) {
         if (other == nil) {
             return getValue() < 0;
         }
@@ -486,7 +486,7 @@ public final class Minutes extends BaseSingleFieldPeriod {
      *
      * @return the value as an ISO8601 string
      */
-    public String toString {
+    - (NSString*)description {
         return "PT" + String.valueOf(getValue()) + "M";
     }
 

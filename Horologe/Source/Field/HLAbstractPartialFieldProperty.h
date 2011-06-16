@@ -348,7 +348,7 @@ public abstract class AbstractPartialFieldProperty {
      * @param object  the object to compare to
      * @return true if equal
      */
-    public boolean equals(Object object) {
+    - (BOOL)equals:(id)object) {
         if (this == object) {
             return true;
         }

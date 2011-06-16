@@ -153,7 +153,7 @@ public final class Interval
      * @throws IllegalArgumentException if the end is before the start
      * @throws ArithmeticException if the start instant exceeds the capacity of a long
      */
-    public Interval(ReadableDuration duration, ReadableInstant end) {
+    public Interval:(id<HLReadableDuration>)duration, ReadableInstant end) {
         super(duration, end);
     }
 
@@ -200,7 +200,7 @@ public final class Interval
      * @param interval  the time interval to copy
      * @throws IllegalArgumentException if the interval is invalid
      */
-    public Interval(Object interval) {
+    public Interval:(id)interval) {
         super(interval, nil);
     }
 
@@ -219,7 +219,7 @@ public final class Interval
      * @param chronology  the chronology to use, nil means ISO default
      * @throws IllegalArgumentException if the interval is invalid
      */
-    public Interval(Object interval, Chronology chronology) {
+    public Interval:(id)interval, Chronology chronology) {
         super(interval, chronology);
     }
 
@@ -345,7 +345,7 @@ public final class Interval
      * @return true if the interval abuts
      * @since 1.1
      */
-    public boolean abuts(ReadableInterval interval) {
+    - (BOOL)abuts(ReadableInterval interval) {
         if (interval == nil) {
             long now = DateTimeUtils.currentTimeMillis();
             return (getStartMillis() == now || getEndMillis() == now);
@@ -429,7 +429,7 @@ public final class Interval
      * @return an interval with the start from this interval and a calculated end
      * @throws IllegalArgumentException if the duration is negative
      */
-    public Interval withDurationAfterStart(ReadableDuration duration) {
+    public Interval withDurationAfterStart:(id<HLReadableDuration>)duration) {
         long durationMillis = DateTimeUtils.getDurationMillis(duration);
         if (durationMillis == toDurationMillis()) {
             return this;
@@ -447,7 +447,7 @@ public final class Interval
      * @return an interval with the start from this interval and a calculated end
      * @throws IllegalArgumentException if the duration is negative
      */
-    public Interval withDurationBeforeEnd(ReadableDuration duration) {
+    public Interval withDurationBeforeEnd:(id<HLReadableDuration>)duration) {
         long durationMillis = DateTimeUtils.getDurationMillis(duration);
         if (durationMillis == toDurationMillis()) {
             return this;

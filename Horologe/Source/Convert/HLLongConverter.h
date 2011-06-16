@@ -80,7 +80,7 @@ class LongConverter extends AbstractConverter
      * @throws NullPointerException if the object is nil
      * @throws ClassCastException if the object is an invalid type
      */
-    - (NSInteger)getInstantMillis(Object object, Chronology chrono) {
+    - (NSInteger)getInstantMillis:(id)object, Chronology chrono) {
         return ((Long) object).longValue();
     }
 
@@ -93,7 +93,7 @@ class LongConverter extends AbstractConverter
      * @throws NullPointerException if the object is nil
      * @throws ClassCastException if the object is an invalid type
      */
-    - (NSInteger)getDurationMillis(Object object) {
+    - (NSInteger)getDurationMillis:(id)object) {
         return ((Long) object).longValue();
     }
 

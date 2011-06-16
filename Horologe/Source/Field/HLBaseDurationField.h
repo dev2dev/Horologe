@@ -171,7 +171,7 @@ public abstract class BaseDurationField extends DurationField implements Seriali
     }
 
     //------------------------------------------------------------------------
-    - (NSInteger)compareTo(Object durationField) {
+    - (NSInteger)compareTo:(id)durationField) {
         DurationField otherField = (DurationField) durationField;
         long otherMillis = otherField.getUnitMillis();
         long thisMillis = getUnitMillis();

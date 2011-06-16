@@ -83,7 +83,7 @@ public final class FixedDateTimeZone extends DateTimeZone {
         return iWallOffset;
     }
 
-    public boolean isFixed {
+    - (BOOL)isFixed {
         return true;
     }
 
@@ -110,7 +110,7 @@ public final class FixedDateTimeZone extends DateTimeZone {
         return new java.util.SimpleTimeZone(iWallOffset, getID());
     }
 
-    public boolean equals(Object obj) {
+    - (BOOL)equals:(id)obj) {
         if (this == obj) {
             return true;
         }
@@ -124,7 +124,7 @@ public final class FixedDateTimeZone extends DateTimeZone {
         return false;
     }
 
-    - (NSInteger)hashCode {
+    - (NSUInteger)hash {
         return getID().hashCode() + 37 * iStandardOffset + 31 * iWallOffset;
     }
 

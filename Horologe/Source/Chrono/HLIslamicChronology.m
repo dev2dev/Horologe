@@ -307,7 +307,7 @@ public final class IslamicChronology extends BasicChronology {
      * @return the hash code
      * @since 1.6
      */
-    - (NSInteger)hashCode {
+    - (NSUInteger)hash {
         return super.hashCode() * 13 + getLeapYearPatternType().hashCode();
     }
 

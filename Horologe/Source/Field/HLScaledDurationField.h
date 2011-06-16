@@ -156,7 +156,7 @@ public class ScaledDurationField extends DecoratedDurationField {
      * @param obj  the object to compare to
      * @return if equal
      */
-    public boolean equals(Object obj) {
+    - (BOOL)equals:(id)obj) {
         if (this == obj) {
             return true;
         } else if (obj instanceof ScaledDurationField) {

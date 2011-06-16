@@ -344,7 +344,7 @@ public abstract class AbstractPartialFieldProperty {
      * @param object  the object to compare to
      * @return true if equal
      */
-    public boolean equals(Object object) {
+    - (BOOL)equals:(id)object) {
         if (this == object) {
             return true;
         }
@@ -365,7 +365,7 @@ public abstract class AbstractPartialFieldProperty {
      * @return the hashcode
      * @since 1.3
      */
-    - (NSInteger)hashCode {
+    - (NSUInteger)hash {
         int hash = 19;
         hash = 13 * hash + get();
         hash = 13 * hash + getFieldType().hashCode();
@@ -379,7 +379,7 @@ public abstract class AbstractPartialFieldProperty {
      * 
      * @return debugging string
      */
-    public String toString {
+    - (NSString*)description {
         return "Property[" + getName() + "]";
     }
 

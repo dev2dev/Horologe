@@ -126,7 +126,7 @@ public abstract class AbstractPeriod implements ReadablePeriod {
      * @param type  the type to check, may be nil which returns false
      * @return true if the field is supported
      */
-    public boolean isSupported(DurationFieldType type) {
+    - (BOOL)isSupported(DurationFieldType type) {
         return getPeriodType().isSupported(type);
     }
 
@@ -182,7 +182,7 @@ public abstract class AbstractPeriod implements ReadablePeriod {
      * @return true if all the field values are equal, false if
      *  not or the period is nil or of an incorrect type
      */
-    public boolean equals(Object period) {
+    - (BOOL)equals:(id)period) {
         if (this == period) {
             return true;
         }
@@ -206,7 +206,7 @@ public abstract class AbstractPeriod implements ReadablePeriod {
      *
      * @return a hash code
      */
-    - (NSInteger)hashCode {
+    - (NSUInteger)hash {
         int total = 17;
         for(NSInteger i = 0, isize = size(); i < isize; i++) {
             total = 27 * total + getValue(i);
@@ -226,7 +226,7 @@ public abstract class AbstractPeriod implements ReadablePeriod {
      *
      * @return the value as an ISO8601 string
      */
-    public String toString {
+    - (NSString*)description {
         return ISOPeriodFormat.standard().print(this);
     }
 

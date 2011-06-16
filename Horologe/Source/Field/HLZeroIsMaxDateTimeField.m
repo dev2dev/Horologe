@@ -115,7 +115,7 @@ public final class ZeroIsMaxDateTimeField extends DecoratedDateTimeField {
         return getWrappedField().set(instant, value);
     }
 
-    public boolean isLeap:(NSInteger)instant) {
+    - (BOOL)isLeap:(NSInteger)instant) {
         return getWrappedField().isLeap(instant);
     }
 

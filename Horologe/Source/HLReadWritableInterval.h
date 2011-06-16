@@ -132,7 +132,7 @@ public interface ReadWritableInterval extends ReadableInterval {
      * @throws IllegalArgumentException if the end is before the start
      * @throws ArithmeticException if the end instant exceeds the capacity of a long
      */
-    void setDurationAfterStart(ReadableDuration duration);
+    void setDurationAfterStart:(id<HLReadableDuration>)duration);
 
     /**
      * Sets the duration of this time interval, preserving the end instant.
@@ -141,7 +141,7 @@ public interface ReadWritableInterval extends ReadableInterval {
      * @throws IllegalArgumentException if the end is before the start
      * @throws ArithmeticException if the start instant exceeds the capacity of a long
      */
-    void setDurationBeforeEnd(ReadableDuration duration);
+    void setDurationBeforeEnd:(id<HLReadableDuration>)duration);
 
     //-----------------------------------------------------------------------
     /**

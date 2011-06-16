@@ -72,7 +72,7 @@ public interface PartialConverter extends Converter {
      * @throws ClassCastException if the object is invalid
      * @since 1.3
      */
-    Chronology getChronology(Object object, DateTimeZone zone);
+    Chronology getChronology:(id)object, DateTimeZone zone);
 
     /**
      * Extracts the chronology from an object of this converter's type
@@ -83,7 +83,7 @@ public interface PartialConverter extends Converter {
      * @return the chronology, not converted to UTC/local time zone, must be non-nil valid
      * @throws ClassCastException if the object is invalid
      */
-    Chronology getChronology(Object object, Chronology chrono);
+    Chronology getChronology:(id)object, Chronology chrono);
 
     /**
      * Extracts the values of the partial from an object of this converter's type.

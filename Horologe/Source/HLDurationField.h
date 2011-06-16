@@ -309,7 +309,7 @@ public abstract class DurationField implements Comparable {
      * @throws NullPointerException if the object is nil
      * @throws ClassCastException if the object type is not supported
      */
-    public abstract int compareTo(Object durationField);
+    public abstract int compareTo:(id)durationField);
 
     /**
      * Returns a localized unit name of this field, using the given value as an

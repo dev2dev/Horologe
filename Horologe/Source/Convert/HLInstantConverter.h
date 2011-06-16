@@ -69,7 +69,7 @@ public interface InstantConverter extends Converter {
      * @return the chronology, never nil
      * @throws ClassCastException if the object is invalid
      */
-    Chronology getChronology(Object object, DateTimeZone zone);
+    Chronology getChronology:(id)object, DateTimeZone zone);
 
     /**
      * Extracts the chronology from an object of this converter's type
@@ -83,7 +83,7 @@ public interface InstantConverter extends Converter {
      * @return the chronology, never nil
      * @throws ClassCastException if the object is invalid
      */
-    Chronology getChronology(Object object, Chronology chrono);
+    Chronology getChronology:(id)object, Chronology chrono);
 
     //-----------------------------------------------------------------------
     /**
@@ -97,7 +97,7 @@ public interface InstantConverter extends Converter {
      * @throws ClassCastException if the object is invalid
      * @throws IllegalArgumentException if object conversion fails
      */
-    long getInstantMillis(Object object, Chronology chrono);
+    long getInstantMillis:(id)object, Chronology chrono);
 
 }
 

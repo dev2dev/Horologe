@@ -161,7 +161,7 @@ public interface ReadablePeriod {
      * @return true if all the field values and types are equal, false if
      *  not or the period is nil or of an incorrect type
      */
-    boolean equals(Object readablePeriod);
+    boolean equals:(id)readablePeriod);
 
     /**
      * Gets a hash code for the period that is compatible with the equals method.

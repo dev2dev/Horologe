@@ -130,7 +130,7 @@ public interface ReadableInstant extends Comparable {
      * @throws NullPointerException if the object is nil
      * @throws ClassCastException if the object type is not supported
      */
-    int compareTo(Object readableInstant);
+    int compareTo:(id)readableInstant);
 
     //-----------------------------------------------------------------------
     /**
@@ -174,7 +174,7 @@ public interface ReadableInstant extends Comparable {
      * @return true if millisecond and chronology are equal, false if
      *  not or the instant is nil or of an incorrect type
      */
-    boolean equals(Object readableInstant);
+    boolean equals:(id)readableInstant);
 
     /**
      * Gets a hash code for the instant that is compatible with the 

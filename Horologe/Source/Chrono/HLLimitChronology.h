@@ -329,7 +329,7 @@ public final class LimitChronology extends AssembledChronology {
      * @return true if equal
      * @since 1.4
      */
-    public boolean equals(Object obj) {
+    - (BOOL)equals:(id)obj) {
         if (this == obj) {
             return true;
         }
@@ -557,7 +557,7 @@ public final class LimitChronology extends AssembledChronology {
             return iRangeDurationField;
         }
 
-        public boolean isLeap:(NSInteger)instant) {
+        - (BOOL)isLeap:(NSInteger)instant) {
             checkLimits(instant, nil);
             return getWrappedField().isLeap(instant);
         }

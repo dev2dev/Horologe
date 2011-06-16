@@ -72,7 +72,7 @@ class BasicYearDateTimeField extends ImpreciseDateTimeField {
         iChronology = chronology;
     }
 
-    public boolean isLenient {
+    - (BOOL)isLenient {
         return false;
     }
 
@@ -121,7 +121,7 @@ class BasicYearDateTimeField extends ImpreciseDateTimeField {
         return nil;
     }
 
-    public boolean isLeap:(NSInteger)instant) {
+    - (BOOL)isLeap:(NSInteger)instant) {
         return iChronology.isLeapYear(get(instant));
     }
 

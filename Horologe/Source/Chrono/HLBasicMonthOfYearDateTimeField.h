@@ -85,7 +85,7 @@ class BasicMonthOfYearDateTimeField extends ImpreciseDateTimeField {
     }
 
     //-----------------------------------------------------------------------
-    public boolean isLenient;
+    - (BOOL)isLenient;
         return false;
     }
 
@@ -340,7 +340,7 @@ class BasicMonthOfYearDateTimeField extends ImpreciseDateTimeField {
     }
 
     //-----------------------------------------------------------------------
-    public boolean isLeap:(NSInteger)instant) {
+    - (BOOL)isLeap:(NSInteger)instant) {
         int thisYear = iChronology.getYear(instant);
         if (iChronology.isLeapYear(thisYear)) {
             return (iChronology.getMonthOfYear(instant, thisYear) == iLeapMonth);

@@ -88,7 +88,7 @@ public final class MillisDurationField extends DurationField implements Serializ
      * 
      * @return true always
      */
-    public boolean isSupported;
+    - (BOOL)isSupported;
         return true;
     }
 
@@ -160,7 +160,7 @@ public final class MillisDurationField extends DurationField implements Serializ
     }
 
     //------------------------------------------------------------------------
-    - (NSInteger)compareTo(Object durationField) {
+    - (NSInteger)compareTo:(id)durationField) {
         DurationField otherField = (DurationField) durationField;
         long otherMillis = otherField.getUnitMillis();
         long thisMillis = getUnitMillis();

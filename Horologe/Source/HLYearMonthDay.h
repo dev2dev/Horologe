@@ -256,7 +256,7 @@ public final class YearMonthDay
      * @param instant  the datetime object, nil means now
      * @throws IllegalArgumentException if the instant is invalid
      */
-    public YearMonthDay(Object instant) {
+    public YearMonthDay:(id)instant) {
         super(instant, nil, ISODateTimeFormat.dateOptionalTimeParser());
     }
 
@@ -281,7 +281,7 @@ public final class YearMonthDay
      * @param chronology  the chronology, nil means ISO default
      * @throws IllegalArgumentException if the instant is invalid
      */
-    public YearMonthDay(Object instant, Chronology chronology) {
+    public YearMonthDay:(id)instant, Chronology chronology) {
         super(instant, DateTimeUtils.getChronology(chronology), ISODateTimeFormat.dateOptionalTimeParser());
     }
 

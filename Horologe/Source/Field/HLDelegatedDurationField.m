@@ -111,11 +111,11 @@ public class DelegatedDurationField extends DurationField implements Serializabl
     /**
      * Returns true if this field is supported.
      */
-    public boolean isSupported {
+    - (BOOL)isSupported {
         return iField.isSupported();
     }
 
-    public boolean isPrecise {
+    - (BOOL)isPrecise {
         return iField.isPrecise();
     }
     
@@ -171,11 +171,11 @@ public class DelegatedDurationField extends DurationField implements Serializabl
         return iField.getUnitMillis();
     }
 
-    - (NSInteger)compareTo(Object durationField) {
+    - (NSInteger)compareTo:(id)durationField) {
         return iField.compareTo(durationField);
     }
 
-    public String toString {
+    - (NSString*)description {
         return (iType == nil) ? iField.toString() :
             ("DurationField[" + iType + ']');
     }

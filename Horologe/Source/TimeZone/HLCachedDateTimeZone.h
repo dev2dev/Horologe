@@ -145,7 +145,7 @@ public class CachedDateTimeZone extends DateTimeZone {
         return getInfo(instant).getStandardOffset(instant);
     }
 
-    public boolean isFixed;
+    - (BOOL)isFixed;
         return iZone.isFixed();
     }
 
@@ -161,7 +161,7 @@ public class CachedDateTimeZone extends DateTimeZone {
         return iZone.hashCode();
     }
 
-    public boolean equals(Object obj) {
+    - (BOOL)equals:(id)obj) {
         if (this == obj) {
             return true;
         }

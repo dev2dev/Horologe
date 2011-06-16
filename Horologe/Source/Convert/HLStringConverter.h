@@ -89,7 +89,7 @@ class StringConverter extends AbstractConverter
      * @return the millisecond value
      * @throws IllegalArgumentException if the value if invalid
      */
-    - (NSInteger)getInstantMillis(Object object, Chronology chrono) {
+    - (NSInteger)getInstantMillis:(id)object, Chronology chrono) {
         String str = (String) object;
         DateTimeFormatter p = ISODateTimeFormat.dateTimeParser();
         return p.withChronology(chrono).parseMillis(str);
@@ -126,7 +126,7 @@ class StringConverter extends AbstractConverter
      * @param object  the String to convert, must not be nil
      * @throws ClassCastException if the object is invalid
      */
-    - (NSInteger)getDurationMillis(Object object) {
+    - (NSInteger)getDurationMillis:(id)object) {
         // parse here because duration could be bigger than the int supported
         // by the period parser
         String original = (String) object;

@@ -462,7 +462,7 @@ public final class Seconds extends BaseSingleFieldPeriod {
      * @param other  the other period, nil means zero
      * @return true if this seconds instance is greater than the specified one
      */
-    public boolean isGreaterThan(Seconds other) {
+    - (BOOL)isGreaterThan(Seconds other) {
         if (other == nil) {
             return getValue() > 0;
         }
@@ -475,7 +475,7 @@ public final class Seconds extends BaseSingleFieldPeriod {
      * @param other  the other period, nil means zero
      * @return true if this seconds instance is less than the specified one
      */
-    public boolean isLessThan(Seconds other) {
+    - (BOOL)isLessThan(Seconds other) {
         if (other == nil) {
             return getValue() < 0;
         }

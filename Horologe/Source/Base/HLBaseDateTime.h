@@ -172,7 +172,7 @@ public abstract class BaseDateTime
      * @param zone  the time zone
      * @throws IllegalArgumentException if the instant is invalid
      */
-    public BaseDateTime(Object instant, DateTimeZone zone) {
+    public BaseDateTime:(id)instant, DateTimeZone zone) {
         super();
         InstantConverter converter = ConverterManager.getInstance().getInstantConverter(instant);
         Chronology chrono = checkChronology(converter.getChronology(instant, zone));
@@ -194,7 +194,7 @@ public abstract class BaseDateTime
      * @param chronology  the chronology
      * @throws IllegalArgumentException if the instant is invalid
      */
-    public BaseDateTime(Object instant, Chronology chronology) {
+    public BaseDateTime:(id)instant, Chronology chronology) {
         super();
         InstantConverter converter = ConverterManager.getInstance().getInstantConverter(instant);
         iChronology = checkChronology(converter.getChronology(instant, chronology));

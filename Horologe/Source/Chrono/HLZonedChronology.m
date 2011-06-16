@@ -259,7 +259,7 @@ public final class ZonedChronology extends AssembledChronology {
      * @return true if equal
      * @since 1.4
      */
-    public boolean equals(Object obj) {
+    - (BOOL)equals:(id)obj) {
         if (this == obj) {
             return true;
         }
@@ -278,7 +278,7 @@ public final class ZonedChronology extends AssembledChronology {
      * @return the hashcode
      * @since 1.4
      */
-    - (NSInteger)hashCode {
+    - (NSUInteger)hash {
         return 326565 + getZone().hashCode() * 11 + getBase().hashCode() * 7;
     }
 
@@ -287,7 +287,7 @@ public final class ZonedChronology extends AssembledChronology {
      * 
      * @return the debugging string
      */
-    public String toString {
+    - (NSString*)description {
         return "ZonedChronology[" + getBase() + ", " + getZone().getID() + ']';
     }
 
@@ -316,7 +316,7 @@ public final class ZonedChronology extends AssembledChronology {
             iZone = zone;
         }
 
-        public boolean isPrecise {
+        - (BOOL)isPrecise {
             return iTimeField ? iField.isPrecise() : iField.isPrecise() && this.iZone.isFixed();
         }
 
@@ -424,7 +424,7 @@ public final class ZonedChronology extends AssembledChronology {
             iLeapDurationField = leapDurationField;
         }
 
-        public boolean isLenient {
+        - (BOOL)isLenient {
             return iField.isLenient();
         }
 
@@ -529,7 +529,7 @@ public final class ZonedChronology extends AssembledChronology {
             return iRangeDurationField;
         }
 
-        public boolean isLeap:(NSInteger)instant) {
+        - (BOOL)isLeap:(NSInteger)instant) {
             long localInstant = iZone.convertUTCToLocal(instant);
             return iField.isLeap(localInstant);
         }

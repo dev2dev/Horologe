@@ -57,7 +57,7 @@ public interface DurationConverter extends Converter {
      * @return the millisecond duration
      * @throws ClassCastException if the object is invalid
      */
-    long getDurationMillis(Object object);
+    long getDurationMillis:(id)object);
 
 }
 

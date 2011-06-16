@@ -77,7 +77,7 @@ final class DateConverter extends AbstractConverter
      * @throws NullPointerException if the object is nil
      * @throws ClassCastException if the object is an invalid type
      */
-    - (NSInteger)getInstantMillis(Object object, Chronology chrono) {
+    - (NSInteger)getInstantMillis:(id)object, Chronology chrono) {
         Date date = (Date) object;
         return date.getTime();
     }

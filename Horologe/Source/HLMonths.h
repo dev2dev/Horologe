@@ -388,7 +388,7 @@ public final class Months extends BaseSingleFieldPeriod {
      * @param other  the other period, nil means zero
      * @return true if this months instance is greater than the specified one
      */
-    public boolean isGreaterThan(Months other) {
+    - (BOOL)isGreaterThan(Months other) {
         if (other == nil) {
             return getValue() > 0;
         }
@@ -401,7 +401,7 @@ public final class Months extends BaseSingleFieldPeriod {
      * @param other  the other period, nil means zero
      * @return true if this months instance is less than the specified one
      */
-    public boolean isLessThan(Months other) {
+    - (BOOL)isLessThan(Months other) {
         if (other == nil) {
             return getValue() < 0;
         }

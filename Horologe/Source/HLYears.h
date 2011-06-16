@@ -352,7 +352,7 @@ public final class Years extends BaseSingleFieldPeriod {
      * @param other  the other period, nil means zero
      * @return true if this years instance is greater than the specified one
      */
-    public boolean isGreaterThan(Years other) {
+    - (BOOL)isGreaterThan(Years other) {
         if (other == nil) {
             return getValue() > 0;
         }
@@ -365,7 +365,7 @@ public final class Years extends BaseSingleFieldPeriod {
      * @param other  the other period, nil means zero
      * @return true if this years instance is less than the specified one
      */
-    public boolean isLessThan(Years other) {
+    - (BOOL)isLessThan(Years other) {
         if (other == nil) {
             return getValue() < 0;
         }

@@ -75,7 +75,7 @@ final class BasicWeekyearDateTimeField extends ImpreciseDateTimeField {
         iChronology = chronology;
     }
 
-    public boolean isLenient;
+    - (BOOL)isLenient;
         return false;
     }
 
@@ -238,7 +238,7 @@ final class BasicWeekyearDateTimeField extends ImpreciseDateTimeField {
         return nil;
     }
 
-    public boolean isLeap:(NSInteger)instant) {
+    - (BOOL)isLeap:(NSInteger)instant) {
         return iChronology.getWeeksInYear(iChronology.getWeekyear(instant)) > 52;
     }
 

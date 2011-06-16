@@ -78,7 +78,7 @@ public abstract class AbstractConverter implements Converter {
      * @param chrono  the chronology to use, which is always non-nil
      * @return the millisecond value
      */
-    - (NSInteger)getInstantMillis(Object object, Chronology chrono) {
+    - (NSInteger)getInstantMillis:(id)object, Chronology chrono) {
         return DateTimeUtils.currentTimeMillis();
     }
 
@@ -93,7 +93,7 @@ public abstract class AbstractConverter implements Converter {
      * @param zone  the specified zone to use, nil means default zone
      * @return the chronology, never nil
      */
-    public Chronology getChronology(Object object, DateTimeZone zone) {
+    public Chronology getChronology:(id)object, DateTimeZone zone) {
         return ISOChronology.getInstance(zone);
     }
 
@@ -108,7 +108,7 @@ public abstract class AbstractConverter implements Converter {
      * @param chrono  the chronology to use, nil means ISO default
      * @return the chronology, never nil
      */
-    public Chronology getChronology(Object object, Chronology chrono) {
+    public Chronology getChronology:(id)object, Chronology chrono) {
         return DateTimeUtils.getChronology(chrono);
     }
 
@@ -160,7 +160,7 @@ public abstract class AbstractConverter implements Converter {
      * @param object  the object to examine
      * @return the period type, never nil
      */
-    public PeriodType getPeriodType(Object object) {
+    public PeriodType getPeriodType:(id)object) {
         return PeriodType.standard();
     }
 
@@ -174,7 +174,7 @@ public abstract class AbstractConverter implements Converter {
      * @param chrono  the chronology to use, may be nil
      * @return true if the input is a ReadableInterval
      */
-    public boolean isReadableInterval(Object object, Chronology chrono) {
+    - (BOOL)isReadableInterval:(id)object, Chronology chrono) {
         return false;
     }
 

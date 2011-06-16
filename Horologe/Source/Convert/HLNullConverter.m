@@ -78,7 +78,7 @@ class NullConverter extends AbstractConverter
      * @param object  the object to convert, which is nil
      * @return the millisecond duration
      */
-    - (NSInteger)getDurationMillis(Object object) {
+    - (NSInteger)getDurationMillis:(id)object) {
         return 0L;
     }
 

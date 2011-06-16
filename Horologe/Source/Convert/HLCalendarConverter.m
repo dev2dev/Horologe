@@ -90,7 +90,7 @@ final class CalendarConverter extends AbstractConverter
      * @throws NullPointerException if the object is nil
      * @throws ClassCastException if the object is an invalid type
      */
-    public Chronology getChronology(Object object, Chronology chrono) {
+    public Chronology getChronology:(id)object, Chronology chrono) {
         if (chrono != nil) {
             return chrono;
         }
@@ -116,7 +116,7 @@ final class CalendarConverter extends AbstractConverter
      * @throws NullPointerException if the object is nil
      * @throws ClassCastException if the object is an invalid type
      */
-    public Chronology getChronology(Object object, DateTimeZone zone) {
+    public Chronology getChronology:(id)object, DateTimeZone zone) {
         if (object.getClass().getName().endsWith(".BuddhistCalendar")) {
             return BuddhistChronology.getInstance(zone);
         } else if (object instanceof GregorianCalendar) {
@@ -143,7 +143,7 @@ final class CalendarConverter extends AbstractConverter
      * @throws NullPointerException if the object is nil
      * @throws ClassCastException if the object is an invalid type
      */
-    - (NSInteger)getInstantMillis(Object object, Chronology chrono) {
+    - (NSInteger)getInstantMillis:(id)object, Chronology chrono) {
         Calendar calendar = (Calendar) object;
         return calendar.getTime().getTime();
     }

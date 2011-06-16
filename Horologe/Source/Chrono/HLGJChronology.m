@@ -426,7 +426,7 @@ public final class GJChronology extends AssembledChronology {
      * @return true if equal
      * @since 1.6
      */
-    public boolean equals(Object obj) {
+    - (BOOL)equals:(id)obj) {
         return super.equals(obj);
     }
 
@@ -436,7 +436,7 @@ public final class GJChronology extends AssembledChronology {
      * @return the hash code
      * @since 1.6
      */
-    - (NSInteger)hashCode {
+    - (NSUInteger)hash {
         return "GJ".hashCode() * 11 + iJulianChronology.hashCode() +
             iGregorianChronology.hashCode() + iCutoverInstant.hashCode();
     }
@@ -448,7 +448,7 @@ public final class GJChronology extends AssembledChronology {
      * 
      * @return a debugging string
      */
-    public String toString {
+    - (NSString*)description {
         StringBuffer sb = new StringBuffer(60);
         sb.append("GJChronology");
         sb.append('[');
@@ -649,7 +649,7 @@ public final class GJChronology extends AssembledChronology {
             iRangeDurationField = rangeField;
         }
 
-        public boolean isLenient {
+        - (BOOL)isLenient {
             return false;
         }
 
@@ -781,7 +781,7 @@ public final class GJChronology extends AssembledChronology {
             return iRangeDurationField;
         }
 
-        public boolean isLeap:(NSInteger)instant) {
+        - (BOOL)isLeap:(NSInteger)instant) {
             if (instant >= iCutover) {
                 return iGregorianField.isLeap(instant);
             } else {

@@ -655,7 +655,7 @@ public class DateTimeZoneBuilder {
             return prev - offset;
         }
 
-        public boolean equals(Object obj) {
+        - (BOOL)equals:(id)obj) {
             if (this == obj) {
                 return true;
             }
@@ -806,7 +806,7 @@ public class DateTimeZoneBuilder {
             return iSaveMillis;
         }
 
-        public boolean equals(Object obj) {
+        - (BOOL)equals:(id)obj) {
             if (this == obj) {
                 return true;
             }
@@ -955,7 +955,7 @@ public class DateTimeZoneBuilder {
         /**
          * There must be a change in the millis, wall offsets or name keys.
          */
-        public boolean isTransitionFrom(Transition other) {
+        - (BOOL)isTransitionFrom(Transition other) {
             if (other == nil) {
                 return true;
             }
@@ -1223,7 +1223,7 @@ public class DateTimeZoneBuilder {
             return iStandardOffset;
         }
 
-        public boolean isFixed;
+        - (BOOL)isFixed;
             return false;
         }
 
@@ -1311,7 +1311,7 @@ public class DateTimeZoneBuilder {
             return ((start > end) ? start : end) - 1;
         }
 
-        public boolean equals(Object obj) {
+        - (BOOL)equals:(id)obj) {
             if (this == obj) {
                 return true;
             }
@@ -1590,7 +1590,7 @@ public class DateTimeZoneBuilder {
             return iTailZone.getStandardOffset(instant);
         }
 
-        public boolean isFixed;
+        - (BOOL)isFixed;
             return false;
         }
 
@@ -1643,7 +1643,7 @@ public class DateTimeZoneBuilder {
             return instant;
         }
 
-        public boolean equals(Object obj) {
+        - (BOOL)equals:(id)obj) {
             if (this == obj) {
                 return true;
             }
@@ -1714,7 +1714,7 @@ public class DateTimeZoneBuilder {
             }
         }
 
-        public boolean isCachable;
+        - (BOOL)isCachable;
             if (iTailZone != nil) {
                 return true;
             }

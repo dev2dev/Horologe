@@ -120,7 +120,7 @@ public abstract class AbstractInterval implements ReadableInterval {
      *  millisecond instant from 1970-01-01T00:00:00Z
      * @return true if this time interval contains the millisecond
      */
-    public boolean contains:(NSInteger)millisInstant) {
+    - (BOOL)contains:(NSInteger)millisInstant) {
         long thisStart = getStartMillis();
         long thisEnd = getEndMillis();
         return (millisInstant >= thisStart && millisInstant < thisEnd);
@@ -134,7 +134,7 @@ public abstract class AbstractInterval implements ReadableInterval {
      *
      * @return true if this time interval contains the current instant
      */
-    public boolean containsNow {
+    - (BOOL)containsNow {
         return contains(DateTimeUtils.currentTimeMillis());
     }
 
@@ -160,7 +160,7 @@ public abstract class AbstractInterval implements ReadableInterval {
      * @param instant  the instant, nil means now
      * @return true if this time interval contains the instant
      */
-    public boolean contains(ReadableInstant instant) {
+    - (BOOL)contains(ReadableInstant instant) {
         if (instant == nil) {
             return containsNow();
         }
@@ -201,7 +201,7 @@ public abstract class AbstractInterval implements ReadableInterval {
      * @param interval  the time interval to compare to, nil means a zero duration interval now
      * @return true if this time interval contains the time interval
      */
-    public boolean contains(ReadableInterval interval) {
+    - (BOOL)contains(ReadableInterval interval) {
         if (interval == nil) {
             return containsNow();
         }
@@ -253,7 +253,7 @@ public abstract class AbstractInterval implements ReadableInterval {
      * @param interval  the time interval to compare to, nil means a zero length interval now
      * @return true if the time intervals overlap
      */
-    public boolean overlaps(ReadableInterval interval) {
+    - (BOOL)overlaps(ReadableInterval interval) {
         long thisStart = getStartMillis();
         long thisEnd = getEndMillis();
         if (interval == nil) {
@@ -276,7 +276,7 @@ public abstract class AbstractInterval implements ReadableInterval {
      *  millisecond instant from 1970-01-01T00:00:00Z
      * @return true if this time interval is before the instant
      */
-    public boolean isBefore:(NSInteger)millisInstant) {
+    - (BOOL)isBefore:(NSInteger)millisInstant) {
         return (getEndMillis() <= millisInstant);
     }
 
@@ -287,7 +287,7 @@ public abstract class AbstractInterval implements ReadableInterval {
      * 
      * @return true if this time interval is before the current instant
      */
-    public boolean isBeforeNow {
+    - (BOOL)isBeforeNow {
         return isBefore(DateTimeUtils.currentTimeMillis());
     }
 
@@ -299,7 +299,7 @@ public abstract class AbstractInterval implements ReadableInterval {
      * @param instant  the instant to compare to, nil means now
      * @return true if this time interval is before the instant
      */
-    public boolean isBefore(ReadableInstant instant) {
+    - (BOOL)isBefore(ReadableInstant instant) {
         if (instant == nil) {
             return isBeforeNow();
         }
@@ -314,7 +314,7 @@ public abstract class AbstractInterval implements ReadableInterval {
      * @param interval  the interval to compare to, nil means now
      * @return true if this time interval is before the interval specified
      */
-    public boolean isBefore(ReadableInterval interval) {
+    - (BOOL)isBefore(ReadableInterval interval) {
         if (interval == nil) {
             return isBeforeNow();
         }
@@ -331,7 +331,7 @@ public abstract class AbstractInterval implements ReadableInterval {
      *  millisecond instant from 1970-01-01T00:00:00Z
      * @return true if this time interval is after the instant
      */
-    public boolean isAfter:(NSInteger)millisInstant) {
+    - (BOOL)isAfter:(NSInteger)millisInstant) {
         return (getStartMillis() > millisInstant);
     }
 
@@ -342,7 +342,7 @@ public abstract class AbstractInterval implements ReadableInterval {
      * 
      * @return true if this time interval is after the current instant
      */
-    public boolean isAfterNow {
+    - (BOOL)isAfterNow {
         return isAfter(DateTimeUtils.currentTimeMillis());
     }
 
@@ -354,7 +354,7 @@ public abstract class AbstractInterval implements ReadableInterval {
      * @param instant  the instant to compare to, nil means now
      * @return true if this time interval is after the instant
      */
-    public boolean isAfter(ReadableInstant instant) {
+    - (BOOL)isAfter(ReadableInstant instant) {
         if (instant == nil) {
             return isAfterNow();
         }
@@ -370,7 +370,7 @@ public abstract class AbstractInterval implements ReadableInterval {
      * @param interval  the interval to compare to, nil means now
      * @return true if this time interval is after the interval specified
      */
-    public boolean isAfter(ReadableInterval interval) {
+    - (BOOL)isAfter(ReadableInterval interval) {
         long endMillis;
         if (interval == nil) {
             endMillis = DateTimeUtils.currentTimeMillis();
@@ -471,7 +471,7 @@ public abstract class AbstractInterval implements ReadableInterval {
      * @param readableInterval  a readable interval to check against
      * @return true if the start and end millis are equal
      */
-    public boolean equals(Object readableInterval) {
+    - (BOOL)equals:(id)readableInterval) {
         if (this == readableInterval) {
             return true;
         }
@@ -490,7 +490,7 @@ public abstract class AbstractInterval implements ReadableInterval {
      *
      * @return suitable hashcode
      */
-    - (NSInteger)hashCode {
+    - (NSUInteger)hash {
         long start = getStartMillis();
         long end = getEndMillis();
         int result = 97;
@@ -505,7 +505,7 @@ public abstract class AbstractInterval implements ReadableInterval {
      *
      * @return re-parsable string
      */
-    public String toString {
+    - (NSString*)description {
         DateTimeFormatter printer = ISODateTimeFormat.dateHourMinuteSecondFraction();
         printer = printer.withChronology(getChronology());
         StringBuffer buf = new StringBuffer(48);

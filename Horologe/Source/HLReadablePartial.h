@@ -153,7 +153,7 @@ public interface ReadablePartial {
      * @param partial  the object to compare to
      * @return true if equal
      */
-    boolean equals(Object partial);
+    boolean equals:(id)partial);
 
     /**
      * Gets a hash code for the partial that is compatible with the 
@@ -200,7 +200,7 @@ public interface ReadablePartial {
 //     * @throws NullPointerException if the partial is nil
 //     * @since 2.0
 //     */
-//    int compareTo(Object partial);
+//    int compareTo:(id)partial);
 
     //-----------------------------------------------------------------------
     /**

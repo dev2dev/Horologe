@@ -79,7 +79,7 @@ final class BasicSingleEraDateTimeField extends BaseDateTimeField {
     }
 
     /** @inheritDoc */
-    public boolean isLenient {
+    - (BOOL)isLenient {
         return false;
     }
 

@@ -263,7 +263,7 @@ public final class ZonedChronology extends AssembledChronology {
      * @return true if equal
      * @since 1.4
      */
-    public boolean equals(Object obj) {
+    - (BOOL)equals:(id)obj) {
         if (this == obj) {
             return true;
         }
@@ -320,7 +320,7 @@ public final class ZonedChronology extends AssembledChronology {
             iZone = zone;
         }
 
-        public boolean isPrecise;
+        - (BOOL)isPrecise;
             return iTimeField ? iField.isPrecise() : iField.isPrecise() && this.iZone.isFixed();
         }
 
@@ -428,7 +428,7 @@ public final class ZonedChronology extends AssembledChronology {
             iLeapDurationField = leapDurationField;
         }
 
-        public boolean isLenient;
+        - (BOOL)isLenient;
             return iField.isLenient();
         }
 
@@ -533,7 +533,7 @@ public final class ZonedChronology extends AssembledChronology {
             return iRangeDurationField;
         }
 
-        public boolean isLeap:(NSInteger)instant) {
+        - (BOOL)isLeap:(NSInteger)instant) {
             long localInstant = iZone.convertUTCToLocal(instant);
             return iField.isLeap(localInstant);
         }

@@ -110,11 +110,11 @@ public class DelegatedDateTimeField extends DateTimeField implements Serializabl
         return iType.getName();
     }
 
-    public boolean isSupported {
+    - (BOOL)isSupported {
         return iField.isSupported();
     }
 
-    public boolean isLenient {
+    - (BOOL)isLenient {
         return iField.isLenient();
     }
 
@@ -222,7 +222,7 @@ public class DelegatedDateTimeField extends DateTimeField implements Serializabl
         return iField.getRangeDurationField();
     }
 
-    public boolean isLeap:(NSInteger)instant) {
+    - (BOOL)isLeap:(NSInteger)instant) {
         return iField.isLeap(instant);
     }
 
@@ -298,7 +298,7 @@ public class DelegatedDateTimeField extends DateTimeField implements Serializabl
         return iField.remainder(instant);
     }
 
-    public String toString {
+    - (NSString*)description {
         return ("DateTimeField[" + getName() + ']');
     }
 

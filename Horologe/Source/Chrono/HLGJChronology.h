@@ -430,7 +430,7 @@ public final class GJChronology extends AssembledChronology {
      * @return true if equal
      * @since 1.6
      */
-    public boolean equals(Object obj) {
+    - (BOOL)equals:(id)obj) {
         return super.equals(obj);
     }
 
@@ -653,7 +653,7 @@ public final class GJChronology extends AssembledChronology {
             iRangeDurationField = rangeField;
         }
 
-        public boolean isLenient;
+        - (BOOL)isLenient;
             return false;
         }
 
@@ -785,7 +785,7 @@ public final class GJChronology extends AssembledChronology {
             return iRangeDurationField;
         }
 
-        public boolean isLeap:(NSInteger)instant) {
+        - (BOOL)isLeap:(NSInteger)instant) {
             if (instant >= iCutover) {
                 return iGregorianField.isLeap(instant);
             } else {

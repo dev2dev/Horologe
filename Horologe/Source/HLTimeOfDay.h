@@ -302,7 +302,7 @@ public final class TimeOfDay
      * @param instant  the datetime object, nil means now
      * @throws IllegalArgumentException if the instant is invalid
      */
-    public TimeOfDay(Object instant) {
+    public TimeOfDay:(id)instant) {
         super(instant, nil, ISODateTimeFormat.timeParser());
     }
 
@@ -327,7 +327,7 @@ public final class TimeOfDay
      * @param chronology  the chronology, nil means ISO default
      * @throws IllegalArgumentException if the instant is invalid
      */
-    public TimeOfDay(Object instant, Chronology chronology) {
+    public TimeOfDay:(id)instant, Chronology chronology) {
         super(instant, DateTimeUtils.getChronology(chronology), ISODateTimeFormat.timeParser());
     }
 

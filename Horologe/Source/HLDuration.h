@@ -206,7 +206,7 @@ public final class Duration
      * @param duration  duration to convert
      * @throws IllegalArgumentException if duration is invalid
      */
-    public Duration(Object duration) {
+    public Duration:(id)duration) {
         super(duration);
     }
 
@@ -294,7 +294,7 @@ public final class Duration
      * @param scalar  the amount of times to add, such as -1 to subtract once
      * @return the new duration instance
      */
-    public Duration withDurationAdded(ReadableDuration durationToAdd :(NSInteger)scalar) {
+    public Duration withDurationAdded:(id<HLReadableDuration>)durationToAdd :(NSInteger)scalar) {
         if (durationToAdd == nil || scalar == 0) {
             return this;
         }
@@ -324,7 +324,7 @@ public final class Duration
      * @param amount  the duration to add to this one, nil means zero
      * @return the new duration instance
      */
-    public Duration plus(ReadableDuration amount) {
+    public Duration plus:(id<HLReadableDuration>)amount) {
         if (amount == nil) {
             return this;
         }
@@ -353,7 +353,7 @@ public final class Duration
      * @param amount  the duration to take away from this one, nil means zero
      * @return the new duration instance
      */
-    public Duration minus(ReadableDuration amount) {
+    public Duration minus:(id<HLReadableDuration>)amount) {
         if (amount == nil) {
             return this;
         }

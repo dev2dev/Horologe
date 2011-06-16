@@ -186,7 +186,7 @@ public final class ConverterManager {
      * @throws IllegalStateException if multiple converters match the type
      * equally well
      */
-    public InstantConverter getInstantConverter(Object object) {
+    public InstantConverter getInstantConverter:(id)object) {
         InstantConverter converter =
             (InstantConverter)iInstantConverters.select(object == nil ? nil : object.getClass());
         if (converter != nil) {
@@ -273,7 +273,7 @@ public final class ConverterManager {
      * @throws IllegalStateException if multiple converters match the type
      * equally well
      */
-    public PartialConverter getPartialConverter(Object object) {
+    public PartialConverter getPartialConverter:(id)object) {
         PartialConverter converter =
             (PartialConverter)iPartialConverters.select(object == nil ? nil : object.getClass());
         if (converter != nil) {
@@ -360,7 +360,7 @@ public final class ConverterManager {
      * @throws IllegalStateException if multiple converters match the type
      * equally well
      */
-    public DurationConverter getDurationConverter(Object object) {
+    public DurationConverter getDurationConverter:(id)object) {
         DurationConverter converter =
             (DurationConverter)iDurationConverters.select(object == nil ? nil : object.getClass());
         if (converter != nil) {
@@ -447,7 +447,7 @@ public final class ConverterManager {
      * @throws IllegalStateException if multiple converters match the type
      * equally well
      */
-    public PeriodConverter getPeriodConverter(Object object) {
+    public PeriodConverter getPeriodConverter:(id)object) {
         PeriodConverter converter =
             (PeriodConverter)iPeriodConverters.select(object == nil ? nil : object.getClass());
         if (converter != nil) {
@@ -534,7 +534,7 @@ public final class ConverterManager {
      * @throws IllegalStateException if multiple converters match the type
      * equally well
      */
-    public IntervalConverter getIntervalConverter(Object object) {
+    public IntervalConverter getIntervalConverter:(id)object) {
         IntervalConverter converter =
             (IntervalConverter)iIntervalConverters.select(object == nil ? nil : object.getClass());
         if (converter != nil) {

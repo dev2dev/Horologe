@@ -325,7 +325,7 @@ public final class LimitChronology extends AssembledChronology {
      * @return true if equal
      * @since 1.4
      */
-    public boolean equals(Object obj) {
+    - (BOOL)equals:(id)obj) {
         if (this == obj) {
             return true;
         }
@@ -345,7 +345,7 @@ public final class LimitChronology extends AssembledChronology {
      * @return the hashcode
      * @since 1.4
      */
-    - (NSInteger)hashCode {
+    - (NSUInteger)hash {
         int hash = 317351877;
         hash += (getLowerLimit() != nil ? getLowerLimit().hashCode() : 0);
         hash += (getUpperLimit() != nil ? getUpperLimit().hashCode() : 0);
@@ -358,7 +358,7 @@ public final class LimitChronology extends AssembledChronology {
      * 
      * @return the debugging string
      */
-    public String toString {
+    - (NSString*)description {
         return "LimitChronology[" + getBase().toString() + ", " +
             (getLowerLimit() == nil ? "NoLimit" : getLowerLimit().toString()) + ", " +
             (getUpperLimit() == nil ? "NoLimit" : getUpperLimit().toString()) + ']';
@@ -406,7 +406,7 @@ public final class LimitChronology extends AssembledChronology {
             return buf.toString();
         }
 
-        public String toString {
+        - (NSString*)description {
             return "IllegalArgumentException: " + getMessage();
         }
     }
@@ -553,7 +553,7 @@ public final class LimitChronology extends AssembledChronology {
             return iRangeDurationField;
         }
 
-        public boolean isLeap:(NSInteger)instant) {
+        - (BOOL)isLeap:(NSInteger)instant) {
             checkLimits(instant, nil);
             return getWrappedField().isLeap(instant);
         }
