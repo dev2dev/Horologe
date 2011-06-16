@@ -34,117 +34,117 @@
     }
     
     return self;
-    }
+}
 
-    //-----------------------------------------------------------------------
+//-----------------------------------------------------------------------
 - (NSInteger)get:(HLDateTimeFieldType*)type {
-        if(type == nil) {
-            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
-                        format:@"The DateTimeFieldType must not be nil"];
-        }
+    if(type == nil) {
+        [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"The DateTimeFieldType must not be nil"];
+    }
     
     return [[type field:[self chronology]] get:[self millis]];
-    }
+}
 
-    //-----------------------------------------------------------------------
-    - (NSInteger)getEra {
-        return [[[self chronology] eraObject] get:[self millis]];getChronology().era().get(getMillis());
-    }
+//-----------------------------------------------------------------------
+- (NSInteger)era {
+    return [[[self chronology] eraObject] get:[self millis]];
+}
 
-    - (NSInteger)getCenturyOfEra {
-        return [[[self chronology] centuryOfEraObject] get:[self millis]];getChronology().centuryOfEra().get(getMillis());
-    }
+- (NSInteger)centuryOfEra {
+    return [[[self chronology] centuryOfEraObject] get:[self millis]];
+}
 
-    - (NSInteger)getYearOfEra {
-        return [[[self chronology] yearOfEraObject] get:[self millis]];getChronology().yearOfEra().get(getMillis());
-    }
+- (NSInteger)yearOfEra {
+    return [[[self chronology] yearOfEraObject] get:[self millis]];
+}
 
-    - (NSInteger)getYearOfCentury {
-        return [[[self chronology] yearOfCenturyObject] get:[self millis]];getChronology().yearOfCentury().get(getMillis());
-    }
+- (NSInteger)yearOfCentury {
+    return [[[self chronology] yearOfCenturyObject] get:[self millis]];
+}
 
-    - (NSInteger)getYear {
-        return [[[self chronology] yearObject] get:[self millis]];getChronology().year().get(getMillis());
-    }
+- (NSInteger)year {
+    return [[[self chronology] yearObject] get:[self millis]];
+}
 
-    - (NSInteger)getWeekyear {
-        return [[[self chronology] weekyearObject] get:[self millis]];getChronology().weekyear().get(getMillis());
-    }
+- (NSInteger)weekyear {
+    return [[[self chronology] weekyearObject] get:[self millis]];
+}
 
-    - (NSInteger)getMonthOfYear {
-        return [[[self chronology] monthOfYearObject] get:[self millis]];getChronology().monthOfYear().get(getMillis());
-    }
+- (NSInteger)monthOfYear {
+    return [[[self chronology] monthOfYearObject] get:[self millis]];
+}
 
-    - (NSInteger)getWeekOfWeekyear {
-        return [[[self chronology] weekOfWeekyearObject] get:[self millis]];getChronology().weekOfWeekyear().get(getMillis());
-    }
+- (NSInteger)weekOfWeekyear {
+    return [[[self chronology] weekOfWeekyearObject] get:[self millis]];
+}
 
-    - (NSInteger)getDayOfYear {
-        return [[[self chronology] dayOfYearObject] get:[self millis]];getChronology().dayOfYear().get(getMillis());
-    }
+- (NSInteger)dayOfYear {
+    return [[[self chronology] dayOfYearObject] get:[self millis]];
+}
 
-    - (NSInteger)getDayOfMonth {
-        return [[[self chronology] dayOfMonthObject] get:[self millis]];getChronology().dayOfMonth().get(getMillis());
-    }
+- (NSInteger)dayOfMonth {
+    return [[[self chronology] dayOfMonthObject] get:[self millis]];
+}
 
-    - (NSInteger)getDayOfWeek {
-        return [[[self chronology] dayOfWeekObject] get:[self millis]];getChronology().dayOfWeek().get(getMillis());
-    }
+- (NSInteger)dayOfWeek {
+    return [[[self chronology] dayOfWeekObject] get:[self millis]];
+}
 
-    //-----------------------------------------------------------------------
-    - (NSInteger)getHourOfDay {
-        return [[[self chronology] hourOfDayObject] get:[self millis]];getChronology().hourOfDay().get(getMillis());
-    }
+//-----------------------------------------------------------------------
+- (NSInteger)hourOfDay {
+    return [[[self chronology] hourOfDayObject] get:[self millis]];
+}
 
-    - (NSInteger)getMinuteOfDay {
-        return [[[self chronology] minuteOfDayObject] get:[self millis]];getChronology().minuteOfDay().get(getMillis());
-    }
+- (NSInteger)minuteOfDay {
+    return [[[self chronology] minuteOfDayObject] get:[self millis]];
+}
 
-    - (NSInteger)getMinuteOfHour {
-        return [[[self chronology] minuteOfHourObject] get:[self millis]];getChronology().minuteOfHour().get(getMillis());
-    }
+- (NSInteger)minuteOfHour {
+    return [[[self chronology] minuteOfHourObject] get:[self millis]];
+}
 
-    - (NSInteger)getSecondOfDay {
-        return [[[self chronology] secondOfDayObject] get:[self millis]];getChronology().secondOfDay().get(getMillis());
-    }
+- (NSInteger)secondOfDay {
+    return [[[self chronology] secondOfDayObject] get:[self millis]];
+}
 
-    - (NSInteger)getSecondOfMinute {
-        return [[[self chronology] secondOfMinuteObject] get:[self millis]];getChronology().secondOfMinute().get(getMillis());
-    }
+- (NSInteger)secondOfMinute {
+    return [[[self chronology] secondOfMinuteObject] get:[self millis]];
+}
 
-    - (NSInteger)getMillisOfDay {
-        return [[[self chronology] millisOfDayObject] get:[self millis]];
-    }
+- (NSInteger)millisOfDay {
+    return [[[self chronology] millisOfDayObject] get:[self millis]];
+}
 
-    - (NSInteger)getMillisOfSecond {
-        return [[[self chronology] millisOfSecondObject] get:[self millis]];
-    }
+- (NSInteger)millisOfSecond {
+    return [[[self chronology] millisOfSecondObject] get:[self millis]];
+}
 
-    //-----------------------------------------------------------------------
-    - (NSDate*)calendarDateWithLocale:(NSLocale*)locale {
-        if (locale == nil) {
-            locale = [NSLocale systemLocale];
-        }
-        HLDateTimeZone* zone = [self dateTimeZone];
-        NSCalendar* cal = [locale displayNameForKey:NSLocaleCalendar
-                            value:[locale localeIdentifier]];
-        NSDateComponents* comp = [[NSDateComponents alloc] init];    
-        [comp setYear:[self year]];
-        [comp setMonth:[self monthOfYear]];
-        [comp setDay:[self dayOfMonth]];
-        [comp setHour:[self hourOfDay]];
-        [comp setMinute:[self minuteOfHour]];
-        [comp setSecond:[self secondOfMinute]];
-        [comp setTimeZone:[zone timeZone]];
-        
-        NSDate* date = [cal dateFromComponents:comp];
-        [comp release];
-
-        return date;
+//-----------------------------------------------------------------------
+- (NSDate*)calendarDateWithLocale:(NSLocale*)locale {
+    if (locale == nil) {
+        locale = [NSLocale systemLocale];
     }
+    HLDateTimeZone* zone = [self dateTimeZone];
+    NSCalendar* cal = [locale displayNameForKey:NSLocaleCalendar
+                                          value:[locale localeIdentifier]];
+    NSDateComponents* comp = [[NSDateComponents alloc] init];    
+    [comp setYear:[self year]];
+    [comp setMonth:[self monthOfYear]];
+    [comp setDay:[self dayOfMonth]];
+    [comp setHour:[self hourOfDay]];
+    [comp setMinute:[self minuteOfHour]];
+    [comp setSecond:[self secondOfMinute]];
+    [comp setTimeZone:[zone timeZone]];
+    
+    NSDate* date = [cal dateFromComponents:comp];
+    [comp release];
+    
+    return date;
+}
 
 - (NSDate*)gregorianCalendarDate {
-        HLDateTimeZone* zone = [self dateTimeZone];
+    HLDateTimeZone* zone = [self dateTimeZone];
     NSCalendar* cal = [[[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar] autorelease];
     NSDateComponents* comp = [[NSDateComponents alloc] init];    
     [comp setYear:[self year]];
@@ -158,26 +158,26 @@
     NSDate* date = [cal dateFromComponents:comp];
     [comp release];
     
-        return cal;
-    }
+    return cal;
+}
 
-    //-----------------------------------------------------------------------
-    - (NSString*)stringWithPattern:(NSString*)pattern {
-        if (pattern == nil) {
-            return [self description];
-        }
-        
-        return [[HLDateTimeFormat forPattern:pattern] print:self];
+//-----------------------------------------------------------------------
+- (NSString*)stringWithPattern:(NSString*)pattern {
+    if (pattern == nil) {
+        return [self description];
     }
+    
+    return [[HLDateTimeFormat forPattern:pattern] print:self];
+}
 
-    - (NSString*)stringWithPattern:(NSString*)pattern 
-                            locale:(NSLocale*)locale {
-        if (pattern == nil) {
-            return [self description];
-        }
-        
-        return [[HLDateTimeFormat forPattern:pattern withLocale:locale] print:self];
+- (NSString*)stringWithPattern:(NSString*)pattern 
+                        locale:(NSLocale*)locale {
+    if (pattern == nil) {
+        return [self description];
     }
+    
+    return [[HLDateTimeFormat forPattern:pattern withLocale:locale] print:self];
+}
 
 }
 

@@ -336,6 +336,7 @@
 		5B6918B113A7194A00C913B7 /* HLUTCProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69177E13A7194900C913B7 /* HLUTCProvider.m */; };
 		5B6918B213A7194A00C913B7 /* HLZoneInfoProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69177F13A7194900C913B7 /* HLZoneInfoProvider.h */; };
 		5B6918B313A7194A00C913B7 /* HLZoneInfoProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69178013A7194900C913B7 /* HLZoneInfoProvider.m */; };
+		5B932EE313A999B100406612 /* HLConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B932EE213A999B100406612 /* HLConstants.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -682,6 +683,7 @@
 		5B69177E13A7194900C913B7 /* HLUTCProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLUTCProvider.m; sourceTree = "<group>"; };
 		5B69177F13A7194900C913B7 /* HLZoneInfoProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLZoneInfoProvider.h; sourceTree = "<group>"; };
 		5B69178013A7194900C913B7 /* HLZoneInfoProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLZoneInfoProvider.m; sourceTree = "<group>"; };
+		5B932EE213A999B100406612 /* HLConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLConstants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -883,6 +885,7 @@
 				5B69177013A7194900C913B7 /* TimeZone */,
 				5B6914C313A7157E00C913B7 /* Horologe-Prefix.pch */,
 				5B69164613A715B600C913B7 /* Horologe.h */,
+				5B932EE213A999B100406612 /* HLConstants.h */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -1328,6 +1331,7 @@
 				5B6918AE13A7194A00C913B7 /* HLProvider.h in Headers */,
 				5B6918B013A7194A00C913B7 /* HLUTCProvider.h in Headers */,
 				5B6918B213A7194A00C913B7 /* HLZoneInfoProvider.h in Headers */,
+				5B932EE313A999B100406612 /* HLConstants.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1762,6 +1766,7 @@
 				5B69114E13A70B6400C913B7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5B69114F13A70B6400C913B7 /* Build configuration list for PBXNativeTarget "HorologeTests" */ = {
 			isa = XCConfigurationList;
@@ -1770,6 +1775,7 @@
 				5B69115113A70B6400C913B7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
