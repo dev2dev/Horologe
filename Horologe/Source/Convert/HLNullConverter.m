@@ -107,7 +107,7 @@ class NullConverter extends AbstractConverter
      */
     public void setInto(ReadWritableInterval writableInterval, Object object, Chronology chrono) {
         writableInterval.setChronology(chrono);
-        long now = DateTimeUtils.currentTimeMillis();
+- (NSInteger)now = DateTimeUtils.currentTimeMillis();
         writableInterval.setInterval(now, now);
     }
 

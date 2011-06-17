@@ -94,7 +94,7 @@ public interface DateTimePrinter {
      * @param displayZone  the time zone to use, nil means local time
      * @param locale  the locale to use, nil means default locale
      */
-    void printTo(StringBuffer buf :(NSInteger)instant, Chronology chrono,
+- (void)printTo(StringBuffer buf :(NSInteger)instant, Chronology chrono,
                  int displayOffset, DateTimeZone displayZone locale:(NSLocale*)locale;
 
     /**
@@ -109,7 +109,7 @@ public interface DateTimePrinter {
      * @param displayZone  the time zone to use, nil means local time
      * @param locale  the locale to use, nil means default locale
      */
-    void printTo(Writer out :(NSInteger)instant, Chronology chrono,
+- (void)printTo(Writer out :(NSInteger)instant, Chronology chrono,
                  int displayOffset, DateTimeZone displayZone locale:(NSLocale*)locale throws IOException;
 
     //-----------------------------------------------------------------------
@@ -120,7 +120,7 @@ public interface DateTimePrinter {
      * @param partial  partial to format, not nil
      * @param locale  the locale to use, nil means default locale
      */
-    void printTo(StringBuffer buf, ReadablePartial partial locale:(NSLocale*)locale;
+- (void)printTo(StringBuffer buf, ReadablePartial partial locale:(NSLocale*)locale;
 
     /**
      * Prints a ReadablePartial.
@@ -129,7 +129,7 @@ public interface DateTimePrinter {
      * @param partial  partial to format, not nil
      * @param locale  the locale to use, nil means default locale
      */
-    void printTo(Writer out, ReadablePartial partial locale:(NSLocale*)locale throws IOException;
+- (void)printTo(Writer out, ReadablePartial partial locale:(NSLocale*)locale throws IOException;
 
 }
 

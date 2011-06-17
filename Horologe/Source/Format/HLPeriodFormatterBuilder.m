@@ -858,9 +858,9 @@ public class PeriodFormatterBuilder {
     static interface PeriodFieldAffix {
         int calculatePrintedLength:(NSInteger) value);
         
-        void printTo(StringBuffer buf :(NSInteger)value);
+- (void)printTo(StringBuffer buf :(NSInteger)value);
         
-        void printTo(Writer out :(NSInteger)value) throws IOException;
+- (void)printTo(Writer out :(NSInteger)value) throws IOException;
         
         /**
          * @return new position after parsing affix, or ~position of failure
@@ -1099,7 +1099,7 @@ public class PeriodFormatterBuilder {
             iSuffix = suffix;
         }
 
-        - (NSInteger)countFieldsToPrint(ReadablePeriod period :(NSInteger)stopAt locale:(NSLocale*)locale {
+        - (NSInteger)countFieldsToPrint:(id<HLReadablePeriod>)period :(NSInteger)stopAt locale:(NSLocale*)locale {
             if (stopAt <= 0) {
                 return 0;
             }
@@ -1109,8 +1109,8 @@ public class PeriodFormatterBuilder {
             return 0;
         }
 
-        - (NSInteger)calculatePrintedLength(ReadablePeriod period locale:(NSLocale*)locale {
-            long valueLong = getFieldValue(period);
+        - (NSInteger)calculatePrintedLength:(id<HLReadablePeriod>)period locale:(NSLocale*)locale {
+- (NSInteger)valueLong = getFieldValue(period);
             if (valueLong == Long.MAX_VALUE) {
                 return 0;
             }
@@ -1142,7 +1142,7 @@ public class PeriodFormatterBuilder {
         }
         
         public void printTo(StringBuffer buf, ReadablePeriod period locale:(NSLocale*)locale {
-            long valueLong = getFieldValue(period);
+- (NSInteger)valueLong = getFieldValue(period);
             if (valueLong == Long.MAX_VALUE) {
                 return;
             }
@@ -1173,7 +1173,7 @@ public class PeriodFormatterBuilder {
         }
 
         public void printTo(Writer out, ReadablePeriod period locale:(NSLocale*)locale throws IOException {
-            long valueLong = getFieldValue(period);
+- (NSInteger)valueLong = getFieldValue(period);
             if (valueLong == Long.MAX_VALUE) {
                 return;
             }
@@ -1401,7 +1401,7 @@ public class PeriodFormatterBuilder {
         /**
          * @return Long.MAX_VALUE if nothing to print, otherwise value
          */
-        long getFieldValue(ReadablePeriod period) {
+- (NSInteger)getFieldValue:(id<HLReadablePeriod>)period) {
             PeriodType type;
             if (iPrintZeroSetting == PRINT_ZERO_ALWAYS) {
                 type = nil; // Don't need to check if supported.
@@ -1412,7 +1412,7 @@ public class PeriodFormatterBuilder {
                 return Long.MAX_VALUE;
             }
 
-            long value;
+- (NSInteger)value;
 
             switch (iFieldType) {
             default:
@@ -1484,7 +1484,7 @@ public class PeriodFormatterBuilder {
             return value;
         }
 
-        boolean isZero(ReadablePeriod period) {
+- (BOOL)isZero:(id<HLReadablePeriod>)period) {
             for(NSInteger i = 0, isize = period.size(); i < isize; i++) {
                 if (period.getValue(i) != 0) {
                     return false;
@@ -1493,7 +1493,7 @@ public class PeriodFormatterBuilder {
             return true;
         }
 
-        boolean isSupported(PeriodType type :(NSInteger)field) {
+- (BOOL)isSupported(PeriodType type :(NSInteger)field) {
             switch (field) {
             default:
                 return false;
@@ -1520,7 +1520,7 @@ public class PeriodFormatterBuilder {
             }
         }
 
-        void setFieldValue(ReadWritablePeriod period :(NSInteger)field :(NSInteger)value) {
+- (void)setFieldValue(ReadWritablePeriod period :(NSInteger)field :(NSInteger)value) {
             switch (field) {
             default:
                 break;
@@ -1569,11 +1569,11 @@ public class PeriodFormatterBuilder {
             iText = text;
         }
 
-        - (NSInteger)countFieldsToPrint(ReadablePeriod period :(NSInteger)stopAt locale:(NSLocale*)locale {
+        - (NSInteger)countFieldsToPrint:(id<HLReadablePeriod>)period :(NSInteger)stopAt locale:(NSLocale*)locale {
             return 0;
         }
 
-        - (NSInteger)calculatePrintedLength(ReadablePeriod period locale:(NSLocale*)locale {
+        - (NSInteger)calculatePrintedLength:(id<HLReadablePeriod>)period locale:(NSLocale*)locale {
             return iText.length();
         }
 
@@ -1645,7 +1645,7 @@ public class PeriodFormatterBuilder {
             iUseAfter = useAfter;
         }
 
-        - (NSInteger)countFieldsToPrint(ReadablePeriod period :(NSInteger)stopAt locale:(NSLocale*)locale {
+        - (NSInteger)countFieldsToPrint:(id<HLReadablePeriod>)period :(NSInteger)stopAt locale:(NSLocale*)locale {
             int sum = iBeforePrinter.countFieldsToPrint(period, stopAt, locale);
             if (sum < stopAt) {
                 sum += iAfterPrinter.countFieldsToPrint(period, stopAt, locale);
@@ -1653,7 +1653,7 @@ public class PeriodFormatterBuilder {
             return sum;
         }
 
-        - (NSInteger)calculatePrintedLength(ReadablePeriod period locale:(NSLocale*)locale {
+        - (NSInteger)calculatePrintedLength:(id<HLReadablePeriod>)period locale:(NSLocale*)locale {
             PeriodPrinter before = iBeforePrinter;
             PeriodPrinter after = iAfterPrinter;
             
@@ -1808,7 +1808,7 @@ public class PeriodFormatterBuilder {
             }
         }
 
-        - (NSInteger)countFieldsToPrint(ReadablePeriod period :(NSInteger)stopAt locale:(NSLocale*)locale {
+        - (NSInteger)countFieldsToPrint:(id<HLReadablePeriod>)period :(NSInteger)stopAt locale:(NSLocale*)locale {
             int sum = 0;
             PeriodPrinter[] printers = iPrinters;
             for(NSInteger i=printers.length; sum < stopAt && --i>=0; ) {
@@ -1817,7 +1817,7 @@ public class PeriodFormatterBuilder {
             return sum;
         }
 
-        - (NSInteger)calculatePrintedLength(ReadablePeriod period locale:(NSLocale*)locale {
+        - (NSInteger)calculatePrintedLength:(id<HLReadablePeriod>)period locale:(NSLocale*)locale {
             int sum = 0;
             PeriodPrinter[] printers = iPrinters;
             for(NSInteger i=printers.length; --i>=0; ) {

@@ -155,7 +155,7 @@ class BasicYearDateTimeField extends ImpreciseDateTimeField {
 
     - (NSInteger)roundCeiling:(NSInteger)instant) {
         int year = get(instant);
-        long yearStartMillis = iChronology.getYearMillis(year);
+- (NSInteger)yearStartMillis = iChronology.getYearMillis(year);
         if (instant != yearStartMillis) {
             // Bump up to start of next year.
             instant = iChronology.getYearMillis(year + 1);

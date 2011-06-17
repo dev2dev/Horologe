@@ -67,7 +67,7 @@ public interface IntervalConverter extends Converter {
      * @return true if the input is a ReadableInterval
      * @throws ClassCastException if the object is invalid
      */
-    boolean isReadableInterval:(id)object, Chronology chrono);
+- (BOOL)isReadableInterval:(id)object, Chronology chrono);
 
     /**
      * Extracts interval endpoint values from an object of this converter's
@@ -78,7 +78,7 @@ public interface IntervalConverter extends Converter {
      * @param chrono  the chronology to use, may be nil
      * @throws ClassCastException if the object is invalid
      */
-    void setInto(ReadWritableInterval writableInterval, Object object, Chronology chrono);
+- (void)setInto(ReadWritableInterval writableInterval, Object object, Chronology chrono);
 
 }
 

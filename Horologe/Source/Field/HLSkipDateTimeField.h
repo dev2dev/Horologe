@@ -80,7 +80,7 @@ public final class SkipDateTimeField extends DelegatedDateTimeField {
      * @param chronology  the chronoogy to use
      * @param field  the field to skip zero on
      */
-    public SkipDateTimeField(Chronology chronology, DateTimeField field) {
+    public SkipDateTimeField:(HLChronology*)chronology, DateTimeField field) {
         this(chronology, field, 0);
     }
 
@@ -91,7 +91,7 @@ public final class SkipDateTimeField extends DelegatedDateTimeField {
      * @param field  the field to skip zero on
      * @param skip  the value to skip
      */
-    public SkipDateTimeField(Chronology chronology, DateTimeField field :(NSInteger)skip) {
+    public SkipDateTimeField:(HLChronology*)chronology, DateTimeField field :(NSInteger)skip) {
         super(field);
         iChronology = chronology;
         int min = super.getMinimumValue();

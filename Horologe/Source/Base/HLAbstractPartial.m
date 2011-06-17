@@ -262,10 +262,10 @@ public abstract class AbstractPartial
      * @param baseInstant  the instant that provides the missing fields, nil means now
      * @return the combined datetime
      */
-    public DateTime toDateTime(ReadableInstant baseInstant) {
+    public DateTime toDateTime:(id<HLReadableInstant> baseInstant) {
         Chronology chrono = DateTimeUtils.getInstantChronology(baseInstant);
-        long instantMillis = DateTimeUtils.getInstantMillis(baseInstant);
-        long resolved = chrono.set(this, instantMillis);
+- (NSInteger)instantMillis = DateTimeUtils.getInstantMillis(baseInstant);
+- (NSInteger)resolved = chrono.set(this, instantMillis);
         return new DateTime(resolved, chrono);
     }
 

@@ -107,13 +107,13 @@ public abstract class BaseDuration
      * @param end  interval end, nil means now
      * @throws ArithmeticException if the duration exceeds a 64 bit long
      */
-    protected BaseDuration(ReadableInstant start, ReadableInstant end) {
+    protected BaseDuration:(id<HLReadableInstant> start, ReadableInstant end) {
         super();
         if (start == end) {
             iMillis = 0L;
         } else {
-            long startMillis = DateTimeUtils.getInstantMillis(start);
-            long endMillis = DateTimeUtils.getInstantMillis(end);
+- (NSInteger)startMillis = DateTimeUtils.getInstantMillis(start);
+- (NSInteger)endMillis = DateTimeUtils.getInstantMillis(end);
             iMillis = FieldUtils.safeAdd(endMillis, -startMillis);
         }
     }
@@ -180,13 +180,13 @@ public abstract class BaseDuration
      * However, ISO UTC also has precise days and weeks.
      * <p>
      * For more control over the conversion process, you must pair the duration with
-     * an instant, see {@link #toPeriodFrom(ReadableInstant)} and
-     * {@link #toPeriodTo(ReadableInstant)}
+     * an instant, see {@link #toPeriodFrom(id<HLReadableInstant>)} and
+     * {@link #toPeriodTo(id<HLReadableInstant>)}
      * 
      * @param chrono  the chronology to use, nil means ISO default
      * @return a Period created using the millisecond duration from this instance
      */
-    public Period toPeriod(Chronology chrono) {
+    public Period toPeriod:(HLChronology*)chrono) {
         return new Period(getMillis(), chrono);
     }
 
@@ -222,7 +222,7 @@ public abstract class BaseDuration
      * @param startInstant  the instant to calculate the period from, nil means now
      * @return a Period created using the millisecond duration from this instance
      */
-    public Period toPeriodFrom(ReadableInstant startInstant) {
+    public Period toPeriodFrom:(id<HLReadableInstant> startInstant) {
         return new Period(startInstant, this);
     }
 
@@ -238,7 +238,7 @@ public abstract class BaseDuration
      * @param type  the period type determining how to split the duration into fields, nil means All type
      * @return a Period created using the millisecond duration from this instance
      */
-    public Period toPeriodFrom(ReadableInstant startInstant, PeriodType type) {
+    public Period toPeriodFrom:(id<HLReadableInstant> startInstant, PeriodType type) {
         return new Period(startInstant, this, type);
     }
 
@@ -254,7 +254,7 @@ public abstract class BaseDuration
      * @param endInstant  the instant to calculate the period to, nil means now
      * @return a Period created using the millisecond duration from this instance
      */
-    public Period toPeriodTo(ReadableInstant endInstant) {
+    public Period toPeriodTo:(id<HLReadableInstant> endInstant) {
         return new Period(this, endInstant);
     }
 
@@ -271,7 +271,7 @@ public abstract class BaseDuration
      * @param type  the period type determining how to split the duration into fields, nil means All type
      * @return a Period created using the millisecond duration from this instance
      */
-    public Period toPeriodTo(ReadableInstant endInstant, PeriodType type) {
+    public Period toPeriodTo:(id<HLReadableInstant> endInstant, PeriodType type) {
         return new Period(this, endInstant, type);
     }
 
@@ -281,7 +281,7 @@ public abstract class BaseDuration
      * @param startInstant  the instant to start the interval at, nil means now
      * @return an Interval starting at the specified instant
      */
-    public Interval toIntervalFrom(ReadableInstant startInstant) {
+    public Interval toIntervalFrom:(id<HLReadableInstant> startInstant) {
         return new Interval(startInstant, this);
     }
 
@@ -291,7 +291,7 @@ public abstract class BaseDuration
      * @param endInstant  the instant to end the interval at, nil means now
      * @return an Interval ending at the specified instant
      */
-    public Interval toIntervalTo(ReadableInstant endInstant) {
+    public Interval toIntervalTo:(id<HLReadableInstant> endInstant) {
         return new Interval(this, endInstant);
     }
 

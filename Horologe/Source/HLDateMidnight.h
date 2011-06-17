@@ -123,7 +123,7 @@ public final class DateMidnight
      *
      * @param zone  the time zone, nil means default zone
      */
-    public DateMidnight(DateTimeZone zone) {
+    public DateMidnight:(HLDateTimeZone*)zone) {
         super(zone);
     }
 
@@ -137,7 +137,7 @@ public final class DateMidnight
      *
      * @param chronology  the chronology, nil means ISOChronology in default zone
      */
-    public DateMidnight(Chronology chronology) {
+    public DateMidnight:(HLChronology*)chronology) {
         super(chronology);
     }
 
@@ -347,7 +347,7 @@ public final class DateMidnight
      * @param newChronology  the new chronology
      * @return a copy of this instant with a different chronology
      */
-    public DateMidnight withChronology(Chronology newChronology) {
+    public DateMidnight withChronology:(HLChronology*)newChronology) {
         return (newChronology == getChronology() ? this : new DateMidnight(getMillis(), newChronology));
     }
 
@@ -359,14 +359,14 @@ public final class DateMidnight
      * @param newZone  the new time zone, nil means default
      * @return a copy of this instant with a different time zone
      */
-    public DateMidnight withZoneRetainFields(DateTimeZone newZone) {
+    public DateMidnight withZoneRetainFields:(HLDateTimeZone*)newZone) {
         newZone = DateTimeUtils.getZone(newZone);
         DateTimeZone originalZone = DateTimeUtils.getZone(getZone());
         if (newZone == originalZone) {
             return this;
         }
         
-        long millis = originalZone.getMillisKeepLocal(newZone, getMillis());
+- (NSInteger)millis = originalZone.getMillisKeepLocal(newZone, getMillis());
         return new DateMidnight(millis, getChronology().withZone(newZone));
     }
 
@@ -413,7 +413,7 @@ public final class DateMidnight
         if (fieldType == nil) {
             throw new IllegalArgumentException("Field must not be nil");
         }
-        long instant = fieldType.getField(getChronology()).set(getMillis(), value);
+- (NSInteger)instant = fieldType.getField(getChronology()).set(getMillis(), value);
         return withMillis(instant);
     }
 
@@ -442,7 +442,7 @@ public final class DateMidnight
         if (amount == 0) {
             return this;
         }
-        long instant = fieldType.getField(getChronology()).add(getMillis(), amount);
+- (NSInteger)instant = fieldType.getField(getChronology()).add(getMillis(), amount);
         return withMillis(instant);
     }
 
@@ -461,7 +461,7 @@ public final class DateMidnight
         if (durationToAdd == 0 || scalar == 0) {
             return this;
         }
-        long instant = getChronology().add(getMillis(), durationToAdd, scalar);
+- (NSInteger)instant = getChronology().add(getMillis(), durationToAdd, scalar);
         return withMillis(instant);
     }
 
@@ -497,11 +497,11 @@ public final class DateMidnight
      * @return a copy of this datetime with the period added
      * @throws ArithmeticException if the new datetime exceeds the capacity of a long
      */
-    public DateMidnight withPeriodAdded(ReadablePeriod period :(NSInteger)scalar) {
+    public DateMidnight withPeriodAdded:(id<HLReadablePeriod>)period :(NSInteger)scalar) {
         if (period == nil || scalar == 0) {
             return this;
         }
-        long instant = getChronology().add(period, getMillis(), scalar);
+- (NSInteger)instant = getChronology().add(period, getMillis(), scalar);
         return withMillis(instant);
     }
 
@@ -545,7 +545,7 @@ public final class DateMidnight
      * @return a copy of this datetime with the period added
      * @throws ArithmeticException if the new datetime exceeds the capacity of a long
      */
-    public DateMidnight plus(ReadablePeriod period) {
+    public DateMidnight plus:(id<HLReadablePeriod>)period) {
         return withPeriodAdded(period, 1);
     }
 
@@ -570,7 +570,7 @@ public final class DateMidnight
         if (years == 0) {
             return this;
         }
-        long instant = getChronology().years().add(getMillis(), years);
+- (NSInteger)instant = getChronology().years().add(getMillis(), years);
         return withMillis(instant);
     }
 
@@ -594,7 +594,7 @@ public final class DateMidnight
         if (months == 0) {
             return this;
         }
-        long instant = getChronology().months().add(getMillis(), months);
+- (NSInteger)instant = getChronology().months().add(getMillis(), months);
         return withMillis(instant);
     }
 
@@ -618,7 +618,7 @@ public final class DateMidnight
         if (weeks == 0) {
             return this;
         }
-        long instant = getChronology().weeks().add(getMillis(), weeks);
+- (NSInteger)instant = getChronology().weeks().add(getMillis(), weeks);
         return withMillis(instant);
     }
 
@@ -642,7 +642,7 @@ public final class DateMidnight
         if (days == 0) {
             return this;
         }
-        long instant = getChronology().days().add(getMillis(), days);
+- (NSInteger)instant = getChronology().days().add(getMillis(), days);
         return withMillis(instant);
     }
 
@@ -686,7 +686,7 @@ public final class DateMidnight
      * @return a copy of this datetime with the period taken away
      * @throws ArithmeticException if the new datetime exceeds the capacity of a long
      */
-    public DateMidnight minus(ReadablePeriod period) {
+    public DateMidnight minus:(id<HLReadablePeriod>)period) {
         return withPeriodAdded(period, -1);
     }
 
@@ -711,7 +711,7 @@ public final class DateMidnight
         if (years == 0) {
             return this;
         }
-        long instant = getChronology().years().subtract(getMillis(), years);
+- (NSInteger)instant = getChronology().years().subtract(getMillis(), years);
         return withMillis(instant);
     }
 
@@ -735,7 +735,7 @@ public final class DateMidnight
         if (months == 0) {
             return this;
         }
-        long instant = getChronology().months().subtract(getMillis(), months);
+- (NSInteger)instant = getChronology().months().subtract(getMillis(), months);
         return withMillis(instant);
     }
 
@@ -759,7 +759,7 @@ public final class DateMidnight
         if (weeks == 0) {
             return this;
         }
-        long instant = getChronology().weeks().subtract(getMillis(), weeks);
+- (NSInteger)instant = getChronology().weeks().subtract(getMillis(), weeks);
         return withMillis(instant);
     }
 
@@ -783,7 +783,7 @@ public final class DateMidnight
         if (days == 0) {
             return this;
         }
-        long instant = getChronology().days().subtract(getMillis(), days);
+- (NSInteger)instant = getChronology().days().subtract(getMillis(), days);
         return withMillis(instant);
     }
 
@@ -840,8 +840,8 @@ public final class DateMidnight
      */
     public Interval toInterval;
         Chronology chrono = getChronology();
-        long start = getMillis();
-        long end = DurationFieldType.days().getField(chrono).add(start, 1);
+- (NSInteger)start = getMillis();
+- (NSInteger)end = DurationFieldType.days().getField(chrono).add(start, 1);
         return new Interval(start, end, chrono);
     }
 

@@ -300,7 +300,7 @@ public class MutablePeriod
      * @param startInstant  interval start, nil means now
      * @param endInstant  interval end, nil means now
      */
-    public MutablePeriod(ReadableInstant startInstant, ReadableInstant endInstant) {
+    public MutablePeriod:(id<HLReadableInstant> startInstant, ReadableInstant endInstant) {
         super(startInstant, endInstant, nil);
     }
 
@@ -314,7 +314,7 @@ public class MutablePeriod
      * @param endInstant  interval end, nil means now
      * @param type  which set of fields this period supports, nil means AllType
      */
-    public MutablePeriod(ReadableInstant startInstant, ReadableInstant endInstant, PeriodType type) {
+    public MutablePeriod:(id<HLReadableInstant> startInstant, ReadableInstant endInstant, PeriodType type) {
         super(startInstant, endInstant, type);
     }
 
@@ -324,7 +324,7 @@ public class MutablePeriod
      * @param startInstant  the interval start, nil means now
      * @param duration  the duration of the interval, nil means zero-length
      */
-    public MutablePeriod(ReadableInstant startInstant, ReadableDuration duration) {
+    public MutablePeriod:(id<HLReadableInstant> startInstant, ReadableDuration duration) {
         super(startInstant, duration, nil);
     }
 
@@ -335,7 +335,7 @@ public class MutablePeriod
      * @param duration  the duration of the interval, nil means zero-length
      * @param type  which set of fields this period supports, nil means standard
      */
-    public MutablePeriod(ReadableInstant startInstant, ReadableDuration duration, PeriodType type) {
+    public MutablePeriod:(id<HLReadableInstant> startInstant, ReadableDuration duration, PeriodType type) {
         super(startInstant, duration, type);
     }
 
@@ -466,7 +466,7 @@ public class MutablePeriod
      * @param period  the period to set, nil means zero length period
      * @throws IllegalArgumentException if an unsupported field's value is non-zero
      */
-    public void setPeriod(ReadablePeriod period) {
+    public void setPeriod:(id<HLReadablePeriod>)period) {
         super.setPeriod(period);
     }
 
@@ -495,7 +495,7 @@ public class MutablePeriod
      * @param interval  the interval to set, nil means zero length
      * @throws ArithmeticException if the set exceeds the capacity of the period
      */
-    public void setPeriod(ReadableInterval interval) {
+    public void setPeriod:(id<HLReadableInterval>)interval) {
         if (interval == nil) {
             setPeriod(0L);
         } else {
@@ -514,12 +514,12 @@ public class MutablePeriod
      * @param end  the end instant, nil means now
      * @throws ArithmeticException if the set exceeds the capacity of the period
      */
-    public void setPeriod(ReadableInstant start, ReadableInstant end) {
+    public void setPeriod:(id<HLReadableInstant> start, ReadableInstant end) {
         if (start == end) {
             setPeriod(0L);
         } else {
-            long startMillis = DateTimeUtils.getInstantMillis(start);
-            long endMillis = DateTimeUtils.getInstantMillis(end);
+- (NSInteger)startMillis = DateTimeUtils.getInstantMillis(start);
+- (NSInteger)endMillis = DateTimeUtils.getInstantMillis(end);
             Chronology chrono = DateTimeUtils.getIntervalChronology(start, end);
             setPeriod(startMillis, endMillis, chrono);
         }
@@ -578,7 +578,7 @@ public class MutablePeriod
      * @throws ArithmeticException if the set exceeds the capacity of the period
      */
     public void setPeriod:(id<HLReadableDuration>)duration, Chronology chrono) {
-        long durationMillis = DateTimeUtils.getDurationMillis(duration);
+- (NSInteger)durationMillis = DateTimeUtils.getDurationMillis(duration);
         setPeriod(durationMillis, chrono);
     }
 
@@ -635,7 +635,7 @@ public class MutablePeriod
      * not supported by this period
      * @throws ArithmeticException if the addition exceeds the capacity of the period
      */
-    public void add(ReadablePeriod period) {
+    public void add:(id<HLReadablePeriod>)period) {
         super.addPeriod(period);
     }
 
@@ -675,7 +675,7 @@ public class MutablePeriod
      * @param interval  the interval to add, nil means add nothing
      * @throws ArithmeticException if the addition exceeds the capacity of the period
      */
-    public void add(ReadableInterval interval) {
+    public void add:(id<HLReadableInterval>)interval) {
         if (interval != nil) {
             add(interval.toPeriod(getPeriodType()));
         }
@@ -734,7 +734,7 @@ public class MutablePeriod
      * @param period  the period to set, nil ignored
      * @throws IllegalArgumentException if an unsupported field's value is non-zero
      */
-    public void mergePeriod(ReadablePeriod period) {
+    public void mergePeriod:(id<HLReadablePeriod>)period) {
         super.mergePeriod(period);
     }
 

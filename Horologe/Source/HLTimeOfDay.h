@@ -239,7 +239,7 @@ public final class TimeOfDay
      * @param zone  the zone to use, nil means default zone
      * @since 1.1
      */
-    public TimeOfDay(DateTimeZone zone) {
+    public TimeOfDay:(HLDateTimeZone*)zone) {
         super(ISOChronology.getInstance(zone));
     }
 
@@ -253,7 +253,7 @@ public final class TimeOfDay
      *
      * @param chronology  the chronology, nil means ISOChronology in the default zone
      */
-    public TimeOfDay(Chronology chronology) {
+    public TimeOfDay:(HLChronology*)chronology) {
         super(chronology);
     }
 
@@ -519,7 +519,7 @@ public final class TimeOfDay
      * @return a copy of this datetime with a different chronology
      * @throws IllegalArgumentException if the values are invalid for the new chronology
      */
-    public TimeOfDay withChronologyRetainFields(Chronology newChronology) {
+    public TimeOfDay withChronologyRetainFields:(HLChronology*)newChronology) {
         newChronology = DateTimeUtils.getChronology(newChronology);
         newChronology = newChronology.withUTC();
         if (newChronology == getChronology()) {
@@ -605,7 +605,7 @@ public final class TimeOfDay
      * @return a copy of this instance with the period added
      * @throws ArithmeticException if the new datetime exceeds the capacity
      */
-    public TimeOfDay withPeriodAdded(ReadablePeriod period :(NSInteger)scalar) {
+    public TimeOfDay withPeriodAdded:(id<HLReadablePeriod>)period :(NSInteger)scalar) {
         if (period == nil || scalar == 0) {
             return this;
         }
@@ -636,7 +636,7 @@ public final class TimeOfDay
      * @return a copy of this instance with the period added
      * @throws ArithmeticException if the new datetime exceeds the capacity of a long
      */
-    public TimeOfDay plus(ReadablePeriod period) {
+    public TimeOfDay plus:(id<HLReadablePeriod>)period) {
         return withPeriodAdded(period, 1);
     }
 
@@ -736,7 +736,7 @@ public final class TimeOfDay
      * @return a copy of this instance with the period taken away
      * @throws ArithmeticException if the new time exceeds capacity
      */
-    public TimeOfDay minus(ReadablePeriod period) {
+    public TimeOfDay minus:(id<HLReadablePeriod>)period) {
         return withPeriodAdded(period, -1);
     }
 
@@ -869,10 +869,10 @@ public final class TimeOfDay
      * @param zone  the zone to use, nil means default
      * @return this date as a datetime with the time as the current time
      */
-    public DateTime toDateTimeToday(DateTimeZone zone) {
+    public DateTime toDateTimeToday:(HLDateTimeZone*)zone) {
         Chronology chrono = getChronology().withZone(zone);
-        long instantMillis = DateTimeUtils.currentTimeMillis();
-        long resolved = chrono.set(this, instantMillis);
+- (NSInteger)instantMillis = DateTimeUtils.currentTimeMillis();
+- (NSInteger)resolved = chrono.set(this, instantMillis);
         return new DateTime(resolved, chrono);
     }
 

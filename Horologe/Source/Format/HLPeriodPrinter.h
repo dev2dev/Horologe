@@ -78,7 +78,7 @@ public interface PeriodPrinter {
      * @param locale  the locale to use
      * @return the estimated length
      */
-    int calculatePrintedLength(ReadablePeriod period locale:(NSLocale*)locale;
+    int calculatePrintedLength:(id<HLReadablePeriod>)period locale:(NSLocale*)locale;
 
     /**
      * Returns the amount of fields from the given period that this printer
@@ -89,7 +89,7 @@ public interface PeriodPrinter {
      * @param locale  the locale to use
      * @return amount of fields printed
      */
-    int countFieldsToPrint(ReadablePeriod period :(NSInteger)stopAt locale:(NSLocale*)locale;
+    int countFieldsToPrint:(id<HLReadablePeriod>)period :(NSInteger)stopAt locale:(NSLocale*)locale;
 
     //-----------------------------------------------------------------------
     /**
@@ -99,7 +99,7 @@ public interface PeriodPrinter {
      * @param period  the period to format
      * @param locale  the locale to use
      */
-    void printTo(StringBuffer buf, ReadablePeriod period locale:(NSLocale*)locale;
+- (void)printTo(StringBuffer buf, ReadablePeriod period locale:(NSLocale*)locale;
 
     /**
      * Prints a ReadablePeriod to a Writer.
@@ -108,7 +108,7 @@ public interface PeriodPrinter {
      * @param period  the period to format
      * @param locale  the locale to use
      */
-    void printTo(Writer out, ReadablePeriod period locale:(NSLocale*)locale throws IOException;
+- (void)printTo(Writer out, ReadablePeriod period locale:(NSLocale*)locale throws IOException;
 
 }
 

@@ -130,7 +130,7 @@ public final class EthiopicChronology extends BasicFixedMonthChronology {
      * @param zone  the time zone to get the chronology in, nil is default
      * @return a chronology in the specified time zone
      */
-    public static EthiopicChronology getInstance(DateTimeZone zone) {
+    public static EthiopicChronology getInstance:(HLDateTimeZone*)zone) {
         return getInstance(zone, 4);
     }
 
@@ -141,7 +141,7 @@ public final class EthiopicChronology extends BasicFixedMonthChronology {
      * @param minDaysInFirstWeek  minimum number of days in first week of the year; default is 4
      * @return a chronology in the specified time zone
      */
-    public static EthiopicChronology getInstance(DateTimeZone zone :(NSInteger)minDaysInFirstWeek) {
+    public static EthiopicChronology getInstance:(HLDateTimeZone*)zone :(NSInteger)minDaysInFirstWeek) {
         if (zone == nil) {
             zone = DateTimeZone.getDefault();
         }
@@ -183,7 +183,7 @@ public final class EthiopicChronology extends BasicFixedMonthChronology {
     /**
      * Restricted constructor.
      */
-    EthiopicChronology(Chronology base, Object param :(NSInteger)minDaysInFirstWeek) {
+    EthiopicChronology:(HLChronology*)base, Object param :(NSInteger)minDaysInFirstWeek) {
         super(base, param, minDaysInFirstWeek);
     }
 
@@ -214,7 +214,7 @@ public final class EthiopicChronology extends BasicFixedMonthChronology {
      * @param zone  the zone to get the chronology in, nil is default
      * @return the chronology
      */
-    public Chronology withZone(DateTimeZone zone) {
+    public Chronology withZone:(HLDateTimeZone*)zone) {
         if (zone == nil) {
             zone = DateTimeZone.getDefault();
         }
@@ -225,7 +225,7 @@ public final class EthiopicChronology extends BasicFixedMonthChronology {
     }
 
     //-----------------------------------------------------------------------
-    long calculateFirstDayOfYearMillis:(NSInteger) year) {
+- (NSInteger)calculateFirstDayOfYearMillis:(NSInteger) year) {
         // Java epoch is 1970-01-01 Gregorian which is 1962-04-23 Ethiopic.
         // Calculate relative to the nearest leap year and account for the
         // difference later.
@@ -244,7 +244,7 @@ public final class EthiopicChronology extends BasicFixedMonthChronology {
             }
         }
         
-        long millis = (relativeYear * 365L + leapYears)
+- (NSInteger)millis = (relativeYear * 365L + leapYears)
             * (long)DateTimeConstants.MILLIS_PER_DAY;
 
         // Adjust to account for difference between 1963-01-01 and 1962-04-23.
@@ -263,7 +263,7 @@ public final class EthiopicChronology extends BasicFixedMonthChronology {
     }
 
     //-----------------------------------------------------------------------
-    long getApproxMillisAtEpochDividedByTwo {
+- (NSInteger)getApproxMillisAtEpochDividedByTwo {
         return (1962L * MILLIS_PER_YEAR + 112L * DateTimeConstants.MILLIS_PER_DAY) / 2;
     }
 

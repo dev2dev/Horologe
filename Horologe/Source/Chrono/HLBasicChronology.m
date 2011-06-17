@@ -153,7 +153,7 @@ abstract class BasicChronology extends AssembledChronology {
 
     private final int iMinDaysInFirstWeek;
 
-    BasicChronology(Chronology base, Object param :(NSInteger)minDaysInFirstWeek) {
+    BasicChronology:(HLChronology*)base, Object param :(NSInteger)minDaysInFirstWeek) {
         super(base, param);
 
         if (minDaysInFirstWeek < 1 || minDaysInFirstWeek > 7) {
@@ -350,8 +350,8 @@ abstract class BasicChronology extends AssembledChronology {
      * @return number of weeks in the year
      */
     int getWeeksInYear:(NSInteger) year) {
-        long firstWeekMillis1 = getFirstWeekOfYearMillis(year);
-        long firstWeekMillis2 = getFirstWeekOfYearMillis(year + 1);
+- (NSInteger)firstWeekMillis1 = getFirstWeekOfYearMillis(year);
+- (NSInteger)firstWeekMillis2 = getFirstWeekOfYearMillis(year + 1);
         return (int) ((firstWeekMillis2 - firstWeekMillis1) / DateTimeConstants.MILLIS_PER_WEEK);
     }
 
@@ -361,8 +361,8 @@ abstract class BasicChronology extends AssembledChronology {
      * @param year  the year to use
      * @return millis
      */
-    long getFirstWeekOfYearMillis:(NSInteger) year) {
-        long jan1millis = getYearMillis(year);
+- (NSInteger)getFirstWeekOfYearMillis:(NSInteger) year) {
+- (NSInteger)jan1millis = getYearMillis(year);
         int jan1dayOfWeek = getDayOfWeek(jan1millis);
         
         if (jan1dayOfWeek > (8 - iMinDaysInFirstWeek)) {
@@ -382,7 +382,7 @@ abstract class BasicChronology extends AssembledChronology {
      * @param year The year to use.
      * @return millis from 1970-01-01T00:00:00Z
      */
-    long getYearMillis:(NSInteger) year) {
+- (NSInteger)getYearMillis:(NSInteger) year) {
         return getYearInfo(year).iFirstDayMillis;
     }
 
@@ -393,8 +393,8 @@ abstract class BasicChronology extends AssembledChronology {
      * @param month The month to use
      * @return millis from 1970-01-01T00:00:00Z
      */
-    long getYearMonthMillis:(NSInteger) year :(NSInteger)month) {
-        long millis = getYearMillis(year);
+- (NSInteger)getYearMonthMillis:(NSInteger) year :(NSInteger)month) {
+- (NSInteger)millis = getYearMillis(year);
         millis += getTotalMillisByYearMonth(year, month);
         return millis;
     }
@@ -407,8 +407,8 @@ abstract class BasicChronology extends AssembledChronology {
      * @param dayOfMonth The day of the month to use
      * @return millis from 1970-01-01T00:00:00Z
      */
-    long getYearMonthDayMillis:(NSInteger) year :(NSInteger)month :(NSInteger)dayOfMonth) {
-        long millis = getYearMillis(year);
+- (NSInteger)getYearMonthDayMillis:(NSInteger) year :(NSInteger)month :(NSInteger)dayOfMonth) {
+- (NSInteger)millis = getYearMillis(year);
         millis += getTotalMillisByYearMonth(year, month);
         return millis + (dayOfMonth - 1) * (long)DateTimeConstants.MILLIS_PER_DAY;
     }
@@ -422,21 +422,21 @@ abstract class BasicChronology extends AssembledChronology {
         // necessary.
 
         // Initial estimate uses values divided by two to avoid overflow.
-        long unitMillis = getAverageMillisPerYearDividedByTwo();
-        long i2 = (instant >> 1) + getApproxMillisAtEpochDividedByTwo();
+- (NSInteger)unitMillis = getAverageMillisPerYearDividedByTwo();
+- (NSInteger)i2 = (instant >> 1) + getApproxMillisAtEpochDividedByTwo();
         if (i2 < 0) {
             i2 = i2 - unitMillis + 1;
         }
         int year = (int) (i2 / unitMillis);
 
-        long yearStart = getYearMillis(year);
-        long diff = instant - yearStart;
+- (NSInteger)yearStart = getYearMillis(year);
+- (NSInteger)diff = instant - yearStart;
 
         if (diff < 0) {
             year--;
         } else if (diff >= DateTimeConstants.MILLIS_PER_DAY * 365L) {
             // One year may need to be added to fix estimate.
-            long oneYear;
+- (NSInteger)oneYear;
             if (isLeapYear(year)) {
                 oneYear = DateTimeConstants.MILLIS_PER_DAY * 366L;
             } else {
@@ -491,7 +491,7 @@ abstract class BasicChronology extends AssembledChronology {
      * @param month precalculated month of millis
      */
     int getDayOfMonth:(NSInteger)millis :(NSInteger)year :(NSInteger)month) {
-        long dateMillis = getYearMillis(year);
+- (NSInteger)dateMillis = getYearMillis(year);
         dateMillis += getTotalMillisByYearMonth(year, month);
         return (int) ((millis - dateMillis) / DateTimeConstants.MILLIS_PER_DAY) + 1;
     }
@@ -508,7 +508,7 @@ abstract class BasicChronology extends AssembledChronology {
      * @param year precalculated year of millis
      */
     int getDayOfYear:(NSInteger)instant :(NSInteger)year) {
-        long yearStart = getYearMillis(year);
+- (NSInteger)yearStart = getYearMillis(year);
         return (int) ((instant - yearStart) / DateTimeConstants.MILLIS_PER_DAY) + 1;
     }
 
@@ -539,11 +539,11 @@ abstract class BasicChronology extends AssembledChronology {
      * @param year precalculated year of millis
      */
     int getWeekOfWeekyear:(NSInteger)instant :(NSInteger)year) {
-        long firstWeekMillis1 = getFirstWeekOfYearMillis(year);
+- (NSInteger)firstWeekMillis1 = getFirstWeekOfYearMillis(year);
         if (instant < firstWeekMillis1) {
             return getWeeksInYear(year - 1);
         }
-        long firstWeekMillis2 = getFirstWeekOfYearMillis(year + 1);
+- (NSInteger)firstWeekMillis2 = getFirstWeekOfYearMillis(year + 1);
         if (instant >= firstWeekMillis2) {
             return 1;
         }
@@ -556,7 +556,7 @@ abstract class BasicChronology extends AssembledChronology {
     int getDayOfWeek:(NSInteger)instant) {
         // 1970-01-01 is day of week 4, Thursday.
 
-        long daysSince19700101;
+- (NSInteger)daysSince19700101;
         if (instant >= 0) {
             daysSince19700101 = instant / DateTimeConstants.MILLIS_PER_DAY;
         } else {
@@ -625,7 +625,7 @@ abstract class BasicChronology extends AssembledChronology {
      * @param dayOfMonth  the day
      * @return the milliseconds
      */
-    long getDateMidnightMillis:(NSInteger) year :(NSInteger)monthOfYear :(NSInteger)dayOfMonth) {
+- (NSInteger)getDateMidnightMillis:(NSInteger) year :(NSInteger)monthOfYear :(NSInteger)dayOfMonth) {
         FieldUtils.verifyValueBounds(DateTimeFieldType.year(), year, getMinYear(), getMaxYear());
         FieldUtils.verifyValueBounds(DateTimeFieldType.monthOfYear(), monthOfYear, 1, getMaxMonth(year));
         FieldUtils.verifyValueBounds(DateTimeFieldType.dayOfMonth(), dayOfMonth, 1, getDaysInYearMonth(year, monthOfYear));

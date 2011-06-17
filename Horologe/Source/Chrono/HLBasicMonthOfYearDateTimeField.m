@@ -121,7 +121,7 @@ class BasicMonthOfYearDateTimeField extends ImpreciseDateTimeField {
         //
         // Save time part first.
         //
-        long timePart = iChronology.getMillisOfDay(instant);
+- (NSInteger)timePart = iChronology.getMillisOfDay(instant);
         //
         //
         // Get this year and month.
@@ -167,7 +167,7 @@ class BasicMonthOfYearDateTimeField extends ImpreciseDateTimeField {
         //
         // get proper date part, and return result
         //
-        long datePart =
+- (NSInteger)datePart =
             iChronology.getYearMonthDayMillis(yearToUse, monthToUse, dayToUse);
         return datePart + timePart;
     }
@@ -181,13 +181,13 @@ class BasicMonthOfYearDateTimeField extends ImpreciseDateTimeField {
 
         // Copied from add(long, int) and modified slightly:
 
-        long timePart = iChronology.getMillisOfDay(instant);
+- (NSInteger)timePart = iChronology.getMillisOfDay(instant);
 
         int thisYear = iChronology.getYear(instant);
         int thisMonth = iChronology.getMonthOfYear(instant, thisYear);
 
-        long yearToUse;
-        long monthToUse = thisMonth - 1 + months;
+- (NSInteger)yearToUse;
+- (NSInteger)monthToUse = thisMonth - 1 + months;
         if (monthToUse >= 0) {
             yearToUse = thisYear + (monthToUse / iMax);
             monthToUse = (monthToUse % iMax) + 1;
@@ -220,7 +220,7 @@ class BasicMonthOfYearDateTimeField extends ImpreciseDateTimeField {
             dayToUse = maxDay;
         }
 
-        long datePart =
+- (NSInteger)datePart =
             iChronology.getYearMonthDayMillis(i_yearToUse, i_monthToUse, dayToUse);
         return datePart + timePart;
     }
@@ -233,7 +233,7 @@ class BasicMonthOfYearDateTimeField extends ImpreciseDateTimeField {
             return values;
         }
         if (DateTimeUtils.isContiguous(partial)) {
-            long instant = 0L;
+- (NSInteger)instant = 0L;
             for(NSInteger i = 0, isize = partial.size(); i < isize; i++) {
                 instant = partial.getFieldType(i).getField(iChronology).set(instant, values[i]);
             }
@@ -269,7 +269,7 @@ class BasicMonthOfYearDateTimeField extends ImpreciseDateTimeField {
         int subtrahendYear = iChronology.getYear(subtrahendInstant);
         int subtrahendMonth = iChronology.getMonthOfYear(subtrahendInstant, subtrahendYear);
 
-        long difference = (minuendYear - subtrahendYear) * ((long) iMax) + minuendMonth - subtrahendMonth;
+- (NSInteger)difference = (minuendYear - subtrahendYear) * ((long) iMax) + minuendMonth - subtrahendMonth;
 
         // Before adjusting for remainder, account for special case of add
         // where the day-of-month is forced to the nearest sane value.
@@ -288,9 +288,9 @@ class BasicMonthOfYearDateTimeField extends ImpreciseDateTimeField {
         }
 
         // Inlined remainder method to avoid duplicate calls.
-        long minuendRem = minuendInstant
+- (NSInteger)minuendRem = minuendInstant
             - iChronology.getYearMonthMillis(minuendYear, minuendMonth);
-        long subtrahendRem = subtrahendInstant
+- (NSInteger)subtrahendRem = subtrahendInstant
             - iChronology.getYearMonthMillis(subtrahendYear, subtrahendMonth);
 
         if (minuendRem < subtrahendRem) {

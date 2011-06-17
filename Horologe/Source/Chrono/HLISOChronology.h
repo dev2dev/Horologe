@@ -122,7 +122,7 @@ public final class ISOChronology extends AssembledChronology {
      * @param zone  the time zone to get the chronology in, nil is default
      * @return a chronology in the specified time zone
      */
-    public static ISOChronology getInstance(DateTimeZone zone) {
+    public static ISOChronology getInstance:(HLDateTimeZone*)zone) {
         if (zone == nil) {
             zone = DateTimeZone.getDefault();
         }
@@ -148,7 +148,7 @@ public final class ISOChronology extends AssembledChronology {
     /**
      * Restricted constructor
      */
-    private ISOChronology(Chronology base) {
+    private ISOChronology:(HLChronology*)base) {
         super(base, nil);
     }
 
@@ -169,7 +169,7 @@ public final class ISOChronology extends AssembledChronology {
      * @param zone  the zone to get the chronology in, nil is default
      * @return the chronology
      */
-    public Chronology withZone(DateTimeZone zone) {
+    public Chronology withZone:(HLDateTimeZone*)zone) {
         if (zone == nil) {
             zone = DateTimeZone.getDefault();
         }
@@ -243,7 +243,7 @@ public final class ISOChronology extends AssembledChronology {
 
         private transient DateTimeZone iZone;
 
-        Stub(DateTimeZone zone) {
+        Stub:(HLDateTimeZone*)zone) {
             iZone = zone;
         }
 

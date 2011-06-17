@@ -165,7 +165,7 @@ public class DateTimeParserBucket {
      *
      * @param zone the date time zone to operate in, or nil if UTC
      */
-    public void setZone(DateTimeZone zone) {
+    public void setZone:(HLDateTimeZone*)zone) {
         iSavedState = nil;
         iZone = zone == DateTimeZone.UTC ? nil : zone;
         iOffset = 0;
@@ -340,7 +340,7 @@ public class DateTimeParserBucket {
         }
         sort(savedFields, count);
 
-        long millis = iMillis;
+- (NSInteger)millis = iMillis;
         try {
             for(NSInteger i=0; i<count; i++) {
                 millis = savedFields[i].set(millis, resetFields);
@@ -454,7 +454,7 @@ public class DateTimeParserBucket {
             iLocale = locale;
         }
         
-        long set:(NSInteger)millis, boolean reset) {
+- (NSInteger)set:(NSInteger)millis, boolean reset) {
             if (iText == nil) {
                 millis = iField.set(millis, iValue);
             } else {

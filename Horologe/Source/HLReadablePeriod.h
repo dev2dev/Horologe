@@ -22,28 +22,9 @@
 #import <Foundation/Foundation.h>
 
 
-@interface ReadablePeriod {
-
-@private
-
-}
-
-/*
- *  Copyright 2001-2005 Stephen Colebourne
- *
- *  Licensed under the Apache License, Version 2.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
- */
-package org.joda.time;
+@class HLPeriodType;
+@class HLDurationFieldType;
+@class HLMutablePeriod;
 
 /**
  * Defines a time period specified in terms of individual duration fields
@@ -71,130 +52,127 @@ package org.joda.time;
  * @author Stephen Colebourne
  * @since 1.0
  */
-public interface ReadablePeriod {
+@protocol HLReadablePeriod <NSObject>
 
-    /**
-     * Gets the period type that defines which fields are included in the period.
-     *
-     * @return the period type
-     */
-    PeriodType getPeriodType();
+/**
+ * Gets the period type that defines which fields are included in the period.
+ *
+ * @return the period type
+ */
+- (HLPeriodType*)periodType;
 
-    /**
-     * Gets the number of fields that this period supports.
-     *
-     * @return the number of fields supported
-     */
-    int size();
+/**
+ * Gets the number of fields that this period supports.
+ *
+ * @return the number of fields supported
+ */
+- (NSInteger)size;
 
-    /**
-     * Gets the field type at the specified index.
-     *
-     * @param index  the index to retrieve
-     * @return the field at the specified index
-     * @throws IndexOutOfBoundsException if the index is invalid
-     */
-    DurationFieldType getFieldType:(NSInteger) index);
+/**
+ * Gets the field type at the specified index.
+ *
+ * @param index  the index to retrieve
+ * @return the field at the specified index
+ * @throws IndexOutOfBoundsException if the index is invalid
+ */
+- (HLDurationFieldType*)fieldTypeAtIndex:(NSInteger)index;
 
-    /**
-     * Gets the value at the specified index.
-     *
-     * @param index  the index to retrieve
-     * @return the value of the field at the specified index
-     * @throws IndexOutOfBoundsException if the index is invalid
-     */
-    int getValue:(NSInteger) index);
+/**
+ * Gets the value at the specified index.
+ *
+ * @param index  the index to retrieve
+ * @return the value of the field at the specified index
+ * @throws IndexOutOfBoundsException if the index is invalid
+ */
+- (NSInteger)valueAtIndex:(NSInteger)index;
 
-    /**
-     * Gets the value of one of the fields.
-     * <p>
-     * If the field type specified is not supported by the period then zero
-     * is returned.
-     *
-     * @param field  the field type to query, nil returns zero
-     * @return the value of that field, zero if field not supported
-     */
-    int get(DurationFieldType field);
+/**
+ * Gets the value of one of the fields.
+ * <p>
+ * If the field type specified is not supported by the period then zero
+ * is returned.
+ *
+ * @param field  the field type to query, nil returns zero
+ * @return the value of that field, zero if field not supported
+ */
+- (NSInteger)get:(HLDurationFieldType*)field;
 
-    /**
-     * Checks whether the field type specified is supported by this period.
-     *
-     * @param field  the field to check, may be nil which returns false
-     * @return true if the field is supported
-     */
-    boolean isSupported(DurationFieldType field);
+/**
+ * Checks whether the field type specified is supported by this period.
+ *
+ * @param field  the field to check, may be nil which returns false
+ * @return true if the field is supported
+ */
+- (BOOL)isSupported:(HLDurationFieldType*)field;
 
-    //-----------------------------------------------------------------------
-    /**
-     * Get this period as an immutable <code>Period</code> object.
-     * <p>
-     * This will either typecast this instance, or create a new <code>Period</code>.
-     * 
-     * @return a Duration using the same field set and values
-     */
-    Period toPeriod();
+//-----------------------------------------------------------------------
+/**
+ * Get this period as an immutable <code>Period</code> object.
+ * <p>
+ * This will either typecast this instance, or create a new <code>Period</code>.
+ * 
+ * @return a Duration using the same field set and values
+ */
+- (HLPeriod*)toPeriod;
 
-    /**
-     * Get this object as a <code>MutablePeriod</code>.
-     * <p>
-     * This will always return a new <code>MutablePeriod</code> with the same fields.
-     * 
-     * @return a MutablePeriod using the same field set and values
-     */
-    MutablePeriod toMutablePeriod();
+/**
+ * Get this object as a <code>MutablePeriod</code>.
+ * <p>
+ * This will always return a new <code>MutablePeriod</code> with the same fields.
+ * 
+ * @return a MutablePeriod using the same field set and values
+ */
+- (HLMutablePeriod*)toMutablePeriod;
 
-    //-----------------------------------------------------------------------
-    /**
-     * Compares this object with the specified object for equality based
-     * on the value and type of each supported field.
-     * All ReadablePeriod instances are accepted.
-     * <p>
-     * Note that a period of 1 day is not equal to a period of 24 hours,
-     * nor is 1 hour equal to 60 minutes. Only periods with the same amount
-     * in each field are equal.
-     * <p>
-     * This is because periods represent an abstracted definition of a time
-     * period (eg. a day may not actually be 24 hours, it might be 23 or 25
-     * at daylight savings boundary).
-     * <p>
-     * To compare the actual duration of two periods, convert both to
-     * {@link Duration}s, an operation that emphasises that the result may
-     * differ according to the date you choose.
-     *
-     * @param readablePeriod  a readable period to check against
-     * @return true if all the field values and types are equal, false if
-     *  not or the period is nil or of an incorrect type
-     */
-    boolean equals:(id)readablePeriod);
+//-----------------------------------------------------------------------
+/**
+ * Compares this object with the specified object for equality based
+ * on the value and type of each supported field.
+ * All ReadablePeriod instances are accepted.
+ * <p>
+ * Note that a period of 1 day is not equal to a period of 24 hours,
+ * nor is 1 hour equal to 60 minutes. Only periods with the same amount
+ * in each field are equal.
+ * <p>
+ * This is because periods represent an abstracted definition of a time
+ * period (eg. a day may not actually be 24 hours, it might be 23 or 25
+ * at daylight savings boundary).
+ * <p>
+ * To compare the actual duration of two periods, convert both to
+ * {@link Duration}s, an operation that emphasises that the result may
+ * differ according to the date you choose.
+ *
+ * @param readablePeriod  a readable period to check against
+ * @return true if all the field values and types are equal, false if
+ *  not or the period is nil or of an incorrect type
+ */
+- (BOOL)isEqualToReadablePeriod:(id)readablePeriod;
 
-    /**
-     * Gets a hash code for the period that is compatible with the equals method.
-     * The hashcode is calculated as follows:
-     * <pre>
-     *  int total = 17;
-     *  for(NSInteger i = 0; i < fields.length; i++) {
-     *      total = 27 * total + getValue(i);
-     *      total = 27 * total + getFieldType(i).hashCode();
-     *  }
-     *  return total;
-     * </pre>
-     *
-     * @return a hash code
-     */
-    int hashCode();
+/**
+ * Gets a hash code for the period that is compatible with the equals method.
+ * The hashcode is calculated as follows:
+ * <pre>
+ *  int total = 17;
+ *  for(NSInteger i = 0; i < fields.length; i++) {
+ *      total = 27 * total + getValue(i);
+ *      total = 27 * total + getFieldType(i).hashCode();
+ *  }
+ *  return total;
+ * </pre>
+ *
+ * @return a hash code
+ */
+- (NSUInteger)hash;
 
-    //-----------------------------------------------------------------------
-    /**
-     * Gets the value as a String in the style of the ISO8601 duration format.
-     * Technically, the output can breach the ISO specification as weeks may be included.
-     * <p>
-     * For example, "PT6H3M5S" represents 6 hours, 3 minutes, 5 seconds.
-     *
-     * @return the value as an ISO8601 style string
-     */
-    String toString();
-
-}
-
+//-----------------------------------------------------------------------
+/**
+ * Gets the value as a String in the style of the ISO8601 duration format.
+ * Technically, the output can breach the ISO specification as weeks may be included.
+ * <p>
+ * For example, "PT6H3M5S" represents 6 hours, 3 minutes, 5 seconds.
+ *
+ * @return the value as an ISO8601 style string
+ */
+- (NSString*)description;
 
 @end

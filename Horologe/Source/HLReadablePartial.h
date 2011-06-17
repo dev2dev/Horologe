@@ -22,28 +22,12 @@
 #import <Foundation/Foundation.h>
 
 
-@interface ReadablePartial {
+@class HLDateTimeFieldType;
+@class HLDateTimeField;
+@class HLChronology;
+@class HLDateTime;
+@protocol HLReadablePartial;
 
-@private
-
-}
-
-/*
- *  Copyright 2001-2005 Stephen Colebourne
- *
- *  Licensed under the Apache License, Version 2.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
- */
-package org.joda.time;
 
 /**
  * Defines a partial time that does not support every datetime field, and is
@@ -61,118 +45,118 @@ package org.joda.time;
  * @author Stephen Colebourne
  * @since 1.0
  */
-public interface ReadablePartial {
+@protocol HLReadablePartial <NSObject>
 
-    /**
-     * Gets the number of fields that this partial supports.
-     *
-     * @return the number of fields supported
-     */
-    int size();
+/**
+ * Gets the number of fields that this partial supports.
+ *
+ * @return the number of fields supported
+ */
+- (NSInteger)size;
 
-    /**
-     * Gets the field type at the specified index.
-     *
-     * @param index  the index to retrieve
-     * @return the field at the specified index
-     * @throws IndexOutOfBoundsException if the index is invalid
-     */
-    DateTimeFieldType getFieldType:(NSInteger) index);
+/**
+ * Gets the field type at the specified index.
+ *
+ * @param index  the index to retrieve
+ * @return the field at the specified index
+ * @throws IndexOutOfBoundsException if the index is invalid
+ */
+- (HLDateTimeFieldType*)fieldType:(NSInteger)index;
 
-    /**
-     * Gets the field at the specified index.
-     *
-     * @param index  the index to retrieve
-     * @return the field at the specified index
-     * @throws IndexOutOfBoundsException if the index is invalid
-     */
-    DateTimeField getField:(NSInteger) index);
+/**
+ * Gets the field at the specified index.
+ *
+ * @param index  the index to retrieve
+ * @return the field at the specified index
+ * @throws IndexOutOfBoundsException if the index is invalid
+ */
+- (HLDateTimeField*)field:(NSInteger)index;
 
-    /**
-     * Gets the value at the specified index.
-     *
-     * @param index  the index to retrieve
-     * @return the value of the field at the specified index
-     * @throws IndexOutOfBoundsException if the index is invalid
-     */
-    int getValue:(NSInteger) index);
+/**
+ * Gets the value at the specified index.
+ *
+ * @param index  the index to retrieve
+ * @return the value of the field at the specified index
+ * @throws IndexOutOfBoundsException if the index is invalid
+ */
+- (NSInteger)value:(NSInteger)index;
 
-    /**
-     * Gets the chronology of the partial which is never nil.
-     * <p>
-     * The {@link Chronology} is the calculation engine behind the partial and
-     * provides conversion and validation of the fields in a particular calendar system.
-     * 
-     * @return the chronology, never nil
-     */
-    Chronology getChronology();
+/**
+ * Gets the chronology of the partial which is never nil.
+ * <p>
+ * The {@link Chronology} is the calculation engine behind the partial and
+ * provides conversion and validation of the fields in a particular calendar system.
+ * 
+ * @return the chronology, never nil
+ */
+- (HLChronology*)chronology;
 
-    /**
-     * Gets the value of one of the fields.
-     * <p>
-     * The field type specified must be one of those that is supported by the partial.
-     *
-     * @param field  a DateTimeFieldType instance that is supported by this partial
-     * @return the value of that field
-     * @throws IllegalArgumentException if the field is nil or not supported
-     */
-    int get(DateTimeFieldType field);
+/**
+ * Gets the value of one of the fields.
+ * <p>
+ * The field type specified must be one of those that is supported by the partial.
+ *
+ * @param field  a DateTimeFieldType instance that is supported by this partial
+ * @return the value of that field
+ * @throws IllegalArgumentException if the field is nil or not supported
+ */
+- (NSInteger)get:(HLDateTimeFieldType*)field;
 
-    /**
-     * Checks whether the field type specified is supported by this partial.
-     *
-     * @param field  the field to check, may be nil which returns false
-     * @return true if the field is supported
-     */
-    boolean isSupported(DateTimeFieldType field);
+/**
+ * Checks whether the field type specified is supported by this partial.
+ *
+ * @param field  the field to check, may be nil which returns false
+ * @return true if the field is supported
+ */
+- (BOOL)isSupported:(HLDateTimeFieldType*)field;
 
-    /**
-     * Converts this partial to a full datetime by resolving it against another
-     * datetime.
-     * <p>
-     * This method takes the specified datetime and sets the fields from this
-     * instant on top. The chronology from the base instant is used.
-     * <p>
-     * For example, if this partial represents a time, then the result of this
-     * method will be the datetime from the specified base instant plus the
-     * time from this partial.
-     *
-     * @param baseInstant  the instant that provides the missing fields, nil means now
-     * @return the combined datetime
-     */
-    DateTime toDateTime(ReadableInstant baseInstant);
+/**
+ * Converts this partial to a full datetime by resolving it against another
+ * datetime.
+ * <p>
+ * This method takes the specified datetime and sets the fields from this
+ * instant on top. The chronology from the base instant is used.
+ * <p>
+ * For example, if this partial represents a time, then the result of this
+ * method will be the datetime from the specified base instant plus the
+ * time from this partial.
+ *
+ * @param baseInstant  the instant that provides the missing fields, nil means now
+ * @return the combined datetime
+ */
+- (HLDateTime*)toDateTime:(id<HLReadableInstant>)baseInstant;
 
-    //-----------------------------------------------------------------------
-    /**
-     * Compares this partial with the specified object for equality based
-     * on the supported fields, chronology and values.
-     * <p>
-     * Two instances of ReadablePartial are equal if they have the same
-     * chronology, same field types (in same order) and same values.
-     *
-     * @param partial  the object to compare to
-     * @return true if equal
-     */
-    boolean equals:(id)partial);
+//-----------------------------------------------------------------------
+/**
+ * Compares this partial with the specified object for equality based
+ * on the supported fields, chronology and values.
+ * <p>
+ * Two instances of ReadablePartial are equal if they have the same
+ * chronology, same field types (in same order) and same values.
+ *
+ * @param partial  the object to compare to
+ * @return true if equal
+ */
+- (BOOL)isEqualToPartial:(id)partial;
 
-    /**
-     * Gets a hash code for the partial that is compatible with the 
-     * equals method.
-     * <p>
-     * The formula used must be:
-     * <pre>
-     *  int total = 157;
-     *  for(NSInteger i = 0; i < fields.length; i++) {
-     *      total = 23 * total + values[i];
-     *      total = 23 * total + fieldTypes[i].hashCode();
-     *  }
-     *  total += chronology.hashCode();
-     *  return total;
-     * </pre>
-     *
-     * @return a suitable hash code
-     */
-    int hashCode();
+/**
+ * Gets a hash code for the partial that is compatible with the 
+ * equals method.
+ * <p>
+ * The formula used must be:
+ * <pre>
+ *  int total = 157;
+ *  for(NSInteger i = 0; i < fields.length; i++) {
+ *      total = 23 * total + values[i];
+ *      total = 23 * total + fieldTypes[i].hashCode();
+ *  }
+ *  total += chronology.hashCode();
+ *  return total;
+ * </pre>
+ *
+ * @return a suitable hash code
+ */
+- (NSUInteger)hash;
 
 // NOTE: This method should have existed in Joda-Time v1.0.
 // We STRONGLY recommend that all implementations of ReadablePartial
@@ -202,19 +186,16 @@ public interface ReadablePartial {
 //     */
 //    int compareTo:(id)partial);
 
-    //-----------------------------------------------------------------------
-    /**
-     * Get the value as a String in a recognisable ISO8601 format, only
-     * displaying supported fields.
-     * <p>
-     * The string output is in ISO8601 format to enable the String
-     * constructor to correctly parse it.
-     *
-     * @return the value as an ISO8601 string
-     */
-    String toString();
-
-}
-
+//-----------------------------------------------------------------------
+/**
+ * Get the value as a String in a recognisable ISO8601 format, only
+ * displaying supported fields.
+ * <p>
+ * The string output is in ISO8601 format to enable the String
+ * constructor to correctly parse it.
+ *
+ * @return the value as an ISO8601 string
+ */
+- (NSString*)description;
 
 @end

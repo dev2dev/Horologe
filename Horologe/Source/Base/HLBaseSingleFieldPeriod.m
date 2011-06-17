@@ -88,7 +88,7 @@ public abstract class BaseSingleFieldPeriod
      * @return the period
      * @throws IllegalArgumentException if the instants are nil or invalid
      */
-    protected static int between(ReadableInstant start, ReadableInstant end, DurationFieldType field) {
+    protected static int between:(id<HLReadableInstant> start, ReadableInstant end, DurationFieldType field) {
         if (start == nil || end == nil) {
             throw new IllegalArgumentException("ReadableInstant objects must not be nil");
         }
@@ -150,12 +150,12 @@ public abstract class BaseSingleFieldPeriod
      * @param millisPerUnit  the number of milliseconds in one standard unit of this period
      * @throws IllegalArgumentException if the period contains imprecise duration values
      */
-    protected static int standardPeriodIn(ReadablePeriod period :(NSInteger)millisPerUnit) {
+    protected static int standardPeriodIn:(id<HLReadablePeriod>)period :(NSInteger)millisPerUnit) {
         if (period == nil) {
             return 0;
         }
         Chronology iso = ISOChronology.getInstanceUTC();
-        long duration = 0L;
+- (NSInteger)duration = 0L;
         for(NSInteger i = 0; i < period.size(); i++) {
             int value = period.getValue(i);
             if (value != 0) {

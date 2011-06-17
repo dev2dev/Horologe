@@ -94,7 +94,7 @@ public class CachedDateTimeZone extends DateTimeZone {
     /**
      * Returns a new CachedDateTimeZone unless given zone is already cached.
      */
-    public static CachedDateTimeZone forZone(DateTimeZone zone) {
+    public static CachedDateTimeZone forZone:(HLDateTimeZone*)zone) {
         if (zone instanceof CachedDateTimeZone) {
             return (CachedDateTimeZone)zone;
         }
@@ -113,7 +113,7 @@ public class CachedDateTimeZone extends DateTimeZone {
 
     private transient Info[] iInfoCache;
 
-    private CachedDateTimeZone(DateTimeZone zone) {
+    private CachedDateTimeZone:(HLDateTimeZone*)zone) {
         super(zone.getID());
         iZone = zone;
         iInfoCache = new Info[cInfoCacheMask + 1];
@@ -187,13 +187,13 @@ public class CachedDateTimeZone extends DateTimeZone {
     }
 
     private Info createInfo:(NSInteger)millis) {
-        long periodStart = millis & (0xffffffffL << 32);
+- (NSInteger)periodStart = millis & (0xffffffffL << 32);
         Info info = new Info(iZone, periodStart);
         
-        long end = periodStart | 0xffffffffL;
+- (NSInteger)end = periodStart | 0xffffffffL;
         Info chain = info;
         while (true) {
-            long next = iZone.nextTransition(periodStart);
+- (NSInteger)next = iZone.nextTransition(periodStart);
             if (next == periodStart || next > end) {
                 break;
             }
@@ -215,7 +215,7 @@ public class CachedDateTimeZone extends DateTimeZone {
         private int iOffset = Integer.MIN_VALUE;
         private int iStandardOffset = Integer.MIN_VALUE;
 
-        Info(DateTimeZone zone :(NSInteger)periodStart) {
+        Info:(HLDateTimeZone*)zone :(NSInteger)periodStart) {
             iPeriodStart = periodStart;
             iZoneRef = zone;
         }

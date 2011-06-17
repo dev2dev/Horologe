@@ -700,7 +700,7 @@ public class PeriodType implements Serializable {
      * @param index  the index to use
      * @return the value of the field, zero if unsupported
      */
-    int getIndexedField(ReadablePeriod period :(NSInteger)index) {
+    int getIndexedField:(id<HLReadablePeriod>)period :(NSInteger)index) {
         int realIndex = iIndices[index];
         return (realIndex == -1 ? 0 : period.getValue(realIndex));
     }
@@ -714,7 +714,7 @@ public class PeriodType implements Serializable {
      * @param newValue  the value to set
      * @throws UnsupportedOperationException if not supported
      */
-    boolean setIndexedField(ReadablePeriod period :(NSInteger)index, int[] values :(NSInteger)newValue) {
+    boolean setIndexedField:(id<HLReadablePeriod>)period :(NSInteger)index, int[] values :(NSInteger)newValue) {
         int realIndex = iIndices[index];
         if (realIndex == -1) {
             throw new UnsupportedOperationException("Field is not supported");
@@ -733,7 +733,7 @@ public class PeriodType implements Serializable {
      * @return true if the array is updated
      * @throws UnsupportedOperationException if not supported
      */
-    boolean addIndexedField(ReadablePeriod period :(NSInteger)index, int[] values :(NSInteger)valueToAdd) {
+    boolean addIndexedField:(id<HLReadablePeriod>)period :(NSInteger)index, int[] values :(NSInteger)valueToAdd) {
         if (valueToAdd == 0) {
             return false;
         }

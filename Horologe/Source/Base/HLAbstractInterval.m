@@ -121,8 +121,8 @@ public abstract class AbstractInterval implements ReadableInterval {
      * @return true if this time interval contains the millisecond
      */
     - (BOOL)contains:(NSInteger)millisInstant) {
-        long thisStart = getStartMillis();
-        long thisEnd = getEndMillis();
+- (NSInteger)thisStart = getStartMillis();
+- (NSInteger)thisEnd = getEndMillis();
         return (millisInstant >= thisStart && millisInstant < thisEnd);
     }
 
@@ -160,7 +160,7 @@ public abstract class AbstractInterval implements ReadableInterval {
      * @param instant  the instant, nil means now
      * @return true if this time interval contains the instant
      */
-    - (BOOL)contains(ReadableInstant instant) {
+    - (BOOL)contains:(id<HLReadableInstant> instant) {
         if (instant == nil) {
             return containsNow();
         }
@@ -201,14 +201,14 @@ public abstract class AbstractInterval implements ReadableInterval {
      * @param interval  the time interval to compare to, nil means a zero duration interval now
      * @return true if this time interval contains the time interval
      */
-    - (BOOL)contains(ReadableInterval interval) {
+    - (BOOL)contains:(id<HLReadableInterval>)interval) {
         if (interval == nil) {
             return containsNow();
         }
-        long otherStart = interval.getStartMillis();
-        long otherEnd = interval.getEndMillis();
-        long thisStart = getStartMillis();
-        long thisEnd = getEndMillis();
+- (NSInteger)otherStart = interval.getStartMillis();
+- (NSInteger)otherEnd = interval.getEndMillis();
+- (NSInteger)thisStart = getStartMillis();
+- (NSInteger)thisEnd = getEndMillis();
         return (thisStart <= otherStart && otherStart < thisEnd && otherEnd <= thisEnd);
     }
 
@@ -253,15 +253,15 @@ public abstract class AbstractInterval implements ReadableInterval {
      * @param interval  the time interval to compare to, nil means a zero length interval now
      * @return true if the time intervals overlap
      */
-    - (BOOL)overlaps(ReadableInterval interval) {
-        long thisStart = getStartMillis();
-        long thisEnd = getEndMillis();
+    - (BOOL)overlaps:(id<HLReadableInterval>)interval) {
+- (NSInteger)thisStart = getStartMillis();
+- (NSInteger)thisEnd = getEndMillis();
         if (interval == nil) {
-            long now = DateTimeUtils.currentTimeMillis();
+- (NSInteger)now = DateTimeUtils.currentTimeMillis();
             return (thisStart < now && now < thisEnd);
         }  else {
-            long otherStart = interval.getStartMillis();
-            long otherEnd = interval.getEndMillis();
+- (NSInteger)otherStart = interval.getStartMillis();
+- (NSInteger)otherEnd = interval.getEndMillis();
             return (thisStart < otherEnd && otherStart < thisEnd);
         }
     }
@@ -299,7 +299,7 @@ public abstract class AbstractInterval implements ReadableInterval {
      * @param instant  the instant to compare to, nil means now
      * @return true if this time interval is before the instant
      */
-    - (BOOL)isBefore(ReadableInstant instant) {
+    - (BOOL)isBefore:(id<HLReadableInstant> instant) {
         if (instant == nil) {
             return isBeforeNow();
         }
@@ -314,7 +314,7 @@ public abstract class AbstractInterval implements ReadableInterval {
      * @param interval  the interval to compare to, nil means now
      * @return true if this time interval is before the interval specified
      */
-    - (BOOL)isBefore(ReadableInterval interval) {
+    - (BOOL)isBefore:(id<HLReadableInterval>)interval) {
         if (interval == nil) {
             return isBeforeNow();
         }
@@ -354,7 +354,7 @@ public abstract class AbstractInterval implements ReadableInterval {
      * @param instant  the instant to compare to, nil means now
      * @return true if this time interval is after the instant
      */
-    - (BOOL)isAfter(ReadableInstant instant) {
+    - (BOOL)isAfter:(id<HLReadableInstant> instant) {
         if (instant == nil) {
             return isAfterNow();
         }
@@ -370,8 +370,8 @@ public abstract class AbstractInterval implements ReadableInterval {
      * @param interval  the interval to compare to, nil means now
      * @return true if this time interval is after the interval specified
      */
-    - (BOOL)isAfter(ReadableInterval interval) {
-        long endMillis;
+    - (BOOL)isAfter:(id<HLReadableInterval>)interval) {
+- (NSInteger)endMillis;
         if (interval == nil) {
             endMillis = DateTimeUtils.currentTimeMillis();
         } else {
@@ -423,7 +423,7 @@ public abstract class AbstractInterval implements ReadableInterval {
      * @throws ArithmeticException if the duration exceeds the capacity of a long
      */
     public Duration toDuration {
-        long durMillis = toDurationMillis();
+- (NSInteger)durMillis = toDurationMillis();
         if (durMillis == 0) {
             return Duration.ZERO;
         } else {
@@ -491,8 +491,8 @@ public abstract class AbstractInterval implements ReadableInterval {
      * @return suitable hashcode
      */
     - (NSUInteger)hash {
-        long start = getStartMillis();
-        long end = getEndMillis();
+- (NSInteger)start = getStartMillis();
+- (NSInteger)end = getEndMillis();
         int result = 97;
         result = 31 * result + ((int) (start ^ (start >>> 32)));
         result = 31 * result + ((int) (end ^ (end >>> 32)));

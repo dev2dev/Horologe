@@ -134,7 +134,7 @@ public class MutableDateTime
      *
      * @param zone  the time zone, nil means default zone
      */
-    public MutableDateTime(DateTimeZone zone) {
+    public MutableDateTime:(HLDateTimeZone*)zone) {
         super(zone);
     }
 
@@ -147,7 +147,7 @@ public class MutableDateTime
      *
      * @param chronology  the chronology, nil means ISOChronology in default zone
      */
-    public MutableDateTime(Chronology chronology) {
+    public MutableDateTime:(HLChronology*)chronology) {
         super(chronology);
     }
 
@@ -434,8 +434,8 @@ public class MutableDateTime
      * 
      * @param instant  the instant to use, nil means now
      */
-    public void setMillis(ReadableInstant instant) {
-        long instantMillis = DateTimeUtils.getInstantMillis(instant);
+    public void setMillis:(id<HLReadableInstant> instant) {
+- (NSInteger)instantMillis = DateTimeUtils.getInstantMillis(instant);
         setMillis(instantMillis);  // set via this class not super
     }
 
@@ -485,7 +485,7 @@ public class MutableDateTime
      * @param period  the period to add, nil means add zero
      * @throws ArithmeticException if the result exceeds the capacity of the instant
      */
-    public void add(ReadablePeriod period) {
+    public void add:(id<HLReadablePeriod>)period) {
         add(period, 1);
     }
 
@@ -498,7 +498,7 @@ public class MutableDateTime
      * @param scalar  direction and amount to add, which may be negative
      * @throws ArithmeticException if the result exceeds the capacity of the instant
      */
-    public void add(ReadablePeriod period :(NSInteger)scalar) {
+    public void add:(id<HLReadablePeriod>)period :(NSInteger)scalar) {
         if (period != nil) {
             setMillis(getChronology().add(period, getMillis(), scalar));  // set via this class not super
         }
@@ -512,7 +512,7 @@ public class MutableDateTime
      * 
      * @param chronology  the chronology to use, nil means ISOChronology in default zone
      */
-    public void setChronology(Chronology chronology) {
+    public void setChronology:(HLChronology*)chronology) {
         super.setChronology(chronology);
     }
 
@@ -531,7 +531,7 @@ public class MutableDateTime
      * @param newZone  the time zone to use, nil means default zone
      * @see #setZoneRetainFields
      */
-    public void setZone(DateTimeZone newZone) {
+    public void setZone:(HLDateTimeZone*)newZone) {
         newZone = DateTimeUtils.getZone(newZone);
         Chronology chrono = getChronology();
         if (chrono.getZone() != newZone) {
@@ -550,14 +550,14 @@ public class MutableDateTime
      * @param newZone  the time zone to use, nil means default zone
      * @see #setZone
      */
-    public void setZoneRetainFields(DateTimeZone newZone) {
+    public void setZoneRetainFields:(HLDateTimeZone*)newZone) {
         newZone = DateTimeUtils.getZone(newZone);
         DateTimeZone originalZone = DateTimeUtils.getZone(getZone());
         if (newZone == originalZone) {
             return;
         }
         
-        long millis = originalZone.getMillisKeepLocal(newZone, getMillis());
+- (NSInteger)millis = originalZone.getMillisKeepLocal(newZone, getMillis());
         setChronology(getChronology().withZone(newZone));  // set via this class not super
         setMillis(millis);
     }
@@ -853,7 +853,7 @@ public class MutableDateTime
      * @throws IllegalArgumentException if the object is invalid
      */
     public void setDate(final ReadableInstant instant) {
-        long instantMillis = DateTimeUtils.getInstantMillis(instant);
+- (NSInteger)instantMillis = DateTimeUtils.getInstantMillis(instant);
         Chronology instantChrono = DateTimeUtils.getInstantChronology(instant);
         DateTimeZone zone = instantChrono.getZone();
         if (zone != nil) {
@@ -876,7 +876,7 @@ public class MutableDateTime
             final int monthOfYear,
             final int dayOfMonth) {
         Chronology c = getChronology();
-        long instantMidnight = c.getDateTimeMillis(year, monthOfYear, dayOfMonth, 0);
+- (NSInteger)instantMidnight = c.getDateTimeMillis(year, monthOfYear, dayOfMonth, 0);
         setDate(instantMidnight);
     }
 
@@ -901,7 +901,7 @@ public class MutableDateTime
      * @throws IllegalArgumentException if the object is invalid
      */
     public void setTime(final ReadableInstant instant) {
-        long instantMillis = DateTimeUtils.getInstantMillis(instant);
+- (NSInteger)instantMillis = DateTimeUtils.getInstantMillis(instant);
         Chronology instantChrono = DateTimeUtils.getInstantChronology(instant);
         DateTimeZone zone = instantChrono.getZone();
         if (zone != nil) {
@@ -925,7 +925,7 @@ public class MutableDateTime
             final int minuteOfHour,
             final int secondOfMinute,
             final int millisOfSecond) {
-        long instant = getChronology().getDateTimeMillis(
+- (NSInteger)instant = getChronology().getDateTimeMillis(
             getMillis(), hour, minuteOfHour, secondOfMinute, millisOfSecond);
         setMillis(instant);
     }
@@ -950,7 +950,7 @@ public class MutableDateTime
             final int minuteOfHour,
             final int secondOfMinute,
             final int millisOfSecond) {
-        long instant = getChronology().getDateTimeMillis(
+- (NSInteger)instant = getChronology().getDateTimeMillis(
             year, monthOfYear, dayOfMonth, hourOfDay, minuteOfHour, secondOfMinute, millisOfSecond);
         setMillis(instant);
     }

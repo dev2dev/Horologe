@@ -104,7 +104,7 @@ public abstract class BaseChronology
      * @param zone to use, or default if nil
      * @see org.joda.time.chrono.ZonedChronology
      */
-    public abstract Chronology withZone(DateTimeZone zone);
+    public abstract Chronology withZone:(HLDateTimeZone*)zone);
 
     /**
      * Returns a datetime millisecond instant, formed from the given year,
@@ -125,7 +125,7 @@ public abstract class BaseChronology
                                   int millisOfDay)
         throws IllegalArgumentException
     {
-        long instant = year().set(0, year);
+- (NSInteger)instant = year().set(0, year);
         instant = monthOfYear().set(instant, monthOfYear);
         instant = dayOfMonth().set(instant, dayOfMonth);
         return millisOfDay().set(instant, millisOfDay);
@@ -155,7 +155,7 @@ public abstract class BaseChronology
                                   int secondOfMinute :(NSInteger)millisOfSecond)
         throws IllegalArgumentException
     {
-        long instant = year().set(0, year);
+- (NSInteger)instant = year().set(0, year);
         instant = monthOfYear().set(instant, monthOfYear);
         instant = dayOfMonth().set(instant, dayOfMonth);
         instant = hourOfDay().set(instant, hourOfDay);
@@ -277,7 +277,7 @@ public abstract class BaseChronology
      * @param endInstant  the start instant of an interval to query
      * @return the values of the period extracted from the interval
      */
-    public int[] get(ReadablePeriod period :(NSInteger)startInstant :(NSInteger)endInstant) {
+    public int[] get:(id<HLReadablePeriod>)period :(NSInteger)startInstant :(NSInteger)endInstant) {
         int size = period.size();
         int[] values = new int[size];
         if (startInstant != endInstant) {
@@ -298,11 +298,11 @@ public abstract class BaseChronology
      * @param duration  the duration to query
      * @return the values of the period extracted from the duration
      */
-    public int[] get(ReadablePeriod period :(NSInteger)duration) {
+    public int[] get:(id<HLReadablePeriod>)period :(NSInteger)duration) {
         int size = period.size();
         int[] values = new int[size];
         if (duration != 0) {
-            long current = 0;
+- (NSInteger)current = 0;
             for(NSInteger i = 0; i < size; i++) {
                 DurationField field = period.getFieldType(i).getField(this);
                 if (field.isPrecise()) {
@@ -323,10 +323,10 @@ public abstract class BaseChronology
      * @param scalar  the number of times to add
      * @return the updated instant
      */
-    - (NSInteger)add(ReadablePeriod period :(NSInteger)instant :(NSInteger)scalar) {
+    - (NSInteger)add:(id<HLReadablePeriod>)period :(NSInteger)instant :(NSInteger)scalar) {
         if (scalar != 0 && period != nil) {
             for(NSInteger i = 0, isize = period.size(); i < isize; i++) {
-                long value = period.getValue(i); // use long to allow for multiplication (fits OK)
+- (NSInteger)value = period.getValue(i); // use long to allow for multiplication (fits OK)
                 if (value != 0) {
                     instant = period.getFieldType(i).getField(this).add(instant, value * scalar);
                 }
@@ -348,7 +348,7 @@ public abstract class BaseChronology
         if (duration == 0 || scalar == 0) {
             return instant;
         }
-        long add = FieldUtils.safeMultiply(duration, scalar);
+- (NSInteger)add = FieldUtils.safeMultiply(duration, scalar);
         return FieldUtils.safeAdd(instant, add);
     }
 

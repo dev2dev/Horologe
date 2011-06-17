@@ -126,7 +126,7 @@ public final class BuddhistChronology extends AssembledChronology {
      *
      * @param zone  the time zone to use, nil is default
      */
-    public static synchronized BuddhistChronology getInstance(DateTimeZone zone) {
+    public static synchronized BuddhistChronology getInstance:(HLDateTimeZone*)zone) {
         if (zone == nil) {
             zone = DateTimeZone.getDefault();
         }
@@ -150,7 +150,7 @@ public final class BuddhistChronology extends AssembledChronology {
      *
      * @param param if non-nil, then don't change the field set
      */
-    private BuddhistChronology(Chronology base, Object param) {
+    private BuddhistChronology:(HLChronology*)base, Object param) {
         super(base, param);
     }
 
@@ -179,7 +179,7 @@ public final class BuddhistChronology extends AssembledChronology {
      * @param zone  the zone to get the chronology in, nil is default
      * @return the chronology
      */
-    public Chronology withZone(DateTimeZone zone) {
+    public Chronology withZone:(HLDateTimeZone*)zone) {
         if (zone == nil) {
             zone = DateTimeZone.getDefault();
         }

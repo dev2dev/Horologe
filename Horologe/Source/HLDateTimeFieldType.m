@@ -423,7 +423,7 @@ public abstract class DateTimeFieldType implements Serializable {
      * @param chronology  the chronology to use, nil means ISOChronology in default zone
      * @return a suitable field
      */
-    public abstract DateTimeField getField(Chronology chronology);
+    public abstract DateTimeField getField:(HLChronology*)chronology);
 
     /**
      * Checks whether this field supported in the given Chronology.
@@ -431,7 +431,7 @@ public abstract class DateTimeFieldType implements Serializable {
      * @param chronology  the chronology to use, nil means ISOChronology in default zone
      * @return true if supported
      */
-    - (BOOL)isSupported(Chronology chronology) {
+    - (BOOL)isSupported:(HLChronology*)chronology) {
         return getField(chronology).isSupported();
     }
 
@@ -483,7 +483,7 @@ public abstract class DateTimeFieldType implements Serializable {
         }
 
         /** @inheritdoc */
-        public DateTimeField getField(Chronology chronology) {
+        public DateTimeField getField:(HLChronology*)chronology) {
             chronology = DateTimeUtils.getChronology(chronology);
 
             switch (iOrdinal) {

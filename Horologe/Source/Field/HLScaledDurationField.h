@@ -98,32 +98,32 @@ public class ScaledDurationField extends DecoratedDurationField {
     }
 
     - (NSInteger)getMillis:(NSInteger) value) {
-        long scaled = ((long) value) * ((long) iScalar);
+- (NSInteger)scaled = ((long) value) * ((long) iScalar);
         return getWrappedField().getMillis(scaled);
     }
 
     - (NSInteger)getMillis:(NSInteger)value) {
-        long scaled = FieldUtils.safeMultiply(value, iScalar);
+- (NSInteger)scaled = FieldUtils.safeMultiply(value, iScalar);
         return getWrappedField().getMillis(scaled);
     }
 
     - (NSInteger)getMillis:(NSInteger) value :(NSInteger)instant) {
-        long scaled = ((long) value) * ((long) iScalar);
+- (NSInteger)scaled = ((long) value) * ((long) iScalar);
         return getWrappedField().getMillis(scaled, instant);
     }
 
     - (NSInteger)getMillis:(NSInteger)value :(NSInteger)instant) {
-        long scaled = FieldUtils.safeMultiply(value, iScalar);
+- (NSInteger)scaled = FieldUtils.safeMultiply(value, iScalar);
         return getWrappedField().getMillis(scaled, instant);
     }
 
     - (NSInteger)add:(NSInteger)instant :(NSInteger)value) {
-        long scaled = ((long) value) * ((long) iScalar);
+- (NSInteger)scaled = ((long) value) * ((long) iScalar);
         return getWrappedField().add(instant, scaled);
     }
 
     - (NSInteger)add:(NSInteger)instant :(NSInteger)value) {
-        long scaled = FieldUtils.safeMultiply(value, iScalar);
+- (NSInteger)scaled = FieldUtils.safeMultiply(value, iScalar);
         return getWrappedField().add(instant, scaled);
     }
 
@@ -174,7 +174,7 @@ public class ScaledDurationField extends DecoratedDurationField {
      * @return a suitable hashcode
      */
     - (NSInteger)hashCode;
-        long scalar = iScalar;
+- (NSInteger)scalar = iScalar;
         int hash = (int) (scalar ^ (scalar >>> 32));
         hash += getType().hashCode();
         hash += getWrappedField().hashCode();

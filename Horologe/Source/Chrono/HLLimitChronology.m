@@ -87,7 +87,7 @@ public final class LimitChronology extends AssembledChronology {
      * @param upperLimit  exclusive upper limit, or nil if none
      * @throws IllegalArgumentException if chronology is nil or limits are invalid
      */
-    public static LimitChronology getInstance(Chronology base,
+    public static LimitChronology getInstance:(HLChronology*)base,
                                               ReadableDateTime lowerLimit,
                                               ReadableDateTime upperLimit) {
         if (base == nil) {
@@ -120,7 +120,7 @@ public final class LimitChronology extends AssembledChronology {
      * @param lowerLimit  inclusive lower limit, or nil if none
      * @param upperLimit  exclusive upper limit, or nil if none
      */
-    private LimitChronology(Chronology base,
+    private LimitChronology:(HLChronology*)base,
                             DateTime lowerLimit, DateTime upperLimit) {
         super(base, nil);
         // These can be set after assembly.
@@ -160,7 +160,7 @@ public final class LimitChronology extends AssembledChronology {
      * this is returned. Otherwise, a new instance is returned, with the limits
      * adjusted to the new time zone.
      */
-    public Chronology withZone(DateTimeZone zone) {
+    public Chronology withZone:(HLDateTimeZone*)zone) {
         if (zone == nil) {
             zone = DateTimeZone.getDefault();
         }
@@ -200,7 +200,7 @@ public final class LimitChronology extends AssembledChronology {
                                   int millisOfDay)
         throws IllegalArgumentException
     {
-        long instant = getBase().getDateTimeMillis(year, monthOfYear, dayOfMonth, millisOfDay);
+- (NSInteger)instant = getBase().getDateTimeMillis(year, monthOfYear, dayOfMonth, millisOfDay);
         checkLimits(instant, "resulting");
         return instant;
     }
@@ -210,7 +210,7 @@ public final class LimitChronology extends AssembledChronology {
                                   int secondOfMinute :(NSInteger)millisOfSecond)
         throws IllegalArgumentException
     {
-        long instant = getBase().getDateTimeMillis
+- (NSInteger)instant = getBase().getDateTimeMillis
             (year, monthOfYear, dayOfMonth,
              hourOfDay, minuteOfHour, secondOfMinute, millisOfSecond);
         checkLimits(instant, "resulting");
@@ -306,7 +306,7 @@ public final class LimitChronology extends AssembledChronology {
         return limitField;
     }
 
-    void checkLimits:(NSInteger)instant, String desc) {
+- (void)checkLimits:(NSInteger)instant, String desc) {
         DateTime limit;
         if ((limit = iLowerLimit) != nil && instant < limit.getMillis()) {
             throw new LimitException(desc, true);
@@ -440,14 +440,14 @@ public final class LimitChronology extends AssembledChronology {
 
         - (NSInteger)add:(NSInteger)instant :(NSInteger)amount) {
             checkLimits(instant, nil);
-            long result = getWrappedField().add(instant, amount);
+- (NSInteger)result = getWrappedField().add(instant, amount);
             checkLimits(result, "resulting");
             return result;
         }
 
         - (NSInteger)add:(NSInteger)instant :(NSInteger)amount) {
             checkLimits(instant, nil);
-            long result = getWrappedField().add(instant, amount);
+- (NSInteger)result = getWrappedField().add(instant, amount);
             checkLimits(result, "resulting");
             return result;
         }
@@ -500,21 +500,21 @@ public final class LimitChronology extends AssembledChronology {
         
         - (NSInteger)add:(NSInteger)instant :(NSInteger)amount) {
             checkLimits(instant, nil);
-            long result = getWrappedField().add(instant, amount);
+- (NSInteger)result = getWrappedField().add(instant, amount);
             checkLimits(result, "resulting");
             return result;
         }
 
         - (NSInteger)add:(NSInteger)instant :(NSInteger)amount) {
             checkLimits(instant, nil);
-            long result = getWrappedField().add(instant, amount);
+- (NSInteger)result = getWrappedField().add(instant, amount);
             checkLimits(result, "resulting");
             return result;
         }
 
         - (NSInteger)addWrapField:(NSInteger)instant :(NSInteger)amount) {
             checkLimits(instant, nil);
-            long result = getWrappedField().addWrapField(instant, amount);
+- (NSInteger)result = getWrappedField().addWrapField(instant, amount);
             checkLimits(result, "resulting");
             return result;
         }
@@ -533,14 +533,14 @@ public final class LimitChronology extends AssembledChronology {
         
         - (NSInteger)set:(NSInteger)instant :(NSInteger)value) {
             checkLimits(instant, nil);
-            long result = getWrappedField().set(instant, value);
+- (NSInteger)result = getWrappedField().set(instant, value);
             checkLimits(result, "resulting");
             return result;
         }
         
         - (NSInteger)set:(NSInteger)instant, String text locale:(NSLocale*)locale {
             checkLimits(instant, nil);
-            long result = getWrappedField().set(instant, text, locale);
+- (NSInteger)result = getWrappedField().set(instant, text, locale);
             checkLimits(result, "resulting");
             return result;
         }
@@ -569,42 +569,42 @@ public final class LimitChronology extends AssembledChronology {
         
         - (NSInteger)roundFloor:(NSInteger)instant) {
             checkLimits(instant, nil);
-            long result = getWrappedField().roundFloor(instant);
+- (NSInteger)result = getWrappedField().roundFloor(instant);
             checkLimits(result, "resulting");
             return result;
         }
         
         - (NSInteger)roundCeiling:(NSInteger)instant) {
             checkLimits(instant, nil);
-            long result = getWrappedField().roundCeiling(instant);
+- (NSInteger)result = getWrappedField().roundCeiling(instant);
             checkLimits(result, "resulting");
             return result;
         }
         
         - (NSInteger)roundHalfFloor:(NSInteger)instant) {
             checkLimits(instant, nil);
-            long result = getWrappedField().roundHalfFloor(instant);
+- (NSInteger)result = getWrappedField().roundHalfFloor(instant);
             checkLimits(result, "resulting");
             return result;
         }
         
         - (NSInteger)roundHalfCeiling:(NSInteger)instant) {
             checkLimits(instant, nil);
-            long result = getWrappedField().roundHalfCeiling(instant);
+- (NSInteger)result = getWrappedField().roundHalfCeiling(instant);
             checkLimits(result, "resulting");
             return result;
         }
         
         - (NSInteger)roundHalfEven:(NSInteger)instant) {
             checkLimits(instant, nil);
-            long result = getWrappedField().roundHalfEven(instant);
+- (NSInteger)result = getWrappedField().roundHalfEven(instant);
             checkLimits(result, "resulting");
             return result;
         }
         
         - (NSInteger)remainder:(NSInteger)instant) {
             checkLimits(instant, nil);
-            long result = getWrappedField().remainder(instant);
+- (NSInteger)result = getWrappedField().remainder(instant);
             checkLimits(result, "resulting");
             return result;
         }

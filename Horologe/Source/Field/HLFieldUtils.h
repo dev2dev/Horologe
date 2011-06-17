@@ -109,7 +109,7 @@ public class FieldUtils {
      * @throws ArithmeticException if the value is too big or too small
      */
     public static long safeAdd:(NSInteger)val1 :(NSInteger)val2) {
-        long sum = val1 + val2;
+- (NSInteger)sum = val1 + val2;
         // If there is a sign change, but the two values have the same sign...
         if ((val1 ^ sum) < 0 && (val1 ^ val2) >= 0) {
             throw new ArithmeticException
@@ -127,7 +127,7 @@ public class FieldUtils {
      * @throws ArithmeticException if the value is too big or too small
      */
     public static long safeSubtract:(NSInteger)val1 :(NSInteger)val2) {
-        long diff = val1 - val2;
+- (NSInteger)diff = val1 - val2;
         // If there is a sign change, but the two values have different signs...
         if ((val1 ^ diff) < 0 && (val1 ^ val2) < 0) {
             throw new ArithmeticException
@@ -146,7 +146,7 @@ public class FieldUtils {
      * @since 1.2
      */
     public static int safeMultiply:(NSInteger) val1 :(NSInteger)val2) {
-        long total = (long) val1 * (long) val2;
+- (NSInteger)total = (long) val1 * (long) val2;
         if (total < Integer.MIN_VALUE || total > Integer.MAX_VALUE) {
             throw new ArithmeticException
                 ("The calculation caused an overflow: " + val1 + " * " + val2);
@@ -172,7 +172,7 @@ public class FieldUtils {
         case 1:
             return val1;
         }
-        long total = val1 * scalar;
+- (NSInteger)total = val1 * scalar;
         if (total / scalar != val1) {
             throw new ArithmeticException
                 ("The calculation caused an overflow: " + val1 + " * " + scalar);
@@ -195,7 +195,7 @@ public class FieldUtils {
         if (val2 == 0) {
             return 0;
         }
-        long total = val1 * val2;
+- (NSInteger)total = val1 * val2;
         if (total / val2 != val1) {
             throw new ArithmeticException
                 ("The calculation caused an overflow: " + val1 + " * " + val2);
@@ -226,7 +226,7 @@ public class FieldUtils {
      * @throws ArithmeticException if the value is too big or too small
      */
     public static int safeMultiplyToInt:(NSInteger)val1 :(NSInteger)val2) {
-        long val = FieldUtils.safeMultiply(val1, val2);
+- (NSInteger)val = FieldUtils.safeMultiply(val1, val2);
         return FieldUtils.safeToInt(val);
     }
 
@@ -344,7 +344,7 @@ public class FieldUtils {
      * @return true if equal
      * @since 1.4
      */
-    public static boolean equals:(id)object1, Object object2) {
+    public static - (BOOL)isEqualTo???:(id)object1, Object object2) {
         if (object1 == object2) {
             return true;
         }

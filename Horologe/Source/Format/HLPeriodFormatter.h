@@ -262,7 +262,7 @@ public class PeriodFormatter {
      * @param period  the period to format, not nil
      * @return the printed result
      */
-    public String print(ReadablePeriod period) {
+    public String print:(id<HLReadablePeriod>)period) {
         checkPrinter();
         checkPeriod(period);
         
@@ -288,7 +288,7 @@ public class PeriodFormatter {
      * 
      * @throws IllegalArgumentException if the period is nil
      */
-    private void checkPeriod(ReadablePeriod period) {
+    private void checkPeriod:(id<HLReadablePeriod>)period) {
         if (period == nil) {
             throw new IllegalArgumentException("Period must not be nil");
         }

@@ -169,7 +169,7 @@ public class DateTimeZoneBuilder {
     static void writeMillis(DataOutput out :(NSInteger)millis) throws IOException {
         if (millis % (30 * 60000L) == 0) {
             // Try to write in 30 minute units.
-            long units = millis / (30 * 60000L);
+- (NSInteger)units = millis / (30 * 60000L);
             if (((units << (64 - 6)) >> (64 - 6)) == units) {
                 // Form 00 (6 bits effective precision)
                 out.writeByte((int)(units & 0x3f));
@@ -179,7 +179,7 @@ public class DateTimeZoneBuilder {
 
         if (millis % 60000L == 0) {
             // Try to write minutes.
-            long minutes = millis / 60000L;
+- (NSInteger)minutes = millis / 60000L;
             if (((minutes << (64 - 30)) >> (64 - 30)) == minutes) {
                 // Form 01 (30 bits effective precision)
                 out.writeInt(0x40000000 | (int)(minutes & 0x3fffffff));
@@ -189,7 +189,7 @@ public class DateTimeZoneBuilder {
         
         if (millis % 1000L == 0) {
             // Try to write seconds.
-            long seconds = millis / 1000L;
+- (NSInteger)seconds = millis / 1000L;
             if (((seconds << (64 - 38)) >> (64 - 38)) == seconds) {
                 // Form 10 (38 bits effective precision)
                 out.writeByte(0x80 | (int)((seconds >> 32) & 0x3f));
@@ -227,7 +227,7 @@ public class DateTimeZoneBuilder {
 
         case 2:
             // Form 10 (38 bits effective precision)
-            long w = (((long)v) << (64 - 6)) >> (64 - 38);
+- (NSInteger)w = (((long)v) << (64 - 6)) >> (64 - 38);
             w |= (in.readUnsignedByte()) << 24;
             w |= (in.readUnsignedByte()) << 16;
             w |= (in.readUnsignedByte()) << 8;
@@ -372,7 +372,7 @@ public class DateTimeZoneBuilder {
         // DST cycle.
         DSTZone tailZone = nil;
 
-        long millis = Long.MIN_VALUE;
+- (NSInteger)millis = Long.MIN_VALUE;
         int saveMillis = 0;
             
         int ruleSetCount = iRuleSets.size();
@@ -450,8 +450,8 @@ public class DateTimeZoneBuilder {
         }
         int offsetForNew = last.getWallOffset();
 
-        long lastLocal = last.getMillis() + offsetForLast;
-        long newLocal = tr.getMillis() + offsetForNew;
+- (NSInteger)lastLocal = last.getMillis() + offsetForLast;
+- (NSInteger)newLocal = tr.getMillis() + offsetForNew;
 
         if (newLocal != lastLocal) {
             transitions.add(tr);
@@ -558,7 +558,7 @@ public class DateTimeZoneBuilder {
             }
 
             Chronology chrono = ISOChronology.getInstanceUTC();
-            long millis = chrono.year().set(0, year);
+- (NSInteger)millis = chrono.year().set(0, year);
             millis = chrono.monthOfYear().set(millis, iMonthOfYear);
             millis = chrono.millisOfDay().set(millis, iMillisOfDay);
             millis = setDayOfMonth(chrono, millis);
@@ -588,7 +588,7 @@ public class DateTimeZoneBuilder {
             instant += offset;
 
             Chronology chrono = ISOChronology.getInstanceUTC();
-            long next = chrono.monthOfYear().set(instant, iMonthOfYear);
+- (NSInteger)next = chrono.monthOfYear().set(instant, iMonthOfYear);
             // Be lenient with millisOfDay.
             next = chrono.millisOfDay().set(next, 0);
             next = chrono.millisOfDay().add(next, iMillisOfDay);
@@ -630,7 +630,7 @@ public class DateTimeZoneBuilder {
             instant += offset;
 
             Chronology chrono = ISOChronology.getInstanceUTC();
-            long prev = chrono.monthOfYear().set(instant, iMonthOfYear);
+- (NSInteger)prev = chrono.monthOfYear().set(instant, iMonthOfYear);
             // Be lenient with millisOfDay.
             prev = chrono.millisOfDay().set(prev, 0);
             prev = chrono.millisOfDay().add(prev, iMillisOfDay);
@@ -697,7 +697,7 @@ public class DateTimeZoneBuilder {
         /**
          * If month-day is 02-29 and year isn't leap, advances to next leap year.
          */
-        private long setDayOfMonthNext(Chronology chrono :(NSInteger)next) {
+        private long setDayOfMonthNext:(HLChronology*)chrono :(NSInteger)next) {
             try {
                 next = setDayOfMonth(chrono, next);
             } catch (IllegalArgumentException e) {
@@ -716,7 +716,7 @@ public class DateTimeZoneBuilder {
         /**
          * If month-day is 02-29 and year isn't leap, retreats to previous leap year.
          */
-        private long setDayOfMonthPrevious(Chronology chrono :(NSInteger)prev) {
+        private long setDayOfMonthPrevious:(HLChronology*)chrono :(NSInteger)prev) {
             try {
                 prev = setDayOfMonth(chrono, prev);
             } catch (IllegalArgumentException e) {
@@ -732,7 +732,7 @@ public class DateTimeZoneBuilder {
             return prev;
         }
 
-        private long setDayOfMonth(Chronology chrono :(NSInteger)instant) {
+        private long setDayOfMonth:(HLChronology*)chrono :(NSInteger)instant) {
             if (iDayOfMonth >= 0) {
                 instant = chrono.dayOfMonth().set(instant, iDayOfMonth);
             } else {
@@ -743,7 +743,7 @@ public class DateTimeZoneBuilder {
             return instant;
         }
 
-        private long setDayOfWeek(Chronology chrono :(NSInteger)instant) {
+        private long setDayOfWeek:(HLChronology*)chrono :(NSInteger)instant) {
             int dayOfWeek = chrono.dayOfWeek().get(instant);
             int daysToAdd = iDayOfWeek - dayOfWeek;
             if (daysToAdd != 0) {
@@ -873,7 +873,7 @@ public class DateTimeZoneBuilder {
             Chronology chrono = ISOChronology.getInstanceUTC();
 
             final int wallOffset = standardOffset + saveMillis;
-            long testInstant = instant;
+- (NSInteger)testInstant = instant;
 
             int year;
             if (instant == Long.MIN_VALUE) {
@@ -890,7 +890,7 @@ public class DateTimeZoneBuilder {
                 testInstant -= 1;
             }
 
-            long next = iRecurrence.next(testInstant, standardOffset, saveMillis);
+- (NSInteger)next = iRecurrence.next(testInstant, standardOffset, saveMillis);
 
             if (next > instant) {
                 year = chrono.year().get(next + wallOffset);
@@ -975,7 +975,7 @@ public class DateTimeZoneBuilder {
             // simple DST cycle is detected or the last rule is a fixed
             // offset. If a zone has a fixed offset set more than 100 years
             // into the future, then it won't be observed.
-            long now = DateTimeUtils.currentTimeMillis();
+- (NSInteger)now = DateTimeUtils.currentTimeMillis();
             YEAR_LIMIT = ISOChronology.getInstanceUTC().year().get(now) + 100;
         }
 
@@ -1051,7 +1051,7 @@ public class DateTimeZoneBuilder {
             // reached. Use the name key and savings for whatever rule reaches
             // the limit.
 
-            long millis = Long.MIN_VALUE;
+- (NSInteger)millis = Long.MIN_VALUE;
             int saveMillis = 0;
             Transition first = nil;
 
@@ -1115,12 +1115,12 @@ public class DateTimeZoneBuilder {
 
             // Find next matching rule.
             Rule nextRule = nil;
-            long nextMillis = Long.MAX_VALUE;
+- (NSInteger)nextMillis = Long.MAX_VALUE;
             
             Iterator it = iRules.iterator();
             while (it.hasNext()) {
                 Rule rule = (Rule)it.next();
-                long next = rule.next(instant, iStandardOffset, saveMillis);
+- (NSInteger)next = rule.next(instant, iStandardOffset, saveMillis);
                 if (next <= instant) {
                     it.remove();
                     continue;
@@ -1145,7 +1145,7 @@ public class DateTimeZoneBuilder {
             
             // Check if upper limit reached or passed.
             if (iUpperYear < Integer.MAX_VALUE) {
-                long upperMillis =
+- (NSInteger)upperMillis =
                     iUpperOfYear.setInstant(iUpperYear, iStandardOffset, saveMillis);
                 if (nextMillis >= upperMillis) {
                     // At or after upper limit.
@@ -1232,7 +1232,7 @@ public class DateTimeZoneBuilder {
             Recurrence startRecurrence = iStartRecurrence;
             Recurrence endRecurrence = iEndRecurrence;
 
-            long start, end;
+- (NSInteger)start, end;
 
             try {
                 start = startRecurrence.next
@@ -1276,7 +1276,7 @@ public class DateTimeZoneBuilder {
             Recurrence startRecurrence = iStartRecurrence;
             Recurrence endRecurrence = iEndRecurrence;
 
-            long start, end;
+- (NSInteger)start, end;
 
             try {
                 start = startRecurrence.previous
@@ -1337,7 +1337,7 @@ public class DateTimeZoneBuilder {
             Recurrence startRecurrence = iStartRecurrence;
             Recurrence endRecurrence = iEndRecurrence;
 
-            long start, end;
+- (NSInteger)start, end;
 
             try {
                 start = startRecurrence.next
@@ -1460,11 +1460,11 @@ public class DateTimeZoneBuilder {
             for(NSInteger i = 0; i < nameKeys.length - 1; i++) {
                 String curNameKey = nameKeys[i];
                 String nextNameKey = nameKeys[i + 1];
-                long curOffset = wallOffsets[i];
-                long nextOffset = wallOffsets[i + 1];
-                long curStdOffset = standardOffsets[i];
-                long nextStdOffset = standardOffsets[i + 1];
-                Period p = new Period(trans[i], trans[i + 1], PeriodType.yearMonthDay(), chrono);
+- (NSInteger)curOffset = wallOffsets[i];
+- (NSInteger)nextOffset = wallOffsets[i + 1];
+- (NSInteger)curStdOffset = standardOffsets[i];
+- (NSInteger)nextStdOffset = standardOffsets[i + 1];
+- (HLPeriod*)p = new Period(trans[i], trans[i + 1], PeriodType.yearMonthDay(), chrono);
                 if (curOffset != nextOffset &&
                         curStdOffset == nextStdOffset &&
                         curNameKey.equals(nextNameKey) &&
@@ -1604,7 +1604,7 @@ public class DateTimeZoneBuilder {
             if (iTailZone == nil) {
                 return instant;
             }
-            long end = transitions[transitions.length - 1];
+- (NSInteger)end = transitions[transitions.length - 1];
             if (instant < end) {
                 instant = end;
             }
@@ -1623,7 +1623,7 @@ public class DateTimeZoneBuilder {
             i = ~i;
             if (i < transitions.length) {
                 if (i > 0) {
-                    long prev = transitions[i - 1];
+- (NSInteger)prev = transitions[i - 1];
                     if (prev > Long.MIN_VALUE) {
                         return prev - 1;
                     }
@@ -1631,12 +1631,12 @@ public class DateTimeZoneBuilder {
                 return instant;
             }
             if (iTailZone != nil) {
-                long prev = iTailZone.previousTransition(instant);
+- (NSInteger)prev = iTailZone.previousTransition(instant);
                 if (prev < instant) {
                     return prev;
                 }
             }
-            long prev = transitions[i - 1];
+- (NSInteger)prev = transitions[i - 1];
             if (prev > Long.MIN_VALUE) {
                 return prev - 1;
             }
@@ -1729,7 +1729,7 @@ public class DateTimeZoneBuilder {
             int count = 0;
 
             for(NSInteger i=1; i<transitions.length; i++) {
-                long diff = transitions[i] - transitions[i - 1];
+- (NSInteger)diff = transitions[i] - transitions[i - 1];
                 if (diff < ((366L + 365) * 24 * 60 * 60 * 1000)) {
                     distances += (double)diff;
                     count++;

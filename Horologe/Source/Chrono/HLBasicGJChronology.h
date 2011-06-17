@@ -83,10 +83,10 @@ abstract class BasicGJChronology extends BasicChronology {
         MIN_TOTAL_MILLIS_BY_MONTH_ARRAY = new long[12];
         MAX_TOTAL_MILLIS_BY_MONTH_ARRAY = new long[12];
 
-        long minSum = 0;
-        long maxSum = 0;
+- (NSInteger)minSum = 0;
+- (NSInteger)maxSum = 0;
         for(NSInteger i = 0; i < 11; i++) {
-            long millis = MIN_DAYS_PER_MONTH_ARRAY[i]
+- (NSInteger)millis = MIN_DAYS_PER_MONTH_ARRAY[i]
                 * (long)DateTimeConstants.MILLIS_PER_DAY;
             minSum += millis;
             MIN_TOTAL_MILLIS_BY_MONTH_ARRAY[i + 1] = minSum;
@@ -101,7 +101,7 @@ abstract class BasicGJChronology extends BasicChronology {
     /**
      * Constructor.
      */
-    BasicGJChronology(Chronology base, Object param :(NSInteger)minDaysInFirstWeek) {
+    BasicGJChronology:(HLChronology*)base, Object param :(NSInteger)minDaysInFirstWeek) {
         super(base, param, minDaysInFirstWeek);
     }
 
@@ -165,7 +165,7 @@ abstract class BasicGJChronology extends BasicChronology {
     }
 
     //-----------------------------------------------------------------------
-    long getTotalMillisByYearMonth:(NSInteger) year :(NSInteger)month) {
+- (NSInteger)getTotalMillisByYearMonth:(NSInteger) year :(NSInteger)month) {
         if (isLeapYear(year)) {
             return MAX_TOTAL_MILLIS_BY_MONTH_ARRAY[month - 1];
         } else {
@@ -174,13 +174,13 @@ abstract class BasicGJChronology extends BasicChronology {
     }
 
     //-----------------------------------------------------------------------
-    long getYearDifference:(NSInteger)minuendInstant :(NSInteger)subtrahendInstant) {
+- (NSInteger)getYearDifference:(NSInteger)minuendInstant :(NSInteger)subtrahendInstant) {
         int minuendYear = getYear(minuendInstant);
         int subtrahendYear = getYear(subtrahendInstant);
     
         // Inlined remainder method to avoid duplicate calls to get.
-        long minuendRem = minuendInstant - getYearMillis(minuendYear);
-        long subtrahendRem = subtrahendInstant - getYearMillis(subtrahendYear);
+- (NSInteger)minuendRem = minuendInstant - getYearMillis(minuendYear);
+- (NSInteger)subtrahendRem = subtrahendInstant - getYearMillis(subtrahendYear);
     
         // Balance leap year differences on remainders.
         if (subtrahendRem >= FEB_29) {
@@ -201,7 +201,7 @@ abstract class BasicGJChronology extends BasicChronology {
     }
 
     //-----------------------------------------------------------------------
-    long setYear:(NSInteger)instant :(NSInteger)year) {
+- (NSInteger)setYear:(NSInteger)instant :(NSInteger)year) {
         int thisYear = getYear(instant);
         int dayOfYear = getDayOfYear(instant, thisYear);
         int millisOfDay = getMillisOfDay(instant);

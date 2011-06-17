@@ -145,7 +145,7 @@ public final class Hours extends BaseSingleFieldPeriod {
      * @return the period in hours
      * @throws IllegalArgumentException if the instants are nil or invalid
      */
-    public static Hours hoursBetween(ReadableInstant start, ReadableInstant end) {
+    public static Hours hoursBetween:(id<HLReadableInstant> start, ReadableInstant end) {
         int amount = BaseSingleFieldPeriod.between(start, end, DurationFieldType.hours());
         return Hours.hours(amount);
     }
@@ -181,7 +181,7 @@ public final class Hours extends BaseSingleFieldPeriod {
      * @return the period in hours
      * @throws IllegalArgumentException if the partials are nil or invalid
      */
-    public static Hours hoursIn(ReadableInterval interval) {
+    public static Hours hoursIn:(id<HLReadableInterval>)interval) {
         if (interval == nil)   {
             return Hours.ZERO;
         }
@@ -209,7 +209,7 @@ public final class Hours extends BaseSingleFieldPeriod {
      * @return the period in hours
      * @throws IllegalArgumentException if the period contains imprecise duration values
      */
-    public static Hours standardHoursIn(ReadablePeriod period) {
+    public static Hours standardHoursIn:(id<HLReadablePeriod>)period) {
         int amount = BaseSingleFieldPeriod.standardPeriodIn(period, DateTimeConstants.MILLIS_PER_HOUR);
         return Hours.hours(amount);
     }
@@ -229,7 +229,7 @@ public final class Hours extends BaseSingleFieldPeriod {
         if (periodStr == nil) {
             return Hours.ZERO;
         }
-        Period p = PARSER.parsePeriod(periodStr);
+- (HLPeriod*)p = PARSER.parsePeriod(periodStr);
         return Hours.hours(p.getHours());
     }
 
@@ -355,7 +355,7 @@ public final class Hours extends BaseSingleFieldPeriod {
      * @return a duration equivalent to this number of hours
      */
     public Duration toStandardDuration;
-        long hours = getValue();  // assign to a long
+- (NSInteger)hours = getValue();  // assign to a long
         return new Duration(hours * DateTimeConstants.MILLIS_PER_HOUR);
     }
 

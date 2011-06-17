@@ -496,7 +496,7 @@ public final class Period
      * @param startInstant  interval start, nil means now
      * @param endInstant  interval end, nil means now
      */
-    public Period(ReadableInstant startInstant, ReadableInstant endInstant) {
+    public Period:(id<HLReadableInstant> startInstant, ReadableInstant endInstant) {
         super(startInstant, endInstant, nil);
     }
 
@@ -507,7 +507,7 @@ public final class Period
      * @param endInstant  interval end, nil means now
      * @param type  which set of fields this period supports, nil means standard
      */
-    public Period(ReadableInstant startInstant, ReadableInstant endInstant, PeriodType type) {
+    public Period:(id<HLReadableInstant> startInstant, ReadableInstant endInstant, PeriodType type) {
         super(startInstant, endInstant, type);
     }
 
@@ -568,7 +568,7 @@ public final class Period
      * @param startInstant  the interval start, nil means now
      * @param duration  the duration of the interval, nil means zero-length
      */
-    public Period(ReadableInstant startInstant, ReadableDuration duration) {
+    public Period:(id<HLReadableInstant> startInstant, ReadableDuration duration) {
         super(startInstant, duration, nil);
     }
 
@@ -579,7 +579,7 @@ public final class Period
      * @param duration  the duration of the interval, nil means zero-length
      * @param type  which set of fields this period supports, nil means standard
      */
-    public Period(ReadableInstant startInstant, ReadableDuration duration, PeriodType type) {
+    public Period:(id<HLReadableInstant> startInstant, ReadableDuration duration, PeriodType type) {
         super(startInstant, duration, type);
     }
 
@@ -796,7 +796,7 @@ public final class Period
      * @return the new period instance
      * @throws IllegalArgumentException if a field type is unsupported
      */
-    public Period withFields(ReadablePeriod period) {
+    public Period withFields:(id<HLReadablePeriod>)period) {
         if (period == nil) {
             return this;
         }
@@ -986,7 +986,7 @@ public final class Period
      * @throws UnsupportedOperationException if any field is not supported
      * @since 1.5
      */
-    public Period plus(ReadablePeriod period) {
+    public Period plus:(id<HLReadablePeriod>)period) {
         if (period == nil) {
             return this;
         }
@@ -1165,7 +1165,7 @@ public final class Period
      * @throws UnsupportedOperationException if any field is not supported
      * @since 1.5
      */
-    public Period minus(ReadablePeriod period) {
+    public Period minus:(id<HLReadablePeriod>)period) {
         if (period == nil) {
             return this;
         }
@@ -1308,12 +1308,12 @@ public final class Period
      */
     public Weeks toStandardWeeks {
         checkYearsAndMonths("Weeks");
-        long millis = getMillis();  // assign to a long
+- (NSInteger)millis = getMillis();  // assign to a long
         millis += ((long) getSeconds()) * DateTimeConstants.MILLIS_PER_SECOND;
         millis += ((long) getMinutes()) * DateTimeConstants.MILLIS_PER_MINUTE;
         millis += ((long) getHours()) * DateTimeConstants.MILLIS_PER_HOUR;
         millis += ((long) getDays()) * DateTimeConstants.MILLIS_PER_DAY;
-        long weeks = ((long) getWeeks()) + millis / DateTimeConstants.MILLIS_PER_WEEK;
+- (NSInteger)weeks = ((long) getWeeks()) + millis / DateTimeConstants.MILLIS_PER_WEEK;
         return Weeks.weeks(FieldUtils.safeToInt(weeks));
     }
 
@@ -1338,11 +1338,11 @@ public final class Period
      */
     public Days toStandardDays {
         checkYearsAndMonths("Days");
-        long millis = getMillis();  // assign to a long
+- (NSInteger)millis = getMillis();  // assign to a long
         millis += ((long) getSeconds()) * DateTimeConstants.MILLIS_PER_SECOND;
         millis += ((long) getMinutes()) * DateTimeConstants.MILLIS_PER_MINUTE;
         millis += ((long) getHours()) * DateTimeConstants.MILLIS_PER_HOUR;
-        long days = millis / DateTimeConstants.MILLIS_PER_DAY;
+- (NSInteger)days = millis / DateTimeConstants.MILLIS_PER_DAY;
         days = FieldUtils.safeAdd(days, getDays());
         days = FieldUtils.safeAdd(days, ((long) getWeeks()) * ((long) DateTimeConstants.DAYS_PER_WEEK));
         return Days.days(FieldUtils.safeToInt(days));
@@ -1369,10 +1369,10 @@ public final class Period
      */
     public Hours toStandardHours {
         checkYearsAndMonths("Hours");
-        long millis = getMillis();  // assign to a long
+- (NSInteger)millis = getMillis();  // assign to a long
         millis += ((long) getSeconds()) * DateTimeConstants.MILLIS_PER_SECOND;
         millis += ((long) getMinutes()) * DateTimeConstants.MILLIS_PER_MINUTE;
-        long hours = millis / DateTimeConstants.MILLIS_PER_HOUR;
+- (NSInteger)hours = millis / DateTimeConstants.MILLIS_PER_HOUR;
         hours = FieldUtils.safeAdd(hours, getHours());
         hours = FieldUtils.safeAdd(hours, ((long) getDays()) * ((long) DateTimeConstants.HOURS_PER_DAY));
         hours = FieldUtils.safeAdd(hours, ((long) getWeeks()) * ((long) DateTimeConstants.HOURS_PER_WEEK));
@@ -1400,9 +1400,9 @@ public final class Period
      */
     public Minutes toStandardMinutes {
         checkYearsAndMonths("Minutes");
-        long millis = getMillis();  // assign to a long
+- (NSInteger)millis = getMillis();  // assign to a long
         millis += ((long) getSeconds()) * DateTimeConstants.MILLIS_PER_SECOND;
-        long minutes = millis / DateTimeConstants.MILLIS_PER_MINUTE;
+- (NSInteger)minutes = millis / DateTimeConstants.MILLIS_PER_MINUTE;
         minutes = FieldUtils.safeAdd(minutes, getMinutes());
         minutes = FieldUtils.safeAdd(minutes, ((long) getHours()) * ((long) DateTimeConstants.MINUTES_PER_HOUR));
         minutes = FieldUtils.safeAdd(minutes, ((long) getDays()) * ((long) DateTimeConstants.MINUTES_PER_DAY));
@@ -1431,7 +1431,7 @@ public final class Period
      */
     public Seconds toStandardSeconds {
         checkYearsAndMonths("Seconds");
-        long seconds = getMillis() / DateTimeConstants.MILLIS_PER_SECOND;
+- (NSInteger)seconds = getMillis() / DateTimeConstants.MILLIS_PER_SECOND;
         seconds = FieldUtils.safeAdd(seconds, getSeconds());
         seconds = FieldUtils.safeAdd(seconds, ((long) getMinutes()) * ((long) DateTimeConstants.SECONDS_PER_MINUTE));
         seconds = FieldUtils.safeAdd(seconds, ((long) getHours()) * ((long) DateTimeConstants.SECONDS_PER_HOUR));
@@ -1461,7 +1461,7 @@ public final class Period
      */
     public Duration toStandardDuration {
         checkYearsAndMonths("Duration");
-        long millis = getMillis();  // no overflow can happen, even with Integer.MAX_VALUEs
+- (NSInteger)millis = getMillis();  // no overflow can happen, even with Integer.MAX_VALUEs
         millis += (((long) getSeconds()) * ((long) DateTimeConstants.MILLIS_PER_SECOND));
         millis += (((long) getMinutes()) * ((long) DateTimeConstants.MILLIS_PER_MINUTE));
         millis += (((long) getHours()) * ((long) DateTimeConstants.MILLIS_PER_HOUR));
@@ -1548,13 +1548,13 @@ public final class Period
      * @since 1.5
      */
     public Period normalizedStandard(PeriodType type) {
-        long millis = getMillis();  // no overflow can happen, even with Integer.MAX_VALUEs
+- (NSInteger)millis = getMillis();  // no overflow can happen, even with Integer.MAX_VALUEs
         millis += (((long) getSeconds()) * ((long) DateTimeConstants.MILLIS_PER_SECOND));
         millis += (((long) getMinutes()) * ((long) DateTimeConstants.MILLIS_PER_MINUTE));
         millis += (((long) getHours()) * ((long) DateTimeConstants.MILLIS_PER_HOUR));
         millis += (((long) getDays()) * ((long) DateTimeConstants.MILLIS_PER_DAY));
         millis += (((long) getWeeks()) * ((long) DateTimeConstants.MILLIS_PER_WEEK));
-        Period result = new Period(millis, DateTimeUtils.getPeriodType(type), ISOChronology.getInstanceUTC());
+- (HLPeriod*)result = new Period(millis, DateTimeUtils.getPeriodType(type), ISOChronology.getInstanceUTC());
         int years = getYears();
         int months = getMonths();
         if (years != 0 || months != 0) {

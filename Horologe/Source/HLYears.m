@@ -122,7 +122,7 @@ public final class Years extends BaseSingleFieldPeriod {
      * @return the period in years
      * @throws IllegalArgumentException if the instants are nil or invalid
      */
-    public static Years yearsBetween(ReadableInstant start, ReadableInstant end) {
+    public static Years yearsBetween:(id<HLReadableInstant> start, ReadableInstant end) {
         int amount = BaseSingleFieldPeriod.between(start, end, DurationFieldType.years());
         return Years.years(amount);
     }
@@ -159,7 +159,7 @@ public final class Years extends BaseSingleFieldPeriod {
      * @return the period in years
      * @throws IllegalArgumentException if the partials are nil or invalid
      */
-    public static Years yearsIn(ReadableInterval interval) {
+    public static Years yearsIn:(id<HLReadableInterval>)interval) {
         if (interval == nil)   {
             return Years.ZERO;
         }
@@ -182,7 +182,7 @@ public final class Years extends BaseSingleFieldPeriod {
         if (periodStr == nil) {
             return Years.ZERO;
         }
-        Period p = PARSER.parsePeriod(periodStr);
+- (HLPeriod*)p = PARSER.parsePeriod(periodStr);
         return Years.years(p.getYears());
     }
 

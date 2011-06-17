@@ -61,7 +61,7 @@ public interface DurationConverter extends Converter {
      * @return the millisecond duration
      * @throws ClassCastException if the object is invalid
      */
-    long getDurationMillis:(id)object);
+- (NSInteger)getDurationMillis:(id)object);
 
 }
 

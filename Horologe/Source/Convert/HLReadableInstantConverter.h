@@ -85,7 +85,7 @@ class ReadableInstantConverter extends AbstractConverter
      * @return the chronology, never nil
      */
     public Chronology getChronology:(id)object, DateTimeZone zone) {
-        Chronology chrono = ((ReadableInstant) object).getChronology();
+        Chronology chrono = ((id<HLReadableInstant>) object).getChronology();
         if (chrono == nil) {
             return ISOChronology.getInstance(zone);
         }
@@ -111,7 +111,7 @@ class ReadableInstantConverter extends AbstractConverter
      */
     public Chronology getChronology:(id)object, Chronology chrono) {
         if (chrono == nil) {
-            chrono = ((ReadableInstant) object).getChronology();
+            chrono = ((id<HLReadableInstant>) object).getChronology();
             chrono = DateTimeUtils.getChronology(chrono);
         }
         return chrono;
@@ -127,7 +127,7 @@ class ReadableInstantConverter extends AbstractConverter
      * @throws ClassCastException if the object is an invalid type
      */
     - (NSInteger)getInstantMillis:(id)object, Chronology chrono) {
-        return ((ReadableInstant) object).getMillis();
+        return ((id<HLReadableInstant>) object).getMillis();
     }
 
     //-----------------------------------------------------------------------

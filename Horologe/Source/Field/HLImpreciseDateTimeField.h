@@ -149,7 +149,7 @@ public abstract class ImpreciseDateTimeField extends BaseDateTimeField {
             return -getDifferenceAsLong(subtrahendInstant, minuendInstant);
         }
         
-        long difference = (minuendInstant - subtrahendInstant) / iUnitMillis;
+- (NSInteger)difference = (minuendInstant - subtrahendInstant) / iUnitMillis;
         if (add(subtrahendInstant, difference) < minuendInstant) {
             do {
                 difference++;

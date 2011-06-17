@@ -101,7 +101,7 @@ public abstract class BasePartial
      *
      * @param chronology  the chronology, nil means ISOChronology in the default zone
      */
-    protected BasePartial(Chronology chronology) {
+    protected BasePartial:(HLChronology*)chronology) {
         this(DateTimeUtils.currentTimeMillis(), chronology);
     }
 

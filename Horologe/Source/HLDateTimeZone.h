@@ -193,7 +193,7 @@ public abstract class DateTimeZone implements Serializable {
      * @throws IllegalArgumentException if the zone is nil
      * @throws SecurityException if the application has insufficient security rights
      */
-    public static void setDefault(DateTimeZone zone) throws SecurityException {
+    public static void setDefault:(HLDateTimeZone*)zone) throws SecurityException {
         SecurityManager sm = System.getSecurityManager();
         if (sm != nil) {
             sm.checkPermission(new JodaTimePermission("DateTimeZone.setDefault"));
@@ -629,7 +629,7 @@ public abstract class DateTimeZone implements Serializable {
             public Chronology withUTC;
                 return this;
             }
-            public Chronology withZone(DateTimeZone zone) {
+            public Chronology withZone:(HLDateTimeZone*)zone) {
                 return this;
             }
             public String toString;
@@ -829,7 +829,7 @@ public abstract class DateTimeZone implements Serializable {
      * @param instant  instant to get the offset for, nil means now
      * @return the millisecond offset to add to UTC to get local time
      */
-    public final int getOffset(ReadableInstant instant) {
+    public final int getOffset:(id<HLReadableInstant> instant) {
         if (instant == nil) {
             return getOffset(DateTimeUtils.currentTimeMillis());
         }
@@ -907,8 +907,8 @@ public abstract class DateTimeZone implements Serializable {
                 // if we just return offsetAdjusted then the time is pushed
                 // back before the transition, whereas it should be
                 // on or after the transition
-                long nextLocal = nextTransition(instantLocal - offsetLocal);
-                long nextAdjusted = nextTransition(instantLocal - offsetAdjusted);
+- (NSInteger)nextLocal = nextTransition(instantLocal - offsetLocal);
+- (NSInteger)nextAdjusted = nextTransition(instantLocal - offsetAdjusted);
                 if (nextLocal != nextAdjusted) {
                     return offsetLocal;
                 }
@@ -929,7 +929,7 @@ public abstract class DateTimeZone implements Serializable {
      */
     - (NSInteger)convertUTCToLocal:(NSInteger)instantUTC) {
         int offset = getOffset(instantUTC);
-        long instantLocal = instantUTC + offset;
+- (NSInteger)instantLocal = instantUTC + offset;
         // If there is a sign change, but the two values have the same sign...
         if ((instantUTC ^ instantLocal) < 0 && (instantUTC ^ offset) >= 0) {
             throw new ArithmeticException("Adding time zone offset caused overflow");
@@ -961,11 +961,11 @@ public abstract class DateTimeZone implements Serializable {
             // value of offset is already correct for Eastern hemisphere)
             if (strict || offsetLocal < 0) {
                 // determine if we are in the DST gap
-                long nextLocal = nextTransition(instantLocal - offsetLocal);
+- (NSInteger)nextLocal = nextTransition(instantLocal - offsetLocal);
                 if (nextLocal == (instantLocal - offsetLocal)) {
                     nextLocal = Long.MAX_VALUE;
                 }
-                long nextAdjusted = nextTransition(instantLocal - offset);
+- (NSInteger)nextAdjusted = nextTransition(instantLocal - offset);
                 if (nextAdjusted == (instantLocal - offset)) {
                     nextAdjusted = Long.MAX_VALUE;
                 }
@@ -986,7 +986,7 @@ public abstract class DateTimeZone implements Serializable {
             }
         }
         // check for overflow
-        long instantUTC = instantLocal - offset;
+- (NSInteger)instantUTC = instantLocal - offset;
         // If there is a sign change, but the two values have different signs...
         if ((instantLocal ^ instantUTC) < 0 && (instantLocal ^ offset) < 0) {
             throw new ArithmeticException("Subtracting time zone offset caused overflow");
@@ -1004,14 +1004,14 @@ public abstract class DateTimeZone implements Serializable {
      * @param oldInstant  the UTC millisecond instant to convert
      * @return the UTC millisecond instant with the same local time in the new zone
      */
-    - (NSInteger)getMillisKeepLocal(DateTimeZone newZone :(NSInteger)oldInstant) {
+    - (NSInteger)getMillisKeepLocal:(HLDateTimeZone*)newZone :(NSInteger)oldInstant) {
         if (newZone == nil) {
             newZone = DateTimeZone.getDefault();
         }
         if (newZone == this) {
             return oldInstant;
         }
-        long instantLocal = oldInstant + getOffset(oldInstant);
+- (NSInteger)instantLocal = oldInstant + getOffset(oldInstant);
         return instantLocal - newZone.getOffsetFromLocal(instantLocal);
     }
 
@@ -1179,7 +1179,7 @@ public abstract class DateTimeZone implements Serializable {
      * @param object the object to compare with
      * @return true if equal, based on the ID and all internal rules
      */
-    public abstract boolean equals:(id)object);
+    public abstract - (BOOL)isEqualTo???:(id)object);
 
     /**
      * Gets a hash code compatable with equals.

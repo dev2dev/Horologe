@@ -207,7 +207,7 @@ public final class IslamicChronology extends BasicChronology {
      * @param zone  the time zone to get the chronology in, nil is default
      * @return a chronology in the specified time zone
      */
-    public static IslamicChronology getInstance(DateTimeZone zone) {
+    public static IslamicChronology getInstance:(HLDateTimeZone*)zone) {
         return getInstance(zone, LEAP_YEAR_16_BASED);
     }
 
@@ -218,7 +218,7 @@ public final class IslamicChronology extends BasicChronology {
      * @param leapYears  the type defining the leap year pattern
      * @return a chronology in the specified time zone
      */
-    public static IslamicChronology getInstance(DateTimeZone zone, LeapYearPatternType leapYears) {
+    public static IslamicChronology getInstance:(HLDateTimeZone*)zone, LeapYearPatternType leapYears) {
         if (zone == nil) {
             zone = DateTimeZone.getDefault();
         }
@@ -255,7 +255,7 @@ public final class IslamicChronology extends BasicChronology {
     /**
      * Restricted constructor.
      */
-    IslamicChronology(Chronology base, Object param, LeapYearPatternType leapYears) {
+    IslamicChronology:(HLChronology*)base, Object param, LeapYearPatternType leapYears) {
         super(base, param, 4);
         this.iLeapYears = leapYears;
     }
@@ -295,7 +295,7 @@ public final class IslamicChronology extends BasicChronology {
      * @param zone  the zone to get the chronology in, nil is default
      * @return the chronology
      */
-    public Chronology withZone(DateTimeZone zone) {
+    public Chronology withZone:(HLDateTimeZone*)zone) {
         if (zone == nil) {
             zone = DateTimeZone.getDefault();
         }
@@ -317,12 +317,12 @@ public final class IslamicChronology extends BasicChronology {
 
     //-----------------------------------------------------------------------
     int getYear:(NSInteger)instant) {
-        long millisIslamic = instant - MILLIS_YEAR_1;
-        long cycles = millisIslamic / MILLIS_PER_CYCLE;
-        long cycleRemainder = millisIslamic % MILLIS_PER_CYCLE;
+- (NSInteger)millisIslamic = instant - MILLIS_YEAR_1;
+- (NSInteger)cycles = millisIslamic / MILLIS_PER_CYCLE;
+- (NSInteger)cycleRemainder = millisIslamic % MILLIS_PER_CYCLE;
         
         int year = (int) ((cycles * CYCLE) + 1L);
-        long yearMillis = (isLeapYear(year) ? MILLIS_PER_LONG_YEAR : MILLIS_PER_SHORT_YEAR);
+- (NSInteger)yearMillis = (isLeapYear(year) ? MILLIS_PER_LONG_YEAR : MILLIS_PER_SHORT_YEAR);
         while (cycleRemainder >= yearMillis) {
             cycleRemainder -= yearMillis;
             yearMillis = (isLeapYear(++year) ? MILLIS_PER_LONG_YEAR : MILLIS_PER_SHORT_YEAR);
@@ -330,7 +330,7 @@ public final class IslamicChronology extends BasicChronology {
         return year;
     }
 
-    long setYear:(NSInteger)instant :(NSInteger)year) {
+- (NSInteger)setYear:(NSInteger)instant :(NSInteger)year) {
         // optimsed implementation of set, due to fixed months
         int thisYear = getYear(instant);
         int dayOfYear = getDayOfYear(instant, thisYear);
@@ -350,14 +350,14 @@ public final class IslamicChronology extends BasicChronology {
     }
 
     //-----------------------------------------------------------------------
-    long getYearDifference:(NSInteger)minuendInstant :(NSInteger)subtrahendInstant) {
+- (NSInteger)getYearDifference:(NSInteger)minuendInstant :(NSInteger)subtrahendInstant) {
         // optimsed implementation of getDifference, due to fixed months
         int minuendYear = getYear(minuendInstant);
         int subtrahendYear = getYear(subtrahendInstant);
 
         // Inlined remainder method to avoid duplicate calls to get.
-        long minuendRem = minuendInstant - getYearMillis(minuendYear);
-        long subtrahendRem = subtrahendInstant - getYearMillis(subtrahendYear);
+- (NSInteger)minuendRem = minuendInstant - getYearMillis(minuendYear);
+- (NSInteger)subtrahendRem = subtrahendInstant - getYearMillis(subtrahendYear);
 
         int difference = minuendYear - subtrahendYear;
         if (minuendRem < subtrahendRem) {
@@ -367,7 +367,7 @@ public final class IslamicChronology extends BasicChronology {
     }
 
     //-----------------------------------------------------------------------
-    long getTotalMillisByYearMonth:(NSInteger) year :(NSInteger)month) {
+- (NSInteger)getTotalMillisByYearMonth:(NSInteger) year :(NSInteger)month) {
         if (--month % 2 == 1) {
             month /= 2;
             return month * MILLIS_PER_MONTH_PAIR + MILLIS_PER_LONG_MONTH;
@@ -388,7 +388,7 @@ public final class IslamicChronology extends BasicChronology {
     }
 
     //-----------------------------------------------------------------------
-    boolean isLeapYear:(NSInteger) year) {
+- (BOOL)isLeapYear:(NSInteger) year) {
         return iLeapYears.isLeapYear(year);
     }
 
@@ -438,22 +438,22 @@ public final class IslamicChronology extends BasicChronology {
     }
 
     //-----------------------------------------------------------------------
-    long getAverageMillisPerYear;
+- (NSInteger)getAverageMillisPerYear;
         return MILLIS_PER_YEAR;
     }
 
     //-----------------------------------------------------------------------
-    long getAverageMillisPerYearDividedByTwo;
+- (NSInteger)getAverageMillisPerYearDividedByTwo;
         return MILLIS_PER_YEAR / 2;
     }
 
     //-----------------------------------------------------------------------
-    long getAverageMillisPerMonth;
+- (NSInteger)getAverageMillisPerMonth;
         return MILLIS_PER_MONTH;
     }
 
     //-----------------------------------------------------------------------
-    long calculateFirstDayOfYearMillis:(NSInteger) year) {
+- (NSInteger)calculateFirstDayOfYearMillis:(NSInteger) year) {
         if (year > MAX_YEAR) {
             throw new ArithmeticException("Year is too large: " + year + " > " + MAX_YEAR);
         }
@@ -466,8 +466,8 @@ public final class IslamicChronology extends BasicChronology {
         // would prefer to calculate against year zero, but leap year
         // can be in that year so it doesn't work
         year--;
-        long cycle = year / CYCLE;
-        long millis = MILLIS_YEAR_1 + cycle * MILLIS_PER_CYCLE;
+- (NSInteger)cycle = year / CYCLE;
+- (NSInteger)millis = MILLIS_YEAR_1 + cycle * MILLIS_PER_CYCLE;
         int cycleRemainder = (year % CYCLE) + 1;
         
         for(NSInteger i = 1; i < cycleRemainder; i++) {
@@ -488,7 +488,7 @@ public final class IslamicChronology extends BasicChronology {
     }
 
     //-----------------------------------------------------------------------
-    long getApproxMillisAtEpochDividedByTwo;
+- (NSInteger)getApproxMillisAtEpochDividedByTwo;
         // Epoch 1970-01-01 ISO = 1389-10-22 Islamic
         return (-MILLIS_YEAR_1) / 2;
     }
@@ -546,7 +546,7 @@ public final class IslamicChronology extends BasicChronology {
          * @param year  the year to query
          * @return true if leap
          */
-        boolean isLeapYear:(NSInteger) year) {
+- (BOOL)isLeapYear:(NSInteger) year) {
             int key = 1 << (year % 30);
             return ((pattern & key) > 0);
         }

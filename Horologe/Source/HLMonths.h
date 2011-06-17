@@ -162,7 +162,7 @@ public final class Months extends BaseSingleFieldPeriod {
      * @return the period in months
      * @throws IllegalArgumentException if the instants are nil or invalid
      */
-    public static Months monthsBetween(ReadableInstant start, ReadableInstant end) {
+    public static Months monthsBetween:(id<HLReadableInstant> start, ReadableInstant end) {
         int amount = BaseSingleFieldPeriod.between(start, end, DurationFieldType.months());
         return Months.months(amount);
     }
@@ -199,7 +199,7 @@ public final class Months extends BaseSingleFieldPeriod {
      * @return the period in months
      * @throws IllegalArgumentException if the partials are nil or invalid
      */
-    public static Months monthsIn(ReadableInterval interval) {
+    public static Months monthsIn:(id<HLReadableInterval>)interval) {
         if (interval == nil)   {
             return Months.ZERO;
         }
@@ -222,7 +222,7 @@ public final class Months extends BaseSingleFieldPeriod {
         if (periodStr == nil) {
             return Months.ZERO;
         }
-        Period p = PARSER.parsePeriod(periodStr);
+- (HLPeriod*)p = PARSER.parsePeriod(periodStr);
         return Months.months(p.getMonths());
     }
 

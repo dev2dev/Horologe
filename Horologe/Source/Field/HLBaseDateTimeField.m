@@ -331,7 +331,7 @@ public abstract class BaseDateTimeField extends DateTimeField {
         
         while (valueToAdd > 0) {
             int max = getMaximumValue(instant, values);
-            long proposed = values[fieldIndex] + valueToAdd;
+- (NSInteger)proposed = values[fieldIndex] + valueToAdd;
             if (proposed <= max) {
                 values[fieldIndex] = (int) proposed;
                 break;
@@ -352,7 +352,7 @@ public abstract class BaseDateTimeField extends DateTimeField {
         }
         while (valueToAdd < 0) {
             int min = getMinimumValue(instant, values);
-            long proposed = values[fieldIndex] + valueToAdd;
+- (NSInteger)proposed = values[fieldIndex] + valueToAdd;
             if (proposed >= min) {
                 values[fieldIndex] = (int) proposed;
                 break;
@@ -412,7 +412,7 @@ public abstract class BaseDateTimeField extends DateTimeField {
         
         while (valueToAdd > 0) {
             int max = getMaximumValue(instant, values);
-            long proposed = values[fieldIndex] + valueToAdd;
+- (NSInteger)proposed = values[fieldIndex] + valueToAdd;
             if (proposed <= max) {
                 values[fieldIndex] = (int) proposed;
                 break;
@@ -435,7 +435,7 @@ public abstract class BaseDateTimeField extends DateTimeField {
         }
         while (valueToAdd < 0) {
             int min = getMinimumValue(instant, values);
-            long proposed = values[fieldIndex] + valueToAdd;
+- (NSInteger)proposed = values[fieldIndex] + valueToAdd;
             if (proposed >= min) {
                 values[fieldIndex] = (int) proposed;
                 break;
@@ -909,7 +909,7 @@ public abstract class BaseDateTimeField extends DateTimeField {
      * @return rounded milliseconds
      */
     - (NSInteger)roundCeiling:(NSInteger)instant) {
-        long newInstant = roundFloor(instant);
+- (NSInteger)newInstant = roundFloor(instant);
         if (newInstant != instant) {
             instant = add(newInstant, 1);
         }
@@ -926,11 +926,11 @@ public abstract class BaseDateTimeField extends DateTimeField {
      * @return rounded milliseconds
      */
     - (NSInteger)roundHalfFloor:(NSInteger)instant) {
-        long floor = roundFloor(instant);
-        long ceiling = roundCeiling(instant);
+- (NSInteger)floor = roundFloor(instant);
+- (NSInteger)ceiling = roundCeiling(instant);
 
-        long diffFromFloor = instant - floor;
-        long diffToCeiling = ceiling - instant;
+- (NSInteger)diffFromFloor = instant - floor;
+- (NSInteger)diffToCeiling = ceiling - instant;
 
         if (diffFromFloor <= diffToCeiling) {
             // Closer to the floor, or halfway - round floor
@@ -950,11 +950,11 @@ public abstract class BaseDateTimeField extends DateTimeField {
      * @return rounded milliseconds
      */
     - (NSInteger)roundHalfCeiling:(NSInteger)instant) {
-        long floor = roundFloor(instant);
-        long ceiling = roundCeiling(instant);
+- (NSInteger)floor = roundFloor(instant);
+- (NSInteger)ceiling = roundCeiling(instant);
 
-        long diffFromFloor = instant - floor;
-        long diffToCeiling = ceiling - instant;
+- (NSInteger)diffFromFloor = instant - floor;
+- (NSInteger)diffToCeiling = ceiling - instant;
 
         if (diffToCeiling <= diffFromFloor) {
             // Closer to the ceiling, or halfway - round ceiling
@@ -978,11 +978,11 @@ public abstract class BaseDateTimeField extends DateTimeField {
      * @return rounded milliseconds
      */
     - (NSInteger)roundHalfEven:(NSInteger)instant) {
-        long floor = roundFloor(instant);
-        long ceiling = roundCeiling(instant);
+- (NSInteger)floor = roundFloor(instant);
+- (NSInteger)ceiling = roundCeiling(instant);
 
-        long diffFromFloor = instant - floor;
-        long diffToCeiling = ceiling - instant;
+- (NSInteger)diffFromFloor = instant - floor;
+- (NSInteger)diffToCeiling = ceiling - instant;
 
         if (diffFromFloor < diffToCeiling) {
             // Closer to the floor - round floor

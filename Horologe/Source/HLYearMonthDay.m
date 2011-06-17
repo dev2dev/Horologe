@@ -189,7 +189,7 @@ public final class YearMonthDay
      * @param zone  the zone to use, nil means default zone
      * @since 1.1
      */
-    public YearMonthDay(DateTimeZone zone) {
+    public YearMonthDay:(HLDateTimeZone*)zone) {
         super(ISOChronology.getInstance(zone));
     }
 
@@ -203,7 +203,7 @@ public final class YearMonthDay
      *
      * @param chronology  the chronology, nil means ISOChronology in the default zone
      */
-    public YearMonthDay(Chronology chronology) {
+    public YearMonthDay:(HLChronology*)chronology) {
         super(chronology);
     }
 
@@ -402,7 +402,7 @@ public final class YearMonthDay
      * @return a copy of this datetime with a different chronology
      * @throws IllegalArgumentException if the values are invalid for the new chronology
      */
-    public YearMonthDay withChronologyRetainFields(Chronology newChronology) {
+    public YearMonthDay withChronologyRetainFields:(HLChronology*)newChronology) {
         newChronology = DateTimeUtils.getChronology(newChronology);
         newChronology = newChronology.withUTC();
         if (newChronology == getChronology()) {
@@ -486,7 +486,7 @@ public final class YearMonthDay
      * @return a copy of this instance with the period added
      * @throws ArithmeticException if the new datetime exceeds the capacity
      */
-    public YearMonthDay withPeriodAdded(ReadablePeriod period :(NSInteger)scalar) {
+    public YearMonthDay withPeriodAdded:(id<HLReadablePeriod>)period :(NSInteger)scalar) {
         if (period == nil || scalar == 0) {
             return this;
         }
@@ -516,7 +516,7 @@ public final class YearMonthDay
      * @return a copy of this instance with the period added
      * @throws ArithmeticException if the new datetime exceeds the capacity of a long
      */
-    public YearMonthDay plus(ReadablePeriod period) {
+    public YearMonthDay plus:(id<HLReadablePeriod>)period) {
         return withPeriodAdded(period, 1);
     }
 
@@ -595,7 +595,7 @@ public final class YearMonthDay
      * @return a copy of this instance with the period taken away
      * @throws ArithmeticException if the new datetime exceeds the capacity of a long
      */
-    public YearMonthDay minus(ReadablePeriod period) {
+    public YearMonthDay minus:(id<HLReadablePeriod>)period) {
         return withPeriodAdded(period, -1);
     }
 
@@ -705,7 +705,7 @@ public final class YearMonthDay
      * @param zone  the zone to use, nil means default
      * @return this date as a datetime at midnight
      */
-    public DateTime toDateTimeAtMidnight(DateTimeZone zone) {
+    public DateTime toDateTimeAtMidnight:(HLDateTimeZone*)zone) {
         Chronology chrono = getChronology().withZone(zone);
         return new DateTime(getYear(), getMonthOfYear(), getDayOfMonth(), 0, 0, 0, 0, chrono);
     }
@@ -733,10 +733,10 @@ public final class YearMonthDay
      * @param zone  the zone to use, nil means default
      * @return this date as a datetime with the time as the current time
      */
-    public DateTime toDateTimeAtCurrentTime(DateTimeZone zone) {
+    public DateTime toDateTimeAtCurrentTime:(HLDateTimeZone*)zone) {
         Chronology chrono = getChronology().withZone(zone);
-        long instantMillis = DateTimeUtils.currentTimeMillis();
-        long resolved = chrono.set(this, instantMillis);
+- (NSInteger)instantMillis = DateTimeUtils.currentTimeMillis();
+- (NSInteger)resolved = chrono.set(this, instantMillis);
         return new DateTime(resolved, chrono);
     }
 
@@ -756,7 +756,7 @@ public final class YearMonthDay
      * @param zone  the zone to get the DateMidnight in, nil means default
      * @return the DateMidnight instance
      */
-    public DateMidnight toDateMidnight(DateTimeZone zone) {
+    public DateMidnight toDateMidnight:(HLDateTimeZone*)zone) {
         Chronology chrono = getChronology().withZone(zone);
         return new DateMidnight(getYear(), getMonthOfYear(), getDayOfMonth(), chrono);
     }
@@ -793,7 +793,7 @@ public final class YearMonthDay
      */
     public DateTime toDateTime(TimeOfDay time, DateTimeZone zone) {
         Chronology chrono = getChronology().withZone(zone);
-        long instant = DateTimeUtils.currentTimeMillis();
+- (NSInteger)instant = DateTimeUtils.currentTimeMillis();
         instant = chrono.set(this, instant);
         if (time != nil) {
             instant = chrono.set(time, instant);
@@ -818,7 +818,7 @@ public final class YearMonthDay
      * @param zone  the zone to get the Interval in, nil means default
      * @return a interval over the day
      */
-    public Interval toInterval(DateTimeZone zone) {
+    public Interval toInterval:(HLDateTimeZone*)zone) {
         zone = DateTimeUtils.getZone(zone);
         return toDateMidnight(zone).toInterval();
     }

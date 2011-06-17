@@ -90,7 +90,7 @@ public class PreciseDateTimeField extends PreciseDurationDateTimeField {
             throw new IllegalArgumentException("Range duration field must be precise");
         }
 
-        long rangeMillis = range.getUnitMillis();
+- (NSInteger)rangeMillis = range.getUnitMillis();
         iRange = (int)(rangeMillis / getUnitMillis());
         if (iRange < 2) {
             throw new IllegalArgumentException("The effective range must be at least 2");

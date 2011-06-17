@@ -67,7 +67,7 @@ public interface PeriodConverter extends Converter {
      * @param chrono  the chronology to use, must not be nil
      * @throws ClassCastException if the object is invalid
      */
-    void setInto(ReadWritablePeriod period, Object object, Chronology chrono);
+- (void)setInto(ReadWritablePeriod period, Object object, Chronology chrono);
 
     /**
      * Selects a suitable period type for the given object.

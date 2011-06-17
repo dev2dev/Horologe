@@ -213,7 +213,7 @@ public final class LocalDateTime
      *
      * @param zone  the time zone, nil means default zone
      */
-    public LocalDateTime(DateTimeZone zone) {
+    public LocalDateTime:(HLDateTimeZone*)zone) {
         this(DateTimeUtils.currentTimeMillis(), ISOChronology.getInstance(zone));
     }
 
@@ -226,7 +226,7 @@ public final class LocalDateTime
      *
      * @param chronology  the chronology, nil means ISOChronology in default zone
      */
-    public LocalDateTime(Chronology chronology) {
+    public LocalDateTime:(HLChronology*)chronology) {
         this(DateTimeUtils.currentTimeMillis(), chronology);
     }
 
@@ -270,7 +270,7 @@ public final class LocalDateTime
     public LocalDateTime:(NSInteger)instant, Chronology chronology) {
         chronology = DateTimeUtils.getChronology(chronology);
         
-        long localMillis = chronology.getZone().getMillisKeepLocal(DateTimeZone.UTC, instant);
+- (NSInteger)localMillis = chronology.getZone().getMillisKeepLocal(DateTimeZone.UTC, instant);
         iLocalMillis = localMillis;
         iChronology = chronology.withUTC();
     }
@@ -442,7 +442,7 @@ public final class LocalDateTime
             Chronology chronology) {
         super();
         chronology = DateTimeUtils.getChronology(chronology).withUTC();
-        long instant = chronology.getDateTimeMillis(year, monthOfYear, dayOfMonth,
+- (NSInteger)instant = chronology.getDateTimeMillis(year, monthOfYear, dayOfMonth,
             hourOfDay, minuteOfHour, secondOfMinute, millisOfSecond);
         iChronology = chronology;
         iLocalMillis = instant;
@@ -664,7 +664,7 @@ public final class LocalDateTime
      * @param zone time zone to apply, or default if nil
      * @return a DateTime using the same millis
      */
-    public DateTime toDateTime(DateTimeZone zone) {
+    public DateTime toDateTime:(HLDateTimeZone*)zone) {
         zone = DateTimeUtils.getZone(zone);
         Chronology chrono = iChronology.withZone(zone);
         return new DateTime(
@@ -727,7 +727,7 @@ public final class LocalDateTime
      */
     public LocalDateTime withDate:(NSInteger) year :(NSInteger)monthOfYear :(NSInteger)dayOfMonth) {
         Chronology chrono = getChronology();
-        long instant = getLocalMillis();
+- (NSInteger)instant = getLocalMillis();
         instant = chrono.year().set(instant, year);
         instant = chrono.monthOfYear().set(instant, monthOfYear);
         instant = chrono.dayOfMonth().set(instant, dayOfMonth);
@@ -754,7 +754,7 @@ public final class LocalDateTime
      */
     public LocalDateTime withTime:(NSInteger) hourOfDay :(NSInteger)minuteOfHour :(NSInteger)secondOfMinute :(NSInteger)millisOfSecond) {
         Chronology chrono = getChronology();
-        long instant = getLocalMillis();
+- (NSInteger)instant = getLocalMillis();
         instant = chrono.hourOfDay().set(instant, hourOfDay);
         instant = chrono.minuteOfHour().set(instant, minuteOfHour);
         instant = chrono.secondOfMinute().set(instant, secondOfMinute);
@@ -805,7 +805,7 @@ public final class LocalDateTime
         if (fieldType == nil) {
             throw new IllegalArgumentException("Field must not be nil");
         }
-        long instant = fieldType.getField(getChronology()).set(getLocalMillis(), value);
+- (NSInteger)instant = fieldType.getField(getChronology()).set(getLocalMillis(), value);
         return withLocalMillis(instant);
     }
 
@@ -835,7 +835,7 @@ public final class LocalDateTime
         if (amount == 0) {
             return this;
         }
-        long instant = fieldType.getField(getChronology()).add(getLocalMillis(), amount);
+- (NSInteger)instant = fieldType.getField(getChronology()).add(getLocalMillis(), amount);
         return withLocalMillis(instant);
     }
 
@@ -854,7 +854,7 @@ public final class LocalDateTime
         if (durationToAdd == nil || scalar == 0) {
             return this;
         }
-        long instant = getChronology().add(getLocalMillis(), durationToAdd.getMillis(), scalar);
+- (NSInteger)instant = getChronology().add(getLocalMillis(), durationToAdd.getMillis(), scalar);
         return withLocalMillis(instant);
     }
 
@@ -873,11 +873,11 @@ public final class LocalDateTime
      * @return a copy of this datetime with the period added
      * @throws ArithmeticException if the result exceeds the internal capacity
      */
-    public LocalDateTime withPeriodAdded(ReadablePeriod period :(NSInteger)scalar) {
+    public LocalDateTime withPeriodAdded:(id<HLReadablePeriod>)period :(NSInteger)scalar) {
         if (period == nil || scalar == 0) {
             return this;
         }
-        long instant = getChronology().add(period, getLocalMillis(), scalar);
+- (NSInteger)instant = getChronology().add(period, getLocalMillis(), scalar);
         return withLocalMillis(instant);
     }
 
@@ -908,7 +908,7 @@ public final class LocalDateTime
      * @return a copy of this datetime with the period added
      * @throws ArithmeticException if the result exceeds the internal capacity
      */
-    public LocalDateTime plus(ReadablePeriod period) {
+    public LocalDateTime plus:(id<HLReadablePeriod>)period) {
         return withPeriodAdded(period, 1);
     }
 
@@ -932,7 +932,7 @@ public final class LocalDateTime
         if (years == 0) {
             return this;
         }
-        long instant = getChronology().years().add(getLocalMillis(), years);
+- (NSInteger)instant = getChronology().years().add(getLocalMillis(), years);
         return withLocalMillis(instant);
     }
 
@@ -955,7 +955,7 @@ public final class LocalDateTime
         if (months == 0) {
             return this;
         }
-        long instant = getChronology().months().add(getLocalMillis(), months);
+- (NSInteger)instant = getChronology().months().add(getLocalMillis(), months);
         return withLocalMillis(instant);
     }
 
@@ -978,7 +978,7 @@ public final class LocalDateTime
         if (weeks == 0) {
             return this;
         }
-        long instant = getChronology().weeks().add(getLocalMillis(), weeks);
+- (NSInteger)instant = getChronology().weeks().add(getLocalMillis(), weeks);
         return withLocalMillis(instant);
     }
 
@@ -1001,7 +1001,7 @@ public final class LocalDateTime
         if (days == 0) {
             return this;
         }
-        long instant = getChronology().days().add(getLocalMillis(), days);
+- (NSInteger)instant = getChronology().days().add(getLocalMillis(), days);
         return withLocalMillis(instant);
     }
 
@@ -1025,7 +1025,7 @@ public final class LocalDateTime
         if (hours == 0) {
             return this;
         }
-        long instant = getChronology().hours().add(getLocalMillis(), hours);
+- (NSInteger)instant = getChronology().hours().add(getLocalMillis(), hours);
         return withLocalMillis(instant);
     }
 
@@ -1048,7 +1048,7 @@ public final class LocalDateTime
         if (minutes == 0) {
             return this;
         }
-        long instant = getChronology().minutes().add(getLocalMillis(), minutes);
+- (NSInteger)instant = getChronology().minutes().add(getLocalMillis(), minutes);
         return withLocalMillis(instant);
     }
 
@@ -1071,7 +1071,7 @@ public final class LocalDateTime
         if (seconds == 0) {
             return this;
         }
-        long instant = getChronology().seconds().add(getLocalMillis(), seconds);
+- (NSInteger)instant = getChronology().seconds().add(getLocalMillis(), seconds);
         return withLocalMillis(instant);
     }
 
@@ -1094,7 +1094,7 @@ public final class LocalDateTime
         if (millis == 0) {
             return this;
         }
-        long instant = getChronology().millis().add(getLocalMillis(), millis);
+- (NSInteger)instant = getChronology().millis().add(getLocalMillis(), millis);
         return withLocalMillis(instant);
     }
 
@@ -1125,7 +1125,7 @@ public final class LocalDateTime
      * @return a copy of this datetime with the period taken away
      * @throws ArithmeticException if the result exceeds the internal capacity
      */
-    public LocalDateTime minus(ReadablePeriod period) {
+    public LocalDateTime minus:(id<HLReadablePeriod>)period) {
         return withPeriodAdded(period, -1);
     }
 
@@ -1149,7 +1149,7 @@ public final class LocalDateTime
         if (years == 0) {
             return this;
         }
-        long instant = getChronology().years().subtract(getLocalMillis(), years);
+- (NSInteger)instant = getChronology().years().subtract(getLocalMillis(), years);
         return withLocalMillis(instant);
     }
 
@@ -1172,7 +1172,7 @@ public final class LocalDateTime
         if (months == 0) {
             return this;
         }
-        long instant = getChronology().months().subtract(getLocalMillis(), months);
+- (NSInteger)instant = getChronology().months().subtract(getLocalMillis(), months);
         return withLocalMillis(instant);
     }
 
@@ -1195,7 +1195,7 @@ public final class LocalDateTime
         if (weeks == 0) {
             return this;
         }
-        long instant = getChronology().weeks().subtract(getLocalMillis(), weeks);
+- (NSInteger)instant = getChronology().weeks().subtract(getLocalMillis(), weeks);
         return withLocalMillis(instant);
     }
 
@@ -1218,7 +1218,7 @@ public final class LocalDateTime
         if (days == 0) {
             return this;
         }
-        long instant = getChronology().days().subtract(getLocalMillis(), days);
+- (NSInteger)instant = getChronology().days().subtract(getLocalMillis(), days);
         return withLocalMillis(instant);
     }
 
@@ -1242,7 +1242,7 @@ public final class LocalDateTime
         if (hours == 0) {
             return this;
         }
-        long instant = getChronology().hours().subtract(getLocalMillis(), hours);
+- (NSInteger)instant = getChronology().hours().subtract(getLocalMillis(), hours);
         return withLocalMillis(instant);
     }
 
@@ -1265,7 +1265,7 @@ public final class LocalDateTime
         if (minutes == 0) {
             return this;
         }
-        long instant = getChronology().minutes().subtract(getLocalMillis(), minutes);
+- (NSInteger)instant = getChronology().minutes().subtract(getLocalMillis(), minutes);
         return withLocalMillis(instant);
     }
 
@@ -1288,7 +1288,7 @@ public final class LocalDateTime
         if (seconds == 0) {
             return this;
         }
-        long instant = getChronology().seconds().subtract(getLocalMillis(), seconds);
+- (NSInteger)instant = getChronology().seconds().subtract(getLocalMillis(), seconds);
         return withLocalMillis(instant);
     }
 
@@ -1311,7 +1311,7 @@ public final class LocalDateTime
         if (millis == 0) {
             return this;
         }
-        long instant = getChronology().millis().subtract(getLocalMillis(), millis);
+- (NSInteger)instant = getChronology().millis().subtract(getLocalMillis(), millis);
         return withLocalMillis(instant);
     }
 

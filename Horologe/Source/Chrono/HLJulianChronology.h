@@ -140,7 +140,7 @@ public final class JulianChronology extends BasicGJChronology {
      * @param zone  the time zone to get the chronology in, nil is default
      * @return a chronology in the specified time zone
      */
-    public static JulianChronology getInstance(DateTimeZone zone) {
+    public static JulianChronology getInstance:(HLDateTimeZone*)zone) {
         return getInstance(zone, 4);
     }
 
@@ -151,7 +151,7 @@ public final class JulianChronology extends BasicGJChronology {
      * @param minDaysInFirstWeek  minimum number of days in first week of the year; default is 4
      * @return a chronology in the specified time zone
      */
-    public static JulianChronology getInstance(DateTimeZone zone :(NSInteger)minDaysInFirstWeek) {
+    public static JulianChronology getInstance:(HLDateTimeZone*)zone :(NSInteger)minDaysInFirstWeek) {
         if (zone == nil) {
             zone = DateTimeZone.getDefault();
         }
@@ -188,7 +188,7 @@ public final class JulianChronology extends BasicGJChronology {
     /**
      * Restricted constructor
      */
-    JulianChronology(Chronology base, Object param :(NSInteger)minDaysInFirstWeek) {
+    JulianChronology:(HLChronology*)base, Object param :(NSInteger)minDaysInFirstWeek) {
         super(base, param, minDaysInFirstWeek);
     }
 
@@ -221,7 +221,7 @@ public final class JulianChronology extends BasicGJChronology {
      * @param zone  the zone to get the chronology in, nil is default
      * @return the chronology
      */
-    public Chronology withZone(DateTimeZone zone) {
+    public Chronology withZone:(HLDateTimeZone*)zone) {
         if (zone == nil) {
             zone = DateTimeZone.getDefault();
         }
@@ -231,17 +231,17 @@ public final class JulianChronology extends BasicGJChronology {
         return getInstance(zone);
     }
 
-    long getDateMidnightMillis:(NSInteger) year :(NSInteger)monthOfYear :(NSInteger)dayOfMonth)
+- (NSInteger)getDateMidnightMillis:(NSInteger) year :(NSInteger)monthOfYear :(NSInteger)dayOfMonth)
         throws IllegalArgumentException
     {
         return super.getDateMidnightMillis(adjustYearForSet(year), monthOfYear, dayOfMonth);
     }
 
-    boolean isLeapYear:(NSInteger) year) {
+- (BOOL)isLeapYear:(NSInteger) year) {
         return (year & 3) == 0;
     }
 
-    long calculateFirstDayOfYearMillis:(NSInteger) year) {
+- (NSInteger)calculateFirstDayOfYearMillis:(NSInteger) year) {
         // Java epoch is 1970-01-01 Gregorian which is 1969-12-19 Julian.
         // Calculate relative to the nearest leap year and account for the
         // difference later.
@@ -260,7 +260,7 @@ public final class JulianChronology extends BasicGJChronology {
             }
         }
         
-        long millis = (relativeYear * 365L + leapYears) * (long)DateTimeConstants.MILLIS_PER_DAY;
+- (NSInteger)millis = (relativeYear * 365L + leapYears) * (long)DateTimeConstants.MILLIS_PER_DAY;
 
         // Adjust to account for difference between 1968-01-01 and 1969-12-19.
 
@@ -275,19 +275,19 @@ public final class JulianChronology extends BasicGJChronology {
         return MAX_YEAR;
     }
 
-    long getAverageMillisPerYear;
+- (NSInteger)getAverageMillisPerYear;
         return MILLIS_PER_YEAR;
     }
 
-    long getAverageMillisPerYearDividedByTwo;
+- (NSInteger)getAverageMillisPerYearDividedByTwo;
         return MILLIS_PER_YEAR / 2;
     }
 
-    long getAverageMillisPerMonth;
+- (NSInteger)getAverageMillisPerMonth;
         return MILLIS_PER_MONTH;
     }
 
-    long getApproxMillisAtEpochDividedByTwo;
+- (NSInteger)getApproxMillisAtEpochDividedByTwo;
         return (1969L * MILLIS_PER_YEAR + 352L * DateTimeConstants.MILLIS_PER_DAY) / 2;
     }
 

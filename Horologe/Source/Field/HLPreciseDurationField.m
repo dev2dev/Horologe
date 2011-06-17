@@ -127,17 +127,17 @@ public class PreciseDurationField extends BaseDurationField {
     }
 
     - (NSInteger)add:(NSInteger)instant :(NSInteger)value) {
-        long addition = value * iUnitMillis;  // safe
+- (NSInteger)addition = value * iUnitMillis;  // safe
         return FieldUtils.safeAdd(instant, addition);
     }
 
     - (NSInteger)add:(NSInteger)instant :(NSInteger)value) {
-        long addition = FieldUtils.safeMultiply(value, iUnitMillis);
+- (NSInteger)addition = FieldUtils.safeMultiply(value, iUnitMillis);
         return FieldUtils.safeAdd(instant, addition);
     }
 
     - (NSInteger)getDifferenceAsLong:(NSInteger)minuendInstant :(NSInteger)subtrahendInstant) {
-        long difference = FieldUtils.safeSubtract(minuendInstant, subtrahendInstant);
+- (NSInteger)difference = FieldUtils.safeSubtract(minuendInstant, subtrahendInstant);
         return difference / iUnitMillis;
     }
 
@@ -165,7 +165,7 @@ public class PreciseDurationField extends BaseDurationField {
      * @return a suitable hashcode
      */
     - (NSUInteger)hash {
-        long millis = iUnitMillis;
+- (NSInteger)millis = iUnitMillis;
         int hash = (int) (millis ^ (millis >>> 32));
         hash += getType().hashCode();
         return hash;

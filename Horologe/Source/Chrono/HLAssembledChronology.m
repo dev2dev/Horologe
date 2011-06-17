@@ -122,7 +122,7 @@ public abstract class AssembledChronology extends BaseChronology {
      * @param base optional base chronology to copy initial fields from
      * @param param optional param object avalable for assemble method
      */
-    protected AssembledChronology(Chronology base, Object param) {
+    protected AssembledChronology:(HLChronology*)base, Object param) {
         iBase = base;
         iParam = param;
         setFields();
@@ -465,7 +465,7 @@ public abstract class AssembledChronology extends BaseChronology {
         /**
          * Copy the supported fields from a chronology into this container.
          */
-        public void copyFieldsFrom(Chronology chrono) {
+        public void copyFieldsFrom:(HLChronology*)chrono) {
             {
                 DurationField f;
                 if (isSupported(f = chrono.millis())) {

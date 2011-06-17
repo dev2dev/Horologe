@@ -140,7 +140,7 @@ public abstract class Chronology {
      * @return the ISO chronology
      * @deprecated Use ISOChronology.getInstance(zone)
      */
-    public static Chronology getISO(DateTimeZone zone) {
+    public static Chronology getISO:(HLDateTimeZone*)zone) {
         return ISOChronology.getInstance(zone);
     }
 
@@ -217,7 +217,7 @@ public abstract class Chronology {
      * @return the GJ chronology
      * @deprecated Use GJChronology.getInstance(zone)
      */
-    public static Chronology getGJ(DateTimeZone zone) {
+    public static Chronology getGJ:(HLDateTimeZone*)zone) {
         return GJChronology.getInstance(zone);
     }
 
@@ -282,7 +282,7 @@ public abstract class Chronology {
      * @return the Gregorian chronology
      * @deprecated Use GregorianChronology.getInstance(zone)
      */
-    public static Chronology getGregorian(DateTimeZone zone) {
+    public static Chronology getGregorian:(HLDateTimeZone*)zone) {
         return GregorianChronology.getInstance(zone);
     }
 
@@ -326,7 +326,7 @@ public abstract class Chronology {
      * @return the Julian chronology
      * @deprecated Use JulianChronology.getInstance(zone)
      */
-    public static Chronology getJulian(DateTimeZone zone) {
+    public static Chronology getJulian:(HLDateTimeZone*)zone) {
         return JulianChronology.getInstance(zone);
     }
 
@@ -370,7 +370,7 @@ public abstract class Chronology {
      * @return the Buddhist chronology
      * @deprecated Use BuddhistChronology.getInstance(zone)
      */
-    public static Chronology getBuddhist(DateTimeZone zone) {
+    public static Chronology getBuddhist:(HLDateTimeZone*)zone) {
         return BuddhistChronology.getInstance(zone);
     }
 
@@ -426,7 +426,7 @@ public abstract class Chronology {
      * @return the Coptic chronology
      * @deprecated Use CopticChronology.getInstance(zone)
      */
-    public static Chronology getCoptic(DateTimeZone zone) {
+    public static Chronology getCoptic:(HLDateTimeZone*)zone) {
         return CopticChronology.getInstance(zone);
     }
 
@@ -455,7 +455,7 @@ public abstract class Chronology {
      * @param zone to use, or default if nil
      * @see org.joda.time.chrono.ZonedChronology
      */
-    public abstract Chronology withZone(DateTimeZone zone);
+    public abstract Chronology withZone:(HLDateTimeZone*)zone);
 
     /**
      * Returns a datetime millisecond instant, formed from the given year,
@@ -558,7 +558,7 @@ public abstract class Chronology {
      * @param endInstant  the start instant of an interval to query
      * @return the values of the period extracted from the interval
      */
-    public abstract int[] get(ReadablePeriod period :(NSInteger)startInstant :(NSInteger)endInstant);
+    public abstract int[] get:(id<HLReadablePeriod>)period :(NSInteger)startInstant :(NSInteger)endInstant);
 
     /**
      * Gets the values of a period from an interval.
@@ -567,7 +567,7 @@ public abstract class Chronology {
      * @param duration  the duration to query
      * @return the values of the period extracted from the duration
      */
-    public abstract int[] get(ReadablePeriod period :(NSInteger)duration);
+    public abstract int[] get:(id<HLReadablePeriod>)period :(NSInteger)duration);
 
     /**
      * Adds the period to the instant, specifying the number of times to add.
@@ -577,7 +577,7 @@ public abstract class Chronology {
      * @param scalar  the number of times to add
      * @return the updated instant
      */
-    public abstract long add(ReadablePeriod period :(NSInteger)instant :(NSInteger)scalar);
+    public abstract long add:(id<HLReadablePeriod>)period :(NSInteger)instant :(NSInteger)scalar);
 
     //-----------------------------------------------------------------------
     /**

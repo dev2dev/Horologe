@@ -126,7 +126,7 @@ public final class GregorianChronology extends BasicGJChronology {
      * @param zone  the time zone to get the chronology in, nil is default
      * @return a chronology in the specified time zone
      */
-    public static GregorianChronology getInstance(DateTimeZone zone) {
+    public static GregorianChronology getInstance:(HLDateTimeZone*)zone) {
         return getInstance(zone, 4);
     }
 
@@ -137,7 +137,7 @@ public final class GregorianChronology extends BasicGJChronology {
      * @param minDaysInFirstWeek  minimum number of days in first week of the year; default is 4
      * @return a chronology in the specified time zone
      */
-    public static GregorianChronology getInstance(DateTimeZone zone :(NSInteger)minDaysInFirstWeek) {
+    public static GregorianChronology getInstance:(HLDateTimeZone*)zone :(NSInteger)minDaysInFirstWeek) {
         if (zone == nil) {
             zone = DateTimeZone.getDefault();
         }
@@ -174,7 +174,7 @@ public final class GregorianChronology extends BasicGJChronology {
     /**
      * Restricted constructor
      */
-    private GregorianChronology(Chronology base, Object param :(NSInteger)minDaysInFirstWeek) {
+    private GregorianChronology:(HLChronology*)base, Object param :(NSInteger)minDaysInFirstWeek) {
         super(base, param, minDaysInFirstWeek);
     }
 
@@ -207,7 +207,7 @@ public final class GregorianChronology extends BasicGJChronology {
      * @param zone  the zone to get the chronology in, nil is default
      * @return the chronology
      */
-    public Chronology withZone(DateTimeZone zone) {
+    public Chronology withZone:(HLDateTimeZone*)zone) {
         if (zone == nil) {
             zone = DateTimeZone.getDefault();
         }
@@ -223,11 +223,11 @@ public final class GregorianChronology extends BasicGJChronology {
         }
     }
 
-    boolean isLeapYear:(NSInteger) year) {
+- (BOOL)isLeapYear:(NSInteger) year) {
         return ((year & 3) == 0) && ((year % 100) != 0 || (year % 400) == 0);
     }
 
-    long calculateFirstDayOfYearMillis:(NSInteger) year) {
+- (NSInteger)calculateFirstDayOfYearMillis:(NSInteger) year) {
         // Initial value is just temporary.
         int leapYears = year / 100;
         if (year < 0) {
@@ -255,19 +255,19 @@ public final class GregorianChronology extends BasicGJChronology {
         return MAX_YEAR;
     }
 
-    long getAverageMillisPerYear;
+- (NSInteger)getAverageMillisPerYear;
         return MILLIS_PER_YEAR;
     }
 
-    long getAverageMillisPerYearDividedByTwo;
+- (NSInteger)getAverageMillisPerYearDividedByTwo;
         return MILLIS_PER_YEAR / 2;
     }
 
-    long getAverageMillisPerMonth;
+- (NSInteger)getAverageMillisPerMonth;
         return MILLIS_PER_MONTH;
     }
 
-    long getApproxMillisAtEpochDividedByTwo;
+- (NSInteger)getApproxMillisAtEpochDividedByTwo;
         return (1970L * MILLIS_PER_YEAR) / 2;
     }
 

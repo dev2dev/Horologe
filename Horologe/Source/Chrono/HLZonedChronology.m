@@ -78,7 +78,7 @@ public final class ZonedChronology extends AssembledChronology {
      * @param zone the time zone
      * @throws IllegalArgumentException if chronology or time zone is nil
      */
-    public static ZonedChronology getInstance(Chronology base, DateTimeZone zone) {
+    public static ZonedChronology getInstance:(HLChronology*)base, DateTimeZone zone) {
         if (base == nil) {
             throw new IllegalArgumentException("Must supply a chronology");
         }
@@ -104,7 +104,7 @@ public final class ZonedChronology extends AssembledChronology {
      * @param base base chronology to wrap
      * @param zone the time zone
      */
-    private ZonedChronology(Chronology base, DateTimeZone zone) {
+    private ZonedChronology:(HLChronology*)base, DateTimeZone zone) {
         super(base, zone);
     }
 
@@ -116,7 +116,7 @@ public final class ZonedChronology extends AssembledChronology {
         return getBase();
     }
 
-    public Chronology withZone(DateTimeZone zone) {
+    public Chronology withZone:(HLDateTimeZone*)zone) {
         if (zone == nil) {
             zone = DateTimeZone.getDefault();
         }
@@ -368,7 +368,7 @@ public final class ZonedChronology extends AssembledChronology {
 
         private int getOffsetToAdd:(NSInteger)instant) {
             int offset = this.iZone.getOffset(instant);
-            long sum = instant + offset;
+- (NSInteger)sum = instant + offset;
             // If there is a sign change, but the two values have the same sign...
             if ((instant ^ sum) < 0 && (instant ^ offset) >= 0) {
                 throw new ArithmeticException("Adding time zone offset caused overflow");
@@ -378,7 +378,7 @@ public final class ZonedChronology extends AssembledChronology {
 
         private int getOffsetFromLocalToSubtract:(NSInteger)instant) {
             int offset = this.iZone.getOffsetFromLocal(instant);
-            long diff = instant - offset;
+- (NSInteger)diff = instant - offset;
             // If there is a sign change, but the two values have different signs...
             if ((instant ^ diff) < 0 && (instant ^ offset) < 0) {
                 throw new ArithmeticException("Subtracting time zone offset caused overflow");
@@ -429,17 +429,17 @@ public final class ZonedChronology extends AssembledChronology {
         }
 
         - (NSInteger)get:(NSInteger)instant) {
-            long localInstant = iZone.convertUTCToLocal(instant);
+- (NSInteger)localInstant = iZone.convertUTCToLocal(instant);
             return iField.get(localInstant);
         }
 
         public String getAsText:(NSInteger)instant locale:(NSLocale*)locale {
-            long localInstant = iZone.convertUTCToLocal(instant);
+- (NSInteger)localInstant = iZone.convertUTCToLocal(instant);
             return iField.getAsText(localInstant, locale);
         }
 
         public String getAsShortText:(NSInteger)instant locale:(NSLocale*)locale {
-            long localInstant = iZone.convertUTCToLocal(instant);
+- (NSInteger)localInstant = iZone.convertUTCToLocal(instant);
             return iField.getAsShortText(localInstant, locale);
         }
 
@@ -454,10 +454,10 @@ public final class ZonedChronology extends AssembledChronology {
         - (NSInteger)add:(NSInteger)instant :(NSInteger)value) {
             if (iTimeField) {
                 int offset = getOffsetToAdd(instant);
-                long localInstant = iField.add(instant + offset, value);
+- (NSInteger)localInstant = iField.add(instant + offset, value);
                 return localInstant - offset;
             } else {
-               long localInstant = iZone.convertUTCToLocal(instant);
+- (NSInteger)localInstant = iZone.convertUTCToLocal(instant);
                localInstant = iField.add(localInstant, value);
                return iZone.convertLocalToUTC(localInstant, false);
             }
@@ -466,10 +466,10 @@ public final class ZonedChronology extends AssembledChronology {
         - (NSInteger)add:(NSInteger)instant :(NSInteger)value) {
             if (iTimeField) {
                 int offset = getOffsetToAdd(instant);
-                long localInstant = iField.add(instant + offset, value);
+- (NSInteger)localInstant = iField.add(instant + offset, value);
                 return localInstant - offset;
             } else {
-               long localInstant = iZone.convertUTCToLocal(instant);
+- (NSInteger)localInstant = iZone.convertUTCToLocal(instant);
                localInstant = iField.add(localInstant, value);
                return iZone.convertLocalToUTC(localInstant, false);
             }
@@ -478,19 +478,19 @@ public final class ZonedChronology extends AssembledChronology {
         - (NSInteger)addWrapField:(NSInteger)instant :(NSInteger)value) {
             if (iTimeField) {
                 int offset = getOffsetToAdd(instant);
-                long localInstant = iField.addWrapField(instant + offset, value);
+- (NSInteger)localInstant = iField.addWrapField(instant + offset, value);
                 return localInstant - offset;
             } else {
-                long localInstant = iZone.convertUTCToLocal(instant);
+- (NSInteger)localInstant = iZone.convertUTCToLocal(instant);
                 localInstant = iField.addWrapField(localInstant, value);
                 return iZone.convertLocalToUTC(localInstant, false);
             }
         }
 
         - (NSInteger)set:(NSInteger)instant :(NSInteger)value) {
-            long localInstant = iZone.convertUTCToLocal(instant);
+- (NSInteger)localInstant = iZone.convertUTCToLocal(instant);
             localInstant = iField.set(localInstant, value);
-            long result = iZone.convertLocalToUTC(localInstant, false);
+- (NSInteger)result = iZone.convertLocalToUTC(localInstant, false);
             if (get(result) != value) {
                 throw new IllegalFieldValueException(iField.getType(), new Integer(value),
                     "Illegal instant due to time zone offset transition: " +
@@ -502,7 +502,7 @@ public final class ZonedChronology extends AssembledChronology {
 
         - (NSInteger)set:(NSInteger)instant, String text locale:(NSLocale*)locale {
             // cannot verify that new value stuck because set may be lenient
-            long localInstant = iZone.convertUTCToLocal(instant);
+- (NSInteger)localInstant = iZone.convertUTCToLocal(instant);
             localInstant = iField.set(localInstant, text, locale);
             return iZone.convertLocalToUTC(localInstant, false);
         }
@@ -530,12 +530,12 @@ public final class ZonedChronology extends AssembledChronology {
         }
 
         - (BOOL)isLeap:(NSInteger)instant) {
-            long localInstant = iZone.convertUTCToLocal(instant);
+- (NSInteger)localInstant = iZone.convertUTCToLocal(instant);
             return iField.isLeap(localInstant);
         }
 
         - (NSInteger)getLeapAmount:(NSInteger)instant) {
-            long localInstant = iZone.convertUTCToLocal(instant);
+- (NSInteger)localInstant = iZone.convertUTCToLocal(instant);
             return iField.getLeapAmount(localInstant);
         }
 
@@ -549,7 +549,7 @@ public final class ZonedChronology extends AssembledChronology {
                 instant = iField.roundFloor(instant + offset);
                 return instant - offset;
             } else {
-                long localInstant = iZone.convertUTCToLocal(instant);
+- (NSInteger)localInstant = iZone.convertUTCToLocal(instant);
                 localInstant = iField.roundFloor(localInstant);
                 return iZone.convertLocalToUTC(localInstant, false);
             }
@@ -561,14 +561,14 @@ public final class ZonedChronology extends AssembledChronology {
                 instant = iField.roundCeiling(instant + offset);
                 return instant - offset;
             } else {
-                long localInstant = iZone.convertUTCToLocal(instant);
+- (NSInteger)localInstant = iZone.convertUTCToLocal(instant);
                 localInstant = iField.roundCeiling(localInstant);
                 return iZone.convertLocalToUTC(localInstant, false);
             }
         }
 
         - (NSInteger)remainder:(NSInteger)instant) {
-            long localInstant = iZone.convertUTCToLocal(instant);
+- (NSInteger)localInstant = iZone.convertUTCToLocal(instant);
             return iField.remainder(localInstant);
         }
 
@@ -577,7 +577,7 @@ public final class ZonedChronology extends AssembledChronology {
         }
 
         - (NSInteger)getMinimumValue:(NSInteger)instant) {
-            long localInstant = iZone.convertUTCToLocal(instant);
+- (NSInteger)localInstant = iZone.convertUTCToLocal(instant);
             return iField.getMinimumValue(localInstant);
         }
 
@@ -594,7 +594,7 @@ public final class ZonedChronology extends AssembledChronology {
         }
 
         - (NSInteger)getMaximumValue:(NSInteger)instant) {
-            long localInstant = iZone.convertUTCToLocal(instant);
+- (NSInteger)localInstant = iZone.convertUTCToLocal(instant);
             return iField.getMaximumValue(localInstant);
         }
 
@@ -616,7 +616,7 @@ public final class ZonedChronology extends AssembledChronology {
 
         private int getOffsetToAdd:(NSInteger)instant) {
             int offset = this.iZone.getOffset(instant);
-            long sum = instant + offset;
+- (NSInteger)sum = instant + offset;
             // If there is a sign change, but the two values have the same sign...
             if ((instant ^ sum) < 0 && (instant ^ offset) >= 0) {
                 throw new ArithmeticException("Adding time zone offset caused overflow");

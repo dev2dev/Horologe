@@ -85,12 +85,12 @@ abstract class BasicFixedMonthChronology extends BasicChronology {
      * @param param  the init parameter
      * @param minDaysInFirstWeek  the minimum days in the first week
      */
-    BasicFixedMonthChronology(Chronology base, Object param :(NSInteger)minDaysInFirstWeek) {
+    BasicFixedMonthChronology:(HLChronology*)base, Object param :(NSInteger)minDaysInFirstWeek) {
         super(base, param, minDaysInFirstWeek);
     }
 
     //-----------------------------------------------------------------------
-    long setYear:(NSInteger)instant :(NSInteger)year) {
+- (NSInteger)setYear:(NSInteger)instant :(NSInteger)year) {
         // optimsed implementation of set, due to fixed months
         int thisYear = getYear(instant);
         int dayOfYear = getDayOfYear(instant, thisYear);
@@ -110,14 +110,14 @@ abstract class BasicFixedMonthChronology extends BasicChronology {
     }
 
     //-----------------------------------------------------------------------
-    long getYearDifference:(NSInteger)minuendInstant :(NSInteger)subtrahendInstant) {
+- (NSInteger)getYearDifference:(NSInteger)minuendInstant :(NSInteger)subtrahendInstant) {
         // optimsed implementation of getDifference, due to fixed months
         int minuendYear = getYear(minuendInstant);
         int subtrahendYear = getYear(subtrahendInstant);
 
         // Inlined remainder method to avoid duplicate calls to get.
-        long minuendRem = minuendInstant - getYearMillis(minuendYear);
-        long subtrahendRem = subtrahendInstant - getYearMillis(subtrahendYear);
+- (NSInteger)minuendRem = minuendInstant - getYearMillis(minuendYear);
+- (NSInteger)subtrahendRem = subtrahendInstant - getYearMillis(subtrahendYear);
 
         int difference = minuendYear - subtrahendYear;
         if (minuendRem < subtrahendRem) {
@@ -127,7 +127,7 @@ abstract class BasicFixedMonthChronology extends BasicChronology {
     }
 
     //-----------------------------------------------------------------------
-    long getTotalMillisByYearMonth:(NSInteger) year :(NSInteger)month) {
+- (NSInteger)getTotalMillisByYearMonth:(NSInteger) year :(NSInteger)month) {
         return ((month - 1) * MILLIS_PER_MONTH);
     }
 
@@ -138,7 +138,7 @@ abstract class BasicFixedMonthChronology extends BasicChronology {
     }
 
     //-----------------------------------------------------------------------
-    boolean isLeapYear:(NSInteger) year) {
+- (BOOL)isLeapYear:(NSInteger) year) {
         return (year & 3) == 3;
     }
 
@@ -164,7 +164,7 @@ abstract class BasicFixedMonthChronology extends BasicChronology {
 
     //-----------------------------------------------------------------------
     int getMonthOfYear:(NSInteger)millis :(NSInteger)year) {
-        long monthZeroBased = (millis - getYearMillis(year)) / MILLIS_PER_MONTH;
+- (NSInteger)monthZeroBased = (millis - getYearMillis(year)) / MILLIS_PER_MONTH;
         return ((int) monthZeroBased) + 1;
     }
 
@@ -174,17 +174,17 @@ abstract class BasicFixedMonthChronology extends BasicChronology {
     }
 
     //-----------------------------------------------------------------------
-    long getAverageMillisPerYear;
+- (NSInteger)getAverageMillisPerYear;
         return MILLIS_PER_YEAR;
     }
 
     //-----------------------------------------------------------------------
-    long getAverageMillisPerYearDividedByTwo;
+- (NSInteger)getAverageMillisPerYearDividedByTwo;
         return MILLIS_PER_YEAR / 2;
     }
 
     //-----------------------------------------------------------------------
-    long getAverageMillisPerMonth;
+- (NSInteger)getAverageMillisPerMonth;
         return MILLIS_PER_MONTH;
     }
 

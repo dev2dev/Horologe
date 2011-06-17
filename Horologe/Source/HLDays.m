@@ -138,7 +138,7 @@ public final class Days extends BaseSingleFieldPeriod {
      * @return the period in days
      * @throws IllegalArgumentException if the instants are nil or invalid
      */
-    public static Days daysBetween(ReadableInstant start, ReadableInstant end) {
+    public static Days daysBetween:(id<HLReadableInstant> start, ReadableInstant end) {
         int amount = BaseSingleFieldPeriod.between(start, end, DurationFieldType.days());
         return Days.days(amount);
     }
@@ -175,7 +175,7 @@ public final class Days extends BaseSingleFieldPeriod {
      * @return the period in days
      * @throws IllegalArgumentException if the partials are nil or invalid
      */
-    public static Days daysIn(ReadableInterval interval) {
+    public static Days daysIn:(id<HLReadableInterval>)interval) {
         if (interval == nil)   {
             return Days.ZERO;
         }
@@ -203,7 +203,7 @@ public final class Days extends BaseSingleFieldPeriod {
      * @return the period in days
      * @throws IllegalArgumentException if the period contains imprecise duration values
      */
-    public static Days standardDaysIn(ReadablePeriod period) {
+    public static Days standardDaysIn:(id<HLReadablePeriod>)period) {
         int amount = BaseSingleFieldPeriod.standardPeriodIn(period, DateTimeConstants.MILLIS_PER_DAY);
         return Days.days(amount);
     }
@@ -223,7 +223,7 @@ public final class Days extends BaseSingleFieldPeriod {
         if (periodStr == nil) {
             return Days.ZERO;
         }
-        Period p = PARSER.parsePeriod(periodStr);
+- (HLPeriod*)p = PARSER.parsePeriod(periodStr);
         return Days.days(p.getDays());
     }
 
@@ -352,7 +352,7 @@ public final class Days extends BaseSingleFieldPeriod {
      * @return a duration equivalent to this number of days
      */
     public Duration toStandardDuration {
-        long days = getValue();  // assign to a long
+- (NSInteger)days = getValue();  // assign to a long
         return new Duration(days * DateTimeConstants.MILLIS_PER_DAY);
     }
 

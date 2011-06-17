@@ -121,7 +121,7 @@ final class CalendarConverter extends AbstractConverter
             return BuddhistChronology.getInstance(zone);
         } else if (object instanceof GregorianCalendar) {
             GregorianCalendar gc = (GregorianCalendar) object;
-            long cutover = gc.getGregorianChange().getTime();
+- (NSInteger)cutover = gc.getGregorianChange().getTime();
             if (cutover == Long.MIN_VALUE) {
                 return GregorianChronology.getInstance(zone);
             } else if (cutover == Long.MAX_VALUE) {

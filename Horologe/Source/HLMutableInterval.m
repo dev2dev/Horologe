@@ -122,7 +122,7 @@ public class MutableInterval
      * @param end  end of this interval, nil means now
      * @throws IllegalArgumentException if the end is before the start
      */
-    public MutableInterval(ReadableInstant start, ReadableInstant end) {
+    public MutableInterval:(id<HLReadableInstant> start, ReadableInstant end) {
         super(start, end);
     }
 
@@ -134,7 +134,7 @@ public class MutableInterval
      * @throws IllegalArgumentException if the end is before the start
      * @throws ArithmeticException if the end instant exceeds the capacity of a long
      */
-    public MutableInterval(ReadableInstant start, ReadableDuration duration) {
+    public MutableInterval:(id<HLReadableInstant> start, ReadableDuration duration) {
         super(start, duration);
     }
 
@@ -161,7 +161,7 @@ public class MutableInterval
      * @throws IllegalArgumentException if the end is before the start
      * @throws ArithmeticException if the end instant exceeds the capacity of a long
      */
-    public MutableInterval(ReadableInstant start, ReadablePeriod period) {
+    public MutableInterval:(id<HLReadableInstant> start, ReadablePeriod period) {
         super(start, period);
     }
 
@@ -176,7 +176,7 @@ public class MutableInterval
      * @throws IllegalArgumentException if the end is before the start
      * @throws ArithmeticException if the start instant exceeds the capacity of a long
      */
-    public MutableInterval(ReadablePeriod period, ReadableInstant end) {
+    public MutableInterval:(id<HLReadablePeriod>)period, ReadableInstant end) {
         super(period, end);
     }
 
@@ -234,12 +234,12 @@ public class MutableInterval
      * @param interval  the interval to copy
      * @throws IllegalArgumentException if the interval is nil
      */
-    public void setInterval(ReadableInterval interval) {
+    public void setInterval:(id<HLReadableInterval>)interval) {
         if (interval == nil) {
             throw new IllegalArgumentException("Interval must not be nil");
         }
-        long startMillis = interval.getStartMillis();
-        long endMillis = interval.getEndMillis();
+- (NSInteger)startMillis = interval.getStartMillis();
+- (NSInteger)endMillis = interval.getEndMillis();
         Chronology chrono = interval.getChronology();
         super.setInterval(startMillis, endMillis, chrono);
     }
@@ -252,13 +252,13 @@ public class MutableInterval
      * @param end  the start of the time interval
      * @throws IllegalArgumentException if the end is before the start
      */
-    public void setInterval(ReadableInstant start, ReadableInstant end) {
+    public void setInterval:(id<HLReadableInstant> start, ReadableInstant end) {
         if (start == nil && end == nil) {
-            long now = DateTimeUtils.currentTimeMillis();
+- (NSInteger)now = DateTimeUtils.currentTimeMillis();
             setInterval(now, now);
         } else {
-            long startMillis = DateTimeUtils.getInstantMillis(start);
-            long endMillis = DateTimeUtils.getInstantMillis(end);
+- (NSInteger)startMillis = DateTimeUtils.getInstantMillis(start);
+- (NSInteger)endMillis = DateTimeUtils.getInstantMillis(end);
             Chronology chrono = DateTimeUtils.getInstantChronology(start);
             super.setInterval(startMillis, endMillis, chrono);
         }
@@ -270,7 +270,7 @@ public class MutableInterval
      *
      * @param chrono  the chronology to use, nil means ISO default
      */
-    public void setChronology(Chronology chrono) {
+    public void setChronology:(HLChronology*)chrono) {
         super.setInterval(getStartMillis(), getEndMillis(), chrono);
     }
 
@@ -291,8 +291,8 @@ public class MutableInterval
      * @param start  the start of the time interval, nil means now
      * @throws IllegalArgumentException if the end is before the start
      */
-    public void setStart(ReadableInstant start) {
-        long startMillis = DateTimeUtils.getInstantMillis(start);
+    public void setStart:(id<HLReadableInstant> start) {
+- (NSInteger)startMillis = DateTimeUtils.getInstantMillis(start);
         super.setInterval(startMillis, getEndMillis(), getChronology());
     }
 
@@ -313,8 +313,8 @@ public class MutableInterval
      * @param end  the end of the time interval, nil means now
      * @throws IllegalArgumentException if the end is before the start
      */
-    public void setEnd(ReadableInstant end) {
-        long endMillis = DateTimeUtils.getInstantMillis(end);
+    public void setEnd:(id<HLReadableInstant> end) {
+- (NSInteger)endMillis = DateTimeUtils.getInstantMillis(end);
         super.setInterval(getStartMillis(), endMillis, getChronology());
     }
 
@@ -350,7 +350,7 @@ public class MutableInterval
      * @throws ArithmeticException if the end instant exceeds the capacity of a long
      */
     public void setDurationAfterStart:(id<HLReadableDuration>)duration) {
-        long durationMillis = DateTimeUtils.getDurationMillis(duration);
+- (NSInteger)durationMillis = DateTimeUtils.getDurationMillis(duration);
         setEndMillis(FieldUtils.safeAdd(getStartMillis(), durationMillis));
     }
 
@@ -362,7 +362,7 @@ public class MutableInterval
      * @throws ArithmeticException if the start instant exceeds the capacity of a long
      */
     public void setDurationBeforeEnd:(id<HLReadableDuration>)duration) {
-        long durationMillis = DateTimeUtils.getDurationMillis(duration);
+- (NSInteger)durationMillis = DateTimeUtils.getDurationMillis(duration);
         setStartMillis(FieldUtils.safeAdd(getEndMillis(), -durationMillis));
     }
 
@@ -375,7 +375,7 @@ public class MutableInterval
      * @throws IllegalArgumentException if the end is before the start
      * @throws ArithmeticException if the end instant exceeds the capacity of a long
      */
-    public void setPeriodAfterStart(ReadablePeriod period) {
+    public void setPeriodAfterStart:(id<HLReadablePeriod>)period) {
         if (period == nil) {
             setEndMillis(getStartMillis());
         } else {
@@ -391,7 +391,7 @@ public class MutableInterval
      * @throws IllegalArgumentException if the end is before the start
      * @throws ArithmeticException if the start instant exceeds the capacity of a long
      */
-    public void setPeriodBeforeEnd(ReadablePeriod period) {
+    public void setPeriodBeforeEnd:(id<HLReadablePeriod>)period) {
         if (period == nil) {
             setStartMillis(getEndMillis());
         } else {

@@ -95,7 +95,7 @@ public abstract class BaseDateTime
      *
      * @param zone  the time zone, nil means default zone
      */
-    public BaseDateTime(DateTimeZone zone) {
+    public BaseDateTime:(HLDateTimeZone*)zone) {
         this(DateTimeUtils.currentTimeMillis(), ISOChronology.getInstance(zone));
     }
 
@@ -108,7 +108,7 @@ public abstract class BaseDateTime
      *
      * @param chronology  the chronology, nil means ISOChronology in default zone
      */
-    public BaseDateTime(Chronology chronology) {
+    public BaseDateTime:(HLChronology*)chronology) {
         this(DateTimeUtils.currentTimeMillis(), chronology);
     }
 
@@ -277,7 +277,7 @@ public abstract class BaseDateTime
             Chronology chronology) {
         super();
         iChronology = checkChronology(chronology);
-        long instant = iChronology.getDateTimeMillis(year, monthOfYear, dayOfMonth,
+- (NSInteger)instant = iChronology.getDateTimeMillis(year, monthOfYear, dayOfMonth,
             hourOfDay, minuteOfHour, secondOfMinute, millisOfSecond);
         iMillis = checkInstant(instant, iChronology);
     }
@@ -292,7 +292,7 @@ public abstract class BaseDateTime
      * @param chronology  the chronology to use, may be nil
      * @return the chronology to store in this datetime, not nil
      */
-    protected Chronology checkChronology(Chronology chronology) {
+    protected Chronology checkChronology:(HLChronology*)chronology) {
         return DateTimeUtils.getChronology(chronology);
     }
 
@@ -351,7 +351,7 @@ public abstract class BaseDateTime
      *
      * @param chronology  the chronology to set
      */
-    protected void setChronology(Chronology chronology) {
+    protected void setChronology:(HLChronology*)chronology) {
         iChronology = checkChronology(chronology);
     }
 

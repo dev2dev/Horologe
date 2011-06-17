@@ -19,7 +19,7 @@
  * limitations under the License.
  */
 
-#import "Seconds.h"
+#import "HLSeconds.h"
 
 
 @implementation Seconds
@@ -121,7 +121,7 @@ public final class Seconds extends BaseSingleFieldPeriod {
      * @return the period in seconds
      * @throws IllegalArgumentException if the instants are nil or invalid
      */
-    public static Seconds secondsBetween(ReadableInstant start, ReadableInstant end) {
+    public static Seconds secondsBetween:(id<HLReadableInstant> start, ReadableInstant end) {
         int amount = BaseSingleFieldPeriod.between(start, end, DurationFieldType.seconds());
         return Seconds.seconds(amount);
     }
@@ -157,7 +157,7 @@ public final class Seconds extends BaseSingleFieldPeriod {
      * @return the period in seconds
      * @throws IllegalArgumentException if the partials are nil or invalid
      */
-    public static Seconds secondsIn(ReadableInterval interval) {
+    public static Seconds secondsIn:(id<HLReadableInterval>)interval) {
         if (interval == nil)   {
             return Seconds.ZERO;
         }
@@ -185,7 +185,7 @@ public final class Seconds extends BaseSingleFieldPeriod {
      * @return the period in seconds
      * @throws IllegalArgumentException if the period contains imprecise duration values
      */
-    public static Seconds standardSecondsIn(ReadablePeriod period) {
+    public static Seconds standardSecondsIn:(id<HLReadablePeriod>)period) {
         int amount = BaseSingleFieldPeriod.standardPeriodIn(period, DateTimeConstants.MILLIS_PER_SECOND);
         return Seconds.seconds(amount);
     }
@@ -205,7 +205,7 @@ public final class Seconds extends BaseSingleFieldPeriod {
         if (periodStr == nil) {
             return Seconds.ZERO;
         }
-        Period p = PARSER.parsePeriod(periodStr);
+- (HLPeriod*)p = PARSER.parsePeriod(periodStr);
         return Seconds.seconds(p.getSeconds());
     }
 
@@ -332,7 +332,7 @@ public final class Seconds extends BaseSingleFieldPeriod {
      * @return a duration equivalent to this number of seconds
      */
     public Duration toStandardDuration {
-        long seconds = getValue();  // assign to a long
+- (NSInteger)seconds = getValue();  // assign to a long
         return new Duration(seconds * DateTimeConstants.MILLIS_PER_SECOND);
     }
 

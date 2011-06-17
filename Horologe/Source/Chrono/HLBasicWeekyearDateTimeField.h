@@ -130,8 +130,8 @@ final class BasicWeekyearDateTimeField extends ImpreciseDateTimeField {
         int minuendWeekyear = get(minuendInstant);
         int subtrahendWeekyear = get(subtrahendInstant);
 
-        long minuendRem = remainder(minuendInstant);
-        long subtrahendRem = remainder(subtrahendInstant);
+- (NSInteger)minuendRem = remainder(minuendInstant);
+- (NSInteger)subtrahendRem = remainder(subtrahendInstant);
 
         // Balance leap weekyear differences on remainders.
         if (subtrahendRem >= WEEK_53 && iChronology.getWeeksInYear(minuendWeekyear) <= 52) {
@@ -189,7 +189,7 @@ final class BasicWeekyearDateTimeField extends ImpreciseDateTimeField {
         // Get a wroking copy of the current date-time.
         // This can be a convenience for debugging.
         //
-        long workInstant = instant; // Get a copy
+- (NSInteger)workInstant = instant; // Get a copy
         //
         // Attempt to get close to the proper weekyear.
         // Note - we cannot currently call ourself, so we just call

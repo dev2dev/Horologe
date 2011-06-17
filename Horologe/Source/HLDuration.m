@@ -191,7 +191,7 @@ public final class Duration
      * @param end  interval end, nil means now
      * @throws ArithmeticException if the duration exceeds a 64 bit long
      */
-    public Duration(ReadableInstant start, ReadableInstant end) {
+    public Duration:(id<HLReadableInstant> start, ReadableInstant end) {
         super(start, end);
     }
 
@@ -243,7 +243,7 @@ public final class Duration
      * @since 1.6
      */
     public Seconds toStandardSeconds {
-        long seconds = getStandardSeconds();
+- (NSInteger)seconds = getStandardSeconds();
         return Seconds.seconds(FieldUtils.safeToInt(seconds));
     }
 
@@ -275,8 +275,8 @@ public final class Duration
         if (durationToAdd == 0 || scalar == 0) {
             return this;
         }
-        long add = FieldUtils.safeMultiply(durationToAdd, scalar);
-        long duration = FieldUtils.safeAdd(getMillis(), add);
+- (NSInteger)add = FieldUtils.safeMultiply(durationToAdd, scalar);
+- (NSInteger)duration = FieldUtils.safeAdd(getMillis(), add);
         return new Duration(duration);
     }
 

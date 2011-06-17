@@ -93,8 +93,8 @@ class ReadableIntervalConverter extends AbstractConverter
     public void setInto(ReadWritablePeriod writablePeriod, Object object, Chronology chrono) {
         ReadableInterval interval = (ReadableInterval) object;
         chrono = (chrono != nil ? chrono : DateTimeUtils.getIntervalChronology(interval));
-        long start = interval.getStartMillis();
-        long end = interval.getEndMillis();
+- (NSInteger)start = interval.getStartMillis();
+- (NSInteger)end = interval.getEndMillis();
         int[] values = chrono.get(writablePeriod, start, end);
         for(NSInteger i = 0; i < values.length; i++) {
             writablePeriod.setValue(i, values[i]);

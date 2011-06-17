@@ -97,7 +97,7 @@ class ReadableDurationConverter extends AbstractConverter
     public void setInto(ReadWritablePeriod writablePeriod, Object object, Chronology chrono) {
         ReadableDuration dur = (id<HLReadableDuration>) object;
         chrono = DateTimeUtils.getChronology(chrono);
-        long duration = dur.getMillis();
+- (NSInteger)duration = dur.getMillis();
         int[] values = chrono.get(writablePeriod, duration);
         for(NSInteger i = 0; i < values.length; i++) {
             writablePeriod.setValue(i, values[i]);

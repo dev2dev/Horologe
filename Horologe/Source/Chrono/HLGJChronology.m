@@ -117,7 +117,7 @@ public final class GJChronology extends AssembledChronology {
      * Convert a datetime from one chronology to another.
      */
     private static long convertByWeekyear(final long instant, Chronology from, Chronology to) {
-        long newInstant;
+- (NSInteger)newInstant;
         newInstant = to.weekyear().set(0, from.weekyear().get(instant));
         newInstant = to.weekOfWeekyear().set(newInstant, from.weekOfWeekyear().get(instant));
         newInstant = to.dayOfWeek().set(newInstant, from.dayOfWeek().get(instant));
@@ -177,7 +177,7 @@ public final class GJChronology extends AssembledChronology {
      *
      * @param zone  the time zone to use, nil is default
      */
-    public static GJChronology getInstance(DateTimeZone zone) {
+    public static GJChronology getInstance:(HLDateTimeZone*)zone) {
         return getInstance(zone, DEFAULT_CUTOVER, 4);
     }
 
@@ -266,7 +266,7 @@ public final class GJChronology extends AssembledChronology {
      */
     public static GJChronology getInstance(
             DateTimeZone zone,
-            long gregorianCutover,
+- (NSInteger)gregorianCutover,
             int minDaysInFirstWeek) {
         
         Instant cutoverInstant;
@@ -300,7 +300,7 @@ public final class GJChronology extends AssembledChronology {
     /**
      * Called when applying a time zone.
      */
-    private GJChronology(Chronology base,
+    private GJChronology:(HLChronology*)base,
                          JulianChronology julian,
                          GregorianChronology gregorian,
                          Instant cutoverInstant) {
@@ -339,7 +339,7 @@ public final class GJChronology extends AssembledChronology {
      * @param zone  the zone to get the chronology in, nil is default
      * @return the chronology
      */
-    public Chronology withZone(DateTimeZone zone) {
+    public Chronology withZone:(HLDateTimeZone*)zone) {
         if (zone == nil) {
             zone = DateTimeZone.getDefault();
         }
@@ -359,7 +359,7 @@ public final class GJChronology extends AssembledChronology {
         }
 
         // Assume date is Gregorian.
-        long instant = iGregorianChronology.getDateTimeMillis
+- (NSInteger)instant = iGregorianChronology.getDateTimeMillis
             (year, monthOfYear, dayOfMonth, millisOfDay);
         if (instant < iCutoverMillis) {
             // Maybe it's Julian.
@@ -386,7 +386,7 @@ public final class GJChronology extends AssembledChronology {
         }
 
         // Assume date is Gregorian.
-        long instant = iGregorianChronology.getDateTimeMillis
+- (NSInteger)instant = iGregorianChronology.getDateTimeMillis
             (year, monthOfYear, dayOfMonth,
              hourOfDay, minuteOfHour, secondOfMinute, millisOfSecond);
         if (instant < iCutoverMillis) {
@@ -536,13 +536,13 @@ public final class GJChronology extends AssembledChronology {
         // the cutover year.
 
         {
-            long cutover = gregorian.year().roundCeiling(iCutoverMillis);
+- (NSInteger)cutover = gregorian.year().roundCeiling(iCutoverMillis);
             fields.dayOfYear = new CutoverField(
                 julian.dayOfYear(), fields.dayOfYear, cutover);
         }
 
         {
-            long cutover = gregorian.weekyear().roundCeiling(iCutoverMillis);
+- (NSInteger)cutover = gregorian.weekyear().roundCeiling(iCutoverMillis);
             fields.weekOfWeekyear = new CutoverField(
                 julian.weekOfWeekyear(), fields.weekOfWeekyear, cutover, true);
         }
@@ -584,19 +584,19 @@ public final class GJChronology extends AssembledChronology {
         }
     }
 
-    long julianToGregorianByYear:(NSInteger)instant) {
+- (NSInteger)julianToGregorianByYear:(NSInteger)instant) {
         return convertByYear(instant, iJulianChronology, iGregorianChronology);
     }
 
-    long gregorianToJulianByYear:(NSInteger)instant) {
+- (NSInteger)gregorianToJulianByYear:(NSInteger)instant) {
         return convertByYear(instant, iGregorianChronology, iJulianChronology);
     }
 
-    long julianToGregorianByWeekyear:(NSInteger)instant) {
+- (NSInteger)julianToGregorianByWeekyear:(NSInteger)instant) {
         return convertByWeekyear(instant, iJulianChronology, iGregorianChronology);
     }
 
-    long gregorianToJulianByWeekyear:(NSInteger)instant) {
+- (NSInteger)gregorianToJulianByWeekyear:(NSInteger)instant) {
         return convertByWeekyear(instant, iGregorianChronology, iJulianChronology);
     }
 
@@ -632,7 +632,7 @@ public final class GJChronology extends AssembledChronology {
          * @param convertByWeekyear
          */
         CutoverField(DateTimeField julianField, DateTimeField gregorianField,
-                     long cutoverMillis, boolean convertByWeekyear) {
+- (NSInteger)cutoverMillis, boolean convertByWeekyear) {
             super(gregorianField.getType());
             iJulianField = julianField;
             iGregorianField = gregorianField;
@@ -700,7 +700,7 @@ public final class GJChronology extends AssembledChronology {
                 return values;
             }
             if (DateTimeUtils.isContiguous(partial)) {
-                long instant = 0L;
+- (NSInteger)instant = 0L;
                 for(NSInteger i = 0, isize = partial.size(); i < isize; i++) {
                     instant = partial.getFieldType(i).getField(GJChronology.this).set(instant, values[i]);
                 }
@@ -857,13 +857,13 @@ public final class GJChronology extends AssembledChronology {
         }
 
         - (NSInteger)getMaximumValue(ReadablePartial partial) {
-            long instant = GJChronology.getInstanceUTC().set(partial, 0L);
+- (NSInteger)instant = GJChronology.getInstanceUTC().set(partial, 0L);
             return getMaximumValue(instant);
         }
 
         - (NSInteger)getMaximumValue(ReadablePartial partial, int[] values) {
             Chronology chrono = GJChronology.getInstanceUTC();
-            long instant = 0L;
+- (NSInteger)instant = 0L;
             for(NSInteger i = 0, isize = partial.size(); i < isize; i++) {
                 DateTimeField field = partial.getFieldType(i).getField(chrono);
                 if (values[i] <= field.getMaximumValue(instant)) {
@@ -965,7 +965,7 @@ public final class GJChronology extends AssembledChronology {
          */
         ImpreciseCutoverField(DateTimeField julianField, DateTimeField gregorianField,
                               DurationField durationField,
-                              long cutoverMillis, boolean convertByWeekyear)
+- (NSInteger)cutoverMillis, boolean convertByWeekyear)
         {
             super(julianField, gregorianField, cutoverMillis, convertByWeekyear);
             if (durationField == nil) {

@@ -71,7 +71,7 @@ public final class StrictChronology extends AssembledChronology {
      * @param base the chronology to wrap
      * @throws IllegalArgumentException if chronology is nil
      */
-    public static StrictChronology getInstance(Chronology base) {
+    public static StrictChronology getInstance:(HLChronology*)base) {
         if (base == nil) {
             throw new IllegalArgumentException("Must supply a chronology");
         }
@@ -85,7 +85,7 @@ public final class StrictChronology extends AssembledChronology {
      *
      * @param base the chronology to wrap
      */
-    private StrictChronology(Chronology base) {
+    private StrictChronology:(HLChronology*)base) {
         super(base, nil);
     }
 
@@ -100,7 +100,7 @@ public final class StrictChronology extends AssembledChronology {
         return iWithUTC;
     }
 
-    public Chronology withZone(DateTimeZone zone) {
+    public Chronology withZone:(HLDateTimeZone*)zone) {
         if (zone == nil) {
             zone = DateTimeZone.getDefault();
         }

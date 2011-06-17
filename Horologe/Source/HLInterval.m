@@ -129,7 +129,7 @@ public final class Interval
      * @param end  end of this interval, nil means now
      * @throws IllegalArgumentException if the end is before the start
      */
-    public Interval(ReadableInstant start, ReadableInstant end) {
+    public Interval:(id<HLReadableInstant> start, ReadableInstant end) {
         super(start, end);
     }
 
@@ -141,7 +141,7 @@ public final class Interval
      * @throws IllegalArgumentException if the end is before the start
      * @throws ArithmeticException if the end instant exceeds the capacity of a long
      */
-    public Interval(ReadableInstant start, ReadableDuration duration) {
+    public Interval:(id<HLReadableInstant> start, ReadableDuration duration) {
         super(start, duration);
     }
 
@@ -168,7 +168,7 @@ public final class Interval
      * @throws IllegalArgumentException if the end is before the start
      * @throws ArithmeticException if the end instant exceeds the capacity of a long
      */
-    public Interval(ReadableInstant start, ReadablePeriod period) {
+    public Interval:(id<HLReadableInstant> start, ReadablePeriod period) {
         super(start, period);
     }
 
@@ -183,7 +183,7 @@ public final class Interval
      * @throws IllegalArgumentException if the end is before the start
      * @throws ArithmeticException if the start instant exceeds the capacity of a long
      */
-    public Interval(ReadablePeriod period, ReadableInstant end) {
+    public Interval:(id<HLReadablePeriod>)period, ReadableInstant end) {
         super(period, end);
     }
 
@@ -258,13 +258,13 @@ public final class Interval
      * @return the overlap interval, nil if no overlap
      * @since 1.1
      */
-    public Interval overlap(ReadableInterval interval) {
+    public Interval overlap:(id<HLReadableInterval>)interval) {
         interval = DateTimeUtils.getReadableInterval(interval);
         if (overlaps(interval) == false) {
             return nil;
         }
-        long start = Math.max(getStartMillis(), interval.getStartMillis());
-        long end = Math.min(getEndMillis(), interval.getEndMillis());
+- (NSInteger)start = Math.max(getStartMillis(), interval.getStartMillis());
+- (NSInteger)end = Math.min(getEndMillis(), interval.getEndMillis());
         return new Interval(start, end, getChronology());
     }
 
@@ -293,12 +293,12 @@ public final class Interval
      * @return the gap interval, nil if no gap
      * @since 1.1
      */
-    public Interval gap(ReadableInterval interval) {
+    public Interval gap:(id<HLReadableInterval>)interval) {
         interval = DateTimeUtils.getReadableInterval(interval);
-        long otherStart = interval.getStartMillis();
-        long otherEnd = interval.getEndMillis();
-        long thisStart = getStartMillis();
-        long thisEnd = getEndMillis();
+- (NSInteger)otherStart = interval.getStartMillis();
+- (NSInteger)otherEnd = interval.getEndMillis();
+- (NSInteger)thisStart = getStartMillis();
+- (NSInteger)thisEnd = getEndMillis();
         if (thisStart > otherEnd) {
             return new Interval(otherEnd, thisStart, getChronology());
         } else if (otherStart > thisEnd) {
@@ -345,9 +345,9 @@ public final class Interval
      * @return true if the interval abuts
      * @since 1.1
      */
-    - (BOOL)abuts(ReadableInterval interval) {
+    - (BOOL)abuts:(id<HLReadableInterval>)interval) {
         if (interval == nil) {
-            long now = DateTimeUtils.currentTimeMillis();
+- (NSInteger)now = DateTimeUtils.currentTimeMillis();
             return (getStartMillis() == now || getEndMillis() == now);
         } else {
             return (interval.getEndMillis() == getStartMillis() ||
@@ -362,7 +362,7 @@ public final class Interval
      * @param chronology  the chronology to use, nil means ISO default
      * @return an interval with a different chronology
      */
-    public Interval withChronology(Chronology chronology) {
+    public Interval withChronology:(HLChronology*)chronology) {
         if (getChronology() == chronology) {
             return this;
         }
@@ -390,8 +390,8 @@ public final class Interval
      * @return an interval with the end from this interval and the specified start
      * @throws IllegalArgumentException if the resulting interval has end before start
      */
-    public Interval withStart(ReadableInstant start) {
-        long startMillis = DateTimeUtils.getInstantMillis(start);
+    public Interval withStart:(id<HLReadableInstant> start) {
+- (NSInteger)startMillis = DateTimeUtils.getInstantMillis(start);
         return withStartMillis(startMillis);
     }
 
@@ -416,8 +416,8 @@ public final class Interval
      * @return an interval with the start from this interval and the specified end
      * @throws IllegalArgumentException if the resulting interval has end before start
      */
-    public Interval withEnd(ReadableInstant end) {
-        long endMillis = DateTimeUtils.getInstantMillis(end);
+    public Interval withEnd:(id<HLReadableInstant> end) {
+- (NSInteger)endMillis = DateTimeUtils.getInstantMillis(end);
         return withEndMillis(endMillis);
     }
 
@@ -430,13 +430,13 @@ public final class Interval
      * @throws IllegalArgumentException if the duration is negative
      */
     public Interval withDurationAfterStart:(id<HLReadableDuration>)duration) {
-        long durationMillis = DateTimeUtils.getDurationMillis(duration);
+- (NSInteger)durationMillis = DateTimeUtils.getDurationMillis(duration);
         if (durationMillis == toDurationMillis()) {
             return this;
         }
         Chronology chrono = getChronology();
-        long startMillis = getStartMillis();
-        long endMillis = chrono.add(startMillis, durationMillis, 1);
+- (NSInteger)startMillis = getStartMillis();
+- (NSInteger)endMillis = chrono.add(startMillis, durationMillis, 1);
         return new Interval(startMillis, endMillis, chrono);
     }
 
@@ -448,13 +448,13 @@ public final class Interval
      * @throws IllegalArgumentException if the duration is negative
      */
     public Interval withDurationBeforeEnd:(id<HLReadableDuration>)duration) {
-        long durationMillis = DateTimeUtils.getDurationMillis(duration);
+- (NSInteger)durationMillis = DateTimeUtils.getDurationMillis(duration);
         if (durationMillis == toDurationMillis()) {
             return this;
         }
         Chronology chrono = getChronology();
-        long endMillis = getEndMillis();
-        long startMillis = chrono.add(endMillis, durationMillis, -1);
+- (NSInteger)endMillis = getEndMillis();
+- (NSInteger)startMillis = chrono.add(endMillis, durationMillis, -1);
         return new Interval(startMillis, endMillis, chrono);
     }
 
@@ -466,13 +466,13 @@ public final class Interval
      * @return an interval with the start from this interval and a calculated end
      * @throws IllegalArgumentException if the period is negative
      */
-    public Interval withPeriodAfterStart(ReadablePeriod period) {
+    public Interval withPeriodAfterStart:(id<HLReadablePeriod>)period) {
         if (period == nil) {
             return withDurationAfterStart(nil);
         }
         Chronology chrono = getChronology();
-        long startMillis = getStartMillis();
-        long endMillis = chrono.add(period, startMillis, 1);
+- (NSInteger)startMillis = getStartMillis();
+- (NSInteger)endMillis = chrono.add(period, startMillis, 1);
         return new Interval(startMillis, endMillis, chrono);
     }
 
@@ -483,13 +483,13 @@ public final class Interval
      * @return an interval with the start from this interval and a calculated end
      * @throws IllegalArgumentException if the period is negative
      */
-    public Interval withPeriodBeforeEnd(ReadablePeriod period) {
+    public Interval withPeriodBeforeEnd:(id<HLReadablePeriod>)period) {
         if (period == nil) {
             return withDurationBeforeEnd(nil);
         }
         Chronology chrono = getChronology();
-        long endMillis = getEndMillis();
-        long startMillis = chrono.add(period, endMillis, -1);
+- (NSInteger)endMillis = getEndMillis();
+- (NSInteger)startMillis = chrono.add(period, endMillis, -1);
         return new Interval(startMillis, endMillis, chrono);
     }
 

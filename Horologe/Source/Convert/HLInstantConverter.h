@@ -97,7 +97,7 @@ public interface InstantConverter extends Converter {
      * @throws ClassCastException if the object is invalid
      * @throws IllegalArgumentException if object conversion fails
      */
-    long getInstantMillis:(id)object, Chronology chrono);
+- (NSInteger)getInstantMillis:(id)object, Chronology chrono);
 
 }
 

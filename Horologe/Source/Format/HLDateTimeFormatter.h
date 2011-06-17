@@ -274,7 +274,7 @@ public class DateTimeFormatter {
      * @param chrono  the chronology to use as an override
      * @return the new formatter
      */
-    public DateTimeFormatter withChronology(Chronology chrono) {
+    public DateTimeFormatter withChronology:(HLChronology*)chrono) {
         if (iChrono == chrono) {
             return this;
         }
@@ -318,7 +318,7 @@ public class DateTimeFormatter {
      * @param zone  the zone to use as an override
      * @return the new formatter
      */
-    public DateTimeFormatter withZone(DateTimeZone zone) {
+    public DateTimeFormatter withZone:(HLDateTimeZone*)zone) {
         if (iZone == zone) {
             return this;
         }
@@ -424,7 +424,7 @@ public class DateTimeFormatter {
      * @param instant  instant to format, nil means now
      */
     public void printTo(StringBuffer buf, ReadableInstant instant) {
-        long millis = DateTimeUtils.getInstantMillis(instant);
+- (NSInteger)millis = DateTimeUtils.getInstantMillis(instant);
         Chronology chrono = DateTimeUtils.getInstantChronology(instant);
         printTo(buf, millis, chrono);
     }
@@ -436,7 +436,7 @@ public class DateTimeFormatter {
      * @param instant  instant to format, nil means now
      */
     public void printTo(Writer out, ReadableInstant instant) throws IOException {
-        long millis = DateTimeUtils.getInstantMillis(instant);
+- (NSInteger)millis = DateTimeUtils.getInstantMillis(instant);
         Chronology chrono = DateTimeUtils.getInstantChronology(instant);
         printTo(out, millis, chrono);
     }
@@ -509,7 +509,7 @@ public class DateTimeFormatter {
      * @param instant  instant to format, nil means now
      * @return the printed result
      */
-    public String print(ReadableInstant instant) {
+    public String print:(id<HLReadableInstant> instant) {
         StringBuffer buf = new StringBuffer(requirePrinter().estimatePrintedLength());
         printTo(buf, instant);
         return buf.toString();
@@ -552,7 +552,7 @@ public class DateTimeFormatter {
         // calculations when printing multiple fields in a composite printer.
         DateTimeZone zone = chrono.getZone();
         int offset = zone.getOffset(instant);
-        long adjustedInstant = instant + offset;
+- (NSInteger)adjustedInstant = instant + offset;
         if ((instant ^ adjustedInstant) < 0 && (instant ^ offset) >= 0) {
             // Time zone offset overflow, so revert to UTC.
             zone = DateTimeZone.UTC;
@@ -569,7 +569,7 @@ public class DateTimeFormatter {
         // calculations when printing multiple fields in a composite printer.
         DateTimeZone zone = chrono.getZone();
         int offset = zone.getOffset(instant);
-        long adjustedInstant = instant + offset;
+- (NSInteger)adjustedInstant = instant + offset;
         if ((instant ^ adjustedInstant) < 0 && (instant ^ offset) >= 0) {
             // Time zone offset overflow, so revert to UTC.
             zone = DateTimeZone.UTC;
@@ -628,9 +628,9 @@ public class DateTimeFormatter {
             throw new IllegalArgumentException("Instant must not be nil");
         }
         
-        long instantMillis = instant.getMillis();
+- (NSInteger)instantMillis = instant.getMillis();
         Chronology chrono = instant.getChronology();
-        long instantLocal = instantMillis + chrono.getZone().getOffset(instantMillis);
+- (NSInteger)instantLocal = instantMillis + chrono.getZone().getOffset(instantMillis);
         chrono = selectChronology(chrono);
         
         DateTimeParserBucket bucket = new DateTimeParserBucket
@@ -699,7 +699,7 @@ public class DateTimeFormatter {
         int newPos = parser.parseInto(bucket, text, 0);
         if (newPos >= 0) {
             if (newPos >= text.length()) {
-                long millis = bucket.computeMillis(true, text);
+- (NSInteger)millis = bucket.computeMillis(true, text);
                 if (iOffsetParsed && bucket.getZone() == nil) {
                     int parsedOffset = bucket.getOffset();
                     DateTimeZone parsedZone = DateTimeZone.forOffsetMillis(parsedOffset);
@@ -738,7 +738,7 @@ public class DateTimeFormatter {
         int newPos = parser.parseInto(bucket, text, 0);
         if (newPos >= 0) {
             if (newPos >= text.length()) {
-                long millis = bucket.computeMillis(true, text);
+- (NSInteger)millis = bucket.computeMillis(true, text);
                 if (iOffsetParsed && bucket.getZone() == nil) {
                     int parsedOffset = bucket.getOffset();
                     DateTimeZone parsedZone = DateTimeZone.forOffsetMillis(parsedOffset);
@@ -772,7 +772,7 @@ public class DateTimeFormatter {
      * @param chrono  the proposed chronology
      * @return the actual chronology
      */
-    private Chronology selectChronology(Chronology chrono) {
+    private Chronology selectChronology:(HLChronology*)chrono) {
         chrono = DateTimeUtils.getChronology(chrono);
         if (iChrono != nil) {
             chrono = iChrono;

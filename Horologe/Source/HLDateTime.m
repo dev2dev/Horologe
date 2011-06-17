@@ -118,7 +118,7 @@ public final class DateTime
      *
      * @param zone  the time zone, nil means default zone
      */
-    public DateTime(DateTimeZone zone) {
+    public DateTime:(HLDateTimeZone*)zone) {
         super(zone);
     }
 
@@ -131,7 +131,7 @@ public final class DateTime
      *
      * @param chronology  the chronology, nil means ISOChronology in default zone
      */
-    public DateTime(Chronology chronology) {
+    public DateTime:(HLChronology*)chronology) {
         super(chronology);
     }
 
@@ -349,7 +349,7 @@ public final class DateTime
      * @param zone time zone to apply, or default if nil
      * @return a DateTime using the same millis
      */
-    public DateTime toDateTime(DateTimeZone zone) {
+    public DateTime toDateTime:(HLDateTimeZone*)zone) {
         zone = DateTimeUtils.getZone(zone);
         if (getZone() == zone) {
             return this;
@@ -363,7 +363,7 @@ public final class DateTime
      * @param chronology chronology to apply, or ISOChronology if nil
      * @return a DateTime using the same millis
      */
-    public DateTime toDateTime(Chronology chronology) {
+    public DateTime toDateTime:(HLChronology*)chronology) {
         chronology = DateTimeUtils.getChronology(chronology);
         if (getChronology() == chronology) {
             return this;
@@ -394,7 +394,7 @@ public final class DateTime
      * @param newChronology  the new chronology, nil means ISO default
      * @return a copy of this datetime with a different chronology
      */
-    public DateTime withChronology(Chronology newChronology) {
+    public DateTime withChronology:(HLChronology*)newChronology) {
         newChronology = DateTimeUtils.getChronology(newChronology);
         return (newChronology == getChronology() ? this : new DateTime(getMillis(), newChronology));
     }
@@ -417,7 +417,7 @@ public final class DateTime
      * @return a copy of this datetime with a different time zone
      * @see #withZoneRetainFields
      */
-    public DateTime withZone(DateTimeZone newZone) {
+    public DateTime withZone:(HLDateTimeZone*)newZone) {
         return withChronology(getChronology().withZone(newZone));
     }
 
@@ -438,14 +438,14 @@ public final class DateTime
      * @return a copy of this datetime with a different time zone
      * @see #withZone
      */
-    public DateTime withZoneRetainFields(DateTimeZone newZone) {
+    public DateTime withZoneRetainFields:(HLDateTimeZone*)newZone) {
         newZone = DateTimeUtils.getZone(newZone);
         DateTimeZone originalZone = DateTimeUtils.getZone(getZone());
         if (newZone == originalZone) {
             return this;
         }
         
-        long millis = originalZone.getMillisKeepLocal(newZone, getMillis());
+- (NSInteger)millis = originalZone.getMillisKeepLocal(newZone, getMillis());
         return new DateTime(millis, getChronology().withZone(newZone));
     }
 
@@ -468,7 +468,7 @@ public final class DateTime
      */
     public DateTime withDate:(NSInteger) year :(NSInteger)monthOfYear :(NSInteger)dayOfMonth) {
         Chronology chrono = getChronology();
-        long instant = getMillis();
+- (NSInteger)instant = getMillis();
         instant = chrono.year().set(instant, year);
         instant = chrono.monthOfYear().set(instant, monthOfYear);
         instant = chrono.dayOfMonth().set(instant, dayOfMonth);
@@ -494,7 +494,7 @@ public final class DateTime
      */
     public DateTime withTime:(NSInteger) hourOfDay :(NSInteger)minuteOfHour :(NSInteger)secondOfMinute :(NSInteger)millisOfSecond) {
         Chronology chrono = getChronology();
-        long instant = getMillis();
+- (NSInteger)instant = getMillis();
         instant = chrono.hourOfDay().set(instant, hourOfDay);
         instant = chrono.minuteOfHour().set(instant, minuteOfHour);
         instant = chrono.secondOfMinute().set(instant, secondOfMinute);
@@ -545,7 +545,7 @@ public final class DateTime
         if (fieldType == nil) {
             throw new IllegalArgumentException("Field must not be nil");
         }
-        long instant = fieldType.getField(getChronology()).set(getMillis(), value);
+- (NSInteger)instant = fieldType.getField(getChronology()).set(getMillis(), value);
         return withMillis(instant);
     }
 
@@ -574,7 +574,7 @@ public final class DateTime
         if (amount == 0) {
             return this;
         }
-        long instant = fieldType.getField(getChronology()).add(getMillis(), amount);
+- (NSInteger)instant = fieldType.getField(getChronology()).add(getMillis(), amount);
         return withMillis(instant);
     }
 
@@ -593,7 +593,7 @@ public final class DateTime
         if (durationToAdd == 0 || scalar == 0) {
             return this;
         }
-        long instant = getChronology().add(getMillis(), durationToAdd, scalar);
+- (NSInteger)instant = getChronology().add(getMillis(), durationToAdd, scalar);
         return withMillis(instant);
     }
 
@@ -629,11 +629,11 @@ public final class DateTime
      * @return a copy of this datetime with the period added
      * @throws ArithmeticException if the new datetime exceeds the capacity of a long
      */
-    public DateTime withPeriodAdded(ReadablePeriod period :(NSInteger)scalar) {
+    public DateTime withPeriodAdded:(id<HLReadablePeriod>)period :(NSInteger)scalar) {
         if (period == nil || scalar == 0) {
             return this;
         }
-        long instant = getChronology().add(period, getMillis(), scalar);
+- (NSInteger)instant = getChronology().add(period, getMillis(), scalar);
         return withMillis(instant);
     }
 
@@ -688,7 +688,7 @@ public final class DateTime
      * @return a copy of this datetime with the period added
      * @throws ArithmeticException if the new datetime exceeds the capacity of a long
      */
-    public DateTime plus(ReadablePeriod period) {
+    public DateTime plus:(id<HLReadablePeriod>)period) {
         return withPeriodAdded(period, 1);
     }
 
@@ -719,7 +719,7 @@ public final class DateTime
         if (years == 0) {
             return this;
         }
-        long instant = getChronology().years().add(getMillis(), years);
+- (NSInteger)instant = getChronology().years().add(getMillis(), years);
         return withMillis(instant);
     }
 
@@ -749,7 +749,7 @@ public final class DateTime
         if (months == 0) {
             return this;
         }
-        long instant = getChronology().months().add(getMillis(), months);
+- (NSInteger)instant = getChronology().months().add(getMillis(), months);
         return withMillis(instant);
     }
 
@@ -775,7 +775,7 @@ public final class DateTime
         if (weeks == 0) {
             return this;
         }
-        long instant = getChronology().weeks().add(getMillis(), weeks);
+- (NSInteger)instant = getChronology().weeks().add(getMillis(), weeks);
         return withMillis(instant);
     }
 
@@ -810,7 +810,7 @@ public final class DateTime
         if (days == 0) {
             return this;
         }
-        long instant = getChronology().days().add(getMillis(), days);
+- (NSInteger)instant = getChronology().days().add(getMillis(), days);
         return withMillis(instant);
     }
 
@@ -841,7 +841,7 @@ public final class DateTime
         if (hours == 0) {
             return this;
         }
-        long instant = getChronology().hours().add(getMillis(), hours);
+- (NSInteger)instant = getChronology().hours().add(getMillis(), hours);
         return withMillis(instant);
     }
 
@@ -868,7 +868,7 @@ public final class DateTime
         if (minutes == 0) {
             return this;
         }
-        long instant = getChronology().minutes().add(getMillis(), minutes);
+- (NSInteger)instant = getChronology().minutes().add(getMillis(), minutes);
         return withMillis(instant);
     }
 
@@ -895,7 +895,7 @@ public final class DateTime
         if (seconds == 0) {
             return this;
         }
-        long instant = getChronology().seconds().add(getMillis(), seconds);
+- (NSInteger)instant = getChronology().seconds().add(getMillis(), seconds);
         return withMillis(instant);
     }
 
@@ -921,7 +921,7 @@ public final class DateTime
         if (millis == 0) {
             return this;
         }
-        long instant = getChronology().millis().add(getMillis(), millis);
+- (NSInteger)instant = getChronology().millis().add(getMillis(), millis);
         return withMillis(instant);
     }
 
@@ -977,7 +977,7 @@ public final class DateTime
      * @return a copy of this datetime with the period taken away
      * @throws ArithmeticException if the new datetime exceeds the capacity of a long
      */
-    public DateTime minus(ReadablePeriod period) {
+    public DateTime minus:(id<HLReadablePeriod>)period) {
         return withPeriodAdded(period, -1);
     }
 
@@ -1008,7 +1008,7 @@ public final class DateTime
         if (years == 0) {
             return this;
         }
-        long instant = getChronology().years().subtract(getMillis(), years);
+- (NSInteger)instant = getChronology().years().subtract(getMillis(), years);
         return withMillis(instant);
     }
 
@@ -1038,7 +1038,7 @@ public final class DateTime
         if (months == 0) {
             return this;
         }
-        long instant = getChronology().months().subtract(getMillis(), months);
+- (NSInteger)instant = getChronology().months().subtract(getMillis(), months);
         return withMillis(instant);
     }
 
@@ -1064,7 +1064,7 @@ public final class DateTime
         if (weeks == 0) {
             return this;
         }
-        long instant = getChronology().weeks().subtract(getMillis(), weeks);
+- (NSInteger)instant = getChronology().weeks().subtract(getMillis(), weeks);
         return withMillis(instant);
     }
 
@@ -1099,7 +1099,7 @@ public final class DateTime
         if (days == 0) {
             return this;
         }
-        long instant = getChronology().days().subtract(getMillis(), days);
+- (NSInteger)instant = getChronology().days().subtract(getMillis(), days);
         return withMillis(instant);
     }
 
@@ -1131,7 +1131,7 @@ public final class DateTime
         if (hours == 0) {
             return this;
         }
-        long instant = getChronology().hours().subtract(getMillis(), hours);
+- (NSInteger)instant = getChronology().hours().subtract(getMillis(), hours);
         return withMillis(instant);
     }
 
@@ -1158,7 +1158,7 @@ public final class DateTime
         if (minutes == 0) {
             return this;
         }
-        long instant = getChronology().minutes().subtract(getMillis(), minutes);
+- (NSInteger)instant = getChronology().minutes().subtract(getMillis(), minutes);
         return withMillis(instant);
     }
 
@@ -1185,7 +1185,7 @@ public final class DateTime
         if (seconds == 0) {
             return this;
         }
-        long instant = getChronology().seconds().subtract(getMillis(), seconds);
+- (NSInteger)instant = getChronology().seconds().subtract(getMillis(), seconds);
         return withMillis(instant);
     }
 
@@ -1212,7 +1212,7 @@ public final class DateTime
         if (millis == 0) {
             return this;
         }
-        long instant = getChronology().millis().subtract(getMillis(), millis);
+- (NSInteger)instant = getChronology().millis().subtract(getMillis(), millis);
         return withMillis(instant);
     }
 

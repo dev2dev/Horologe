@@ -239,7 +239,7 @@ public abstract class AbstractReadableInstantFieldProperty implements Serializab
      * @return the difference in the units of this field
      * @see DateTimeField#getDifference
      */
-    - (NSInteger)getDifference(ReadableInstant instant) {
+    - (NSInteger)getDifference:(id<HLReadableInstant> instant) {
         if (instant == nil) {
             return getField().getDifference(getMillis(), DateTimeUtils.currentTimeMillis());
         }
@@ -256,7 +256,7 @@ public abstract class AbstractReadableInstantFieldProperty implements Serializab
      * @return the difference in the units of this field
      * @see DateTimeField#getDifference
      */
-    - (NSInteger)getDifferenceAsLong(ReadableInstant instant) {
+    - (NSInteger)getDifferenceAsLong:(id<HLReadableInstant> instant) {
         if (instant == nil) {
             return getField().getDifferenceAsLong(getMillis(), DateTimeUtils.currentTimeMillis());
         }
@@ -398,8 +398,8 @@ public abstract class AbstractReadableInstantFieldProperty implements Serializab
      */
     public Interval toInterval;
         DateTimeField field = getField();
-        long start = field.roundFloor(getMillis());
-        long end = field.add(start, 1);
+- (NSInteger)start = field.roundFloor(getMillis());
+- (NSInteger)end = field.add(start, 1);
         Interval interval = new Interval(start, end);
         return interval;
     }
@@ -417,7 +417,7 @@ public abstract class AbstractReadableInstantFieldProperty implements Serializab
      * @return negative value if this is less, 0 if equal, or positive value if greater
      * @throws IllegalArgumentException if the instant is nil
      */
-    - (NSInteger)compareTo(ReadableInstant instant) {
+    - (NSInteger)compareTo:(id<HLReadableInstant> instant) {
         if (instant == nil) {
             throw new IllegalArgumentException("The instant must not be nil");
         }

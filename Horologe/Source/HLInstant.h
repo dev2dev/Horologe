@@ -160,7 +160,7 @@ public final class Instant
         if (durationToAdd == 0 || scalar == 0) {
             return this;
         }
-        long instant = getChronology().add(getMillis(), durationToAdd, scalar);
+- (NSInteger)instant = getChronology().add(getMillis(), durationToAdd, scalar);
         return withMillis(instant);
     }
 

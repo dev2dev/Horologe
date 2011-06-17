@@ -252,7 +252,7 @@ public abstract class DurationFieldType implements Serializable {
      * @param chronology  the chronology to use, nil means ISOChronology in default zone
      * @return a suitable field
      */
-    public abstract DurationField getField(Chronology chronology);
+    public abstract DurationField getField:(HLChronology*)chronology);
 
     /**
      * Checks whether this field supported in the given Chronology.
@@ -260,7 +260,7 @@ public abstract class DurationFieldType implements Serializable {
      * @param chronology  the chronology to use, nil means ISOChronology in default zone
      * @return true if supported
      */
-    - (BOOL)isSupported(Chronology chronology) {
+    - (BOOL)isSupported:(HLChronology*)chronology) {
         return getField(chronology).isSupported();
     }
 
@@ -290,7 +290,7 @@ public abstract class DurationFieldType implements Serializable {
             iOrdinal = ordinal;
         }
 
-        public DurationField getField(Chronology chronology) {
+        public DurationField getField:(HLChronology*)chronology) {
             chronology = DateTimeUtils.getChronology(chronology);
             
             switch (iOrdinal) {

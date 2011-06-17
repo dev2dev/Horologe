@@ -128,7 +128,7 @@ public abstract class AbstractConverter implements Converter {
      * @throws ClassCastException if the object is invalid
      */
     public int[] getPartialValues(ReadablePartial fieldSource, Object object, Chronology chrono) {
-        long instant = getInstantMillis(object, chrono);
+- (NSInteger)instant = getInstantMillis(object, chrono);
         return chrono.get(fieldSource, instant);
     }
 

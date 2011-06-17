@@ -95,8 +95,8 @@ public class LenientDateTimeField extends DelegatedDateTimeField {
     - (NSInteger)set:(NSInteger)instant :(NSInteger)value) {
         // lenient needs to handle time zone chronologies
         // so we do the calculation using local milliseconds
-        long localInstant = iBase.getZone().convertUTCToLocal(instant);
-        long difference = FieldUtils.safeSubtract(value, get(instant));
+- (NSInteger)localInstant = iBase.getZone().convertUTCToLocal(instant);
+- (NSInteger)difference = FieldUtils.safeSubtract(value, get(instant));
         localInstant = getType().getField(iBase.withUTC()).add(localInstant, difference);
         return iBase.getZone().convertLocalToUTC(localInstant, false);
     }

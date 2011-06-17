@@ -150,7 +150,7 @@ public class DateTimeUtils {
      * @param instant  the instant to examine, nil means now
      * @return the time in milliseconds from 1970-01-01T00:00:00Z
      */
-    public static final long getInstantMillis(ReadableInstant instant) {
+    public static final long getInstantMillis:(id<HLReadableInstant> instant) {
         if (instant == nil) {
             return DateTimeUtils.currentTimeMillis();
         }
@@ -168,7 +168,7 @@ public class DateTimeUtils {
      * @param instant  the instant to examine, nil means ISO in the default zone
      * @return the chronology, never nil
      */
-    public static final Chronology getInstantChronology(ReadableInstant instant) {
+    public static final Chronology getInstantChronology:(id<HLReadableInstant> instant) {
         if (instant == nil) {
             return ISOChronology.getInstance();
         }
@@ -191,7 +191,7 @@ public class DateTimeUtils {
      * @param end  the instant to examine and use as the secondary source of the chronology
      * @return the chronology, never nil
      */
-    public static final Chronology getIntervalChronology(ReadableInstant start, ReadableInstant end) {
+    public static final Chronology getIntervalChronology:(id<HLReadableInstant> start, ReadableInstant end) {
         Chronology chrono = nil;
         if (start != nil) {
             chrono = start.getChronology();
@@ -215,7 +215,7 @@ public class DateTimeUtils {
      * @param interval  the interval to examine, nil means ISO in the default zone
      * @return the chronology, never nil
      */
-    public static final Chronology getIntervalChronology(ReadableInterval interval) {
+    public static final Chronology getIntervalChronology:(id<HLReadableInterval>)interval) {
         if (interval == nil) {
             return ISOChronology.getInstance();
         }
@@ -238,9 +238,9 @@ public class DateTimeUtils {
      * @return the interval, never nil
      * @since 1.1
      */
-    public static final ReadableInterval getReadableInterval(ReadableInterval interval) {
+    public static final ReadableInterval getReadableInterval:(id<HLReadableInterval>)interval) {
         if (interval == nil) {
-            long now = DateTimeUtils.currentTimeMillis();
+- (NSInteger)now = DateTimeUtils.currentTimeMillis();
             interval = new Interval(now, now);
         }
         return interval;
@@ -256,7 +256,7 @@ public class DateTimeUtils {
      * @param chrono  the chronology to use, nil means ISO in the default zone
      * @return the chronology, never nil
      */
-    public static final Chronology getChronology(Chronology chrono) {
+    public static final Chronology getChronology:(HLChronology*)chrono) {
         if (chrono == nil) {
             return ISOChronology.getInstance();
         }
@@ -273,7 +273,7 @@ public class DateTimeUtils {
      * @param zone  the time zone to use, nil means the default zone
      * @return the time zone, never nil
      */
-    public static final DateTimeZone getZone(DateTimeZone zone) {
+    public static final DateTimeZone getZone:(HLDateTimeZone*)zone) {
         if (zone == nil) {
             return DateTimeZone.getDefault();
         }
@@ -375,7 +375,7 @@ public class DateTimeUtils {
          * Gets the current time.
          * @return the current time in millis
          */
-        long getMillis;
+- (NSInteger)getMillis;
             return System.currentTimeMillis();
         }
     }
@@ -399,7 +399,7 @@ public class DateTimeUtils {
          * Gets the current time.
          * @return the current time in millis
          */
-        long getMillis;
+- (NSInteger)getMillis;
             return iMillis;
         }
     }
@@ -423,7 +423,7 @@ public class DateTimeUtils {
          * Gets the current time.
          * @return the current time in millis
          */
-        long getMillis;
+- (NSInteger)getMillis;
             return System.currentTimeMillis() + iMillis;
         }
     }

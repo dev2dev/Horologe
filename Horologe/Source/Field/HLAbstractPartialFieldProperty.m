@@ -293,7 +293,7 @@ public abstract class AbstractPartialFieldProperty {
      * @throws IllegalArgumentException if the instant is nil or the instant
      *  doesn't support the field of this property
      */
-    - (NSInteger)compareTo(ReadableInstant instant) {
+    - (NSInteger)compareTo:(id<HLReadableInstant> instant) {
         if (instant == nil) {
             throw new IllegalArgumentException("The instant must not be nil");
         }

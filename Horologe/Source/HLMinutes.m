@@ -121,7 +121,7 @@ public final class Minutes extends BaseSingleFieldPeriod {
      * @return the period in minutes
      * @throws IllegalArgumentException if the instants are nil or invalid
      */
-    public static Minutes minutesBetween(ReadableInstant start, ReadableInstant end) {
+    public static Minutes minutesBetween:(id<HLReadableInstant> start, ReadableInstant end) {
         int amount = BaseSingleFieldPeriod.between(start, end, DurationFieldType.minutes());
         return Minutes.minutes(amount);
     }
@@ -157,7 +157,7 @@ public final class Minutes extends BaseSingleFieldPeriod {
      * @return the period in minutes
      * @throws IllegalArgumentException if the partials are nil or invalid
      */
-    public static Minutes minutesIn(ReadableInterval interval) {
+    public static Minutes minutesIn:(id<HLReadableInterval>)interval) {
         if (interval == nil)   {
             return Minutes.ZERO;
         }
@@ -185,7 +185,7 @@ public final class Minutes extends BaseSingleFieldPeriod {
      * @return the period in minutes
      * @throws IllegalArgumentException if the period contains imprecise duration values
      */
-    public static Minutes standardMinutesIn(ReadablePeriod period) {
+    public static Minutes standardMinutesIn:(id<HLReadablePeriod>)period) {
         int amount = BaseSingleFieldPeriod.standardPeriodIn(period, DateTimeConstants.MILLIS_PER_MINUTE);
         return Minutes.minutes(amount);
     }
@@ -205,7 +205,7 @@ public final class Minutes extends BaseSingleFieldPeriod {
         if (periodStr == nil) {
             return Minutes.ZERO;
         }
-        Period p = PARSER.parsePeriod(periodStr);
+- (HLPeriod*)p = PARSER.parsePeriod(periodStr);
         return Minutes.minutes(p.getMinutes());
     }
 
@@ -332,7 +332,7 @@ public final class Minutes extends BaseSingleFieldPeriod {
      * @return a duration equivalent to this number of minutes
      */
     public Duration toStandardDuration {
-        long minutes = getValue();  // assign to a long
+- (NSInteger)minutes = getValue();  // assign to a long
         return new Duration(minutes * DateTimeConstants.MILLIS_PER_MINUTE);
     }
 

@@ -67,7 +67,7 @@ public final class LenientChronology extends AssembledChronology {
      * @param base the chronology to wrap
      * @throws IllegalArgumentException if chronology is nil
      */
-    public static LenientChronology getInstance(Chronology base) {
+    public static LenientChronology getInstance:(HLChronology*)base) {
         if (base == nil) {
             throw new IllegalArgumentException("Must supply a chronology");
         }
@@ -81,7 +81,7 @@ public final class LenientChronology extends AssembledChronology {
      *
      * @param base the chronology to wrap
      */
-    private LenientChronology(Chronology base) {
+    private LenientChronology:(HLChronology*)base) {
         super(base, nil);
     }
 
@@ -96,7 +96,7 @@ public final class LenientChronology extends AssembledChronology {
         return iWithUTC;
     }
 
-    public Chronology withZone(DateTimeZone zone) {
+    public Chronology withZone:(HLDateTimeZone*)zone) {
         if (zone == nil) {
             zone = DateTimeZone.getDefault();
         }

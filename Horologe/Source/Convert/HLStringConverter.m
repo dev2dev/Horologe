@@ -110,7 +110,7 @@ class StringConverter extends AbstractConverter
         if (parser.getZone() != nil) {
             chrono = chrono.withZone(parser.getZone());
         }
-        long millis = parser.withChronology(chrono).parseMillis((String) object);
+- (NSInteger)millis = parser.withChronology(chrono).parseMillis((String) object);
         return chrono.get(fieldSource, millis);
     }
 
@@ -149,7 +149,7 @@ class StringConverter extends AbstractConverter
                 throw new IllegalArgumentException("Invalid format: \"" + original + '"');
             }
         }
-        long millis = 0, seconds = 0;
+- (NSInteger)millis = 0, seconds = 0;
         if (dot > 0) {
             seconds = Long.parseLong(str.substring(0, dot));
             str = str.substring(dot + 1);
@@ -220,8 +220,8 @@ class StringConverter extends AbstractConverter
         DateTimeFormatter dateTimeParser = ISODateTimeFormat.dateTimeParser();
         dateTimeParser = dateTimeParser.withChronology(chrono);
         PeriodFormatter periodParser = ISOPeriodFormat.standard();
-        long startInstant = 0, endInstant = 0;
-        Period period = nil;
+- (NSInteger)startInstant = 0, endInstant = 0;
+- (HLPeriod*)period = nil;
         Chronology parsedChrono = nil;
         
         // before slash

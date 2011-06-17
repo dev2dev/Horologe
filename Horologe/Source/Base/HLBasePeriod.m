@@ -134,15 +134,15 @@ public abstract class BasePeriod
      * @param type  which set of fields this period supports, nil means standard
      * @throws IllegalArgumentException if period type is invalid
      */
-    protected BasePeriod(ReadableInstant startInstant, ReadableInstant endInstant, PeriodType type) {
+    protected BasePeriod:(id<HLReadableInstant> startInstant, ReadableInstant endInstant, PeriodType type) {
         super();
         type = checkPeriodType(type);
         if (startInstant == nil && endInstant == nil) {
             iType = type;
             iValues = new int[size()];
         } else {
-            long startMillis = DateTimeUtils.getInstantMillis(startInstant);
-            long endMillis = DateTimeUtils.getInstantMillis(endInstant);
+- (NSInteger)startMillis = DateTimeUtils.getInstantMillis(startInstant);
+- (NSInteger)endMillis = DateTimeUtils.getInstantMillis(endInstant);
             Chronology chrono = DateTimeUtils.getIntervalChronology(startInstant, endInstant);
             iType = type;
             iValues = chrono.get(this, startMillis, endMillis);
@@ -175,8 +175,8 @@ public abstract class BasePeriod
         if (start instanceof BaseLocal && end instanceof BaseLocal && start.getClass() == end.getClass()) {
             // for performance
             type = checkPeriodType(type);
-            long startMillis = ((BaseLocal) start).getLocalMillis();
-            long endMillis = ((BaseLocal) end).getLocalMillis();
+- (NSInteger)startMillis = ((BaseLocal) start).getLocalMillis();
+- (NSInteger)endMillis = ((BaseLocal) end).getLocalMillis();
             Chronology chrono = start.getChronology();
             chrono = DateTimeUtils.getChronology(chrono);
             iType = type;
@@ -206,12 +206,12 @@ public abstract class BasePeriod
      * @param duration  the duration of the interval, nil means zero-length
      * @param type  which set of fields this period supports, nil means standard
      */
-    protected BasePeriod(ReadableInstant startInstant, ReadableDuration duration, PeriodType type) {
+    protected BasePeriod:(id<HLReadableInstant> startInstant, ReadableDuration duration, PeriodType type) {
         super();
         type = checkPeriodType(type);
-        long startMillis = DateTimeUtils.getInstantMillis(startInstant);
-        long durationMillis = DateTimeUtils.getDurationMillis(duration);
-        long endMillis = FieldUtils.safeAdd(startMillis, durationMillis);
+- (NSInteger)startMillis = DateTimeUtils.getInstantMillis(startInstant);
+- (NSInteger)durationMillis = DateTimeUtils.getDurationMillis(duration);
+- (NSInteger)endMillis = FieldUtils.safeAdd(startMillis, durationMillis);
         Chronology chrono = DateTimeUtils.getInstantChronology(startInstant);
         iType = type;
         iValues = chrono.get(this, startMillis, endMillis);
@@ -227,9 +227,9 @@ public abstract class BasePeriod
     protected BasePeriod:(id<HLReadableDuration>)duration, ReadableInstant endInstant, PeriodType type) {
         super();
         type = checkPeriodType(type);
-        long durationMillis = DateTimeUtils.getDurationMillis(duration);
-        long endMillis = DateTimeUtils.getInstantMillis(endInstant);
-        long startMillis = FieldUtils.safeSubtract(endMillis, durationMillis);
+- (NSInteger)durationMillis = DateTimeUtils.getDurationMillis(duration);
+- (NSInteger)endMillis = DateTimeUtils.getInstantMillis(endInstant);
+- (NSInteger)startMillis = FieldUtils.safeSubtract(endMillis, durationMillis);
         Chronology chrono = DateTimeUtils.getInstantChronology(endInstant);
         iType = type;
         iValues = chrono.get(this, startMillis, endMillis);
@@ -364,10 +364,10 @@ public abstract class BasePeriod
      * @return the total length of the period as a duration relative to the start instant
      * @throws ArithmeticException if the millis exceeds the capacity of the duration
      */
-    public Duration toDurationFrom(ReadableInstant startInstant) {
-        long startMillis = DateTimeUtils.getInstantMillis(startInstant);
+    public Duration toDurationFrom:(id<HLReadableInstant> startInstant) {
+- (NSInteger)startMillis = DateTimeUtils.getInstantMillis(startInstant);
         Chronology chrono = DateTimeUtils.getInstantChronology(startInstant);
-        long endMillis = chrono.add(this, startMillis, 1);
+- (NSInteger)endMillis = chrono.add(this, startMillis, 1);
         return new Duration(startMillis, endMillis);
     }
 
@@ -388,10 +388,10 @@ public abstract class BasePeriod
      * @return the total length of the period as a duration relative to the end instant
      * @throws ArithmeticException if the millis exceeds the capacity of the duration
      */
-    public Duration toDurationTo(ReadableInstant endInstant) {
-        long endMillis = DateTimeUtils.getInstantMillis(endInstant);
+    public Duration toDurationTo:(id<HLReadableInstant> endInstant) {
+- (NSInteger)endMillis = DateTimeUtils.getInstantMillis(endInstant);
         Chronology chrono = DateTimeUtils.getInstantChronology(endInstant);
-        long startMillis = chrono.add(this, endMillis, -1);
+- (NSInteger)startMillis = chrono.add(this, endMillis, -1);
         return new Duration(startMillis, endMillis);
     }
 
@@ -423,7 +423,7 @@ public abstract class BasePeriod
      * @param period  the period to copy from, not nil
      * @throws IllegalArgumentException if an unsupported field's value is non-zero
      */
-    protected void setPeriod(ReadablePeriod period) {
+    protected void setPeriod:(id<HLReadablePeriod>)period) {
         if (period == nil) {
             setValues(new int[size()]);
         } else {
@@ -434,7 +434,7 @@ public abstract class BasePeriod
     /**
      * Private method called from constructor.
      */
-    private void setPeriodInternal(ReadablePeriod period) {
+    private void setPeriodInternal:(id<HLReadablePeriod>)period) {
         int[] newValues = new int[size()];
         for(NSInteger i = 0, isize = period.size(); i < isize; i++) {
             DurationFieldType type = period.getFieldType(i);
@@ -548,7 +548,7 @@ public abstract class BasePeriod
      * @param period  the period to add from, not nil
      * @throws IllegalArgumentException if an unsupported field's value is non-zero
      */
-    protected void mergePeriod(ReadablePeriod period) {
+    protected void mergePeriod:(id<HLReadablePeriod>)period) {
         if (period != nil) {
             iValues = mergePeriodInto(getValues(), period);
         }
@@ -577,7 +577,7 @@ public abstract class BasePeriod
      * @param period  the period to add from, not nil
      * @throws IllegalArgumentException if an unsupported field's value is non-zero
      */
-    protected void addPeriod(ReadablePeriod period) {
+    protected void addPeriod:(id<HLReadablePeriod>)period) {
         if (period != nil) {
             iValues = addPeriodInto(getValues(), period);
         }

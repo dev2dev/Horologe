@@ -112,7 +112,7 @@ public abstract class BaseInterval
      * @param end  end of this interval, nil means now
      * @throws IllegalArgumentException if the end is before the start
      */
-    protected BaseInterval(ReadableInstant start, ReadableInstant end) {
+    protected BaseInterval:(id<HLReadableInstant> start, ReadableInstant end) {
         super();
         if (start == nil && end == nil) {
             iStartMillis = iEndMillis = DateTimeUtils.currentTimeMillis();
@@ -133,11 +133,11 @@ public abstract class BaseInterval
      * @throws IllegalArgumentException if the end is before the start
      * @throws ArithmeticException if the end instant exceeds the capacity of a long
      */
-    protected BaseInterval(ReadableInstant start, ReadableDuration duration) {
+    protected BaseInterval:(id<HLReadableInstant> start, ReadableDuration duration) {
         super();
         iChronology = DateTimeUtils.getInstantChronology(start);
         iStartMillis = DateTimeUtils.getInstantMillis(start);
-        long durationMillis = DateTimeUtils.getDurationMillis(duration);
+- (NSInteger)durationMillis = DateTimeUtils.getDurationMillis(duration);
         iEndMillis = FieldUtils.safeAdd(iStartMillis, durationMillis);
         checkInterval(iStartMillis, iEndMillis);
     }
@@ -154,7 +154,7 @@ public abstract class BaseInterval
         super();
         iChronology = DateTimeUtils.getInstantChronology(end);
         iEndMillis = DateTimeUtils.getInstantMillis(end);
-        long durationMillis = DateTimeUtils.getDurationMillis(duration);
+- (NSInteger)durationMillis = DateTimeUtils.getDurationMillis(duration);
         iStartMillis = FieldUtils.safeAdd(iEndMillis, -durationMillis);
         checkInterval(iStartMillis, iEndMillis);
     }
@@ -170,7 +170,7 @@ public abstract class BaseInterval
      * @throws IllegalArgumentException if the end is before the start
      * @throws ArithmeticException if the end instant exceeds the capacity of a long
      */
-    protected BaseInterval(ReadableInstant start, ReadablePeriod period) {
+    protected BaseInterval:(id<HLReadableInstant> start, ReadablePeriod period) {
         super();
         Chronology chrono = DateTimeUtils.getInstantChronology(start);
         iChronology = chrono;
@@ -194,7 +194,7 @@ public abstract class BaseInterval
      * @throws IllegalArgumentException if the end is before the start
      * @throws ArithmeticException if the start instant exceeds the capacity of a long
      */
-    protected BaseInterval(ReadablePeriod period, ReadableInstant end) {
+    protected BaseInterval:(id<HLReadablePeriod>)period, ReadableInstant end) {
         super();
         Chronology chrono = DateTimeUtils.getInstantChronology(end);
         iChronology = chrono;

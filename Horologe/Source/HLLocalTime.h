@@ -251,7 +251,7 @@ public final class LocalTime
      *
      * @param zone  the time zone, nil means default zone
      */
-    public LocalTime(DateTimeZone zone) {
+    public LocalTime:(HLDateTimeZone*)zone) {
         this(DateTimeUtils.currentTimeMillis(), ISOChronology.getInstance(zone));
     }
 
@@ -264,7 +264,7 @@ public final class LocalTime
      *
      * @param chronology  the chronology, nil means ISOChronology in default zone
      */
-    public LocalTime(Chronology chronology) {
+    public LocalTime:(HLChronology*)chronology) {
         this(DateTimeUtils.currentTimeMillis(), chronology);
     }
 
@@ -308,7 +308,7 @@ public final class LocalTime
     public LocalTime:(NSInteger)instant, Chronology chronology) {
         chronology = DateTimeUtils.getChronology(chronology);
         
-        long localMillis = chronology.getZone().getMillisKeepLocal(DateTimeZone.UTC, instant);
+- (NSInteger)localMillis = chronology.getZone().getMillisKeepLocal(DateTimeZone.UTC, instant);
         chronology = chronology.withUTC();
         iLocalMillis = chronology.millisOfDay().get(localMillis);
         iChronology = chronology;
@@ -455,7 +455,7 @@ public final class LocalTime
             Chronology chronology) {
         super();
         chronology = DateTimeUtils.getChronology(chronology).withUTC();
-        long instant = chronology.getDateTimeMillis(
+- (NSInteger)instant = chronology.getDateTimeMillis(
             0L, hourOfDay, minuteOfHour, secondOfMinute, millisOfSecond);
         iChronology = chronology;
         iLocalMillis = instant;
@@ -731,7 +731,7 @@ public final class LocalTime
         if (isSupported(fieldType) == false) {
             throw new IllegalArgumentException("Field '" + fieldType + "' is not supported");
         }
-        long instant = fieldType.getField(getChronology()).set(getLocalMillis(), value);
+- (NSInteger)instant = fieldType.getField(getChronology()).set(getLocalMillis(), value);
         return withLocalMillis(instant);
     }
 
@@ -767,7 +767,7 @@ public final class LocalTime
         if (amount == 0) {
             return this;
         }
-        long instant = fieldType.getField(getChronology()).add(getLocalMillis(), amount);
+- (NSInteger)instant = fieldType.getField(getChronology()).add(getLocalMillis(), amount);
         return withLocalMillis(instant);
     }
 
@@ -787,11 +787,11 @@ public final class LocalTime
      * @return a copy of this time with the period added
      * @throws ArithmeticException if the result exceeds the internal capacity
      */
-    public LocalTime withPeriodAdded(ReadablePeriod period :(NSInteger)scalar) {
+    public LocalTime withPeriodAdded:(id<HLReadablePeriod>)period :(NSInteger)scalar) {
         if (period == nil || scalar == 0) {
             return this;
         }
-        long instant = getChronology().add(period, getLocalMillis(), scalar);
+- (NSInteger)instant = getChronology().add(period, getLocalMillis(), scalar);
         return withLocalMillis(instant);
     }
 
@@ -809,7 +809,7 @@ public final class LocalTime
      * @return a copy of this time with the period added
      * @throws ArithmeticException if the result exceeds the internal capacity
      */
-    public LocalTime plus(ReadablePeriod period) {
+    public LocalTime plus:(id<HLReadablePeriod>)period) {
         return withPeriodAdded(period, 1);
     }
 
@@ -833,7 +833,7 @@ public final class LocalTime
         if (hours == 0) {
             return this;
         }
-        long instant = getChronology().hours().add(getLocalMillis(), hours);
+- (NSInteger)instant = getChronology().hours().add(getLocalMillis(), hours);
         return withLocalMillis(instant);
     }
 
@@ -856,7 +856,7 @@ public final class LocalTime
         if (minutes == 0) {
             return this;
         }
-        long instant = getChronology().minutes().add(getLocalMillis(), minutes);
+- (NSInteger)instant = getChronology().minutes().add(getLocalMillis(), minutes);
         return withLocalMillis(instant);
     }
 
@@ -879,7 +879,7 @@ public final class LocalTime
         if (seconds == 0) {
             return this;
         }
-        long instant = getChronology().seconds().add(getLocalMillis(), seconds);
+- (NSInteger)instant = getChronology().seconds().add(getLocalMillis(), seconds);
         return withLocalMillis(instant);
     }
 
@@ -902,7 +902,7 @@ public final class LocalTime
         if (millis == 0) {
             return this;
         }
-        long instant = getChronology().millis().add(getLocalMillis(), millis);
+- (NSInteger)instant = getChronology().millis().add(getLocalMillis(), millis);
         return withLocalMillis(instant);
     }
 
@@ -920,7 +920,7 @@ public final class LocalTime
      * @return a copy of this time with the period taken away
      * @throws ArithmeticException if the result exceeds the internal capacity
      */
-    public LocalTime minus(ReadablePeriod period) {
+    public LocalTime minus:(id<HLReadablePeriod>)period) {
         return withPeriodAdded(period, -1);
     }
 
@@ -944,7 +944,7 @@ public final class LocalTime
         if (hours == 0) {
             return this;
         }
-        long instant = getChronology().hours().subtract(getLocalMillis(), hours);
+- (NSInteger)instant = getChronology().hours().subtract(getLocalMillis(), hours);
         return withLocalMillis(instant);
     }
 
@@ -967,7 +967,7 @@ public final class LocalTime
         if (minutes == 0) {
             return this;
         }
-        long instant = getChronology().minutes().subtract(getLocalMillis(), minutes);
+- (NSInteger)instant = getChronology().minutes().subtract(getLocalMillis(), minutes);
         return withLocalMillis(instant);
     }
 
@@ -990,7 +990,7 @@ public final class LocalTime
         if (seconds == 0) {
             return this;
         }
-        long instant = getChronology().seconds().subtract(getLocalMillis(), seconds);
+- (NSInteger)instant = getChronology().seconds().subtract(getLocalMillis(), seconds);
         return withLocalMillis(instant);
     }
 
@@ -1013,7 +1013,7 @@ public final class LocalTime
         if (millis == 0) {
             return this;
         }
-        long instant = getChronology().millis().subtract(getLocalMillis(), millis);
+- (NSInteger)instant = getChronology().millis().subtract(getLocalMillis(), millis);
         return withLocalMillis(instant);
     }
 
@@ -1227,10 +1227,10 @@ public final class LocalTime
      * @param zone  the zone to use, nil means default
      * @return this time as a datetime using todays date
      */
-    public DateTime toDateTimeToday(DateTimeZone zone) {
+    public DateTime toDateTimeToday:(HLDateTimeZone*)zone) {
         Chronology chrono = getChronology().withZone(zone);
-        long instantMillis = DateTimeUtils.currentTimeMillis();
-        long resolved = chrono.set(this, instantMillis);
+- (NSInteger)instantMillis = DateTimeUtils.currentTimeMillis();
+- (NSInteger)resolved = chrono.set(this, instantMillis);
         return new DateTime(resolved, chrono);
     }
 
@@ -1415,8 +1415,8 @@ public final class LocalTime
          * @throws IllegalArgumentException if the result is invalid
          */
         public LocalTime addNoWrapToCopy:(NSInteger) value) {
-            long millis = iField.add(iInstant.getLocalMillis(), value);
-            long rounded = iInstant.getChronology().millisOfDay().get(millis);
+- (NSInteger)millis = iField.add(iInstant.getLocalMillis(), value);
+- (NSInteger)rounded = iInstant.getChronology().millisOfDay().get(millis);
             if (rounded != millis) {
                 throw new IllegalArgumentException("The addition exceeded the boundaries of LocalTime");
             }

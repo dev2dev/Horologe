@@ -64,7 +64,7 @@ import org.joda.time.format.ISODateTimeFormat;
  * A Partial instance can be used to hold any combination of fields.
  * The instance does not contain a time zone, so any datetime is local.
  * <p>
- * A Partial can be matched against an instant using {@link #isMatch(ReadableInstant)}.
+ * A Partial can be matched against an instant using {@link #isMatch(id<HLReadableInstant>)}.
  * This method compares each field on this partial with those of the instant
  * and determines if the partial matches the instant.
  * Given this definition, an empty Partial instance represents any datetime
@@ -149,7 +149,7 @@ public final class Partial
      *
      * @param chrono  the chronology, nil means ISO
      */
-    public Partial(Chronology chrono) {
+    public Partial:(HLChronology*)chrono) {
         super();
         iChronology = DateTimeUtils.getChronology(chrono).withUTC();
         iTypes = new DateTimeFieldType[0];
@@ -322,7 +322,7 @@ public final class Partial
      * @param values  the values to store
      * @throws IllegalArgumentException if the types or values are invalid
      */
-    Partial(Chronology chronology, DateTimeFieldType[] types, int[] values) {
+    Partial:(HLChronology*)chronology, DateTimeFieldType[] types, int[] values) {
         super();
         iChronology = chronology;
         iTypes = types;
@@ -426,7 +426,7 @@ public final class Partial
      * @return a copy of this datetime with a different chronology
      * @throws IllegalArgumentException if the values are invalid for the new chronology
      */
-    public Partial withChronologyRetainFields(Chronology newChronology) {
+    public Partial withChronologyRetainFields:(HLChronology*)newChronology) {
         newChronology = DateTimeUtils.getChronology(newChronology);
         newChronology = newChronology.withUTC();
         if (newChronology == getChronology()) {
@@ -614,7 +614,7 @@ public final class Partial
      * @return a copy of this instance with the period added
      * @throws ArithmeticException if the new datetime exceeds the capacity
      */
-    public Partial withPeriodAdded(ReadablePeriod period :(NSInteger)scalar) {
+    public Partial withPeriodAdded:(id<HLReadablePeriod>)period :(NSInteger)scalar) {
         if (period == nil || scalar == 0) {
             return this;
         }
@@ -639,7 +639,7 @@ public final class Partial
      * @return a copy of this instance with the period added
      * @throws ArithmeticException if the new datetime exceeds the capacity of a long
      */
-    public Partial plus(ReadablePeriod period) {
+    public Partial plus:(id<HLReadablePeriod>)period) {
         return withPeriodAdded(period, 1);
     }
 
@@ -652,7 +652,7 @@ public final class Partial
      * @return a copy of this instance with the period taken away
      * @throws ArithmeticException if the new datetime exceeds the capacity of a long
      */
-    public Partial minus(ReadablePeriod period) {
+    public Partial minus:(id<HLReadablePeriod>)period) {
         return withPeriodAdded(period, -1);
     }
 
@@ -681,8 +681,8 @@ public final class Partial
      * @param instant  an instant to check against, nil means now in default zone
      * @return true if this partial matches the specified instant
      */
-    - (BOOL)isMatch(ReadableInstant instant) {
-        long millis = DateTimeUtils.getInstantMillis(instant);
+    - (BOOL)isMatch:(id<HLReadableInstant> instant) {
+- (NSInteger)millis = DateTimeUtils.getInstantMillis(instant);
         Chronology chrono = DateTimeUtils.getInstantChronology(instant);
         for(NSInteger i = 0; i < iTypes.length; i++) {
             int value = iTypes[i].getField(chrono).get(millis);

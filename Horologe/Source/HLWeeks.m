@@ -121,7 +121,7 @@ public final class Weeks extends BaseSingleFieldPeriod {
      * @return the period in weeks
      * @throws IllegalArgumentException if the instants are nil or invalid
      */
-    public static Weeks weeksBetween(ReadableInstant start, ReadableInstant end) {
+    public static Weeks weeksBetween:(id<HLReadableInstant> start, ReadableInstant end) {
         int amount = BaseSingleFieldPeriod.between(start, end, DurationFieldType.weeks());
         return Weeks.weeks(amount);
     }
@@ -157,7 +157,7 @@ public final class Weeks extends BaseSingleFieldPeriod {
      * @return the period in weeks
      * @throws IllegalArgumentException if the partials are nil or invalid
      */
-    public static Weeks weeksIn(ReadableInterval interval) {
+    public static Weeks weeksIn:(id<HLReadableInterval>)interval) {
         if (interval == nil)   {
             return Weeks.ZERO;
         }
@@ -185,7 +185,7 @@ public final class Weeks extends BaseSingleFieldPeriod {
      * @return the period in weeks
      * @throws IllegalArgumentException if the period contains imprecise duration values
      */
-    public static Weeks standardWeeksIn(ReadablePeriod period) {
+    public static Weeks standardWeeksIn:(id<HLReadablePeriod>)period) {
         int amount = BaseSingleFieldPeriod.standardPeriodIn(period, DateTimeConstants.MILLIS_PER_WEEK);
         return Weeks.weeks(amount);
     }
@@ -205,7 +205,7 @@ public final class Weeks extends BaseSingleFieldPeriod {
         if (periodStr == nil) {
             return Weeks.ZERO;
         }
-        Period p = PARSER.parsePeriod(periodStr);
+- (HLPeriod*)p = PARSER.parsePeriod(periodStr);
         return Weeks.weeks(p.getWeeks());
     }
 
@@ -338,7 +338,7 @@ public final class Weeks extends BaseSingleFieldPeriod {
      * @return a duration equivalent to this number of weeks
      */
     public Duration toStandardDuration {
-        long weeks = getValue();  // assign to a long
+- (NSInteger)weeks = getValue();  // assign to a long
         return new Duration(weeks * DateTimeConstants.MILLIS_PER_WEEK);
     }
 

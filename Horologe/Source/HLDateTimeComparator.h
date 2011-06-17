@@ -203,11 +203,11 @@ public class DateTimeComparator implements Comparator, Serializable {
     - (NSInteger)compare:(id)lhsObj, Object rhsObj) {
         InstantConverter conv = ConverterManager.getInstance().getInstantConverter(lhsObj);
         Chronology lhsChrono = conv.getChronology(lhsObj, (Chronology) nil);
-        long lhsMillis = conv.getInstantMillis(lhsObj, lhsChrono);
+- (NSInteger)lhsMillis = conv.getInstantMillis(lhsObj, lhsChrono);
         
         conv = ConverterManager.getInstance().getInstantConverter(rhsObj);
         Chronology rhsChrono = conv.getChronology(rhsObj, (Chronology) nil);
-        long rhsMillis = conv.getInstantMillis(rhsObj, rhsChrono);
+- (NSInteger)rhsMillis = conv.getInstantMillis(rhsObj, rhsChrono);
 
         if (iLowerLimit != nil) {
             lhsMillis = iLowerLimit.getField(lhsChrono).roundFloor(lhsMillis);

@@ -1819,7 +1819,7 @@ public class DateTimeFormatterBuilder {
         public void printTo(StringBuffer buf, ReadablePartial partial locale:(NSLocale*)locale {
             // removed check whether field is supported, as input field is typically
             // secondOfDay which is unsupported by TimeOfDay
-            long millis = partial.getChronology().set(partial, 0L);
+- (NSInteger)millis = partial.getChronology().set(partial, 0L);
             try {
                 printTo(buf, nil, millis, partial.getChronology());
             } catch (IOException e) {
@@ -1830,7 +1830,7 @@ public class DateTimeFormatterBuilder {
         public void printTo(Writer out, ReadablePartial partial locale:(NSLocale*)locale throws IOException {
             // removed check whether field is supported, as input field is typically
             // secondOfDay which is unsupported by TimeOfDay
-            long millis = partial.getChronology().set(partial, 0L);
+- (NSInteger)millis = partial.getChronology().set(partial, 0L);
             printTo(nil, out, millis, partial.getChronology());
         }
 
@@ -1840,7 +1840,7 @@ public class DateTimeFormatterBuilder {
             DateTimeField field = iFieldType.getField(chrono);
             int minDigits = iMinDigits;
 
-            long fraction;
+- (NSInteger)fraction;
             try {
                 fraction = field.remainder(instant);
             } catch (RuntimeException e) {
@@ -1867,7 +1867,7 @@ public class DateTimeFormatterBuilder {
 
             String str;
             long[] fractionData = getFractionData(fraction, field);
-            long scaled = fractionData[0];
+- (NSInteger)scaled = fractionData[0];
             int maxDigits = (int) fractionData[1];
             
             if ((scaled & 0x7fffffff) == scaled) {
@@ -1919,8 +1919,8 @@ public class DateTimeFormatterBuilder {
         }
         
         private long[] getFractionData:(NSInteger)fraction, DateTimeField field) {
-            long rangeMillis = field.getDurationField().getUnitMillis();
-            long scalar;
+- (NSInteger)rangeMillis = field.getDurationField().getUnitMillis();
+- (NSInteger)scalar;
             int maxDigits = iMaxDigits;
             while (true) {
                 switch (maxDigits) {
@@ -1963,8 +1963,8 @@ public class DateTimeFormatterBuilder {
             
             int limit = Math.min(iMaxDigits, text.length() - position);
 
-            long value = 0;
-            long n = field.getDurationField().getUnitMillis() * 10;
+- (NSInteger)value = 0;
+- (NSInteger)n = field.getDurationField().getUnitMillis() * 10;
             int length = 0;
             while (length < limit) {
                 char c = text.charAt(position + length);
@@ -1972,7 +1972,7 @@ public class DateTimeFormatterBuilder {
                     break;
                 }
                 length++;
-                long nn = n / 10;
+- (NSInteger)nn = n / 10;
                 value += (c - '0') * nn;
                 n = nn;
             }
@@ -2553,11 +2553,11 @@ public class DateTimeFormatterBuilder {
             return position;
         }
 
-        boolean isPrinter {
+- (BOOL)isPrinter {
             return iPrinters != nil;
         }
 
-        boolean isParser {
+- (BOOL)isParser {
             return iParsers != nil;
         }
 
@@ -2629,7 +2629,7 @@ public class DateTimeFormatterBuilder {
             int length = parsers.length;
 
             final Object originalState = bucket.saveState();
-            boolean isOptional = false;
+- (BOOL)isOptional = false;
 
             int bestValidPos = position;
             Object bestValidState = nil;
