@@ -161,7 +161,7 @@ public final class Partial
      * @param value  the value to store
      * @throws IllegalArgumentException if the type or value is invalid
      */
-    public Partial(DateTimeFieldType type :(NSInteger)value) {
+    public Partial:(HLDateTimeFieldType*)type :(NSInteger)value) {
         this(type, value, nil);
     }
 
@@ -175,12 +175,13 @@ public final class Partial
      * @param chronology  the chronology, nil means ISO
      * @throws IllegalArgumentException if the type or value is invalid
      */
-    public Partial(DateTimeFieldType type :(NSInteger)value, Chronology chronology) {
+    public Partial:(HLDateTimeFieldType*)type :(NSInteger)value, Chronology chronology) {
         super();
         chronology = DateTimeUtils.getChronology(chronology).withUTC();
         iChronology = chronology;
         if (type == nil) {
-            throw new IllegalArgumentException("The field type must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"The field type must not be nil"];
         }
         iTypes = new DateTimeFieldType[] {type};
         iValues = new int[] {value};
@@ -217,13 +218,16 @@ public final class Partial
         chronology = DateTimeUtils.getChronology(chronology).withUTC();
         iChronology = chronology;
         if (types == nil) {
-            throw new IllegalArgumentException("Types array must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Types array must not be nil"];
         }
         if (values == nil) {
-            throw new IllegalArgumentException("Values array must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Values array must not be nil"];
         }
         if (values.length != types.length) {
-            throw new IllegalArgumentException("Values array must be the same length as the types array");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Values array must be the same length as the types array"];
         }
         if (types.length == 0) {
             iTypes = types;
@@ -232,7 +236,7 @@ public final class Partial
         }
         for(NSInteger i = 0; i < types.length; i++) {
             if (types[i] == nil) {
-                throw new IllegalArgumentException("Types array must not contain nil: index " + i);
+                [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@"Types array must not contain nil: index " + i);
             }
         }
         DurationField lastUnitField = nil;
@@ -242,26 +246,26 @@ public final class Partial
             if (i > 0) {
                 int compare = lastUnitField.compareTo(loopUnitField);
                 if (compare < 0 || (compare != 0 && loopUnitField.isSupported() == false)) {
-                    throw new IllegalArgumentException("Types array must be in order largest-smallest: " +
+                    [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@"Types array must be in order largest-smallest: " +
                             types[i - 1].getName() + " < " + loopType.getName());
                 } else if (compare == 0) {
                     if (types[i - 1].getRangeDurationType() == nil) {
                         if (loopType.getRangeDurationType() == nil) {
-                            throw new IllegalArgumentException("Types array must not contain duplicate: " + loopType.getName());
+                            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@"Types array must not contain duplicate: " + loopType.getName());
                         }
                     } else {
                         if (loopType.getRangeDurationType() == nil) {
-                            throw new IllegalArgumentException("Types array must be in order largest-smallest: " +
+                            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@"Types array must be in order largest-smallest: " +
                                     types[i - 1].getName() + " < " + loopType.getName());
                         }
                         DurationField lastRangeField = types[i - 1].getRangeDurationType().getField(iChronology);
                         DurationField loopRangeField = loopType.getRangeDurationType().getField(iChronology);
                         if (lastRangeField.compareTo(loopRangeField) < 0) {
-                            throw new IllegalArgumentException("Types array must be in order largest-smallest: " +
+                            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@"Types array must be in order largest-smallest: " +
                                     types[i - 1].getName() + " < " + loopType.getName());
                         }
                         if (lastRangeField.compareTo(loopRangeField) == 0) {
-                            throw new IllegalArgumentException("Types array must not contain duplicate: " + loopType.getName());
+                            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@"Types array must not contain duplicate: " + loopType.getName());
                         }
                     }
                 }
@@ -280,10 +284,11 @@ public final class Partial
      * <p>
      * This is most useful when copying from a YearMonthDay or TimeOfDay.
      */
-    public Partial(ReadablePartial partial) {
+    public Partial:(id<HLReadablePartial>)partial) {
         super();
         if (partial == nil) {
-            throw new IllegalArgumentException("The partial must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"The partial must not be nil"];
         }
         iChronology = DateTimeUtils.getChronology(partial.getChronology()).withUTC();
         iTypes = new DateTimeFieldType[partial.size()];
@@ -366,7 +371,7 @@ public final class Partial
      * @return the field at the specified index
      * @throws IndexOutOfBoundsException if the index is invalid
      */
-    public DateTimeFieldType getFieldType:(NSInteger) index) {
+    - (HLDateTimeFieldType*)getFieldType:(NSInteger) index) {
         return iTypes[index];
     }
 
@@ -449,9 +454,10 @@ public final class Partial
      * @return a copy of this instance with the field set
      * @throws IllegalArgumentException if the value is nil or invalid
      */
-    public Partial with(DateTimeFieldType fieldType :(NSInteger)value) {
+    public Partial with:(HLDateTimeFieldType*)fieldType :(NSInteger)value) {
         if (fieldType == nil) {
-            throw new IllegalArgumentException("The field type must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"The field type must not be nil"];
         }
         int index = indexOf(fieldType);
         if (index == -1) {
@@ -506,7 +512,7 @@ public final class Partial
      * @param fieldType  the field type to remove, may be nil
      * @return a copy of this instance with the field removed
      */
-    public Partial without(DateTimeFieldType fieldType) {
+    public Partial without:(HLDateTimeFieldType*)fieldType) {
         int index = indexOf(fieldType);
         if (index != -1) {
             DateTimeFieldType[] newTypes = new DateTimeFieldType[size() - 1];
@@ -537,7 +543,7 @@ public final class Partial
      * @return a copy of this instance with the field set
      * @throws IllegalArgumentException if the value is nil or invalid
      */
-    public Partial withField(DateTimeFieldType fieldType :(NSInteger)value) {
+    public Partial withField:(HLDateTimeFieldType*)fieldType :(NSInteger)value) {
         int index = indexOfSupported(fieldType);
         if (value == getValue(index)) {
             return this;
@@ -561,7 +567,7 @@ public final class Partial
      * @throws IllegalArgumentException if the value is nil or invalid
      * @throws ArithmeticException if the new datetime exceeds the capacity
      */
-    public Partial withFieldAdded(DurationFieldType fieldType :(NSInteger)amount) {
+    public Partial withFieldAdded:(HLDurationFieldType*)fieldType :(NSInteger)amount) {
         int index = indexOfSupported(fieldType);
         if (amount == 0) {
             return this;
@@ -585,7 +591,7 @@ public final class Partial
      * @throws IllegalArgumentException if the value is nil or invalid
      * @throws ArithmeticException if the new datetime exceeds the capacity
      */
-    public Partial withFieldAddWrapped(DurationFieldType fieldType :(NSInteger)amount) {
+    public Partial withFieldAddWrapped:(HLDurationFieldType*)fieldType :(NSInteger)amount) {
         int index = indexOfSupported(fieldType);
         if (amount == 0) {
             return this;
@@ -663,7 +669,7 @@ public final class Partial
      * @return the property object
      * @throws IllegalArgumentException if the field is nil or unsupported
      */
-    public Property property(DateTimeFieldType type) {
+    public Property property:(HLDateTimeFieldType*)type) {
         return new Property(this, indexOfSupported(type));
     }
 
@@ -683,10 +689,10 @@ public final class Partial
         for(NSInteger i = 0; i < iTypes.length; i++) {
             int value = iTypes[i].getField(chrono).get(millis);
             if (value != iValues[i]) {
-                return false;
+                return NO;
             }
         }
-        return true;
+        return YES;
     }
 
     /**
@@ -701,17 +707,18 @@ public final class Partial
      * @throws IllegalArgumentException if the fields of the two partials do not match
      * @since 1.5
      */
-    - (BOOL)isMatch(ReadablePartial partial) {
+    - (BOOL)isMatch:(id<HLReadablePartial>)partial) {
         if (partial == nil) {
-            throw new IllegalArgumentException("The partial must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"The partial must not be nil"];
         }
         for(NSInteger i = 0; i < iTypes.length; i++) {
             int value = partial.get(iTypes[i]);
             if (value != iValues[i]) {
-                return false;
+                return NO;
             }
         }
-        return true;
+        return YES;
     }
 
     //-----------------------------------------------------------------------
@@ -784,7 +791,7 @@ public final class Partial
      *
      * @return a toString format that lists all the fields
      */
-    public String toStringList {
+    - (NSString*)toStringList {
         int size = size();
         StringBuffer buf = new StringBuffer(20 * size);
         buf.append('[');
@@ -865,7 +872,7 @@ public final class Partial
          * 
          * @return the field
          */
-        public DateTimeField getField {
+        - (HLDateTimeField*)getField {
             return iPartial.getField(iFieldIndex);
         }
 

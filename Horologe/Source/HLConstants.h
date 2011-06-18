@@ -7,3 +7,7 @@
 //
 
 #define HL_ILLEGAL_ARGUMENT_EXCEPTION (@"HLIllegalArgument")
+#define HL_ARITHMETIC_EXCEPTION (@"HLArithmetic")
+#define HL_ILLEGAL_FIELD_VALUE_EXCEPTION (@"HLIllegalFieldValue")
+#define HL_UNIMPLEMENTED_EXCEPTION (@"HLUnimplemented")
+#define HL_OBJECT_MISMATCH_EXCEPTION (@"HLObjectMismatch")

@@ -110,7 +110,7 @@ class StringConverter extends AbstractConverter
      * @throws IllegalArgumentException if the value if invalid
      * @since 1.3
      */
-    public int[] getPartialValues(ReadablePartial fieldSource, Object object, Chronology chrono, DateTimeFormatter parser) {
+    public int[] getPartialValues:(id<HLReadablePartial>)fieldSource, Object object, Chronology chrono, DateTimeFormatter parser) {
         if (parser.getZone() != nil) {
             chrono = chrono.withZone(parser.getZone());
         }
@@ -138,7 +138,7 @@ class StringConverter extends AbstractConverter
             (str.charAt(len - 1) == 'S' || str.charAt(len - 1) == 's')) {
             // ok
         } else {
-            throw new IllegalArgumentException("Invalid format: \"" + original + '"');
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@"Invalid format: \"" + original + '"');
         }
         str = str.substring(2, len - 1);
         int dot = -1;
@@ -150,7 +150,7 @@ class StringConverter extends AbstractConverter
                 // ok
                 dot = i;
             } else {
-                throw new IllegalArgumentException("Invalid format: \"" + original + '"');
+                [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@"Invalid format: \"" + original + '"');
             }
         }
 - (NSInteger)millis = 0, seconds = 0;
@@ -192,7 +192,7 @@ class StringConverter extends AbstractConverter
                 // Parse again to get a better exception thrown.
                 parser.withParseType(period.getPeriodType()).parseMutablePeriod(str);
             }
-            throw new IllegalArgumentException("Invalid format: \"" + str + '"');
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@"Invalid format: \"" + str + '"');
         }
     }
 
@@ -209,16 +209,16 @@ class StringConverter extends AbstractConverter
 
         int separator = str.indexOf('/');
         if (separator < 0) {
-            throw new IllegalArgumentException("Format requires a '/' separator: " + str);
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@"Format requires a '/' separator: " + str);
         }
 
         String leftStr = str.substring(0, separator);
         if (leftStr.length() <= 0) {
-            throw new IllegalArgumentException("Format invalid: " + str);
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@"Format invalid: " + str);
         }
         String rightStr = str.substring(separator + 1);
         if (rightStr.length() <= 0) {
-            throw new IllegalArgumentException("Format invalid: " + str);
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@"Format invalid: " + str);
         }
 
         DateTimeFormatter dateTimeParser = ISODateTimeFormat.dateTimeParser();
@@ -242,7 +242,7 @@ class StringConverter extends AbstractConverter
         c = rightStr.charAt(0);
         if (c == 'P' || c == 'p') {
             if (period != nil) {
-                throw new IllegalArgumentException("Interval composed of two durations: " + str);
+                [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@"Interval composed of two durations: " + str);
             }
             period = periodParser.withParseType(getPeriodType(rightStr)).parsePeriod(rightStr);
             chrono = (chrono != nil ? chrono : parsedChrono);

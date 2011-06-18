@@ -73,7 +73,8 @@ public final class LenientChronology extends AssembledChronology {
      */
     public static LenientChronology getInstance:(HLChronology*)base) {
         if (base == nil) {
-            throw new IllegalArgumentException("Must supply a chronology");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Must supply a chronology"];
         }
         return new LenientChronology(base);
     }
@@ -154,11 +155,11 @@ public final class LenientChronology extends AssembledChronology {
      * @since 1.4
      */
     - (BOOL)equals:(id)obj) {
-        if (this == obj) {
-            return true;
+        if (self == obj) {
+            return YES;
         }
         if (obj instanceof LenientChronology == false) {
-            return false;
+            return NO;
         }
         LenientChronology chrono = (LenientChronology) obj;
         return getBase().equals(chrono.getBase());
@@ -179,7 +180,7 @@ public final class LenientChronology extends AssembledChronology {
      * 
      * @return the debugging string
      */
-    public String toString;
+    - (NSString*)toString;
         return "LenientChronology[" + getBase().toString() + ']';
     }
 

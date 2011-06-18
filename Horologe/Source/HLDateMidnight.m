@@ -379,7 +379,7 @@ public final class DateMidnight
      * @return a copy of this datetime with a different set of fields
      * @throws IllegalArgumentException if any value is invalid
      */
-    public DateMidnight withFields(ReadablePartial partial) {
+    public DateMidnight withFields:(id<HLReadablePartial>)partial) {
         if (partial == nil) {
             return this;
         }
@@ -405,9 +405,10 @@ public final class DateMidnight
      * @return a copy of this datetime with the field set
      * @throws IllegalArgumentException if the value is nil or invalid
      */
-    public DateMidnight withField(DateTimeFieldType fieldType :(NSInteger)value) {
+    public DateMidnight withField:(HLDateTimeFieldType*)fieldType :(NSInteger)value) {
         if (fieldType == nil) {
-            throw new IllegalArgumentException("Field must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Field must not be nil"];
         }
 - (NSInteger)instant = fieldType.getField(getChronology()).set(getMillis(), value);
         return withMillis(instant);
@@ -431,9 +432,10 @@ public final class DateMidnight
      * @throws IllegalArgumentException if the value is nil or invalid
      * @throws ArithmeticException if the new datetime exceeds the capacity of a long
      */
-    public DateMidnight withFieldAdded(DurationFieldType fieldType :(NSInteger)amount) {
+    public DateMidnight withFieldAdded:(HLDurationFieldType*)fieldType :(NSInteger)amount) {
         if (fieldType == nil) {
-            throw new IllegalArgumentException("Field must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Field must not be nil"];
         }
         if (amount == 0) {
             return this;
@@ -791,13 +793,15 @@ public final class DateMidnight
      * @return the property object
      * @throws IllegalArgumentException if the field is nil or unsupported
      */
-    public Property property(DateTimeFieldType type) {
+    public Property property:(HLDateTimeFieldType*)type) {
         if (type == nil) {
-            throw new IllegalArgumentException("The DateTimeFieldType must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"The DateTimeFieldType must not be nil"];
         }
         DateTimeField field = type.getField(getChronology());
         if (field.isSupported() == false) {
-            throw new IllegalArgumentException("Field '" + type + "' is not supported");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Field '" + type + "' is not supported"];
         }
         return new Property(this, field);
     }
@@ -834,7 +838,7 @@ public final class DateMidnight
      * 
      * @return an interval over the day
      */
-    public Interval toInterval {
+    - (HLInterval*)toInterval {
         Chronology chrono = getChronology();
 - (NSInteger)start = getMillis();
 - (NSInteger)end = DurationFieldType.days().getField(chrono).add(start, 1);
@@ -1193,7 +1197,7 @@ public final class DateMidnight
          * 
          * @return the field
          */
-        public DateTimeField getField {
+        - (HLDateTimeField*)getField {
             return iField;
         }
 

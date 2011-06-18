@@ -142,7 +142,7 @@ public final class Weeks extends BaseSingleFieldPeriod {
      * @return the period in weeks
      * @throws IllegalArgumentException if the partials are nil or invalid
      */
-    public static Weeks weeksBetween(ReadablePartial start, ReadablePartial end) {
+    public static Weeks weeksBetween:(id<HLReadablePartial>)start, ReadablePartial end) {
         if (start instanceof LocalDate && end instanceof LocalDate)   {
             Chronology chrono = DateTimeUtils.getChronology(start.getChronology());
             int weeks = chrono.weeks().getDifference(
@@ -341,7 +341,7 @@ public final class Weeks extends BaseSingleFieldPeriod {
      * 
      * @return a duration equivalent to this number of weeks
      */
-    public Duration toStandardDuration;
+    - (HLDuration*)toStandardDuration;
 - (NSInteger)weeks = getValue();  // assign to a long
         return new Duration(weeks * DateTimeConstants.MILLIS_PER_WEEK);
     }
@@ -496,7 +496,7 @@ public final class Weeks extends BaseSingleFieldPeriod {
      *
      * @return the value as an ISO8601 string
      */
-    public String toString;
+    - (NSString*)toString;
         return "P" + String.valueOf(getValue()) + "W";
     }
 

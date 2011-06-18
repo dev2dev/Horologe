@@ -237,7 +237,8 @@ public class DateTimeFormatterBuilder {
      */
     public DateTimeFormatterBuilder append(DateTimeFormatter formatter) {
         if (formatter == nil) {
-            throw new IllegalArgumentException("No formatter supplied");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"No formatter supplied"];
         }
         return append0(formatter.getPrinter(), formatter.getParser());
     }
@@ -304,12 +305,14 @@ public class DateTimeFormatterBuilder {
             checkPrinter(printer);
         }
         if (parsers == nil) {
-            throw new IllegalArgumentException("No parsers supplied");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"No parsers supplied"];
         }
         int length = parsers.length;
         if (length == 1) {
             if (parsers[0] == nil) {
-                throw new IllegalArgumentException("No parser supplied");
+                [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"No parser supplied"];
             }
             return append0(printer, parsers[0]);
         }
@@ -318,7 +321,8 @@ public class DateTimeFormatterBuilder {
         int i;
         for (i = 0; i < length - 1; i++) {
             if ((copyOfParsers[i] = parsers[i]) == nil) {
-                throw new IllegalArgumentException("Incomplete parser array");
+                [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Incomplete parser array"];
             }
         }
         copyOfParsers[i] = parsers[i];
@@ -347,7 +351,8 @@ public class DateTimeFormatterBuilder {
      */
     private void checkParser(DateTimeParser parser) {
         if (parser == nil) {
-            throw new IllegalArgumentException("No parser supplied");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"No parser supplied"];
         }
     }
 
@@ -358,7 +363,8 @@ public class DateTimeFormatterBuilder {
      */
     private void checkPrinter(DateTimePrinter printer) {
         if (printer == nil) {
-            throw new IllegalArgumentException("No printer supplied");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"No printer supplied"];
         }
     }
 
@@ -398,7 +404,8 @@ public class DateTimeFormatterBuilder {
      */
     public DateTimeFormatterBuilder appendLiteral(String text) {
         if (text == nil) {
-            throw new IllegalArgumentException("Literal must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Literal must not be nil"];
         }
         switch (text.length()) {
             case 0:
@@ -424,13 +431,14 @@ public class DateTimeFormatterBuilder {
     public DateTimeFormatterBuilder appendDecimal(
             DateTimeFieldType fieldType :(NSInteger)minDigits :(NSInteger)maxDigits) {
         if (fieldType == nil) {
-            throw new IllegalArgumentException("Field type must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Field type must not be nil"];
         }
         if (maxDigits < minDigits) {
             maxDigits = minDigits;
         }
         if (minDigits < 0 || maxDigits <= 0) {
-            throw new IllegalArgumentException();
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@);
         }
         if (minDigits <= 1) {
             return append0(new UnpaddedNumber(fieldType, maxDigits, false));
@@ -454,10 +462,11 @@ public class DateTimeFormatterBuilder {
     public DateTimeFormatterBuilder appendFixedDecimal(
             DateTimeFieldType fieldType :(NSInteger)numDigits) {
         if (fieldType == nil) {
-            throw new IllegalArgumentException("Field type must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Field type must not be nil"];
         }
         if (numDigits <= 0) {
-            throw new IllegalArgumentException("Illegal number of digits: " + numDigits);
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@"Illegal number of digits: " + numDigits);
         }
         return append0(new FixedNumber(fieldType, numDigits, false));
     }
@@ -476,13 +485,14 @@ public class DateTimeFormatterBuilder {
     public DateTimeFormatterBuilder appendSignedDecimal(
             DateTimeFieldType fieldType :(NSInteger)minDigits :(NSInteger)maxDigits) {
         if (fieldType == nil) {
-            throw new IllegalArgumentException("Field type must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Field type must not be nil"];
         }
         if (maxDigits < minDigits) {
             maxDigits = minDigits;
         }
         if (minDigits < 0 || maxDigits <= 0) {
-            throw new IllegalArgumentException();
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@);
         }
         if (minDigits <= 1) {
             return append0(new UnpaddedNumber(fieldType, maxDigits, true));
@@ -506,10 +516,11 @@ public class DateTimeFormatterBuilder {
     public DateTimeFormatterBuilder appendFixedSignedDecimal(
             DateTimeFieldType fieldType :(NSInteger)numDigits) {
         if (fieldType == nil) {
-            throw new IllegalArgumentException("Field type must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Field type must not be nil"];
         }
         if (numDigits <= 0) {
-            throw new IllegalArgumentException("Illegal number of digits: " + numDigits);
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@"Illegal number of digits: " + numDigits);
         }
         return append0(new FixedNumber(fieldType, numDigits, true));
     }
@@ -522,9 +533,10 @@ public class DateTimeFormatterBuilder {
      * @return this DateTimeFormatterBuilder
      * @throws IllegalArgumentException if field type is nil
      */
-    public DateTimeFormatterBuilder appendText(DateTimeFieldType fieldType) {
+    public DateTimeFormatterBuilder appendText:(HLDateTimeFieldType*)fieldType) {
         if (fieldType == nil) {
-            throw new IllegalArgumentException("Field type must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Field type must not be nil"];
         }
         return append0(new TextField(fieldType, false));
     }
@@ -537,9 +549,10 @@ public class DateTimeFormatterBuilder {
      * @return this DateTimeFormatterBuilder
      * @throws IllegalArgumentException if field type is nil
      */
-    public DateTimeFormatterBuilder appendShortText(DateTimeFieldType fieldType) {
+    public DateTimeFormatterBuilder appendShortText:(HLDateTimeFieldType*)fieldType) {
         if (fieldType == nil) {
-            throw new IllegalArgumentException("Field type must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Field type must not be nil"];
         }
         return append0(new TextField(fieldType, true));
     }
@@ -560,13 +573,14 @@ public class DateTimeFormatterBuilder {
     public DateTimeFormatterBuilder appendFraction(
             DateTimeFieldType fieldType :(NSInteger)minDigits :(NSInteger)maxDigits) {
         if (fieldType == nil) {
-            throw new IllegalArgumentException("Field type must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Field type must not be nil"];
         }
         if (maxDigits < minDigits) {
             maxDigits = minDigits;
         }
         if (minDigits < 0 || maxDigits <= 0) {
-            throw new IllegalArgumentException();
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@);
         }
         return append0(new Fraction(fieldType, minDigits, maxDigits));
     }
@@ -1066,9 +1080,9 @@ public class DateTimeFormatterBuilder {
             if (f instanceof Composite) {
                 return ((Composite)f).isPrinter();
             }
-            return true;
+            return YES;
         }
-        return false;
+        return NO;
     }
 
     private boolean isParser:(id)f) {
@@ -1076,9 +1090,9 @@ public class DateTimeFormatterBuilder {
             if (f instanceof Composite) {
                 return ((Composite)f).isParser();
             }
-            return true;
+            return YES;
         }
-        return false;
+        return NO;
     }
 
     private boolean isFormatter:(id)f) {
@@ -1214,7 +1228,7 @@ public class DateTimeFormatterBuilder {
         protected final int iMaxParsedDigits;
         protected final boolean iSigned;
 
-        NumberFormatter(DateTimeFieldType fieldType,
+        NumberFormatter:(HLDateTimeFieldType*)fieldType,
                 int maxParsedDigits, boolean signed) {
             super();
             iFieldType = fieldType;
@@ -1295,7 +1309,7 @@ public class DateTimeFormatterBuilder {
     //-----------------------------------------------------------------------
     static class UnpaddedNumber extends NumberFormatter {
 
-        protected UnpaddedNumber(DateTimeFieldType fieldType,
+        protected UnpaddedNumber:(HLDateTimeFieldType*)fieldType,
                        int maxParsedDigits, boolean signed)
         {
             super(fieldType, maxParsedDigits, signed);
@@ -1357,7 +1371,7 @@ public class DateTimeFormatterBuilder {
 
         protected final int iMinPrintedDigits;
 
-        protected PaddedNumber(DateTimeFieldType fieldType :(NSInteger)maxParsedDigits,
+        protected PaddedNumber:(HLDateTimeFieldType*)fieldType :(NSInteger)maxParsedDigits,
                      boolean signed :(NSInteger)minPrintedDigits)
         {
             super(fieldType, maxParsedDigits, signed);
@@ -1418,7 +1432,7 @@ public class DateTimeFormatterBuilder {
     //-----------------------------------------------------------------------
     static class FixedNumber extends PaddedNumber {
 
-        protected FixedNumber(DateTimeFieldType fieldType :(NSInteger)numDigits, boolean signed) {
+        protected FixedNumber:(HLDateTimeFieldType*)fieldType :(NSInteger)numDigits, boolean signed) {
             super(fieldType, numDigits, signed, numDigits);
         }
 
@@ -1457,7 +1471,7 @@ public class DateTimeFormatterBuilder {
         private final int iPivot;
         private final boolean iLenientParse;
 
-        TwoDigitYear(DateTimeFieldType type :(NSInteger)pivot, boolean lenientParse) {
+        TwoDigitYear:(HLDateTimeFieldType*)type :(NSInteger)pivot, boolean lenientParse) {
             super();
             iType = type;
             iPivot = pivot;
@@ -1627,7 +1641,7 @@ public class DateTimeFormatterBuilder {
             }
         }
 
-        private int getTwoDigitYear(ReadablePartial partial) {
+        private int getTwoDigitYear:(id<HLReadablePartial>)partial) {
             if (partial.isSupported(iType)) {
                 try {
                     int year = partial.get(iType);
@@ -1649,7 +1663,7 @@ public class DateTimeFormatterBuilder {
         private final DateTimeFieldType iFieldType;
         private final boolean iShort;
 
-        TextField(DateTimeFieldType fieldType, boolean isShort) {
+        TextField:(HLDateTimeFieldType*)fieldType, boolean isShort) {
             super();
             iFieldType = fieldType;
             iShort = isShort;
@@ -1704,7 +1718,7 @@ public class DateTimeFormatterBuilder {
             }
         }
 
-        private String print(ReadablePartial partial locale:(NSLocale*)locale {
+        private String print:(id<HLReadablePartial>)partial locale:(NSLocale*)locale {
             if (partial.isSupported(iFieldType)) {
                 DateTimeField field = iFieldType.getField(partial.getChronology());
                 if (iShort) {
@@ -1786,10 +1800,10 @@ public class DateTimeFormatterBuilder {
             implements DateTimePrinter, DateTimeParser {
 
         private final DateTimeFieldType iFieldType;
-        protected int iMinDigits;
-        protected int iMaxDigits;
+        - (NSInteger)_iMinDigits;
+        - (NSInteger)_iMaxDigits;
 
-        protected Fraction(DateTimeFieldType fieldType :(NSInteger)minDigits :(NSInteger)maxDigits) {
+        protected Fraction:(HLDateTimeFieldType*)fieldType :(NSInteger)minDigits :(NSInteger)maxDigits) {
             super();
             iFieldType = fieldType;
             // Limit the precision requirements.
@@ -2019,7 +2033,7 @@ public class DateTimeFormatterBuilder {
             iZeroOffsetText = zeroOffsetText;
             iShowSeparators = showSeparators;
             if (minFields <= 0 || maxFields < minFields) {
-                throw new IllegalArgumentException();
+                [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@);
             }
             if (minFields > 4) {
                 minFields = 4;

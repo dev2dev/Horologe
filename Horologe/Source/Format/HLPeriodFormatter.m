@@ -258,7 +258,7 @@ public class PeriodFormatter {
      * @param period  the period to format, not nil
      * @return the printed result
      */
-    public String print:(id<HLReadablePeriod>)period) {
+    - (NSString*)print:(id<HLReadablePeriod>)period) {
         checkPrinter();
         checkPeriod(period);
         
@@ -286,7 +286,8 @@ public class PeriodFormatter {
      */
     private void checkPeriod:(id<HLReadablePeriod>)period) {
         if (period == nil) {
-            throw new IllegalArgumentException("Period must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Period must not be nil"];
         }
     }
 
@@ -324,7 +325,7 @@ public class PeriodFormatter {
      * @return parsed value in a Period object
      * @throws IllegalArgumentException if any field is out of range
      */
-    public Period parsePeriod(String text) {
+    - (HLPeriod*)parsePeriod(String text) {
         checkParser();
         
         return parseMutablePeriod(text).toPeriod();
@@ -349,7 +350,7 @@ public class PeriodFormatter {
         } else {
             newPos = ~newPos;
         }
-        throw new IllegalArgumentException(FormatUtils.createErrorMessage(text, newPos));
+        [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@FormatUtils.createErrorMessage(text, newPos));
     }
 
     /**

@@ -93,7 +93,7 @@ class ISOYearOfEraDateTimeField extends DecoratedDateTimeField {
         return getWrappedField().addWrapField(instant, years);
     }
 
-    public int[] addWrapField(ReadablePartial instant :(NSInteger)fieldIndex, int[] values :(NSInteger)years) {
+    public int[] addWrapField:(id<HLReadablePartial>)instant :(NSInteger)fieldIndex, int[] values :(NSInteger)years) {
         return getWrappedField().addWrapField(instant, fieldIndex, values, years);
     }
 

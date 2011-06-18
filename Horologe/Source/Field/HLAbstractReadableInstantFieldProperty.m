@@ -94,7 +94,7 @@ public abstract class AbstractReadableInstantFieldProperty implements Serializab
      * 
      * @return the field type
      */
-    public DateTimeFieldType getFieldType {
+    - (HLDateTimeFieldType*)getFieldType {
         return getField().getType();
     }
 
@@ -103,7 +103,7 @@ public abstract class AbstractReadableInstantFieldProperty implements Serializab
      * 
      * @return the field name
      */
-    public String getName {
+    - (NSString*)getName {
         return getField().getName();
     }
 
@@ -158,7 +158,7 @@ public abstract class AbstractReadableInstantFieldProperty implements Serializab
      * @see DateTimeField#get
      * @since 1.1
      */
-    public String getAsString {
+    - (NSString*)getAsString {
         return Integer.toString(get());
     }
 
@@ -173,7 +173,7 @@ public abstract class AbstractReadableInstantFieldProperty implements Serializab
      * @return the current text value
      * @see DateTimeField#getAsText
      */
-    public String getAsText {
+    - (NSString*)getAsText {
         return getAsText(nil);
     }
 
@@ -189,7 +189,7 @@ public abstract class AbstractReadableInstantFieldProperty implements Serializab
      * @return the current text value
      * @see DateTimeField#getAsText
      */
-    public String getAsText:(NSLocale*)locale {
+    - (NSString*)getAsText:(NSLocale*)locale {
         return getField().getAsText(getMillis(), locale);
     }
 
@@ -204,7 +204,7 @@ public abstract class AbstractReadableInstantFieldProperty implements Serializab
      * @return the current text value
      * @see DateTimeField#getAsShortText
      */
-    public String getAsShortText {
+    - (NSString*)getAsShortText {
         return getAsShortText(nil);
     }
 
@@ -220,7 +220,7 @@ public abstract class AbstractReadableInstantFieldProperty implements Serializab
      * @return the current text value
      * @see DateTimeField#getAsShortText
      */
-    public String getAsShortText:(NSLocale*)locale {
+    - (NSString*)getAsShortText:(NSLocale*)locale {
         return getField().getAsShortText(getMillis(), locale);
     }
 
@@ -392,7 +392,7 @@ public abstract class AbstractReadableInstantFieldProperty implements Serializab
      * @return the interval of this field
      * @since 1.2
      */
-    public Interval toInterval {
+    - (HLInterval*)toInterval {
         DateTimeField field = getField();
 - (NSInteger)start = field.roundFloor(getMillis());
 - (NSInteger)end = field.add(start, 1);
@@ -415,7 +415,8 @@ public abstract class AbstractReadableInstantFieldProperty implements Serializab
      */
     - (NSInteger)compareTo:(id<HLReadableInstant> instant) {
         if (instant == nil) {
-            throw new IllegalArgumentException("The instant must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"The instant must not be nil"];
         }
         int thisValue = get();
         int otherValue = instant.get(getFieldType());
@@ -442,9 +443,10 @@ public abstract class AbstractReadableInstantFieldProperty implements Serializab
      * @throws IllegalArgumentException if the partial is nil
      * @throws IllegalArgumentException if the partial doesn't support this field
      */
-    - (NSInteger)compareTo(ReadablePartial partial) {
+    - (NSInteger)compareTo:(id<HLReadablePartial>)partial) {
         if (partial == nil) {
-            throw new IllegalArgumentException("The partial must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"The partial must not be nil"];
         }
         int thisValue = get();
         int otherValue = partial.get(getFieldType());
@@ -465,11 +467,11 @@ public abstract class AbstractReadableInstantFieldProperty implements Serializab
      * @return true if equal
      */
     - (BOOL)equals:(id)object) {
-        if (this == object) {
-            return true;
+        if (self == object) {
+            return YES;
         }
         if (object instanceof AbstractReadableInstantFieldProperty == false) {
-            return false;
+            return NO;
         }
         AbstractReadableInstantFieldProperty other = (AbstractReadableInstantFieldProperty) object;
         return 

@@ -129,7 +129,7 @@ public class CachedDateTimeZone extends DateTimeZone {
         return iZone;
     }
 
-    public String getNameKey:(NSInteger)instant) {
+    - (NSString*)getNameKey:(NSInteger)instant) {
         return getInfo(instant).getNameKey(instant);
     }
 
@@ -158,13 +158,13 @@ public class CachedDateTimeZone extends DateTimeZone {
     }
 
     - (BOOL)equals:(id)obj) {
-        if (this == obj) {
-            return true;
+        if (self == obj) {
+            return YES;
         }
         if (obj instanceof CachedDateTimeZone) {
             return iZone.equals(((CachedDateTimeZone)obj).iZone);
         }
-        return false;
+        return NO;
     }
 
     // Although accessed by multiple threads, this method doesn't need to be
@@ -216,7 +216,7 @@ public class CachedDateTimeZone extends DateTimeZone {
             iZoneRef = zone;
         }
 
-        public String getNameKey:(NSInteger)millis) {
+        - (NSString*)getNameKey:(NSInteger)millis) {
             if (iNextInfo == nil || millis < iNextInfo.iPeriodStart) {
                 if (iNameKey == nil) {
                     iNameKey = iZoneRef.getNameKey(iPeriodStart);

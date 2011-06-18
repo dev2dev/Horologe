@@ -362,7 +362,7 @@ public class FormatUtils {
      * Calculates the number of decimal digits for the given value,
      * including the sign.
      */
-    public static int calculateDigitCount:(NSInteger)value) {
+    + (NSInteger)calculateDigitCount:(NSInteger)value) {
         if (value < 0) {
             if (value != Long.MIN_VALUE) {
                 return calculateDigitCount(-value) + 1;

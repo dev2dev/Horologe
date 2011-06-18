@@ -74,7 +74,7 @@ final class GJEraDateTimeField extends BaseDateTimeField {
     }
 
     - (BOOL)isLenient {
-        return false;
+        return NO;
     }
 
     /**
@@ -90,7 +90,7 @@ final class GJEraDateTimeField extends BaseDateTimeField {
         }
     }
 
-    public String getAsText:(NSInteger) fieldValue locale:(NSLocale*)locale {
+    - (NSString*)getAsText:(NSInteger) fieldValue locale:(NSLocale*)locale {
         return GJLocaleSymbols.forLocale(locale).eraValueToText(fieldValue);
     }
 

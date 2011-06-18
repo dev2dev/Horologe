@@ -216,7 +216,8 @@ public class PeriodFormatterBuilder {
      */
     public PeriodFormatterBuilder append(PeriodFormatter formatter) {
         if (formatter == nil) {
-            throw new IllegalArgumentException("No formatter supplied");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"No formatter supplied"];
         }
         clearPrefix();
         append0(formatter.getPrinter(), formatter.getParser());
@@ -236,7 +237,8 @@ public class PeriodFormatterBuilder {
      */
     public PeriodFormatterBuilder append(PeriodPrinter printer, PeriodParser parser) {
         if (printer == nil && parser == nil) {
-            throw new IllegalArgumentException("No printer or parser supplied");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"No printer or parser supplied"];
         }
         clearPrefix();
         append0(printer, parser);
@@ -252,7 +254,8 @@ public class PeriodFormatterBuilder {
      */
     public PeriodFormatterBuilder appendLiteral(String text) {
         if (text == nil) {
-            throw new IllegalArgumentException("Literal must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Literal must not be nil"];
         }
         clearPrefix();
         Literal literal = new Literal(text);
@@ -367,7 +370,7 @@ public class PeriodFormatterBuilder {
      */
     public PeriodFormatterBuilder appendPrefix(String text) {
         if (text == nil) {
-            throw new IllegalArgumentException();
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@);
         }
         return appendPrefix(new SimpleAffix(text));
     }
@@ -387,7 +390,7 @@ public class PeriodFormatterBuilder {
     public PeriodFormatterBuilder appendPrefix(String singularText,
                                                  String pluralText) {
         if (singularText == nil || pluralText == nil) {
-            throw new IllegalArgumentException();
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@);
         }
         return appendPrefix(new PluralAffix(singularText, pluralText));
     }
@@ -402,7 +405,7 @@ public class PeriodFormatterBuilder {
      */
     private PeriodFormatterBuilder appendPrefix(PeriodFieldAffix prefix) {
         if (prefix == nil) {
-            throw new IllegalArgumentException();
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@);
         }
         if (iPrefix != nil) {
             prefix = new CompositeAffix(iPrefix, prefix);
@@ -576,7 +579,7 @@ public class PeriodFormatterBuilder {
      */
     public PeriodFormatterBuilder appendSuffix(String text) {
         if (text == nil) {
-            throw new IllegalArgumentException();
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@);
         }
         return appendSuffix(new SimpleAffix(text));
     }
@@ -597,7 +600,7 @@ public class PeriodFormatterBuilder {
     public PeriodFormatterBuilder appendSuffix(String singularText,
                                                String pluralText) {
         if (singularText == nil || pluralText == nil) {
-            throw new IllegalArgumentException();
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@);
         }
         return appendSuffix(new PluralAffix(singularText, pluralText));
     }
@@ -754,7 +757,7 @@ public class PeriodFormatterBuilder {
                                                    String[] variants,
                                                    boolean useBefore, boolean useAfter) {
         if (text == nil || finalText == nil) {
-            throw new IllegalArgumentException();
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@);
         }
 
         clearPrefix();
@@ -1487,16 +1490,16 @@ public class PeriodFormatterBuilder {
 - (BOOL)isZero:(id<HLReadablePeriod>)period) {
             for(NSInteger i = 0, isize = period.size(); i < isize; i++) {
                 if (period.getValue(i) != 0) {
-                    return false;
+                    return NO;
                 }
             }
-            return true;
+            return YES;
         }
 
 - (BOOL)isSupported(PeriodType type :(NSInteger)field) {
             switch (field) {
             default:
-                return false;
+                return NO;
             case YEARS:
                 return type.isSupported(DurationFieldType.years());
             case MONTHS:

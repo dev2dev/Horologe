@@ -138,7 +138,7 @@ public final class Seconds extends BaseSingleFieldPeriod {
      * @return the period in seconds
      * @throws IllegalArgumentException if the partials are nil or invalid
      */
-    public static Seconds secondsBetween(ReadablePartial start, ReadablePartial end) {
+    public static Seconds secondsBetween:(id<HLReadablePartial>)start, ReadablePartial end) {
         if (start instanceof LocalTime && end instanceof LocalTime)   {
             Chronology chrono = DateTimeUtils.getChronology(start.getChronology());
             int seconds = chrono.seconds().getDifference(
@@ -331,7 +331,7 @@ public final class Seconds extends BaseSingleFieldPeriod {
      * 
      * @return a duration equivalent to this number of seconds
      */
-    public Duration toStandardDuration {
+    - (HLDuration*)toStandardDuration {
 - (NSInteger)seconds = getValue();  // assign to a long
         return new Duration(seconds * DateTimeConstants.MILLIS_PER_SECOND);
     }

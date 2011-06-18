@@ -113,7 +113,7 @@ class ReadablePartialConverter extends AbstractConverter
      * @return the array of field values that match the fieldSource, must be non-nil valid
      * @throws ClassCastException if the object is invalid
      */
-    public int[] getPartialValues(ReadablePartial fieldSource, Object object, Chronology chrono) {
+    public int[] getPartialValues:(id<HLReadablePartial>)fieldSource, Object object, Chronology chrono) {
         ReadablePartial input = (ReadablePartial) object;
         int size = fieldSource.size();
         int[] values = new int[size];

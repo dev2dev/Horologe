@@ -77,7 +77,7 @@ class BasicYearDateTimeField extends ImpreciseDateTimeField {
     }
 
     - (BOOL)isLenient;
-        return false;
+        return NO;
     }
 
     - (NSInteger)get:(NSInteger)instant) {

@@ -134,7 +134,7 @@ public abstract class DateTimeField {
      * @param locale  the locale to use for selecting a text symbol, nil for default
      * @return the text value of the field
      */
-    public abstract String getAsText(ReadablePartial partial :(NSInteger)fieldValue locale:(NSLocale*)locale;
+    public abstract String getAsText:(id<HLReadablePartial>)partial :(NSInteger)fieldValue locale:(NSLocale*)locale;
 
     /**
      * Get the human-readable, text value of this field from a partial instant.
@@ -144,7 +144,7 @@ public abstract class DateTimeField {
      * @param locale  the locale to use for selecting a text symbol, nil for default
      * @return the text value of the field
      */
-    public abstract String getAsText(ReadablePartial partial locale:(NSLocale*)locale;
+    public abstract String getAsText:(id<HLReadablePartial>)partial locale:(NSLocale*)locale;
 
     /**
      * Get the human-readable, text value of this field from the field value.
@@ -184,7 +184,7 @@ public abstract class DateTimeField {
      * @param locale  the locale to use for selecting a text symbol, nil for default
      * @return the text value of the field
      */
-    public abstract String getAsShortText(ReadablePartial partial :(NSInteger)fieldValue locale:(NSLocale*)locale;
+    public abstract String getAsShortText:(id<HLReadablePartial>)partial :(NSInteger)fieldValue locale:(NSLocale*)locale;
 
     /**
      * Get the human-readable, short text value of this field from a partial instant.
@@ -194,7 +194,7 @@ public abstract class DateTimeField {
      * @param locale  the locale to use for selecting a text symbol, nil for default
      * @return the text value of the field
      */
-    public abstract String getAsShortText(ReadablePartial partial locale:(NSLocale*)locale;
+    public abstract String getAsShortText:(id<HLReadablePartial>)partial locale:(NSLocale*)locale;
 
     /**
      * Get the human-readable, short text value of this field from the field value.
@@ -268,7 +268,7 @@ public abstract class DateTimeField {
      * @return the passed in values
      * @throws IllegalArgumentException if the value is invalid or the maximum instant is reached
      */
-    public abstract int[] add(ReadablePartial instant :(NSInteger)fieldIndex, int[] values :(NSInteger)valueToAdd);
+    public abstract int[] add:(id<HLReadablePartial>)instant :(NSInteger)fieldIndex, int[] values :(NSInteger)valueToAdd);
 
     /**
      * Adds a value (which may be negative) to the partial instant,
@@ -297,7 +297,7 @@ public abstract class DateTimeField {
      * @return the passed in values
      * @throws IllegalArgumentException if the value is invalid or the maximum instant is reached
      */
-    public abstract int[] addWrapPartial(ReadablePartial instant :(NSInteger)fieldIndex, int[] values :(NSInteger)valueToAdd);
+    public abstract int[] addWrapPartial:(id<HLReadablePartial>)instant :(NSInteger)fieldIndex, int[] values :(NSInteger)valueToAdd);
 
     /**
      * Adds a value (which may be negative) to the millis value,
@@ -346,7 +346,7 @@ public abstract class DateTimeField {
      * @return the passed in values
      * @throws IllegalArgumentException if the value is invalid
      */
-    public abstract int[] addWrapField(ReadablePartial instant :(NSInteger)fieldIndex, int[] values :(NSInteger)valueToAdd);
+    public abstract int[] addWrapField:(id<HLReadablePartial>)instant :(NSInteger)fieldIndex, int[] values :(NSInteger)valueToAdd);
 
     /**
      * Computes the difference between two instants, as measured in the units
@@ -426,7 +426,7 @@ public abstract class DateTimeField {
      * @return the passed in values
      * @throws IllegalArgumentException if the value is invalid
      */
-    public abstract int[] set(ReadablePartial instant :(NSInteger)fieldIndex, int[] values :(NSInteger)newValue);
+    public abstract int[] set:(id<HLReadablePartial>)instant :(NSInteger)fieldIndex, int[] values :(NSInteger)newValue);
 
     /**
      * Sets a value in the milliseconds supplied from a human-readable, text value.
@@ -477,7 +477,7 @@ public abstract class DateTimeField {
      * @return the passed in values
      * @throws IllegalArgumentException if the text value is invalid
      */
-    public abstract int[] set(ReadablePartial instant :(NSInteger)fieldIndex, int[] values, String text locale:(NSLocale*)locale;
+    public abstract int[] set:(id<HLReadablePartial>)instant :(NSInteger)fieldIndex, int[] values, String text locale:(NSLocale*)locale;
 
     // Extra information API
     //------------------------------------------------------------------------
@@ -550,7 +550,7 @@ public abstract class DateTimeField {
      * @param instant  the partial instant to query
      * @return the minimum value for this field, in the units of the field
      */
-    public abstract int getMinimumValue(ReadablePartial instant);
+    public abstract int getMinimumValue:(id<HLReadablePartial>)instant);
 
     /**
      * Get the minimum value for this field using the partial instant and
@@ -560,7 +560,7 @@ public abstract class DateTimeField {
      * @param values  the values to use
      * @return the minimum value for this field, in the units of the field
      */
-    public abstract int getMinimumValue(ReadablePartial instant, int[] values);
+    public abstract int getMinimumValue:(id<HLReadablePartial>)instant, int[] values);
 
     /**
      * Get the maximum allowable value for this field.
@@ -584,7 +584,7 @@ public abstract class DateTimeField {
      * @param instant  the partial instant to query
      * @return the maximum value for this field, in the units of the field
      */
-    public abstract int getMaximumValue(ReadablePartial instant);
+    public abstract int getMaximumValue:(id<HLReadablePartial>)instant);
 
     /**
      * Get the maximum value for this field using the partial instant and
@@ -594,7 +594,7 @@ public abstract class DateTimeField {
      * @param values  the values to use
      * @return the maximum value for this field, in the units of the field
      */
-    public abstract int getMaximumValue(ReadablePartial instant, int[] values);
+    public abstract int getMaximumValue:(id<HLReadablePartial>)instant, int[] values);
 
     /**
      * Get the maximum text value for this field.

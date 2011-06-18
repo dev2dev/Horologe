@@ -77,7 +77,7 @@
  * This method uses the chronology of the instant to obtain the value.
  * For example:
  * <pre>
- * DateTime dt = new DateTime();
+ * DateTime dt = [[[HLDateTime alloc] initWithMillis:[self );
  * int year = dt.get(DateTimeFieldType.year());
  * </pre>
  *
@@ -308,7 +308,7 @@
  * 
  * @return true if this instant is before the current instant
  */
-- (BOOL)isEqualNow;
+- (BOOL)isEqualToNow;
 
 /**
  * Is this instant equal to the instant passed in

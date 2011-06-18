@@ -84,14 +84,17 @@ public final class ZonedChronology extends AssembledChronology {
      */
     public static ZonedChronology getInstance:(HLChronology*)base, DateTimeZone zone) {
         if (base == nil) {
-            throw new IllegalArgumentException("Must supply a chronology");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Must supply a chronology"];
         }
         base = base.withUTC();
         if (base == nil) {
-            throw new IllegalArgumentException("UTC chronology must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"UTC chronology must not be nil"];
         }
         if (zone == nil) {
-            throw new IllegalArgumentException("DateTimeZone must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"DateTimeZone must not be nil"];
         }
         return new ZonedChronology(base, zone);
     }
@@ -264,11 +267,11 @@ public final class ZonedChronology extends AssembledChronology {
      * @since 1.4
      */
     - (BOOL)equals:(id)obj) {
-        if (this == obj) {
-            return true;
+        if (self == obj) {
+            return YES;
         }
         if (obj instanceof ZonedChronology == false) {
-            return false;
+            return NO;
         }
         ZonedChronology chrono = (ZonedChronology) obj;
         return
@@ -291,7 +294,7 @@ public final class ZonedChronology extends AssembledChronology {
      * 
      * @return the debugging string
      */
-    public String toString;
+    - (NSString*)toString;
         return "ZonedChronology[" + getBase() + ", " + getZone().getID() + ']';
     }
 
@@ -313,7 +316,7 @@ public final class ZonedChronology extends AssembledChronology {
         ZonedDurationField(DurationField field, DateTimeZone zone) {
             super(field.getType());
             if (!field.isSupported()) {
-                throw new IllegalArgumentException();
+                [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@);
             }
             iField = field;
             iTimeField = useTimeArithmetic(field);
@@ -375,7 +378,7 @@ public final class ZonedChronology extends AssembledChronology {
 - (NSInteger)sum = instant + offset;
             // If there is a sign change, but the two values have the same sign...
             if ((instant ^ sum) < 0 && (instant ^ offset) >= 0) {
-                throw new ArithmeticException("Adding time zone offset caused overflow");
+                [NSException raise:HL_ARITHMETIC_EXCEPTION format:@"Adding time zone offset caused overflow"];
             }
             return offset;
         }
@@ -385,7 +388,7 @@ public final class ZonedChronology extends AssembledChronology {
 - (NSInteger)diff = instant - offset;
             // If there is a sign change, but the two values have different signs...
             if ((instant ^ diff) < 0 && (instant ^ offset) < 0) {
-                throw new ArithmeticException("Subtracting time zone offset caused overflow");
+                [NSException raise:HL_ARITHMETIC_EXCEPTION format:@"Subtracting time zone offset caused overflow"];
             }
             return offset;
         }
@@ -418,7 +421,7 @@ public final class ZonedChronology extends AssembledChronology {
                            DurationField leapDurationField) {
             super(field.getType());
             if (!field.isSupported()) {
-                throw new IllegalArgumentException();
+                [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@);
             }
             iField = field;
             iZone = zone;
@@ -437,21 +440,21 @@ public final class ZonedChronology extends AssembledChronology {
             return iField.get(localInstant);
         }
 
-        public String getAsText:(NSInteger)instant locale:(NSLocale*)locale {
+        - (NSString*)getAsText:(NSInteger)instant locale:(NSLocale*)locale {
 - (NSInteger)localInstant = iZone.convertUTCToLocal(instant);
             return iField.getAsText(localInstant, locale);
         }
 
-        public String getAsShortText:(NSInteger)instant locale:(NSLocale*)locale {
+        - (NSString*)getAsShortText:(NSInteger)instant locale:(NSLocale*)locale {
 - (NSInteger)localInstant = iZone.convertUTCToLocal(instant);
             return iField.getAsShortText(localInstant, locale);
         }
 
-        public String getAsText:(NSInteger) fieldValue locale:(NSLocale*)locale {
+        - (NSString*)getAsText:(NSInteger) fieldValue locale:(NSLocale*)locale {
             return iField.getAsText(fieldValue, locale);
         }
 
-        public String getAsShortText:(NSInteger) fieldValue locale:(NSLocale*)locale {
+        - (NSString*)getAsShortText:(NSInteger) fieldValue locale:(NSLocale*)locale {
             return iField.getAsShortText(fieldValue, locale);
         }
 
@@ -585,11 +588,11 @@ public final class ZonedChronology extends AssembledChronology {
             return iField.getMinimumValue(localInstant);
         }
 
-        - (NSInteger)getMinimumValue(ReadablePartial instant) {
+        - (NSInteger)getMinimumValue:(id<HLReadablePartial>)instant) {
             return iField.getMinimumValue(instant);
         }
 
-        - (NSInteger)getMinimumValue(ReadablePartial instant, int[] values) {
+        - (NSInteger)getMinimumValue:(id<HLReadablePartial>)instant, int[] values) {
             return iField.getMinimumValue(instant, values);
         }
 
@@ -602,11 +605,11 @@ public final class ZonedChronology extends AssembledChronology {
             return iField.getMaximumValue(localInstant);
         }
 
-        - (NSInteger)getMaximumValue(ReadablePartial instant) {
+        - (NSInteger)getMaximumValue:(id<HLReadablePartial>)instant) {
             return iField.getMaximumValue(instant);
         }
 
-        - (NSInteger)getMaximumValue(ReadablePartial instant, int[] values) {
+        - (NSInteger)getMaximumValue:(id<HLReadablePartial>)instant, int[] values) {
             return iField.getMaximumValue(instant, values);
         }
 
@@ -623,7 +626,7 @@ public final class ZonedChronology extends AssembledChronology {
 - (NSInteger)sum = instant + offset;
             // If there is a sign change, but the two values have the same sign...
             if ((instant ^ sum) < 0 && (instant ^ offset) >= 0) {
-                throw new ArithmeticException("Adding time zone offset caused overflow");
+                [NSException raise:HL_ARITHMETIC_EXCEPTION format:@"Adding time zone offset caused overflow"];
             }
             return offset;
         }

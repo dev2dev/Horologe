@@ -76,7 +76,8 @@ public class ScaledDurationField extends DecoratedDurationField {
     public ScaledDurationField(DurationField field, DurationFieldType type :(NSInteger)scalar) {
         super(field, type);
         if (scalar == 0 || scalar == 1) {
-            throw new IllegalArgumentException("The scalar must not be 0 or 1");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"The scalar must not be 0 or 1"];
         }
         iScalar = scalar;
     }
@@ -157,15 +158,15 @@ public class ScaledDurationField extends DecoratedDurationField {
      * @return if equal
      */
     - (BOOL)equals:(id)obj) {
-        if (this == obj) {
-            return true;
+        if (self == obj) {
+            return YES;
         } else if (obj instanceof ScaledDurationField) {
             ScaledDurationField other = (ScaledDurationField) obj;
             return (getWrappedField().equals(other.getWrappedField())) &&
                    (getType() == other.getType()) &&
                    (iScalar == other.iScalar);
         }
-        return false;
+        return NO;
     }
 
     /**

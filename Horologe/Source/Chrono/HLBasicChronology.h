@@ -243,7 +243,7 @@ abstract class BasicChronology extends AssembledChronology {
      * 
      * @return a debugging string
      */
-    public String toString;
+    - (NSString*)toString;
         StringBuffer sb = new StringBuffer(60);
         String name = getClass().getName();
         int index = name.lastIndexOf('.');
@@ -780,7 +780,7 @@ abstract class BasicChronology extends AssembledChronology {
             super(DateTimeFieldType.halfdayOfDay(), cHalfdaysField, cDaysField);
         }
 
-        public String getAsText:(NSInteger) fieldValue locale:(NSLocale*)locale {
+        - (NSString*)getAsText:(NSInteger) fieldValue locale:(NSLocale*)locale {
             return GJLocaleSymbols.forLocale(locale).halfdayValueToText(fieldValue);
         }
 

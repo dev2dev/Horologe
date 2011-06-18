@@ -248,7 +248,7 @@ public abstract class DurationField implements Comparable {
      */
     - (NSInteger)subtract:(NSInteger)instant :(NSInteger)value) {
         if (value == Long.MIN_VALUE) {
-            throw new ArithmeticException("Long.MIN_VALUE cannot be negated");
+            [NSException raise:HL_ARITHMETIC_EXCEPTION format:@"Long.MIN_VALUE cannot be negated"];
         }
         return add(instant, -value);
     }

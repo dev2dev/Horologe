@@ -76,10 +76,11 @@ public abstract class BaseDateTimeField extends DateTimeField {
     /**
      * Constructor.
      */
-    protected BaseDateTimeField(DateTimeFieldType type) {
+    protected BaseDateTimeField:(HLDateTimeFieldType*)type) {
         super();
         if (type == nil) {
-            throw new IllegalArgumentException("The type must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"The type must not be nil"];
         }
         iType = type;
     }
@@ -96,7 +97,7 @@ public abstract class BaseDateTimeField extends DateTimeField {
      * @return true always
      */
     public final boolean isSupported;
-        return true;
+        return YES;
     }
 
     // Main access API
@@ -120,7 +121,7 @@ public abstract class BaseDateTimeField extends DateTimeField {
      * @param locale the locale to use for selecting a text symbol, nil means default
      * @return the text value of the field
      */
-    public String getAsText:(NSInteger)instant locale:(NSLocale*)locale {
+    - (NSString*)getAsText:(NSInteger)instant locale:(NSLocale*)locale {
         return getAsText(get(instant), locale);
     }
 
@@ -147,7 +148,7 @@ public abstract class BaseDateTimeField extends DateTimeField {
      * @param locale  the locale to use for selecting a text symbol, nil for default
      * @return the text value of the field
      */
-    public String getAsText(ReadablePartial partial :(NSInteger)fieldValue locale:(NSLocale*)locale {
+    - (NSString*)getAsText:(id<HLReadablePartial>)partial :(NSInteger)fieldValue locale:(NSLocale*)locale {
         return getAsText(fieldValue, locale);
     }
 
@@ -162,7 +163,7 @@ public abstract class BaseDateTimeField extends DateTimeField {
      * @param locale  the locale to use for selecting a text symbol, nil for default
      * @return the text value of the field
      */
-    public final String getAsText(ReadablePartial partial locale:(NSLocale*)locale {
+    public final String getAsText:(id<HLReadablePartial>)partial locale:(NSLocale*)locale {
         return getAsText(partial, partial.get(getType()), locale);
     }
 
@@ -179,7 +180,7 @@ public abstract class BaseDateTimeField extends DateTimeField {
      * @param locale the locale to use for selecting a text symbol, nil for default
      * @return the text value of the field
      */
-    public String getAsText:(NSInteger) fieldValue locale:(NSLocale*)locale {
+    - (NSString*)getAsText:(NSInteger) fieldValue locale:(NSLocale*)locale {
         return Integer.toString(fieldValue);
     }
 
@@ -194,7 +195,7 @@ public abstract class BaseDateTimeField extends DateTimeField {
      * @param locale the locale to use for selecting a text symbol, nil means default
      * @return the text value of the field
      */
-    public String getAsShortText:(NSInteger)instant locale:(NSLocale*)locale {
+    - (NSString*)getAsShortText:(NSInteger)instant locale:(NSLocale*)locale {
         return getAsShortText(get(instant), locale);
     }
 
@@ -221,7 +222,7 @@ public abstract class BaseDateTimeField extends DateTimeField {
      * @param locale  the locale to use for selecting a text symbol, nil for default
      * @return the text value of the field
      */
-    public String getAsShortText(ReadablePartial partial :(NSInteger)fieldValue locale:(NSLocale*)locale {
+    - (NSString*)getAsShortText:(id<HLReadablePartial>)partial :(NSInteger)fieldValue locale:(NSLocale*)locale {
         return getAsShortText(fieldValue, locale);
     }
 
@@ -236,7 +237,7 @@ public abstract class BaseDateTimeField extends DateTimeField {
      * @param locale  the locale to use for selecting a text symbol, nil for default
      * @return the text value of the field
      */
-    public final String getAsShortText(ReadablePartial partial locale:(NSLocale*)locale {
+    public final String getAsShortText:(id<HLReadablePartial>)partial locale:(NSLocale*)locale {
         return getAsShortText(partial, partial.get(getType()), locale);
     }
 
@@ -253,7 +254,7 @@ public abstract class BaseDateTimeField extends DateTimeField {
      * @param locale the locale to use for selecting a text symbol, nil for default
      * @return the text value of the field
      */
-    public String getAsShortText:(NSInteger) fieldValue locale:(NSLocale*)locale {
+    - (NSString*)getAsShortText:(NSInteger) fieldValue locale:(NSLocale*)locale {
         return getAsText(fieldValue, locale);
     }
 
@@ -324,7 +325,7 @@ public abstract class BaseDateTimeField extends DateTimeField {
      * @return the passed in values
      * @throws IllegalArgumentException if the value is invalid or the maximum instant is reached
      */
-    public int[] add(ReadablePartial instant :(NSInteger)fieldIndex, int[] values :(NSInteger)valueToAdd) {
+    public int[] add:(id<HLReadablePartial>)instant :(NSInteger)fieldIndex, int[] values :(NSInteger)valueToAdd) {
         if (valueToAdd == 0) {
             return values;
         }
@@ -342,12 +343,14 @@ public abstract class BaseDateTimeField extends DateTimeField {
             }
             if (nextField == nil) {
                 if (fieldIndex == 0) {
-                    throw new IllegalArgumentException("Maximum value exceeded for add");
+                    [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Maximum value exceeded for add"];
                 }
                 nextField = instant.getField(fieldIndex - 1);
                 // test only works if this field is UTC (ie. local)
                 if (getRangeDurationField().getType() != nextField.getDurationField().getType()) {
-                    throw new IllegalArgumentException("Fields invalid for add");
+                    [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Fields invalid for add"];
                 }
             }
             valueToAdd -= (max + 1) - values[fieldIndex];  // reduce the amount to add
@@ -363,11 +366,13 @@ public abstract class BaseDateTimeField extends DateTimeField {
             }
             if (nextField == nil) {
                 if (fieldIndex == 0) {
-                    throw new IllegalArgumentException("Maximum value exceeded for add");
+                    [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Maximum value exceeded for add"];
                 }
                 nextField = instant.getField(fieldIndex - 1);
                 if (getRangeDurationField().getType() != nextField.getDurationField().getType()) {
-                    throw new IllegalArgumentException("Fields invalid for add");
+                    [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Fields invalid for add"];
                 }
             }
             valueToAdd -= (min - 1) - values[fieldIndex];  // reduce the amount to add
@@ -405,7 +410,7 @@ public abstract class BaseDateTimeField extends DateTimeField {
      * @return the passed in values
      * @throws IllegalArgumentException if the value is invalid or the maximum instant is reached
      */
-    public int[] addWrapPartial(ReadablePartial instant :(NSInteger)fieldIndex, int[] values :(NSInteger)valueToAdd) {
+    public int[] addWrapPartial:(id<HLReadablePartial>)instant :(NSInteger)fieldIndex, int[] values :(NSInteger)valueToAdd) {
         if (valueToAdd == 0) {
             return values;
         }
@@ -430,7 +435,8 @@ public abstract class BaseDateTimeField extends DateTimeField {
                 nextField = instant.getField(fieldIndex - 1);
                 // test only works if this field is UTC (ie. local)
                 if (getRangeDurationField().getType() != nextField.getDurationField().getType()) {
-                    throw new IllegalArgumentException("Fields invalid for add");
+                    [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Fields invalid for add"];
                 }
             }
             valueToAdd -= (max + 1) - values[fieldIndex];  // reduce the amount to add
@@ -452,7 +458,8 @@ public abstract class BaseDateTimeField extends DateTimeField {
                 }
                 nextField = instant.getField(fieldIndex - 1);
                 if (getRangeDurationField().getType() != nextField.getDurationField().getType()) {
-                    throw new IllegalArgumentException("Fields invalid for add");
+                    [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Fields invalid for add"];
                 }
             }
             valueToAdd -= (min - 1) - values[fieldIndex];  // reduce the amount to add
@@ -521,7 +528,7 @@ public abstract class BaseDateTimeField extends DateTimeField {
      * @return the passed in values
      * @throws IllegalArgumentException if the value is invalid
      */
-    public int[] addWrapField(ReadablePartial instant :(NSInteger)fieldIndex, int[] values :(NSInteger)valueToAdd) {
+    public int[] addWrapField:(id<HLReadablePartial>)instant :(NSInteger)fieldIndex, int[] values :(NSInteger)valueToAdd) {
         int current = values[fieldIndex];
         int wrapped = FieldUtils.getWrappedValue
             (current, valueToAdd, getMinimumValue(instant), getMaximumValue(instant));
@@ -611,7 +618,7 @@ public abstract class BaseDateTimeField extends DateTimeField {
      * @return the updated values
      * @throws IllegalArgumentException if the value is invalid
      */
-    public int[] set(ReadablePartial partial :(NSInteger)fieldIndex, int[] values :(NSInteger)newValue) {
+    public int[] set:(id<HLReadablePartial>)partial :(NSInteger)fieldIndex, int[] values :(NSInteger)newValue) {
         FieldUtils.verifyValueBounds(this, newValue, getMinimumValue(partial, values), getMaximumValue(partial, values));
         values[fieldIndex] = newValue;
         
@@ -680,7 +687,7 @@ public abstract class BaseDateTimeField extends DateTimeField {
      * @return the passed in values
      * @throws IllegalArgumentException if the text value is invalid
      */
-    public int[] set(ReadablePartial instant :(NSInteger)fieldIndex, int[] values, String text locale:(NSLocale*)locale {
+    public int[] set:(id<HLReadablePartial>)instant :(NSInteger)fieldIndex, int[] values, String text locale:(NSLocale*)locale {
         int value = convertText(text, locale);
         return set(instant, fieldIndex, values, value);
     }
@@ -693,7 +700,7 @@ public abstract class BaseDateTimeField extends DateTimeField {
      * @return the value extracted from the text
      * @throws IllegalArgumentException if the text is invalid
      */
-    protected int convertText(String text locale:(NSLocale*)locale {
+    - (NSInteger)_convertText(String text locale:(NSLocale*)locale {
         try {
             return Integer.parseInt(text);
         } catch (NumberFormatException ex) {
@@ -731,7 +738,7 @@ public abstract class BaseDateTimeField extends DateTimeField {
      * @return true if the field is 'leap'
      */
     - (BOOL)isLeap:(NSInteger)instant) {
-        return false;
+        return NO;
     }
 
     /**
@@ -784,7 +791,7 @@ public abstract class BaseDateTimeField extends DateTimeField {
      * @param instant  the partial instant to query
      * @return the minimum value for this field, in the units of the field
      */
-    - (NSInteger)getMinimumValue(ReadablePartial instant) {
+    - (NSInteger)getMinimumValue:(id<HLReadablePartial>)instant) {
         return getMinimumValue();
     }
 
@@ -798,7 +805,7 @@ public abstract class BaseDateTimeField extends DateTimeField {
      * @param values  the values to use
      * @return the minimum value for this field, in the units of the field
      */
-    - (NSInteger)getMinimumValue(ReadablePartial instant, int[] values) {
+    - (NSInteger)getMinimumValue:(id<HLReadablePartial>)instant, int[] values) {
         return getMinimumValue(instant);
     }
 
@@ -830,7 +837,7 @@ public abstract class BaseDateTimeField extends DateTimeField {
      * @param instant  the partial instant to query
      * @return the maximum value for this field, in the units of the field
      */
-    - (NSInteger)getMaximumValue(ReadablePartial instant) {
+    - (NSInteger)getMaximumValue:(id<HLReadablePartial>)instant) {
         return getMaximumValue();
     }
 
@@ -844,7 +851,7 @@ public abstract class BaseDateTimeField extends DateTimeField {
      * @param values  the values to use
      * @return the maximum value for this field, in the units of the field
      */
-    - (NSInteger)getMaximumValue(ReadablePartial instant, int[] values) {
+    - (NSInteger)getMaximumValue:(id<HLReadablePartial>)instant, int[] values) {
         return getMaximumValue(instant);
     }
 
@@ -1029,7 +1036,7 @@ public abstract class BaseDateTimeField extends DateTimeField {
      * 
      * @return debug string
      */
-    public String toString;
+    - (NSString*)toString;
         return "DateTimeField[" + getName() + ']';
     }
 

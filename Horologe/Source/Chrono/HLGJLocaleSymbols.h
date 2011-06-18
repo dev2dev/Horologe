@@ -201,7 +201,7 @@ class GJLocaleSymbols {
         iMaxHalfdayLength = maxLength(iHalfday);
     }
 
-    public String eraValueToText:(NSInteger) value) {
+    - (NSString*)eraValueToText:(NSInteger) value) {
         return iEras[value];
     }
 
@@ -217,11 +217,11 @@ class GJLocaleSymbols {
         return iMaxEraLength;
     }
 
-    public String monthOfYearValueToText:(NSInteger) value) {
+    - (NSString*)monthOfYearValueToText:(NSInteger) value) {
         return iMonths[value];
     }
 
-    public String monthOfYearValueToShortText:(NSInteger) value) {
+    - (NSString*)monthOfYearValueToShortText:(NSInteger) value) {
         return iShortMonths[value];
     }
 
@@ -241,11 +241,11 @@ class GJLocaleSymbols {
         return iMaxShortMonthLength;
     }
 
-    public String dayOfWeekValueToText:(NSInteger) value) {
+    - (NSString*)dayOfWeekValueToText:(NSInteger) value) {
         return iDaysOfWeek[value];
     }
 
-    public String dayOfWeekValueToShortText:(NSInteger) value) {
+    - (NSString*)dayOfWeekValueToShortText:(NSInteger) value) {
         return iShortDaysOfWeek[value];
     }
 
@@ -265,7 +265,7 @@ class GJLocaleSymbols {
         return iMaxShortDayOfWeekLength;
     }
 
-    public String halfdayValueToText:(NSInteger) value) {
+    - (NSString*)halfdayValueToText:(NSInteger) value) {
         return iHalfday[value];
     }
 

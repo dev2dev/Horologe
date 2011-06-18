@@ -114,7 +114,7 @@ final class BasicWeekOfWeekyearDateTimeField extends PreciseDurationDateTimeFiel
         return iChronology.getWeeksInYear(weekyear);
     }
 
-    - (NSInteger)getMaximumValue(ReadablePartial partial) {
+    - (NSInteger)getMaximumValue:(id<HLReadablePartial>)partial) {
         if (partial.isSupported(DateTimeFieldType.weekyear())) {
             int weekyear = partial.get(DateTimeFieldType.weekyear());
             return iChronology.getWeeksInYear(weekyear);
@@ -122,7 +122,7 @@ final class BasicWeekOfWeekyearDateTimeField extends PreciseDurationDateTimeFiel
         return 53;
     }
 
-    - (NSInteger)getMaximumValue(ReadablePartial partial, int[] values) {
+    - (NSInteger)getMaximumValue:(id<HLReadablePartial>)partial, int[] values) {
         int size = partial.size();
         for(NSInteger i = 0; i < size; i++) {
             if (partial.getFieldType(i) == DateTimeFieldType.weekyear()) {
@@ -133,7 +133,7 @@ final class BasicWeekOfWeekyearDateTimeField extends PreciseDurationDateTimeFiel
         return 53;
     }
 
-    protected int getMaximumValueForSet:(NSInteger)instant :(NSInteger)value) {
+    - (NSInteger)_getMaximumValueForSet:(NSInteger)instant :(NSInteger)value) {
         return value > 52 ? getMaximumValue(instant) : 52;
     }
 

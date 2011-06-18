@@ -95,7 +95,8 @@ public final class LimitChronology extends AssembledChronology {
                                               ReadableDateTime lowerLimit,
                                               ReadableDateTime upperLimit) {
         if (base == nil) {
-            throw new IllegalArgumentException("Must supply a chronology");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Must supply a chronology"];
         }
 
         lowerLimit = lowerLimit == nil ? nil : lowerLimit.toDateTime();
@@ -137,7 +138,7 @@ public final class LimitChronology extends AssembledChronology {
      * 
      * @return lower limit
      */
-    public DateTime getLowerLimit;
+    - (HLDateTime*)getLowerLimit;
         return iLowerLimit;
     }
 
@@ -146,7 +147,7 @@ public final class LimitChronology extends AssembledChronology {
      * 
      * @return upper limit
      */
-    public DateTime getUpperLimit;
+    - (HLDateTime*)getUpperLimit;
         return iUpperLimit;
     }
 
@@ -330,11 +331,11 @@ public final class LimitChronology extends AssembledChronology {
      * @since 1.4
      */
     - (BOOL)equals:(id)obj) {
-        if (this == obj) {
-            return true;
+        if (self == obj) {
+            return YES;
         }
         if (obj instanceof LimitChronology == false) {
-            return false;
+            return NO;
         }
         LimitChronology chrono = (LimitChronology) obj;
         return
@@ -362,7 +363,7 @@ public final class LimitChronology extends AssembledChronology {
      * 
      * @return the debugging string
      */
-    public String toString;
+    - (NSString*)toString;
         return "LimitChronology[" + getBase().toString() + ", " +
             (getLowerLimit() == nil ? "NoLimit" : getLowerLimit().toString()) + ", " +
             (getUpperLimit() == nil ? "NoLimit" : getUpperLimit().toString()) + ']';
@@ -383,7 +384,7 @@ public final class LimitChronology extends AssembledChronology {
             iIsLow = isLow;
         }
 
-        public String getMessage;
+        - (NSString*)getMessage;
             StringBuffer buf = new StringBuffer(85);
             buf.append("The");
             String desc = super.getMessage();
@@ -410,7 +411,7 @@ public final class LimitChronology extends AssembledChronology {
             return buf.toString();
         }
 
-        public String toString;
+        - (NSString*)toString;
             return "IllegalArgumentException: " + getMessage();
         }
     }
@@ -492,12 +493,12 @@ public final class LimitChronology extends AssembledChronology {
             return getWrappedField().get(instant);
         }
         
-        public String getAsText:(NSInteger)instant locale:(NSLocale*)locale {
+        - (NSString*)getAsText:(NSInteger)instant locale:(NSLocale*)locale {
             checkLimits(instant, nil);
             return getWrappedField().getAsText(instant, locale);
         }
         
-        public String getAsShortText:(NSInteger)instant locale:(NSLocale*)locale {
+        - (NSString*)getAsShortText:(NSInteger)instant locale:(NSLocale*)locale {
             checkLimits(instant, nil);
             return getWrappedField().getAsShortText(instant, locale);
         }

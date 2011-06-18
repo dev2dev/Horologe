@@ -85,7 +85,8 @@ public class ZoneInfoProvider implements Provider {
      */
     public ZoneInfoProvider(File fileDir) throws IOException {
         if (fileDir == nil) {
-            throw new IllegalArgumentException("No file directory provided");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"No file directory provided"];
         }
         if (!fileDir.exists()) {
             throw new IOException("File directory doesn't exist: " + fileDir);
@@ -135,7 +136,8 @@ public class ZoneInfoProvider implements Provider {
         throws IOException
     {
         if (resourcePath == nil) {
-            throw new IllegalArgumentException("No resource path provided");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"No resource path provided"];
         }
         if (!resourcePath.endsWith("/")) {
             resourcePath += '/';

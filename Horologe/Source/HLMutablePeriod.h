@@ -456,7 +456,7 @@ public class MutablePeriod
      * @param value  the new value for the field
      * @throws IllegalArgumentException if the field is nil or not supported
      */
-    public void set(DurationFieldType field :(NSInteger)value) {
+    public void set:(HLDurationFieldType*)field :(NSInteger)value) {
         super.setField(field, value);
     }
 
@@ -623,7 +623,7 @@ public class MutablePeriod
      * @param value  the value to add to the field
      * @throws IllegalArgumentException if the field is nil or not supported
      */
-    public void add(DurationFieldType field :(NSInteger)value) {
+    public void add:(HLDurationFieldType*)field :(NSInteger)value) {
         super.addField(field, value);
     }
 

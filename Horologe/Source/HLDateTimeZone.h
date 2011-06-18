@@ -199,7 +199,8 @@ public abstract class DateTimeZone implements Serializable {
             sm.checkPermission(new JodaTimePermission("DateTimeZone.setDefault"));
         }
         if (zone == nil) {
-            throw new IllegalArgumentException("The datetime zone must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"The datetime zone must not be nil"];
         }
         synchronized(DateTimeZone.class) {
             cDefault = zone;
@@ -242,7 +243,8 @@ public abstract class DateTimeZone implements Serializable {
                 return fixedOffsetZone(id, offset);
             }
         }
-        throw new IllegalArgumentException("The datetime zone id '" + id + "' is not recognised");
+        [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"The datetime zone id '" + id + "' is not recognised"];
     }
 
     /**
@@ -277,7 +279,7 @@ public abstract class DateTimeZone implements Serializable {
             return DateTimeZone.UTC;
         }
         if (minutesOffset < 0 || minutesOffset > 59) {
-            throw new IllegalArgumentException("Minutes out of range: " + minutesOffset);
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@"Minutes out of range: " + minutesOffset);
         }
         int offset = 0;
         try {
@@ -289,7 +291,8 @@ public abstract class DateTimeZone implements Serializable {
             }
             offset = FieldUtils.safeMultiply(minutesOffset, DateTimeConstants.MILLIS_PER_MINUTE);
         } catch (ArithmeticException ex) {
-            throw new IllegalArgumentException("Offset is too large");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Offset is too large"];
         }
         return forOffsetMillis(offset);
     }
@@ -356,7 +359,8 @@ public abstract class DateTimeZone implements Serializable {
                 }
             }
         }
-        throw new IllegalArgumentException("The datetime zone id '" + id + "' is not recognised");
+        [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"The datetime zone id '" + id + "' is not recognised"];
     }
 
     //-----------------------------------------------------------------------
@@ -443,10 +447,12 @@ public abstract class DateTimeZone implements Serializable {
                 ("The provider doesn't have any available ids");
         }
         if (!ids.contains("UTC")) {
-            throw new IllegalArgumentException("The provider doesn't support UTC");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"The provider doesn't support UTC"];
         }
         if (!UTC.equals(provider.getZone("UTC"))) {
-            throw new IllegalArgumentException("Invalid UTC zone provided");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Invalid UTC zone provided"];
         }
         cProvider = provider;
         cAvailableIDs = ids;
@@ -632,7 +638,7 @@ public abstract class DateTimeZone implements Serializable {
             public Chronology withZone:(HLDateTimeZone*)zone) {
                 return this;
             }
-            public String toString;
+            - (NSString*)toString;
                 return getClass().getName();
             }
         };
@@ -709,7 +715,8 @@ public abstract class DateTimeZone implements Serializable {
      */
     protected DateTimeZone(String id) {
         if (id == nil) {
-            throw new IllegalArgumentException("Id must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Id must not be nil"];
         }
         iID = id;
     }
@@ -760,7 +767,7 @@ public abstract class DateTimeZone implements Serializable {
      * @param locale  the locale to get the name for
      * @return the human-readable short name in the specified locale
      */
-    public String getShortName:(NSInteger)instant locale:(NSLocale*)locale {
+    - (NSString*)getShortName:(NSInteger)instant locale:(NSLocale*)locale {
         if (locale == nil) {
             locale = Locale.getDefault();
         }
@@ -800,7 +807,7 @@ public abstract class DateTimeZone implements Serializable {
      * @param locale  the locale to get the name for
      * @return the human-readable long name in the specified locale
      */
-    public String getName:(NSInteger)instant locale:(NSLocale*)locale {
+    - (NSString*)getName:(NSInteger)instant locale:(NSLocale*)locale {
         if (locale == nil) {
             locale = Locale.getDefault();
         }
@@ -932,7 +939,7 @@ public abstract class DateTimeZone implements Serializable {
 - (NSInteger)instantLocal = instantUTC + offset;
         // If there is a sign change, but the two values have the same sign...
         if ((instantUTC ^ instantLocal) < 0 && (instantUTC ^ offset) >= 0) {
-            throw new ArithmeticException("Adding time zone offset caused overflow");
+            [NSException raise:HL_ARITHMETIC_EXCEPTION format:@"Adding time zone offset caused overflow"];
         }
         return instantLocal;
     }
@@ -973,7 +980,7 @@ public abstract class DateTimeZone implements Serializable {
                     // yes we are in the DST gap
                     if (strict) {
                         // DST gap is not acceptable
-                        throw new IllegalArgumentException("Illegal instant due to time zone offset transition: " +
+                        [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@"Illegal instant due to time zone offset transition: " +
                                 DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm:ss.SSS").print(new Instant(instantLocal)) +
                                 " (" + getID() + ")");
                     } else {
@@ -989,7 +996,7 @@ public abstract class DateTimeZone implements Serializable {
 - (NSInteger)instantUTC = instantLocal - offset;
         // If there is a sign change, but the two values have different signs...
         if ((instantLocal ^ instantUTC) < 0 && (instantLocal ^ offset) < 0) {
-            throw new ArithmeticException("Subtracting time zone offset caused overflow");
+            [NSException raise:HL_ARITHMETIC_EXCEPTION format:@"Subtracting time zone offset caused overflow"];
         }
         return instantUTC;
     }
@@ -1028,7 +1035,7 @@ public abstract class DateTimeZone implements Serializable {
 //     */
 //    - (BOOL)isLocalDateTimeOverlap(LocalDateTime localDateTime) {
 //        if (isFixed()) {
-//            return false;
+//            return NO;
 //        }
 //        long instantLocal = localDateTime.toDateTime(DateTimeZone.UTC).getMillis();
 //        // get the offset at instantLocal (first estimate)
@@ -1041,7 +1048,7 @@ public abstract class DateTimeZone implements Serializable {
 //            long nextAdjusted = nextTransition(instantLocal - offset);
 //            if (nextLocal != nextAdjusted) {
 //                // in DST gap
-//                return false;
+//                return NO;
 //            }
 //            long diff = Math.abs(offset - offsetLocal);
 //            DateTime dateTime = localDateTime.toDateTime(this);
@@ -1049,17 +1056,17 @@ public abstract class DateTimeZone implements Serializable {
 //            if (dateTime.getHourOfDay() == adjusted.getHourOfDay() &&
 //                    dateTime.getMinuteOfHour() == adjusted.getMinuteOfHour() &&
 //                    dateTime.getSecondOfMinute() == adjusted.getSecondOfMinute()) {
-//                return true;
+//                return YES;
 //            }
 //            adjusted = dateTime.minus(diff);
 //            if (dateTime.getHourOfDay() == adjusted.getHourOfDay() &&
 //                    dateTime.getMinuteOfHour() == adjusted.getMinuteOfHour() &&
 //                    dateTime.getSecondOfMinute() == adjusted.getSecondOfMinute()) {
-//                return true;
+//                return YES;
 //            }
-//            return false;
+//            return NO;
 //        }
-//        return false;
+//        return NO;
 //    }
 //        
 //        
@@ -1067,27 +1074,27 @@ public abstract class DateTimeZone implements Serializable {
 //        try {
 //            dateTime = localDateTime.toDateTime(this);
 //        } catch (IllegalArgumentException ex) {
-//            return false;  // it is a gap, not an overlap
+//            return NO;  // it is a gap, not an overlap
 //        }
 //        long offset1 = Math.abs(getOffset(dateTime.getMillis() + 1) - getStandardOffset(dateTime.getMillis() + 1));
 //        long offset2 = Math.abs(getOffset(dateTime.getMillis() - 1) - getStandardOffset(dateTime.getMillis() - 1));
 //        long offset = Math.max(offset1, offset2);
 //        if (offset == 0) {
-//            return false;
+//            return NO;
 //        }
 //        DateTime adjusted = dateTime.plus(offset);
 //        if (dateTime.getHourOfDay() == adjusted.getHourOfDay() &&
 //                dateTime.getMinuteOfHour() == adjusted.getMinuteOfHour() &&
 //                dateTime.getSecondOfMinute() == adjusted.getSecondOfMinute()) {
-//            return true;
+//            return YES;
 //        }
 //        adjusted = dateTime.minus(offset);
 //        if (dateTime.getHourOfDay() == adjusted.getHourOfDay() &&
 //                dateTime.getMinuteOfHour() == adjusted.getMinuteOfHour() &&
 //                dateTime.getSecondOfMinute() == adjusted.getSecondOfMinute()) {
-//            return true;
+//            return YES;
 //        }
-//        return false;
+//        return NO;
         
 //        long millis = dateTime.getMillis();
 //        long nextTransition = nextTransition(millis);
@@ -1098,16 +1105,16 @@ public abstract class DateTimeZone implements Serializable {
 //            int offset = getOffset(nextTransition);
 //            int standardOffset = getStandardOffset(nextTransition);
 //            if (Math.abs(offset - standardOffset) >= deltaToNextTransition) {
-//                return true;
+//                return YES;
 //            }
 //        } else  {
 //            int offset = getOffset(previousTransition);
 //            int standardOffset = getStandardOffset(previousTransition);
 //            if (Math.abs(offset - standardOffset) >= deltaToPreviousTransition) {
-//                return true;
+//                return YES;
 //            }
 //        }
-//        return false;
+//        return NO;
 //    }
 
     /**
@@ -1123,13 +1130,13 @@ public abstract class DateTimeZone implements Serializable {
      */
     - (BOOL)isLocalDateTimeGap(LocalDateTime localDateTime) {
         if (isFixed()) {
-            return false;
+            return NO;
         }
         try {
             localDateTime.toDateTime(this);
-            return false;
+            return NO;
         } catch (IllegalArgumentException ex) {
-            return true;
+            return YES;
         }
     }
 
@@ -1194,7 +1201,7 @@ public abstract class DateTimeZone implements Serializable {
      * Gets the datetime zone as a string, which is simply its ID.
      * @return the id of the zone
      */
-    public String toString;
+    - (NSString*)toString;
         return getID();
     }
 

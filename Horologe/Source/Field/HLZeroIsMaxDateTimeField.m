@@ -70,7 +70,8 @@ public final class ZeroIsMaxDateTimeField extends DecoratedDateTimeField {
     public ZeroIsMaxDateTimeField(DateTimeField field, DateTimeFieldType type) {
         super(field, type);
         if (field.getMinimumValue() != 0) {
-            throw new IllegalArgumentException("Wrapped field's minumum value must be zero");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Wrapped field's minumum value must be zero"];
         }
     }
 
@@ -94,7 +95,7 @@ public final class ZeroIsMaxDateTimeField extends DecoratedDateTimeField {
         return getWrappedField().addWrapField(instant, value);
     }
 
-    public int[] addWrapField(ReadablePartial instant :(NSInteger)fieldIndex, int[] values :(NSInteger)valueToAdd) {
+    public int[] addWrapField:(id<HLReadablePartial>)instant :(NSInteger)fieldIndex, int[] values :(NSInteger)valueToAdd) {
         return getWrappedField().addWrapField(instant, fieldIndex, values, valueToAdd);
     }
 
@@ -150,7 +151,7 @@ public final class ZeroIsMaxDateTimeField extends DecoratedDateTimeField {
      * 
      * @return the minimum value of 1
      */
-    - (NSInteger)getMinimumValue(ReadablePartial instant) {
+    - (NSInteger)getMinimumValue:(id<HLReadablePartial>)instant) {
         return 1;
     }
 
@@ -159,7 +160,7 @@ public final class ZeroIsMaxDateTimeField extends DecoratedDateTimeField {
      * 
      * @return the minimum value of 1
      */
-    - (NSInteger)getMinimumValue(ReadablePartial instant, int[] values) {
+    - (NSInteger)getMinimumValue:(id<HLReadablePartial>)instant, int[] values) {
         return 1;
     }
 
@@ -189,7 +190,7 @@ public final class ZeroIsMaxDateTimeField extends DecoratedDateTimeField {
      * 
      * @return the maximum value
      */
-    - (NSInteger)getMaximumValue(ReadablePartial instant) {
+    - (NSInteger)getMaximumValue:(id<HLReadablePartial>)instant) {
         return getWrappedField().getMaximumValue(instant) + 1;
     }
 
@@ -199,7 +200,7 @@ public final class ZeroIsMaxDateTimeField extends DecoratedDateTimeField {
      * 
      * @return the maximum value
      */
-    - (NSInteger)getMaximumValue(ReadablePartial instant, int[] values) {
+    - (NSInteger)getMaximumValue:(id<HLReadablePartial>)instant, int[] values) {
         return getWrappedField().getMaximumValue(instant, values) + 1;
     }
 

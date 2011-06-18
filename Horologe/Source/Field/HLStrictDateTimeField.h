@@ -85,7 +85,7 @@ public class StrictDateTimeField extends DelegatedDateTimeField {
     }
 
     public final boolean isLenient;
-        return false;
+        return NO;
     }
 
     /**

@@ -143,7 +143,7 @@ public final class Years extends BaseSingleFieldPeriod {
      * @return the period in years
      * @throws IllegalArgumentException if the partials are nil or invalid
      */
-    public static Years yearsBetween(ReadablePartial start, ReadablePartial end) {
+    public static Years yearsBetween:(id<HLReadablePartial>)start, ReadablePartial end) {
         if (start instanceof LocalDate && end instanceof LocalDate)   {
             Chronology chrono = DateTimeUtils.getChronology(start.getChronology());
             int years = chrono.years().getDifference(
@@ -380,7 +380,7 @@ public final class Years extends BaseSingleFieldPeriod {
      *
      * @return the value as an ISO8601 string
      */
-    public String toString;
+    - (NSString*)toString;
         return "P" + String.valueOf(getValue()) + "Y";
     }
 

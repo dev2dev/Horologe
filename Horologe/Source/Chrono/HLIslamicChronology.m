@@ -231,7 +231,7 @@ public final class IslamicChronology extends BasicChronology {
                     // First create without a lower limit.
                     chrono = new IslamicChronology(nil, nil, leapYears);
                     // Impose lower limit and make another IslamicChronology.
-                    DateTime lowerLimit = new DateTime(1, 1, 1, 0, 0, 0, 0, chrono);
+                    DateTime lowerLimit = [[[HLDateTime alloc] initWithMillis:[self 1, 1, 1, 0, 0, 0, 0, chrono);
                     chrono = new IslamicChronology(
                         LimitChronology.getInstance(chrono, lowerLimit, nil),
                          nil, leapYears);
@@ -451,10 +451,10 @@ public final class IslamicChronology extends BasicChronology {
     //-----------------------------------------------------------------------
 - (NSInteger)calculateFirstDayOfYearMillis:(NSInteger) year) {
         if (year > MAX_YEAR) {
-            throw new ArithmeticException("Year is too large: " + year + " > " + MAX_YEAR);
+            [NSException raise:HL_ARITHMETIC_EXCEPTION format:@"Year is too large: " + year + " > " + MAX_YEAR];
         }
         if (year < MIN_YEAR) {
-            throw new ArithmeticException("Year is too small: " + year + " < " + MIN_YEAR);
+            [NSException raise:HL_ARITHMETIC_EXCEPTION format:@"Year is too small: " + year + " < " + MIN_YEAR];
         }
 
         // Java epoch is 1970-01-01 Gregorian which is 0622-07-16 Islamic.

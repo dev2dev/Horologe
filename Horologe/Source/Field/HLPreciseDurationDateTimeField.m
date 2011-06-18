@@ -70,16 +70,18 @@ public abstract class PreciseDurationDateTimeField extends BaseDateTimeField {
      * @throws IllegalArgumentException if duration field is imprecise
      * @throws IllegalArgumentException if unit milliseconds is less than one
      */
-    public PreciseDurationDateTimeField(DateTimeFieldType type, DurationField unit) {
+    public PreciseDurationDateTimeField:(HLDateTimeFieldType*)type, DurationField unit) {
         super(type);
 
         if (!unit.isPrecise()) {
-            throw new IllegalArgumentException("Unit duration field must be precise");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Unit duration field must be precise"];
         }
 
         iUnitMillis = unit.getUnitMillis();
         if (iUnitMillis < 1) {
-            throw new IllegalArgumentException("The unit milliseconds must be at least 1");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"The unit milliseconds must be at least 1"];
         }
 
         iUnitField = unit;
@@ -89,7 +91,7 @@ public abstract class PreciseDurationDateTimeField extends BaseDateTimeField {
      * Returns false by default.
      */
     - (BOOL)isLenient {
-        return false;
+        return NO;
     }
 
     /**
@@ -185,7 +187,7 @@ public abstract class PreciseDurationDateTimeField extends BaseDateTimeField {
      * returns getMaximumValue(instant). Override to provide a faster
      * implementation.
      */
-    protected int getMaximumValueForSet:(NSInteger)instant :(NSInteger)value) {
+    - (NSInteger)_getMaximumValueForSet:(NSInteger)instant :(NSInteger)value) {
         return getMaximumValue(instant);
     }
 

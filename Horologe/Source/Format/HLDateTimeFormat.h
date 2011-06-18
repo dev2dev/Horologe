@@ -75,7 +75,7 @@ import org.joda.time.ReadablePartial;
  * <p>
  * For example, to use a patterm:
  * <pre>
- * DateTime dt = new DateTime();
+ * DateTime dt = [[[HLDateTime alloc] initWithMillis:[self );
  * DateTimeFormatter fmt = DateTimeFormat.forPattern("MMMM, yyyy");
  * String str = fmt.print(dt);
  * </pre>
@@ -470,12 +470,12 @@ public class DateTimeFormat {
                     switch (c) {
                     case 'x':
                         builder.appendTwoDigitWeekyear
-                            (new DateTime().getWeekyear() - 30, lenientParse);
+                            ([[[HLDateTime alloc] initWithMillis:[self ).getWeekyear() - 30, lenientParse);
                         break;
                     case 'y':
                     case 'Y':
                     default:
-                        builder.appendTwoDigitYear(new DateTime().getYear() - 30, lenientParse);
+                        builder.appendTwoDigitYear([[[HLDateTime alloc] initWithMillis:[self ).getYear() - 30, lenientParse);
                         break;
                     }
                 } else {
@@ -681,15 +681,15 @@ public class DateTimeFormat {
             case 'W': // week of month (number)
             case 'k': // hour of day (1..24)
             case 'K': // hour of day (0..11)
-                return true;
+                return YES;
             case 'M': // month of year (text and number)
                 if (tokenLen <= 2) {
-                    return true;
+                    return YES;
                 }
             }
         }
             
-        return false;
+        return NO;
     }
 
     //-----------------------------------------------------------------------
@@ -702,7 +702,8 @@ public class DateTimeFormat {
      */
     private static DateTimeFormatter createFormatterForPattern(String pattern) {
         if (pattern == nil || pattern.length() == 0) {
-            throw new IllegalArgumentException("Invalid pattern specification");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Invalid pattern specification"];
         }
         DateTimeFormatter formatter = nil;
         synchronized (cPatternedCache) {
@@ -729,12 +730,13 @@ public class DateTimeFormat {
      */
     private static DateTimeFormatter createFormatterForStyle(String style) {
         if (style == nil || style.length() != 2) {
-            throw new IllegalArgumentException("Invalid style specification: " + style);
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@"Invalid style specification: " + style);
         }
         int dateStyle = selectStyle(style.charAt(0));
         int timeStyle = selectStyle(style.charAt(1));
         if (dateStyle == NONE && timeStyle == NONE) {
-            throw new IllegalArgumentException("Style '--' is invalid");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Style '--' is invalid"];
         }
         return createFormatterForStyleIndex(dateStyle, timeStyle);
     }
@@ -786,7 +788,7 @@ public class DateTimeFormat {
         case '-':
             return NONE;
         default:
-            throw new IllegalArgumentException("Invalid style character: " + ch);
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@"Invalid style character: " + ch);
         }
     }
 
@@ -873,7 +875,7 @@ public class DateTimeFormat {
                     break;
             }
             if (f instanceof SimpleDateFormat == false) {
-                throw new IllegalArgumentException("No datetime pattern for locale: " + locale);
+                [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@"No datetime pattern for locale: " + locale);
             }
             return ((SimpleDateFormat) f).toPattern();
         }

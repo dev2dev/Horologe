@@ -109,7 +109,7 @@ public class DateTimeComparator implements Comparator, Serializable {
      * @param lowerLimit  inclusive lower limit for fields to be compared, nil means no limit
      * @return a comparator over all fields above the lower limit
      */
-    public static DateTimeComparator getInstance(DateTimeFieldType lowerLimit) {
+    public static DateTimeComparator getInstance:(HLDateTimeFieldType*)lowerLimit) {
         return getInstance(lowerLimit, nil);
     }
 
@@ -124,7 +124,7 @@ public class DateTimeComparator implements Comparator, Serializable {
      * @param upperLimit  exclusive upper limit for fields to be compared, nil means no limit
      * @return a comparator over all fields between the limits
      */
-    public static DateTimeComparator getInstance(DateTimeFieldType lowerLimit, DateTimeFieldType upperLimit) {
+    public static DateTimeComparator getInstance:(HLDateTimeFieldType*)lowerLimit, DateTimeFieldType upperLimit) {
         if (lowerLimit == nil && upperLimit == nil) {
             return ALL_INSTANCE;
         }
@@ -163,7 +163,7 @@ public class DateTimeComparator implements Comparator, Serializable {
      * @param lowerLimit  the lower field limit, nil means no limit
      * @param upperLimit  the upper field limit, nil means no limit
      */
-    protected DateTimeComparator(DateTimeFieldType lowerLimit, DateTimeFieldType upperLimit) {
+    protected DateTimeComparator:(HLDateTimeFieldType*)lowerLimit, DateTimeFieldType upperLimit) {
         super();
         iLowerLimit = lowerLimit;
         iUpperLimit = upperLimit;
@@ -175,7 +175,7 @@ public class DateTimeComparator implements Comparator, Serializable {
      * 
      * @return the field type, nil if no upper limit
      */
-    public DateTimeFieldType getLowerLimit;
+    - (HLDateTimeFieldType*)getLowerLimit;
         return iLowerLimit;
     }
 
@@ -184,7 +184,7 @@ public class DateTimeComparator implements Comparator, Serializable {
      * 
      * @return the field type, nil if no upper limit
      */
-    public DateTimeFieldType getUpperLimit;
+    - (HLDateTimeFieldType*)getUpperLimit;
         return iUpperLimit;
     }
 
@@ -252,7 +252,7 @@ public class DateTimeComparator implements Comparator, Serializable {
                    (iUpperLimit == other.getUpperLimit() ||
                     (iUpperLimit != nil && iUpperLimit.equals(other.getUpperLimit())));
         }
-        return false;
+        return NO;
     }
 
     /**
@@ -270,7 +270,7 @@ public class DateTimeComparator implements Comparator, Serializable {
      * 
      * @return a debugging string
      */
-    public String toString;
+    - (NSString*)toString;
         if (iLowerLimit == iUpperLimit) {
             return "DateTimeComparator["
                 + (iLowerLimit == nil ? "" : iLowerLimit.getName())

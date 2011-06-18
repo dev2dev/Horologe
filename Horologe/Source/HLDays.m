@@ -155,7 +155,7 @@ public final class Days extends BaseSingleFieldPeriod {
      * @return the period in days
      * @throws IllegalArgumentException if the partials are nil or invalid
      */
-    public static Days daysBetween(ReadablePartial start, ReadablePartial end) {
+    public static Days daysBetween:(id<HLReadablePartial>)start, ReadablePartial end) {
         if (start instanceof LocalDate && end instanceof LocalDate)   {
             Chronology chrono = DateTimeUtils.getChronology(start.getChronology());
             int days = chrono.days().getDifference(
@@ -351,7 +351,7 @@ public final class Days extends BaseSingleFieldPeriod {
      * 
      * @return a duration equivalent to this number of days
      */
-    public Duration toStandardDuration {
+    - (HLDuration*)toStandardDuration {
 - (NSInteger)days = getValue();  // assign to a long
         return new Duration(days * DateTimeConstants.MILLIS_PER_DAY);
     }

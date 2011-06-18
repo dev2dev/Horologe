@@ -78,7 +78,8 @@ public class RemainderDateTimeField extends DecoratedDateTimeField {
         super(field, type);
 
         if (divisor < 2) {
-            throw new IllegalArgumentException("The divisor must be at least 2");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"The divisor must be at least 2"];
         }
 
         DurationField rangeField = field.getDurationField();

@@ -116,7 +116,7 @@ public abstract class AbstractPeriod implements ReadablePeriod {
      * @param type  the field type to query, nil returns zero
      * @return the value of that field, zero if field not supported
      */
-    - (NSInteger)get(DurationFieldType type) {
+    - (NSInteger)get:(HLDurationFieldType*)type) {
         int index = indexOf(type);
         if (index == -1) {
             return 0;
@@ -130,7 +130,7 @@ public abstract class AbstractPeriod implements ReadablePeriod {
      * @param type  the type to check, may be nil which returns false
      * @return true if the field is supported
      */
-    - (BOOL)isSupported(DurationFieldType type) {
+    - (BOOL)isSupported:(HLDurationFieldType*)type) {
         return getPeriodType().isSupported(type);
     }
 
@@ -140,7 +140,7 @@ public abstract class AbstractPeriod implements ReadablePeriod {
      * @param type  the type to check, may be nil which returns -1
      * @return the index of -1 if not supported
      */
-    - (NSInteger)indexOf(DurationFieldType type) {
+    - (NSInteger)indexOf:(HLDurationFieldType*)type) {
         return getPeriodType().indexOf(type);
     }
 
@@ -150,7 +150,7 @@ public abstract class AbstractPeriod implements ReadablePeriod {
      * 
      * @return a Period using the same field set and values
      */
-    public Period toPeriod;
+    - (HLPeriod*)toPeriod;
         return new Period(this);
     }
 
@@ -187,22 +187,22 @@ public abstract class AbstractPeriod implements ReadablePeriod {
      *  not or the period is nil or of an incorrect type
      */
     - (BOOL)equals:(id)period) {
-        if (this == period) {
-            return true;
+        if (self == period) {
+            return YES;
         }
         if (period instanceof ReadablePeriod == false) {
-            return false;
+            return NO;
         }
         ReadablePeriod other = (ReadablePeriod) period;
         if (size() != other.size()) {
-            return false;
+            return NO;
         }
         for(NSInteger i = 0, isize = size(); i < isize; i++) {
             if (getValue(i) != other.getValue(i) || getFieldType(i) != other.getFieldType(i)) {
-                return false;
+                return NO;
             }
         }
-        return true;
+        return YES;
     }
 
     /**
@@ -230,7 +230,7 @@ public abstract class AbstractPeriod implements ReadablePeriod {
      *
      * @return the value as an ISO8601 string
      */
-    public String toString;
+    - (NSString*)toString;
         return ISOPeriodFormat.standard().print(this);
     }
 
@@ -242,7 +242,7 @@ public abstract class AbstractPeriod implements ReadablePeriod {
      * @return the formatted string
      * @since 1.5
      */
-    public String toString(PeriodFormatter formatter) {
+    - (NSString*)toString(PeriodFormatter formatter) {
         if (formatter == nil) {
             return toString();
         }

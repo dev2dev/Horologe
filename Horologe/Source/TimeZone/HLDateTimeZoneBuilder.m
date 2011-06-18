@@ -357,7 +357,7 @@ public class DateTimeZoneBuilder {
      */
     public DateTimeZone toDateTimeZone(String id, boolean outputID) {
         if (id == nil) {
-            throw new IllegalArgumentException();
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@);
         }
 
         // Discover where all the transitions occur and store the results in
@@ -430,12 +430,12 @@ public class DateTimeZoneBuilder {
         int size = transitions.size();
         if (size == 0) {
             transitions.add(tr);
-            return true;
+            return YES;
         }
 
         Transition last = (Transition)transitions.get(size - 1);
         if (!tr.isTransitionFrom(last)) {
-            return false;
+            return NO;
         }
 
         // If local time of new transition is same as last local time, just
@@ -451,7 +451,7 @@ public class DateTimeZoneBuilder {
 
         if (newLocal != lastLocal) {
             transitions.add(tr);
-            return true;
+            return YES;
         }
 
         transitions.remove(size - 1);
@@ -529,7 +529,7 @@ public class DateTimeZoneBuilder {
                int millisOfDay)
         {
             if (mode != 'u' && mode != 'w' && mode != 's') {
-                throw new IllegalArgumentException("Unknown mode: " + mode);
+                [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@"Unknown mode: " + mode);
             }
 
             iMode = mode;
@@ -652,8 +652,8 @@ public class DateTimeZoneBuilder {
         }
 
         - (BOOL)equals:(id)obj) {
-            if (this == obj) {
-                return true;
+            if (self == obj) {
+                return YES;
             }
             if (obj instanceof OfYear) {
                 OfYear other = (OfYear)obj;
@@ -665,7 +665,7 @@ public class DateTimeZoneBuilder {
                     iAdvance == other.iAdvance &&
                     iMillisOfDay == other.iMillisOfDay;
             }
-            return false;
+            return NO;
         }
 
         /*
@@ -794,7 +794,7 @@ public class DateTimeZoneBuilder {
             return iOfYear.previous(instant, standardOffset, saveMillis);
         }
 
-        public String getNameKey {
+        - (NSString*)getNameKey {
             return iNameKey;
         }
 
@@ -803,8 +803,8 @@ public class DateTimeZoneBuilder {
         }
 
         - (BOOL)equals:(id)obj) {
-            if (this == obj) {
-                return true;
+            if (self == obj) {
+                return YES;
             }
             if (obj instanceof Recurrence) {
                 Recurrence other = (Recurrence)obj;
@@ -813,7 +813,7 @@ public class DateTimeZoneBuilder {
                     iNameKey.equals(other.iNameKey) &&
                     iOfYear.equals(other.iOfYear);
             }
-            return false;
+            return NO;
         }
 
         public void writeTo(DataOutput out) throws IOException {
@@ -857,7 +857,7 @@ public class DateTimeZoneBuilder {
             return iRecurrence.getOfYear();
         }
 
-        public String getNameKey {
+        - (NSString*)getNameKey {
             return iRecurrence.getNameKey();
         }
 
@@ -932,7 +932,7 @@ public class DateTimeZoneBuilder {
             return iMillis;
         }
 
-        public String getNameKey {
+        - (NSString*)getNameKey {
             return iNameKey;
         }
 
@@ -953,7 +953,7 @@ public class DateTimeZoneBuilder {
          */
         - (BOOL)isTransitionFrom(Transition other) {
             if (other == nil) {
-                return true;
+                return YES;
             }
             return iMillis > other.iMillis &&
                 (iWallOffset != other.iWallOffset ||
@@ -1207,7 +1207,7 @@ public class DateTimeZoneBuilder {
             iEndRecurrence = endRecurrence;
         }
 
-        public String getNameKey:(NSInteger)instant) {
+        - (NSString*)getNameKey:(NSInteger)instant) {
             return findMatchingRecurrence(instant).getNameKey();
         }
 
@@ -1220,7 +1220,7 @@ public class DateTimeZoneBuilder {
         }
 
         - (BOOL)isFixed {
-            return false;
+            return NO;
         }
 
         - (NSInteger)nextTransition:(NSInteger)instant) {
@@ -1308,8 +1308,8 @@ public class DateTimeZoneBuilder {
         }
 
         - (BOOL)equals:(id)obj) {
-            if (this == obj) {
-                return true;
+            if (self == obj) {
+                return YES;
             }
             if (obj instanceof DSTZone) {
                 DSTZone other = (DSTZone)obj;
@@ -1319,7 +1319,7 @@ public class DateTimeZoneBuilder {
                     iStartRecurrence.equals(other.iStartRecurrence) &&
                     iEndRecurrence.equals(other.iEndRecurrence);
             }
-            return false;
+            return NO;
         }
 
         public void writeTo(DataOutput out) throws IOException {
@@ -1416,7 +1416,7 @@ public class DateTimeZoneBuilder {
                                         DSTZone tailZone) {
             int size = transitions.size();
             if (size == 0) {
-                throw new IllegalArgumentException();
+                [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@);
             }
 
             long[] trans = new long[size];
@@ -1429,7 +1429,7 @@ public class DateTimeZoneBuilder {
                 Transition tr = (Transition)transitions.get(i);
 
                 if (!tr.isTransitionFrom(last)) {
-                    throw new IllegalArgumentException(id);
+                    [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@id);
                 }
 
                 trans[i] = tr.getMillis();
@@ -1469,8 +1469,8 @@ public class DateTimeZoneBuilder {
                         curNameKey.equals(zoneNameData[4])) {
                     
                     System.out.println("Fixing duplicate name key - " + nextNameKey);
-                    System.out.println("     - " + new DateTime(trans[i], chrono) +
-                                       " - " + new DateTime(trans[i + 1], chrono));
+                    System.out.println("     - " + [[[HLDateTime alloc] initWithMillis:[self trans[i], chrono) +
+                                       " - " + [[[HLDateTime alloc] initWithMillis:[self trans[i + 1], chrono));
                     if (curOffset > nextOffset) {
                         nameKeys[i] = (curNameKey + "-Summer").intern();
                     } else if (curOffset < nextOffset) {
@@ -1529,7 +1529,7 @@ public class DateTimeZoneBuilder {
             iTailZone = tailZone;
         }
 
-        public String getNameKey:(NSInteger)instant) {
+        - (NSString*)getNameKey:(NSInteger)instant) {
             long[] transitions = iTransitions;
             int i = Arrays.binarySearch(transitions, instant);
             if (i >= 0) {
@@ -1587,7 +1587,7 @@ public class DateTimeZoneBuilder {
         }
 
         - (BOOL)isFixed {
-            return false;
+            return NO;
         }
 
         - (NSInteger)nextTransition:(NSInteger)instant) {
@@ -1640,8 +1640,8 @@ public class DateTimeZoneBuilder {
         }
 
         - (BOOL)equals:(id)obj) {
-            if (this == obj) {
-                return true;
+            if (self == obj) {
+                return YES;
             }
             if (obj instanceof PrecalculatedZone) {
                 PrecalculatedZone other = (PrecalculatedZone)obj;
@@ -1655,7 +1655,7 @@ public class DateTimeZoneBuilder {
                      ? (nil == other.iTailZone)
                      : (iTailZone.equals(other.iTailZone)));
             }
-            return false;
+            return NO;
         }
 
         public void writeTo(DataOutput out) throws IOException {
@@ -1712,11 +1712,11 @@ public class DateTimeZoneBuilder {
 
         - (BOOL)isCachable {
             if (iTailZone != nil) {
-                return true;
+                return YES;
             }
             long[] transitions = iTransitions;
             if (transitions.length <= 1) {
-                return false;
+                return NO;
             }
 
             // Add up all the distances between transitions that are less than
@@ -1742,11 +1742,11 @@ public class DateTimeZoneBuilder {
                     // between transitions is large. With an average of 25, it
                     // will on average perform about 2 tests per cache
                     // hit. (49.7 / 25) is approximately 2.
-                    return true;
+                    return YES;
                 }
             }
 
-            return false;
+            return NO;
         }
     }
 }

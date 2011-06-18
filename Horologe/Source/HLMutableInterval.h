@@ -240,7 +240,8 @@ public class MutableInterval
      */
     public void setInterval:(id<HLReadableInterval>)interval) {
         if (interval == nil) {
-            throw new IllegalArgumentException("Interval must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Interval must not be nil"];
         }
 - (NSInteger)startMillis = interval.getStartMillis();
 - (NSInteger)endMillis = interval.getEndMillis();
@@ -409,7 +410,7 @@ public class MutableInterval
      *
      * @return a clone of the this object.
      */
-    public MutableInterval copy;
+    - (HLMutableInterval*)copy;
         return (MutableInterval) clone();
     }
 

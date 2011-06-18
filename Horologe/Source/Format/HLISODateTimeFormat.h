@@ -66,7 +66,7 @@ import org.joda.time.DateTimeZone;
  * <p>
  * For example, to format a date time in ISO format:
  * <pre>
- * DateTime dt = new DateTime();
+ * DateTime dt = [[[HLDateTime alloc] initWithMillis:[self );
  * DateTimeFormatter fmt = ISODateTimeFormat.dateTime();
  * String str = fmt.print(dt);
  * </pre>
@@ -259,7 +259,8 @@ public class ISODateTimeFormat {
         boolean strictISO) {
         
         if (fields == nil || fields.size() == 0) {
-            throw new IllegalArgumentException("The fields must not be nil or empty");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"The fields must not be nil or empty"];
         }
         Set workingFields = new HashSet(fields);
         int inputSize = workingFields.size();
@@ -290,7 +291,7 @@ public class ISODateTimeFormat {
         
         // result
         if (bld.canBuildFormatter() == false) {
-            throw new IllegalArgumentException("No valid format for fields: " + fields);
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@"No valid format for fields: " + fields);
         }
         
         // side effect the input collection to indicate the processed fields
@@ -507,7 +508,7 @@ public class ISODateTimeFormat {
         }
         if (hour || minute || second || milli) {
             if (strictISO && reducedPrec) {
-                throw new IllegalArgumentException("No valid ISO8601 format for fields because Date was reduced precision: " + fields);
+                [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@"No valid ISO8601 format for fields because Date was reduced precision: " + fields);
             }
             if (datePresent) {
                 bld.appendLiteral('T');
@@ -517,13 +518,13 @@ public class ISODateTimeFormat {
             // OK - HMSm/HMS/HM/H - valid in combination with date
         } else {
             if (strictISO && datePresent) {
-                throw new IllegalArgumentException("No valid ISO8601 format for fields because Time was truncated: " + fields);
+                [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@"No valid ISO8601 format for fields because Time was truncated: " + fields);
             }
             if (!hour && (minute && second || (minute && !milli) || second)) {
                 // OK - MSm/MS/M/Sm/S - valid ISO formats
             } else {
                 if (strictISO) {
-                    throw new IllegalArgumentException("No valid ISO8601 format for fields: " + fields);
+                    [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@"No valid ISO8601 format for fields: " + fields);
                 }
             }
         }
@@ -564,7 +565,7 @@ public class ISODateTimeFormat {
      */
     private static void checkNotStrictISO(Collection fields, boolean strictISO) {
         if (strictISO) {
-            throw new IllegalArgumentException("No valid ISO8601 format for fields: " + fields);
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@"No valid ISO8601 format for fields: " + fields);
         }
     }
 

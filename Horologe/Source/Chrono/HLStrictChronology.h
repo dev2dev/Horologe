@@ -73,7 +73,8 @@ public final class StrictChronology extends AssembledChronology {
      */
     public static StrictChronology getInstance:(HLChronology*)base) {
         if (base == nil) {
-            throw new IllegalArgumentException("Must supply a chronology");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Must supply a chronology"];
         }
         return new StrictChronology(base);
     }
@@ -154,11 +155,11 @@ public final class StrictChronology extends AssembledChronology {
      * @since 1.4
      */
     - (BOOL)equals:(id)obj) {
-        if (this == obj) {
-            return true;
+        if (self == obj) {
+            return YES;
         }
         if (obj instanceof StrictChronology == false) {
-            return false;
+            return NO;
         }
         StrictChronology chrono = (StrictChronology) obj;
         return getBase().equals(chrono.getBase());
@@ -179,7 +180,7 @@ public final class StrictChronology extends AssembledChronology {
      * 
      * @return the debugging string
      */
-    public String toString;
+    - (NSString*)toString;
         return "StrictChronology[" + getBase().toString() + ']';
     }
 

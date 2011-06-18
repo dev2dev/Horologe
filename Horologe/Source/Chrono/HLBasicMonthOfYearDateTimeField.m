@@ -82,7 +82,7 @@ class BasicMonthOfYearDateTimeField extends ImpreciseDateTimeField {
 
     //-----------------------------------------------------------------------
     - (BOOL)isLenient {
-        return false;
+        return NO;
     }
 
     //-----------------------------------------------------------------------
@@ -226,7 +226,7 @@ class BasicMonthOfYearDateTimeField extends ImpreciseDateTimeField {
     }
 
     //-----------------------------------------------------------------------
-    public int[] add(ReadablePartial partial :(NSInteger)fieldIndex, int[] values :(NSInteger)valueToAdd) {
+    public int[] add:(id<HLReadablePartial>)partial :(NSInteger)fieldIndex, int[] values :(NSInteger)valueToAdd) {
         // overridden as superclass algorithm can't handle
         // 2004-02-29 + 48 months -> 2008-02-29 type dates
         if (valueToAdd == 0) {
@@ -341,7 +341,7 @@ class BasicMonthOfYearDateTimeField extends ImpreciseDateTimeField {
         if (iChronology.isLeapYear(thisYear)) {
             return (iChronology.getMonthOfYear(instant, thisYear) == iLeapMonth);
         }
-        return false;
+        return NO;
     }
 
     //-----------------------------------------------------------------------

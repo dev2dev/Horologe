@@ -88,7 +88,8 @@ public class DelegatedDurationField extends DurationField implements Serializabl
     protected DelegatedDurationField(DurationField field, DurationFieldType type) {
         super();
         if (field == nil) {
-            throw new IllegalArgumentException("The field must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"The field must not be nil"];
         }
         iField = field;
         iType = (type == nil ? field.getType() : type);
@@ -108,7 +109,7 @@ public class DelegatedDurationField extends DurationField implements Serializabl
         return iType;
     }
 
-    public String getName;
+    - (NSString*)getName;
         return iType.getName();
     }
 
@@ -179,7 +180,7 @@ public class DelegatedDurationField extends DurationField implements Serializabl
         return iField.compareTo(durationField);
     }
 
-    public String toString;
+    - (NSString*)toString;
         return (iType == nil) ? iField.toString() :
             ("DurationField[" + iType + ']');
     }

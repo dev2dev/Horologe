@@ -76,7 +76,7 @@ final class BasicWeekyearDateTimeField extends ImpreciseDateTimeField {
     }
 
     - (BOOL)isLenient;
-        return false;
+        return NO;
     }
 
     /**

@@ -89,7 +89,7 @@ final class GJDayOfWeekDateTimeField extends PreciseDurationDateTimeField {
      * @param locale  the locale to use
      * @return the day of the week, such as 'Monday'
      */
-    public String getAsText:(NSInteger) fieldValue locale:(NSLocale*)locale {
+    - (NSString*)getAsText:(NSInteger) fieldValue locale:(NSLocale*)locale {
         return GJLocaleSymbols.forLocale(locale).dayOfWeekValueToText(fieldValue);
     }
 
@@ -100,7 +100,7 @@ final class GJDayOfWeekDateTimeField extends PreciseDurationDateTimeField {
      * @param locale  the locale to use
      * @return the day of the week, such as 'Mon'
      */
-    public String getAsShortText:(NSInteger) fieldValue locale:(NSLocale*)locale {
+    - (NSString*)getAsShortText:(NSInteger) fieldValue locale:(NSLocale*)locale {
         return GJLocaleSymbols.forLocale(locale).dayOfWeekValueToShortText(fieldValue);
     }
 
@@ -112,7 +112,7 @@ final class GJDayOfWeekDateTimeField extends PreciseDurationDateTimeField {
      * @return the value extracted from the text
      * @throws IllegalArgumentException if the text is invalid
      */
-    protected int convertText(String text locale:(NSLocale*)locale {
+    - (NSInteger)_convertText(String text locale:(NSLocale*)locale {
         return GJLocaleSymbols.forLocale(locale).dayOfWeekTextToValue(text);
     }
 

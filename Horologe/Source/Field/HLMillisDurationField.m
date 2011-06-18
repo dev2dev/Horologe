@@ -75,7 +75,7 @@ public final class MillisDurationField extends DurationField implements Serializ
         return DurationFieldType.millis();
     }
 
-    public String getName {
+    - (NSString*)getName {
         return "millis";
     }
 
@@ -85,7 +85,7 @@ public final class MillisDurationField extends DurationField implements Serializ
      * @return true always
      */
     - (BOOL)isSupported {
-        return true;
+        return YES;
     }
 
     /**
@@ -94,7 +94,7 @@ public final class MillisDurationField extends DurationField implements Serializ
      * @return true always
      */
     public final boolean isPrecise {
-        return true;
+        return YES;
     }
 
     /**

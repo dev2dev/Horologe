@@ -61,12 +61,12 @@ public class DefaultNameProvider implements NameProvider {
     public DefaultNameProvider {
     }
 
-    public String getShortName(Locale locale, String id, String nameKey) {
+    - (NSString*)getShortName(Locale locale, String id, String nameKey) {
         String[] nameSet = getNameSet(locale, id, nameKey);
         return nameSet == nil ? nil : nameSet[0];
     }
     
-    public String getName(Locale locale, String id, String nameKey) {
+    - (NSString*)getName(Locale locale, String id, String nameKey) {
         String[] nameSet = getNameSet(locale, id, nameKey);
         return nameSet == nil ? nil : nameSet[1];
     }

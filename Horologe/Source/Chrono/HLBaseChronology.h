@@ -207,7 +207,7 @@ public abstract class BaseChronology
      * @param values  the values to validate, not nil
      * @throws IllegalArgumentException if the instant is invalid
      */
-    public void validate(ReadablePartial partial, int[] values) {
+    public void validate:(id<HLReadablePartial>)partial, int[] values) {
         // check values in standard range, catching really stupid cases like -1
         // this means that the second check will not hit trouble
         int size = partial.size();
@@ -249,7 +249,7 @@ public abstract class BaseChronology
      * @param instant  the instant to query
      * @return the values of the partial extracted from the instant
      */
-    public int[] get(ReadablePartial partial :(NSInteger)instant) {
+    public int[] get:(id<HLReadablePartial>)partial :(NSInteger)instant) {
         int size = partial.size();
         int[] values = new int[size];
         for(NSInteger i = 0; i < size; i++) {
@@ -265,7 +265,7 @@ public abstract class BaseChronology
      * @param instant  the instant to update
      * @return the updated instant
      */
-    - (NSInteger)set(ReadablePartial partial :(NSInteger)instant) {
+    - (NSInteger)set:(id<HLReadablePartial>)partial :(NSInteger)instant) {
         for(NSInteger i = 0, isize = partial.size(); i < isize; i++) {
             instant = partial.getFieldType(i).getField(this).set(instant, partial.getValue(i));
         }
@@ -372,7 +372,7 @@ public abstract class BaseChronology
      * 
      * @return DateTimeField or UnsupportedDateTimeField if unsupported
      */
-    public DateTimeField millisOfSecond;
+    - (HLDateTimeField*)millisOfSecond;
         return UnsupportedDateTimeField.getInstance(DateTimeFieldType.millisOfSecond(), millis());
     }
 
@@ -381,7 +381,7 @@ public abstract class BaseChronology
      * 
      * @return DateTimeField or UnsupportedDateTimeField if unsupported
      */
-    public DateTimeField millisOfDay;
+    - (HLDateTimeField*)millisOfDay;
         return UnsupportedDateTimeField.getInstance(DateTimeFieldType.millisOfDay(), millis());
     }
 
@@ -401,7 +401,7 @@ public abstract class BaseChronology
      * 
      * @return DateTimeField or UnsupportedDateTimeField if unsupported
      */
-    public DateTimeField secondOfMinute;
+    - (HLDateTimeField*)secondOfMinute;
         return UnsupportedDateTimeField.getInstance(DateTimeFieldType.secondOfMinute(), seconds());
     }
 
@@ -410,7 +410,7 @@ public abstract class BaseChronology
      * 
      * @return DateTimeField or UnsupportedDateTimeField if unsupported
      */
-    public DateTimeField secondOfDay;
+    - (HLDateTimeField*)secondOfDay;
         return UnsupportedDateTimeField.getInstance(DateTimeFieldType.secondOfDay(), seconds());
     }
 
@@ -430,7 +430,7 @@ public abstract class BaseChronology
      * 
      * @return DateTimeField or UnsupportedDateTimeField if unsupported
      */
-    public DateTimeField minuteOfHour;
+    - (HLDateTimeField*)minuteOfHour;
         return UnsupportedDateTimeField.getInstance(DateTimeFieldType.minuteOfHour(), minutes());
     }
 
@@ -439,7 +439,7 @@ public abstract class BaseChronology
      * 
      * @return DateTimeField or UnsupportedDateTimeField if unsupported
      */
-    public DateTimeField minuteOfDay;
+    - (HLDateTimeField*)minuteOfDay;
         return UnsupportedDateTimeField.getInstance(DateTimeFieldType.minuteOfDay(), minutes());
     }
 
@@ -459,7 +459,7 @@ public abstract class BaseChronology
      * 
      * @return DateTimeField or UnsupportedDateTimeField if unsupported
      */
-    public DateTimeField hourOfDay;
+    - (HLDateTimeField*)hourOfDay;
         return UnsupportedDateTimeField.getInstance(DateTimeFieldType.hourOfDay(), hours());
     }
 
@@ -468,7 +468,7 @@ public abstract class BaseChronology
      * 
      * @return DateTimeField or UnsupportedDateTimeField if unsupported
      */
-    public DateTimeField clockhourOfDay;
+    - (HLDateTimeField*)clockhourOfDay;
         return UnsupportedDateTimeField.getInstance(DateTimeFieldType.clockhourOfDay(), hours());
     }
 
@@ -488,7 +488,7 @@ public abstract class BaseChronology
      * 
      * @return DateTimeField or UnsupportedDateTimeField if unsupported
      */
-    public DateTimeField hourOfHalfday;
+    - (HLDateTimeField*)hourOfHalfday;
         return UnsupportedDateTimeField.getInstance(DateTimeFieldType.hourOfHalfday(), hours());
     }
 
@@ -497,7 +497,7 @@ public abstract class BaseChronology
      * 
      * @return DateTimeField or UnsupportedDateTimeField if unsupported
      */
-    public DateTimeField clockhourOfHalfday;
+    - (HLDateTimeField*)clockhourOfHalfday;
         return UnsupportedDateTimeField.getInstance(DateTimeFieldType.clockhourOfHalfday(), hours());
     }
 
@@ -506,7 +506,7 @@ public abstract class BaseChronology
      * 
      * @return DateTimeField or UnsupportedDateTimeField if unsupported
      */
-    public DateTimeField halfdayOfDay;
+    - (HLDateTimeField*)halfdayOfDay;
         return UnsupportedDateTimeField.getInstance(DateTimeFieldType.halfdayOfDay(), halfdays());
     }
 
@@ -530,7 +530,7 @@ public abstract class BaseChronology
      * 
      * @return DateTimeField or UnsupportedDateTimeField if unsupported
      */
-    public DateTimeField dayOfWeek;
+    - (HLDateTimeField*)dayOfWeek;
         return UnsupportedDateTimeField.getInstance(DateTimeFieldType.dayOfWeek(), days());
     }
 
@@ -539,7 +539,7 @@ public abstract class BaseChronology
      * 
      * @return DateTimeField or UnsupportedDateTimeField if unsupported
      */
-    public DateTimeField dayOfMonth;
+    - (HLDateTimeField*)dayOfMonth;
         return UnsupportedDateTimeField.getInstance(DateTimeFieldType.dayOfMonth(), days());
     }
 
@@ -548,7 +548,7 @@ public abstract class BaseChronology
      * 
      * @return DateTimeField or UnsupportedDateTimeField if unsupported
      */
-    public DateTimeField dayOfYear;
+    - (HLDateTimeField*)dayOfYear;
         return UnsupportedDateTimeField.getInstance(DateTimeFieldType.dayOfYear(), days());
     }
 
@@ -568,7 +568,7 @@ public abstract class BaseChronology
      * 
      * @return DateTimeField or UnsupportedDateTimeField if unsupported
      */
-    public DateTimeField weekOfWeekyear;
+    - (HLDateTimeField*)weekOfWeekyear;
         return UnsupportedDateTimeField.getInstance(DateTimeFieldType.weekOfWeekyear(), weeks());
     }
 
@@ -588,7 +588,7 @@ public abstract class BaseChronology
      * 
      * @return DateTimeField or UnsupportedDateTimeField if unsupported
      */
-    public DateTimeField weekyear;
+    - (HLDateTimeField*)weekyear;
         return UnsupportedDateTimeField.getInstance(DateTimeFieldType.weekyear(), weekyears());
     }
 
@@ -597,7 +597,7 @@ public abstract class BaseChronology
      * 
      * @return DateTimeField or UnsupportedDateTimeField if unsupported
      */
-    public DateTimeField weekyearOfCentury;
+    - (HLDateTimeField*)weekyearOfCentury;
         return UnsupportedDateTimeField.getInstance(DateTimeFieldType.weekyearOfCentury(), weekyears());
     }
 
@@ -617,7 +617,7 @@ public abstract class BaseChronology
      * 
      * @return DateTimeField or UnsupportedDateTimeField if unsupported
      */
-    public DateTimeField monthOfYear;
+    - (HLDateTimeField*)monthOfYear;
         return UnsupportedDateTimeField.getInstance(DateTimeFieldType.monthOfYear(), months());
     }
 
@@ -637,7 +637,7 @@ public abstract class BaseChronology
      * 
      * @return DateTimeField or UnsupportedDateTimeField if unsupported
      */
-    public DateTimeField year;
+    - (HLDateTimeField*)year;
         return UnsupportedDateTimeField.getInstance(DateTimeFieldType.year(), years());
     }
 
@@ -646,7 +646,7 @@ public abstract class BaseChronology
      * 
      * @return DateTimeField or UnsupportedDateTimeField if unsupported
      */
-    public DateTimeField yearOfEra;
+    - (HLDateTimeField*)yearOfEra;
         return UnsupportedDateTimeField.getInstance(DateTimeFieldType.yearOfEra(), years());
     }
 
@@ -655,7 +655,7 @@ public abstract class BaseChronology
      * 
      * @return DateTimeField or UnsupportedDateTimeField if unsupported
      */
-    public DateTimeField yearOfCentury;
+    - (HLDateTimeField*)yearOfCentury;
         return UnsupportedDateTimeField.getInstance(DateTimeFieldType.yearOfCentury(), years());
     }
 
@@ -675,7 +675,7 @@ public abstract class BaseChronology
      * 
      * @return DateTimeField or UnsupportedDateTimeField if unsupported
      */
-    public DateTimeField centuryOfEra;
+    - (HLDateTimeField*)centuryOfEra;
         return UnsupportedDateTimeField.getInstance(DateTimeFieldType.centuryOfEra(), centuries());
     }
 
@@ -695,7 +695,7 @@ public abstract class BaseChronology
      * 
      * @return DateTimeField or UnsupportedDateTimeField if unsupported
      */
-    public DateTimeField era;
+    - (HLDateTimeField*)era;
         return UnsupportedDateTimeField.getInstance(DateTimeFieldType.era(), eras());
     }
 

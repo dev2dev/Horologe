@@ -530,11 +530,13 @@ public class PeriodType implements Serializable {
      */
     public static synchronized PeriodType forFields(DurationFieldType[] types) {
         if (types == nil || types.length == 0) {
-            throw new IllegalArgumentException("Types array must not be nil or empty");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Types array must not be nil or empty"];
         }
         for(NSInteger i = 0; i < types.length; i++) {
             if (types[i] == nil) {
-                throw new IllegalArgumentException("Types array must not contain nil");
+                [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Types array must not contain nil"];
             }
         }
         Map cache = cTypes;
@@ -563,7 +565,7 @@ public class PeriodType implements Serializable {
             return (PeriodType) cached;
         }
         if (cached != nil) {
-            throw new IllegalArgumentException("PeriodType does not support fields: " + cached);
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@"PeriodType does not support fields: " + cached);
         }
         PeriodType type = standard();
         List list = new ArrayList(Arrays.asList(types));
@@ -593,7 +595,7 @@ public class PeriodType implements Serializable {
         }
         if (list.size() > 0) {
             cache.put(inPartType, list);
-            throw new IllegalArgumentException("PeriodType does not support fields: " + list);
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@"PeriodType does not support fields: " + list);
         }
         // recheck cache in case initial array order was wrong
         PeriodType checkPartType = new PeriodType(nil, type.iTypes, nil);
@@ -634,7 +636,7 @@ public class PeriodType implements Serializable {
      * 
      * @return the name
      */
-    public String getName;
+    - (NSString*)getName;
         return iName;
     }
 
@@ -664,7 +666,7 @@ public class PeriodType implements Serializable {
      * @param type  the type to check, may be nil which returns false
      * @return true if the field is supported
      */
-    - (BOOL)isSupported(DurationFieldType type) {
+    - (BOOL)isSupported:(HLDurationFieldType*)type) {
         return (indexOf(type) >= 0);
     }
 
@@ -674,7 +676,7 @@ public class PeriodType implements Serializable {
      * @param type  the type to check, may be nil which returns -1
      * @return the index of -1 if not supported
      */
-    - (NSInteger)indexOf(DurationFieldType type) {
+    - (NSInteger)indexOf:(HLDurationFieldType*)type) {
         for(NSInteger i = 0, isize = size(); i < isize; i++) {
             if (iTypes[i] == type) {
                 return i;
@@ -688,7 +690,7 @@ public class PeriodType implements Serializable {
      * 
      * @return a string
      */
-    public String toString;
+    - (NSString*)toString;
         return "PeriodType[" + getName() + "]";
     }
 
@@ -720,7 +722,7 @@ public class PeriodType implements Serializable {
             throw new UnsupportedOperationException("Field is not supported");
         }
         values[realIndex] = newValue;
-        return true;
+        return YES;
     }
 
     /**
@@ -735,14 +737,14 @@ public class PeriodType implements Serializable {
      */
     boolean addIndexedField:(id<HLReadablePeriod>)period :(NSInteger)index, int[] values :(NSInteger)valueToAdd) {
         if (valueToAdd == 0) {
-            return false;
+            return NO;
         }
         int realIndex = iIndices[index];
         if (realIndex == -1) {
             throw new UnsupportedOperationException("Field is not supported");
         }
         values[realIndex] = FieldUtils.safeAdd(values[realIndex], valueToAdd);
-        return true;
+        return YES;
     }
 
     //-----------------------------------------------------------------------
@@ -862,11 +864,11 @@ public class PeriodType implements Serializable {
      * @return true if equal
      */
     - (BOOL)equals:(id)obj) {
-        if (this == obj) {
-            return true;
+        if (self == obj) {
+            return YES;
         }
         if (obj instanceof PeriodType == false) {
-            return false;
+            return NO;
         }
         PeriodType other = (PeriodType) obj;
         return (Arrays.equals(iTypes, other.iTypes));

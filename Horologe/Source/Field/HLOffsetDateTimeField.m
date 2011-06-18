@@ -99,7 +99,8 @@ public class OffsetDateTimeField extends DecoratedDateTimeField {
         super(field, type);
                 
         if (offset == 0) {
-            throw new IllegalArgumentException("The offset cannot be zero");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"The offset cannot be zero"];
         }
 
         iOffset = offset;

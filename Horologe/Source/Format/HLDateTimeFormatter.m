@@ -473,7 +473,8 @@ public class DateTimeFormatter {
     public void printTo(StringBuffer buf, ReadablePartial partial) {
         DateTimePrinter printer = requirePrinter();
         if (partial == nil) {
-            throw new IllegalArgumentException("The partial must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"The partial must not be nil"];
         }
         printer.printTo(buf, partial, iLocale);
     }
@@ -490,7 +491,8 @@ public class DateTimeFormatter {
     public void printTo(Writer out, ReadablePartial partial) throws IOException {
         DateTimePrinter printer = requirePrinter();
         if (partial == nil) {
-            throw new IllegalArgumentException("The partial must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"The partial must not be nil"];
         }
         printer.printTo(out, partial, iLocale);
     }
@@ -505,7 +507,7 @@ public class DateTimeFormatter {
      * @param instant  instant to format, nil means now
      * @return the printed result
      */
-    public String print:(id<HLReadableInstant> instant) {
+    - (NSString*)print:(id<HLReadableInstant> instant) {
         StringBuffer buf = new StringBuffer(requirePrinter().estimatePrintedLength());
         printTo(buf, instant);
         return buf.toString();
@@ -520,7 +522,7 @@ public class DateTimeFormatter {
      * @param instant  millis since 1970-01-01T00:00:00Z
      * @return the printed result
      */
-    public String print:(NSInteger)instant) {
+    - (NSString*)print:(NSInteger)instant) {
         StringBuffer buf = new StringBuffer(requirePrinter().estimatePrintedLength());
         printTo(buf, instant);
         return buf.toString();
@@ -535,7 +537,7 @@ public class DateTimeFormatter {
      * @param partial  partial to format
      * @return the printed result
      */
-    public String print(ReadablePartial partial) {
+    - (NSString*)print:(id<HLReadablePartial>)partial) {
         StringBuffer buf = new StringBuffer(requirePrinter().estimatePrintedLength());
         printTo(buf, partial);
         return buf.toString();
@@ -621,7 +623,8 @@ public class DateTimeFormatter {
     - (NSInteger)parseInto(ReadWritableInstant instant, String text :(NSInteger)position) {
         DateTimeParser parser = requireParser();
         if (instant == nil) {
-            throw new IllegalArgumentException("Instant must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Instant must not be nil"];
         }
         
 - (NSInteger)instantMillis = instant.getMillis();
@@ -667,7 +670,7 @@ public class DateTimeFormatter {
         } else {
             newPos = ~newPos;
         }
-        throw new IllegalArgumentException(FormatUtils.createErrorMessage(text, newPos));
+        [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@FormatUtils.createErrorMessage(text, newPos));
     }
 
     /**
@@ -687,7 +690,7 @@ public class DateTimeFormatter {
      * @throws UnsupportedOperationException if parsing is not supported
      * @throws IllegalArgumentException if the text to parse is invalid
      */
-    public DateTime parseDateTime(String text) {
+    - (HLDateTime*)parseDateTime(String text) {
         DateTimeParser parser = requireParser();
         
         Chronology chrono = selectChronology(nil);
@@ -701,12 +704,12 @@ public class DateTimeFormatter {
                     DateTimeZone parsedZone = DateTimeZone.forOffsetMillis(parsedOffset);
                     chrono = chrono.withZone(parsedZone);
                 }
-                return new DateTime(millis, chrono);
+                return [[[HLDateTime alloc] initWithMillis:[self millis, chrono);
             }
         } else {
             newPos = ~newPos;
         }
-        throw new IllegalArgumentException(FormatUtils.createErrorMessage(text, newPos));
+        [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@FormatUtils.createErrorMessage(text, newPos));
     }
 
     /**
@@ -745,7 +748,7 @@ public class DateTimeFormatter {
         } else {
             newPos = ~newPos;
         }
-        throw new IllegalArgumentException(FormatUtils.createErrorMessage(text, newPos));
+        [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@FormatUtils.createErrorMessage(text, newPos));
     }
 
     /**

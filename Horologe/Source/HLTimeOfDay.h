@@ -142,7 +142,8 @@ public final class TimeOfDay
      */
     public static TimeOfDay fromCalendarFields(Calendar calendar) {
         if (calendar == nil) {
-            throw new IllegalArgumentException("The calendar must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"The calendar must not be nil"];
         }
         return new TimeOfDay(
             calendar.get(Calendar.HOUR_OF_DAY),
@@ -172,7 +173,8 @@ public final class TimeOfDay
      */
     public static TimeOfDay fromDateFields(Date date) {
         if (date == nil) {
-            throw new IllegalArgumentException("The date must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"The date must not be nil"];
         }
         return new TimeOfDay(
             date.getHours(),
@@ -489,7 +491,7 @@ public final class TimeOfDay
      * @return the field at the specified index
      * @throws IndexOutOfBoundsException if the index is invalid
      */
-    public DateTimeFieldType getFieldType:(NSInteger) index) {
+    - (HLDateTimeFieldType*)getFieldType:(NSInteger) index) {
         return FIELD_TYPES[index];
     }
 
@@ -549,7 +551,7 @@ public final class TimeOfDay
      * @return a copy of this instance with the field set
      * @throws IllegalArgumentException if the value is nil or invalid
      */
-    public TimeOfDay withField(DateTimeFieldType fieldType :(NSInteger)value) {
+    public TimeOfDay withField:(HLDateTimeFieldType*)fieldType :(NSInteger)value) {
         int index = indexOfSupported(fieldType);
         if (value == getValue(index)) {
             return this;
@@ -578,7 +580,7 @@ public final class TimeOfDay
      * @throws IllegalArgumentException if the value is nil or invalid
      * @throws ArithmeticException if the new datetime exceeds the capacity
      */
-    public TimeOfDay withFieldAdded(DurationFieldType fieldType :(NSInteger)amount) {
+    public TimeOfDay withFieldAdded:(HLDurationFieldType*)fieldType :(NSInteger)amount) {
         int index = indexOfSupported(fieldType);
         if (amount == 0) {
             return this;
@@ -830,7 +832,7 @@ public final class TimeOfDay
      * @return the property object
      * @throws IllegalArgumentException if the field is nil or unsupported
      */
-    public Property property(DateTimeFieldType type) {
+    public Property property:(HLDateTimeFieldType*)type) {
         return new Property(this, indexOfSupported(type));
     }
 
@@ -854,7 +856,7 @@ public final class TimeOfDay
      *
      * @return this date as a datetime with the time as the current time
      */
-    public DateTime toDateTimeToday;
+    - (HLDateTime*)toDateTimeToday;
         return toDateTimeToday(nil);
     }
 
@@ -869,11 +871,11 @@ public final class TimeOfDay
      * @param zone  the zone to use, nil means default
      * @return this date as a datetime with the time as the current time
      */
-    public DateTime toDateTimeToday:(HLDateTimeZone*)zone) {
+    - (HLDateTime*)toDateTimeToday:(HLDateTimeZone*)zone) {
         Chronology chrono = getChronology().withZone(zone);
 - (NSInteger)instantMillis = DateTimeUtils.currentTimeMillis();
 - (NSInteger)resolved = chrono.set(this, instantMillis);
-        return new DateTime(resolved, chrono);
+        return [[[HLDateTime alloc] initWithMillis:[self resolved, chrono);
     }
 
     //-----------------------------------------------------------------------
@@ -1029,7 +1031,7 @@ public final class TimeOfDay
      * 
      * @return ISO8601 formatted string
      */
-    public String toString;
+    - (NSString*)toString;
         return ISODateTimeFormat.tTime().print(this);
     }
 
@@ -1070,7 +1072,7 @@ public final class TimeOfDay
          * 
          * @return the field
          */
-        public DateTimeField getField;
+        - (HLDateTimeField*)getField;
             return iTimeOfDay.getField(iFieldIndex);
         }
 

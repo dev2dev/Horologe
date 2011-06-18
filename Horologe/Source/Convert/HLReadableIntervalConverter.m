@@ -109,7 +109,7 @@ class ReadableIntervalConverter extends AbstractConverter
      * @throws ClassCastException if the object is invalid
      */
     - (BOOL)isReadableInterval:(id)object, Chronology chrono) {
-        return true;
+        return YES;
     }
 
     /**

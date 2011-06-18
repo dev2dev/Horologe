@@ -129,7 +129,7 @@ public class IllegalFieldValueException extends IllegalArgumentException {
      * @param lowerBound  lower legal field value, or nil if not applicable
      * @param upperBound  upper legal field value, or nil if not applicable
      */
-    public IllegalFieldValueException(DateTimeFieldType fieldType,
+    public IllegalFieldValueException:(HLDateTimeFieldType*)fieldType,
                                       Number value, Number lowerBound, Number upperBound) {
         super(createMessage(fieldType.getName(), value, lowerBound, upperBound, nil));
         iDateTimeFieldType = fieldType;
@@ -150,7 +150,7 @@ public class IllegalFieldValueException extends IllegalArgumentException {
      * @param explain  an explanation
      * @since 1.5
      */
-    public IllegalFieldValueException(DateTimeFieldType fieldType,
+    public IllegalFieldValueException:(HLDateTimeFieldType*)fieldType,
                                       Number value, String explain) {
         super(createMessage(fieldType.getName(), value, nil, nil, explain));
         iDateTimeFieldType = fieldType;
@@ -171,7 +171,7 @@ public class IllegalFieldValueException extends IllegalArgumentException {
      * @param lowerBound  lower legal field value, or nil if not applicable
      * @param upperBound  upper legal field value, or nil if not applicable
      */
-    public IllegalFieldValueException(DurationFieldType fieldType,
+    public IllegalFieldValueException:(HLDurationFieldType*)fieldType,
                                       Number value, Number lowerBound, Number upperBound) {
         super(createMessage(fieldType.getName(), value, lowerBound, upperBound, nil));
         iDateTimeFieldType = nil;
@@ -211,7 +211,7 @@ public class IllegalFieldValueException extends IllegalArgumentException {
      * @param fieldType  type of field being set
      * @param value  illegal value being set
      */
-    public IllegalFieldValueException(DateTimeFieldType fieldType, String value) {
+    public IllegalFieldValueException:(HLDateTimeFieldType*)fieldType, String value) {
         super(createMessage(fieldType.getName(), value));
         iDateTimeFieldType = fieldType;
         iDurationFieldType = nil;
@@ -229,7 +229,7 @@ public class IllegalFieldValueException extends IllegalArgumentException {
      * @param fieldType  type of field being set
      * @param value  illegal value being set
      */
-    public IllegalFieldValueException(DurationFieldType fieldType, String value) {
+    public IllegalFieldValueException:(HLDurationFieldType*)fieldType, String value) {
         super(createMessage(fieldType.getName(), value));
         iDateTimeFieldType = nil;
         iDurationFieldType = fieldType;
@@ -265,7 +265,7 @@ public class IllegalFieldValueException extends IllegalArgumentException {
      * 
      * @return the datetime field type
      */
-    public DateTimeFieldType getDateTimeFieldType {
+    - (HLDateTimeFieldType*)getDateTimeFieldType {
         return iDateTimeFieldType;
     }
 
@@ -283,7 +283,7 @@ public class IllegalFieldValueException extends IllegalArgumentException {
      * 
      * @return the field name
      */
-    public String getFieldName {
+    - (NSString*)getFieldName {
         return iFieldName;
     }
 
@@ -301,7 +301,7 @@ public class IllegalFieldValueException extends IllegalArgumentException {
      * 
      * @return the value
      */
-    public String getIllegalStringValue {
+    - (NSString*)getIllegalStringValue {
         return iStringValue;
     }
 
@@ -310,7 +310,7 @@ public class IllegalFieldValueException extends IllegalArgumentException {
      * 
      * @return the value
      */
-    public String getIllegalValueAsString {
+    - (NSString*)getIllegalValueAsString {
         String value = iStringValue;
         if (value == nil) {
             value = String.valueOf(iNumberValue);
@@ -336,7 +336,7 @@ public class IllegalFieldValueException extends IllegalArgumentException {
         return iUpperBound;
     }
 
-    public String getMessage {
+    - (NSString*)getMessage {
         return iMessage;
     }
 

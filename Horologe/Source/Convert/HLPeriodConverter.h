@@ -21,33 +21,12 @@
 
 #import <Foundation/Foundation.h>
 
+#import "HLConverter.h"
 
-@interface PeriodConverter {
 
-@private
-
-}
-
-/*
- *  Copyright 2001-2005 Stephen Colebourne
- *
- *  Licensed under the Apache License, Version 2.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
- */
-package org.joda.time.convert;
-
-import org.joda.time.Chronology;
-import org.joda.time.PeriodType;
-import org.joda.time.ReadWritablePeriod;
+@class HLPeriodType;
+@class HLChronology;
+@protocol HLReadWritablePeriod;
 
 /**
  * PeriodConverter defines how an object is converted to a time period.
@@ -56,29 +35,28 @@ import org.joda.time.ReadWritablePeriod;
  * @author Brian S O'Neill
  * @since 1.0
  */
-public interface PeriodConverter extends Converter {
+@protocol HLPeriodConverter <HLConverter>
 
-    /**
-     * Extracts duration values from an object of this converter's type, and
-     * sets them into the given ReadWritableDuration.
-     *
-     * @param period  the period to modify
-     * @param object  the object to convert, must not be nil
-     * @param chrono  the chronology to use, must not be nil
-     * @throws ClassCastException if the object is invalid
-     */
-- (void)setInto(ReadWritablePeriod period, Object object, Chronology chrono);
+/**
+ * Extracts duration values from an object of this converter's type, and
+ * sets them into the given ReadWritableDuration.
+ *
+ * @param period  the period to modify
+ * @param object  the object to convert, must not be nil
+ * @param chrono  the chronology to use, must not be nil
+ * @throws ClassCastException if the object is invalid
+ */
+- (void)setInto:(id<HLReadWritablePeriod>)period
+         period:(id)object
+     chronology:(HLChronology*)chrono;
 
-    /**
-     * Selects a suitable period type for the given object.
-     *
-     * @param object  the object to examine, must not be nil
-     * @return the period type, never nil
-     * @throws ClassCastException if the object is invalid
-     */
-    PeriodType getPeriodType:(id)object);
-
-}
-
+/**
+ * Selects a suitable period type for the given object.
+ *
+ * @param object  the object to examine, must not be nil
+ * @return the period type, never nil
+ * @throws ClassCastException if the object is invalid
+ */
+- (HLPeriodType*)periodType:(id)object;
 
 @end

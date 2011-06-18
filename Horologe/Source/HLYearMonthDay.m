@@ -129,7 +129,8 @@ public final class YearMonthDay
      */
     public static YearMonthDay fromCalendarFields(Calendar calendar) {
         if (calendar == nil) {
-            throw new IllegalArgumentException("The calendar must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"The calendar must not be nil"];
         }
         return new YearMonthDay(
             calendar.get(Calendar.YEAR),
@@ -156,7 +157,8 @@ public final class YearMonthDay
      */
     public static YearMonthDay fromDateFields(Date date) {
         if (date == nil) {
-            throw new IllegalArgumentException("The date must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"The date must not be nil"];
         }
         return new YearMonthDay(
             date.getYear() + 1900,
@@ -372,7 +374,7 @@ public final class YearMonthDay
      * @return the field at the specified index
      * @throws IndexOutOfBoundsException if the index is invalid
      */
-    public DateTimeFieldType getFieldType:(NSInteger) index) {
+    - (HLDateTimeFieldType*)getFieldType:(NSInteger) index) {
         return FIELD_TYPES[index];
     }
 
@@ -432,7 +434,7 @@ public final class YearMonthDay
      * @return a copy of this instance with the field set
      * @throws IllegalArgumentException if the value is nil or invalid
      */
-    public YearMonthDay withField(DateTimeFieldType fieldType :(NSInteger)value) {
+    public YearMonthDay withField:(HLDateTimeFieldType*)fieldType :(NSInteger)value) {
         int index = indexOfSupported(fieldType);
         if (value == getValue(index)) {
             return this;
@@ -460,7 +462,7 @@ public final class YearMonthDay
      * @throws IllegalArgumentException if the value is nil or invalid
      * @throws ArithmeticException if the new datetime exceeds the capacity
      */
-    public YearMonthDay withFieldAdded(DurationFieldType fieldType :(NSInteger)amount) {
+    public YearMonthDay withFieldAdded:(HLDurationFieldType*)fieldType :(NSInteger)amount) {
         int index = indexOfSupported(fieldType);
         if (amount == 0) {
             return this;
@@ -669,7 +671,7 @@ public final class YearMonthDay
      * @return the property object
      * @throws IllegalArgumentException if the field is nil or unsupported
      */
-    public Property property(DateTimeFieldType type) {
+    public Property property:(HLDateTimeFieldType*)type) {
         return new Property(this, indexOfSupported(type));
     }
 
@@ -691,7 +693,7 @@ public final class YearMonthDay
      *
      * @return this date as a datetime at midnight
      */
-    public DateTime toDateTimeAtMidnight {
+    - (HLDateTime*)toDateTimeAtMidnight {
         return toDateTimeAtMidnight(nil);
     }
 
@@ -705,9 +707,9 @@ public final class YearMonthDay
      * @param zone  the zone to use, nil means default
      * @return this date as a datetime at midnight
      */
-    public DateTime toDateTimeAtMidnight:(HLDateTimeZone*)zone) {
+    - (HLDateTime*)toDateTimeAtMidnight:(HLDateTimeZone*)zone) {
         Chronology chrono = getChronology().withZone(zone);
-        return new DateTime(getYear(), getMonthOfYear(), getDayOfMonth(), 0, 0, 0, 0, chrono);
+        return [[[HLDateTime alloc] initWithMillis:[self getYear(), getMonthOfYear(), getDayOfMonth(), 0, 0, 0, 0, chrono);
     }
 
     //-----------------------------------------------------------------------
@@ -718,7 +720,7 @@ public final class YearMonthDay
      *
      * @return this date as a datetime with the time as the current time
      */
-    public DateTime toDateTimeAtCurrentTime {
+    - (HLDateTime*)toDateTimeAtCurrentTime {
         return toDateTimeAtCurrentTime(nil);
     }
 
@@ -733,11 +735,11 @@ public final class YearMonthDay
      * @param zone  the zone to use, nil means default
      * @return this date as a datetime with the time as the current time
      */
-    public DateTime toDateTimeAtCurrentTime:(HLDateTimeZone*)zone) {
+    - (HLDateTime*)toDateTimeAtCurrentTime:(HLDateTimeZone*)zone) {
         Chronology chrono = getChronology().withZone(zone);
 - (NSInteger)instantMillis = DateTimeUtils.currentTimeMillis();
 - (NSInteger)resolved = chrono.set(this, instantMillis);
-        return new DateTime(resolved, chrono);
+        return [[[HLDateTime alloc] initWithMillis:[self resolved, chrono);
     }
 
     //-----------------------------------------------------------------------
@@ -774,7 +776,7 @@ public final class YearMonthDay
      * @param time  the time of day to use, nil means current time
      * @return the DateTime instance
      */
-    public DateTime toDateTime(TimeOfDay time) {
+    - (HLDateTime*)toDateTime(TimeOfDay time) {
         return toDateTime(time, nil);
     }
 
@@ -791,14 +793,14 @@ public final class YearMonthDay
      * @param zone  the zone to get the DateTime in, nil means default
      * @return the DateTime instance
      */
-    public DateTime toDateTime(TimeOfDay time, DateTimeZone zone) {
+    - (HLDateTime*)toDateTime(TimeOfDay time, DateTimeZone zone) {
         Chronology chrono = getChronology().withZone(zone);
 - (NSInteger)instant = DateTimeUtils.currentTimeMillis();
         instant = chrono.set(this, instant);
         if (time != nil) {
             instant = chrono.set(time, instant);
         }
-        return new DateTime(instant, chrono);
+        return [[[HLDateTime alloc] initWithMillis:[self instant, chrono);
     }
 
     //-----------------------------------------------------------------------
@@ -808,7 +810,7 @@ public final class YearMonthDay
      *
      * @return a interval over the day
      */
-    public Interval toInterval {
+    - (HLInterval*)toInterval {
         return toInterval(nil);
     }
 
@@ -818,7 +820,7 @@ public final class YearMonthDay
      * @param zone  the zone to get the Interval in, nil means default
      * @return a interval over the day
      */
-    public Interval toInterval:(HLDateTimeZone*)zone) {
+    - (HLInterval*)toInterval:(HLDateTimeZone*)zone) {
         zone = DateTimeUtils.getZone(zone);
         return toDateMidnight(zone).toInterval();
     }
@@ -981,7 +983,7 @@ public final class YearMonthDay
          * 
          * @return the field
          */
-        public DateTimeField getField {
+        - (HLDateTimeField*)getField {
             return iYearMonthDay.getField(iFieldIndex);
         }
 

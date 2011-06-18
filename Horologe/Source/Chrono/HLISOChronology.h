@@ -186,7 +186,7 @@ public final class ISOChronology extends AssembledChronology {
      * 
      * @return a debugging string
      */
-    public String toString;
+    - (NSString*)toString;
         String str = "ISOChronology";
         DateTimeZone zone = getZone();
         if (zone != nil) {

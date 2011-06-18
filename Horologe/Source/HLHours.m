@@ -158,7 +158,7 @@ public final class Hours extends BaseSingleFieldPeriod {
      * @return the period in hours
      * @throws IllegalArgumentException if the partials are nil or invalid
      */
-    public static Hours hoursBetween(ReadablePartial start, ReadablePartial end) {
+    public static Hours hoursBetween:(id<HLReadablePartial>)start, ReadablePartial end) {
         if (start instanceof LocalTime && end instanceof LocalTime)   {
             Chronology chrono = DateTimeUtils.getChronology(start.getChronology());
             int hours = chrono.hours().getDifference(
@@ -350,7 +350,7 @@ public final class Hours extends BaseSingleFieldPeriod {
      *
      * @return a duration equivalent to this number of hours
      */
-    public Duration toStandardDuration {
+    - (HLDuration*)toStandardDuration {
 - (NSInteger)hours = getValue();  // assign to a long
         return new Duration(hours * DateTimeConstants.MILLIS_PER_HOUR);
     }

@@ -19,338 +19,189 @@
  * limitations under the License.
  */
 
-#import "FieldUtils.h"
+#import "HLFieldUtils.h"
+
+#import "HLConstants.h"
+#import "HLDateTimeFieldType.h"
+#import "HLDateTimeField.h"
 
 
-@implementation FieldUtils
+@implementation HLFieldUtils
 
-/*
- *  Copyright 2001-2005 Stephen Colebourne
- *
- *  Licensed under the Apache License, Version 2.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
- */
-package org.joda.time.field;
-
-import org.joda.time.DateTimeField;
-import org.joda.time.DateTimeFieldType;
-import org.joda.time.IllegalFieldValueException;
-
-/**
- * General utilities that don't fit elsewhere.
- * <p>
- * FieldUtils is thread-safe and immutable.
- *
- * @author Stephen Colebourne
- * @since 1.0
- */
-public class FieldUtils {
-
-    /**
-     * Restricted constructor.
-     */
-    private FieldUtils {
-        super();
+//------------------------------------------------------------------------
++ (NSInteger)safeNegate:(NSInteger)value {
+    if (value == NSIntegerMin) {
+        [NSException raise:HL_ARITHMETIC_EXCEPTION 
+                    format:@"Integer minimum value cannot be negated"];
     }
     
-    //------------------------------------------------------------------------
-    /**
-     * Negates the input throwing an exception if it can't negate it.
-     * 
-     * @param value  the value to negate
-     * @return the negated value
-     * @throws ArithmeticException if the value is Integer.MIN_VALUE
-     * @since 1.1
-     */
-    public static int safeNegate:(NSInteger) value) {
-        if (value == Integer.MIN_VALUE) {
-            throw new ArithmeticException("Integer.MIN_VALUE cannot be negated");
-        }
-        return -value;
-    }
-    
-    /**
-     * Add two values throwing an exception if overflow occurs.
-     * 
-     * @param val1  the first value
-     * @param val2  the second value
-     * @return the new total
-     * @throws ArithmeticException if the value is too big or too small
-     */
-    public static int safeAdd:(NSInteger) val1 :(NSInteger)val2) {
-        int sum = val1 + val2;
-        // If there is a sign change, but the two values have the same sign...
-        if ((val1 ^ sum) < 0 && (val1 ^ val2) >= 0) {
-            throw new ArithmeticException
-                ("The calculation caused an overflow: " + val1 + " + " + val2);
-        }
-        return sum;
-    }
-    
-    /**
-     * Add two values throwing an exception if overflow occurs.
-     * 
-     * @param val1  the first value
-     * @param val2  the second value
-     * @return the new total
-     * @throws ArithmeticException if the value is too big or too small
-     */
-    public static long safeAdd:(NSInteger)val1 :(NSInteger)val2) {
-- (NSInteger)sum = val1 + val2;
-        // If there is a sign change, but the two values have the same sign...
-        if ((val1 ^ sum) < 0 && (val1 ^ val2) >= 0) {
-            throw new ArithmeticException
-                ("The calculation caused an overflow: " + val1 + " + " + val2);
-        }
-        return sum;
-    }
-    
-    /**
-     * Subtracts two values throwing an exception if overflow occurs.
-     * 
-     * @param val1  the first value, to be taken away from
-     * @param val2  the second value, the amount to take away
-     * @return the new total
-     * @throws ArithmeticException if the value is too big or too small
-     */
-    public static long safeSubtract:(NSInteger)val1 :(NSInteger)val2) {
-- (NSInteger)diff = val1 - val2;
-        // If there is a sign change, but the two values have different signs...
-        if ((val1 ^ diff) < 0 && (val1 ^ val2) < 0) {
-            throw new ArithmeticException
-                ("The calculation caused an overflow: " + val1 + " - " + val2);
-        }
-        return diff;
-    }
-    
-    /**
-     * Multiply two values throwing an exception if overflow occurs.
-     * 
-     * @param val1  the first value
-     * @param val2  the second value
-     * @return the new total
-     * @throws ArithmeticException if the value is too big or too small
-     * @since 1.2
-     */
-    public static int safeMultiply:(NSInteger) val1 :(NSInteger)val2) {
-- (NSInteger)total = (long) val1 * (long) val2;
-        if (total < Integer.MIN_VALUE || total > Integer.MAX_VALUE) {
-            throw new ArithmeticException
-                ("The calculation caused an overflow: " + val1 + " * " + val2);
-        }
-        return (int) total;
-    }
+    return -value;
+}
 
-    /**
-     * Multiply two values throwing an exception if overflow occurs.
-     * 
-     * @param val1  the first value
-     * @param scalar  the second value
-     * @return the new total
-     * @throws ArithmeticException if the value is too big or too small
-     * @since 1.2
-     */
-    public static long safeMultiply:(NSInteger)val1 :(NSInteger)scalar) {
-        switch (scalar) {
++ (NSInteger)safeAddValue:(NSInteger)val1 
+                 andValue:(NSInteger)val2 {
+    NSInteger sum = val1 + val2;
+    // If there is a sign change, but the two values have the same sign...
+    if ((val1 ^ sum) < 0 && (val1 ^ val2) >= 0) {
+        [NSException raise:HL_ARITHMETIC_EXCEPTION 
+                    format:@"The calculation caused an overflow: %ld + %ld", val1, val2];
+    }
+    
+    return sum;
+}
+
++ (NSInteger)safeSubtractValue:(NSInteger)val1 
+                      andValue:(NSInteger)val2 {
+    NSInteger diff = val1 - val2;
+    // If there is a sign change, but the two values have different signs...
+    if ((val1 ^ diff) < 0 && (val1 ^ val2) < 0) {
+        [NSException raise:HL_ARITHMETIC_EXCEPTION 
+                    format:@"The calculation caused an overflow: %ld - %ld", val1, val2];
+    }
+    
+    return diff;
+}
+
++ (NSInteger)safeMultiply:(NSInteger)val1 
+                 andValue:(NSInteger)val2 {
+    NSInteger total = (NSInteger) val1 * (NSInteger) val2;
+    if (total < NSIntegerMin || total > NSIntegerMax) {
+        [NSException raise:HL_ARITHMETIC_EXCEPTION 
+                    format:@"The calculation caused an overflow: %ld * %ld", val1, val2];
+    }
+    return (int) total;
+}
+
++ (NSInteger)safeMultiply:(NSInteger)val1 
+                andScalar:(NSInteger)scalar {
+    switch (scalar) {
         case -1:
             return -val1;
         case 0:
             return 0L;
         case 1:
             return val1;
-        }
-- (NSInteger)total = val1 * scalar;
-        if (total / scalar != val1) {
-            throw new ArithmeticException
-                ("The calculation caused an overflow: " + val1 + " * " + scalar);
-        }
-        return total;
     }
-
-    /**
-     * Multiply two values throwing an exception if overflow occurs.
-     * 
-     * @param val1  the first value
-     * @param val2  the second value
-     * @return the new total
-     * @throws ArithmeticException if the value is too big or too small
-     */
-    public static long safeMultiply:(NSInteger)val1 :(NSInteger)val2) {
-        if (val2 == 1) {
-            return val1;
-        }
-        if (val2 == 0) {
-            return 0;
-        }
-- (NSInteger)total = val1 * val2;
-        if (total / val2 != val1) {
-            throw new ArithmeticException
-                ("The calculation caused an overflow: " + val1 + " * " + val2);
-        }
-        return total;
+    NSInteger total = val1 * scalar;
+    if (total / scalar != val1) {
+        [NSException raise:HL_ARITHMETIC_EXCEPTION 
+                    format:@"The calculation caused an overflow: %ld * %ld", val1, scalar];
     }
-    
-    /**
-     * Casts to an int throwing an exception if overflow occurs.
-     * 
-     * @param value  the value
-     * @return the value as an int
-     * @throws ArithmeticException if the value is too big or too small
-     */
-    public static int safeToInt:(NSInteger)value) {
-        if (Integer.MIN_VALUE <= value && value <= Integer.MAX_VALUE) {
-            return (int) value;
-        }
-        throw new ArithmeticException("Value cannot fit in an int: " + value);
-    }
-    
-    /**
-     * Multiply two values to return an int throwing an exception if overflow occurs.
-     * 
-     * @param val1  the first value
-     * @param val2  the second value
-     * @return the new total
-     * @throws ArithmeticException if the value is too big or too small
-     */
-    public static int safeMultiplyToInt:(NSInteger)val1 :(NSInteger)val2) {
-- (NSInteger)val = FieldUtils.safeMultiply(val1, val2);
-        return FieldUtils.safeToInt(val);
-    }
-
-    //-----------------------------------------------------------------------
-    /**
-     * Verify that input values are within specified bounds.
-     * 
-     * @param value  the value to check
-     * @param lowerBound  the lower bound allowed for value
-     * @param upperBound  the upper bound allowed for value
-     * @throws IllegalFieldValueException if value is not in the specified bounds
-     */
-    public static void verifyValueBounds(DateTimeField field, 
-                                         int value :(NSInteger)lowerBound :(NSInteger)upperBound) {
-        if ((value < lowerBound) || (value > upperBound)) {
-            throw new IllegalFieldValueException
-                (field.getType(), new Integer(value),
-                 new Integer(lowerBound), new Integer(upperBound));
-        }
-    }
-
-    /**
-     * Verify that input values are within specified bounds.
-     * 
-     * @param value  the value to check
-     * @param lowerBound  the lower bound allowed for value
-     * @param upperBound  the upper bound allowed for value
-     * @throws IllegalFieldValueException if value is not in the specified bounds
-     * @since 1.1
-     */
-    public static void verifyValueBounds(DateTimeFieldType fieldType, 
-                                         int value :(NSInteger)lowerBound :(NSInteger)upperBound) {
-        if ((value < lowerBound) || (value > upperBound)) {
-            throw new IllegalFieldValueException
-                (fieldType, new Integer(value),
-                 new Integer(lowerBound), new Integer(upperBound));
-        }
-    }
-
-    /**
-     * Verify that input values are within specified bounds.
-     * 
-     * @param value  the value to check
-     * @param lowerBound  the lower bound allowed for value
-     * @param upperBound  the upper bound allowed for value
-     * @throws IllegalFieldValueException if value is not in the specified bounds
-     */
-    public static void verifyValueBounds(String fieldName,
-                                         int value :(NSInteger)lowerBound :(NSInteger)upperBound) {
-        if ((value < lowerBound) || (value > upperBound)) {
-            throw new IllegalFieldValueException
-                (fieldName, new Integer(value),
-                 new Integer(lowerBound), new Integer(upperBound));
-        }
-    }
-
-    /**
-     * Utility method used by addWrapField implementations to ensure the new
-     * value lies within the field's legal value range.
-     *
-     * @param currentValue the current value of the data, which may lie outside
-     * the wrapped value range
-     * @param wrapValue  the value to add to current value before
-     *  wrapping.  This may be negative.
-     * @param minValue the wrap range minimum value.
-     * @param maxValue the wrap range maximum value.  This must be
-     *  greater than minValue (checked by the method).
-     * @return the wrapped value
-     * @throws IllegalArgumentException if minValue is greater
-     *  than or equal to maxValue
-     */
-    public static int getWrappedValue:(NSInteger) currentValue :(NSInteger)wrapValue,
-                                      int minValue :(NSInteger)maxValue) {
-        return getWrappedValue(currentValue + wrapValue, minValue, maxValue);
-    }
-
-    /**
-     * Utility method that ensures the given value lies within the field's
-     * legal value range.
-     * 
-     * @param value  the value to fit into the wrapped value range
-     * @param minValue the wrap range minimum value.
-     * @param maxValue the wrap range maximum value.  This must be
-     *  greater than minValue (checked by the method).
-     * @return the wrapped value
-     * @throws IllegalArgumentException if minValue is greater
-     *  than or equal to maxValue
-     */
-    public static int getWrappedValue:(NSInteger) value :(NSInteger)minValue :(NSInteger)maxValue) {
-        if (minValue >= maxValue) {
-            throw new IllegalArgumentException("MIN > MAX");
-        }
-
-        int wrapRange = maxValue - minValue + 1;
-        value -= minValue;
-
-        if (value >= 0) {
-            return (value % wrapRange) + minValue;
-        }
-
-        int remByRange = (-value) % wrapRange;
-
-        if (remByRange == 0) {
-            return 0 + minValue;
-        }
-        return (wrapRange - remByRange) + minValue;
-    }
-
-    //-----------------------------------------------------------------------
-    /**
-     * Compares two objects as equals handling nil.
-     * 
-     * @param object1  the first object
-     * @param object2  the second object
-     * @return true if equal
-     * @since 1.4
-     */
-    public static - (BOOL)isEqualTo???:(id)object1, Object object2) {
-        if (object1 == object2) {
-            return true;
-        }
-        if (object1 == nil || object2 == nil) {
-            return false;
-        }
-        return object1.equals(object2);
-    }
-
+    return total;
 }
 
++ (NSInteger)safeMultiplyValue:(NSInteger)val1 
+                      andValue:(NSInteger)val2 {
+    if (val2 == 1) {
+        return val1;
+    }
+    if (val2 == 0) {
+        return 0;
+    }
+    
+    NSInteger total = val1 * val2;
+    if (total / val2 != val1) {
+        [NSException raise:HL_ARITHMETIC_EXCEPTION 
+                    format:@"The calculation caused an overflow: %ld * %ld", val1, val2];
+    }
+    
+    return total;
+}
+
++ (NSInteger)safeToInteger:(NSInteger)value {
+    if (NSIntegerMin <= value && value <= NSIntegerMax) {
+        return (NSInteger) value;
+    }
+    
+    [NSException raise:HL_ARITHMETIC_EXCEPTION 
+                format:@"Value cannot fit in a long integer: %ld", value];
+}
+
++ (NSInteger)safeMultiplyToIntegerValue:(NSInteger)val1 andValue:(NSInteger)val2 {
+    NSInteger val = [HLFieldUtils safeMultiplyValue:val1
+                                           andValue:val2];
+    return [HLFieldUtils safeToInteger:val];
+}
+
+//-----------------------------------------------------------------------
++ (void)verifyValueBoundsOfField:(HLDateTimeField*)field
+                           value:(NSInteger)value 
+                      lowerBound:(NSInteger)lowerBound 
+                      upperBound:(NSInteger)upperBound {
+    
+    if ((value < lowerBound) || (value > upperBound)) {
+        [NSException raise:HL_ILLEGAL_FIELD_VALUE_EXCEPTION
+                    format:@"Type: %@, value: %ld, lower-bound: %ld, upper-bound: %ld",
+         [field type], value, lowerBound, upperBound];
+    }
+}
+
++ (void)verifyValueBoundsInFieldType:(HLDateTimeFieldType*)fieldType 
+                               value:(NSInteger)value
+                          lowerBound:(NSInteger)lowerBound 
+                          upperBound:(NSInteger)upperBound {
+    
+    if ((value < lowerBound) || (value > upperBound)) {
+        [NSException raise:HL_ILLEGAL_FIELD_VALUE_EXCEPTION
+                    format:@"Type: %@, value: %ld, lower-bound: %ld, upper-bound: %ld",
+         [field type], value, lowerBound, upperBound];
+    }
+}
+
++ (void)verifyValueBoundsInFieldName:(NSString*)fieldName 
+                               value:(NSInteger)value 
+                          lowerBound:(NSInteger)lowerBound 
+                          upperBound:(NSInteger)upperBound {
+    
+    if ((value < lowerBound) || (value > upperBound)) {
+        [NSException raise:HL_ILLEGAL_FIELD_VALUE_EXCEPTION
+                    format:@"Type: %@, value: %ld, lower-bound: %ld, upper-bound: %ld",
+         [field type], value, lowerBound, upperBound];
+    }
+}
+
++ (NSInteger)wrappedValue:(NSInteger)currentValue 
+                wrapValue:(NSInteger)wrapValue
+                 minValue:(NSInteger)minValue 
+                 maxValue:(NSInteger)maxValue {
+    return [HLFieldUtils wrappedValue:(currentValue + wrapValue)
+                             minValue:minValue
+                             maxValue:maxValue];
+}
+
++ (NSInteger)wrappedValue:(NSInteger)value 
+                 minValue:(NSInteger)minValue 
+                 maxValue:(NSInteger)maxValue {
+    if (minValue >= maxValue) {
+        [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"MIN > MAX"];
+    }
+    
+    NSInteger wrapRange = maxValue - minValue + 1;
+    value -= minValue;
+    
+    if (value >= 0) {
+        return (value % wrapRange) + minValue;
+    }
+    
+    NSInteger remByRange = (-value) % wrapRange;
+    
+    if (remByRange == 0) {
+        return 0 + minValue;
+    }
+    return (wrapRange - remByRange) + minValue;
+}
+
+//-----------------------------------------------------------------------
++ (BOOL)isObject:(id)object1
+   equalToObject:(id)object2 {
+    if (object1 == object2) {
+        return YES;
+    }
+    if (object1 == nil || object2 == nil) {
+        return NO;
+    }
+    return [object1 isEqual:object2];
+}
 
 @end

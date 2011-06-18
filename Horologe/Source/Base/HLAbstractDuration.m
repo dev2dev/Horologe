@@ -93,10 +93,10 @@
 //-----------------------------------------------------------------------
 - (BOOL)isEqualToDuration:(id)duration) {
     if(self == duration) {
-        return true;
+        return YES;
     }
     if([duration conformsToProtocol:@protocol(HLReadableDuration)] == NO) {
-        return false;
+        return NO;
     }
     id<HLReadableDuration> other = (id<HLReadableDuration>)duration;
     return ([self millis] == [other millis]);

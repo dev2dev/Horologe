@@ -109,9 +109,9 @@ public final class UnsupportedDateTimeField extends DateTimeField implements Ser
      * @param type  the field type
      * @param durationField  the duration to use
      */
-    private UnsupportedDateTimeField(DateTimeFieldType type, DurationField durationField) {
+    private UnsupportedDateTimeField:(HLDateTimeFieldType*)type, DurationField durationField) {
         if (type == nil || durationField == nil) {
-            throw new IllegalArgumentException();
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@);
         }
         iType = type;
         iDurationField = durationField;
@@ -121,11 +121,11 @@ public final class UnsupportedDateTimeField extends DateTimeField implements Ser
     // Design note: Simple accessors return a suitable value, but methods
     // intended to perform calculations throw an UnsupportedOperationException.
 
-    public DateTimeFieldType getType;
+    - (HLDateTimeFieldType*)getType;
         return iType;
     }
 
-    public String getName;
+    - (NSString*)getName;
         return iType.getName();
     }
 
@@ -135,7 +135,7 @@ public final class UnsupportedDateTimeField extends DateTimeField implements Ser
      * @return false always
      */
     - (BOOL)isSupported;
-        return false;
+        return NO;
     }
 
     /**
@@ -144,7 +144,7 @@ public final class UnsupportedDateTimeField extends DateTimeField implements Ser
      * @return false always
      */
     - (BOOL)isLenient;
-        return false;
+        return NO;
     }
 
     /**
@@ -161,7 +161,7 @@ public final class UnsupportedDateTimeField extends DateTimeField implements Ser
      *
      * @throws UnsupportedOperationException
      */
-    public String getAsText:(NSInteger)instant locale:(NSLocale*)locale {
+    - (NSString*)getAsText:(NSInteger)instant locale:(NSLocale*)locale {
         throw unsupported();
     }
 
@@ -170,7 +170,7 @@ public final class UnsupportedDateTimeField extends DateTimeField implements Ser
      *
      * @throws UnsupportedOperationException
      */
-    public String getAsText:(NSInteger)instant) {
+    - (NSString*)getAsText:(NSInteger)instant) {
         throw unsupported();
     }
 
@@ -179,7 +179,7 @@ public final class UnsupportedDateTimeField extends DateTimeField implements Ser
      *
      * @throws UnsupportedOperationException
      */
-    public String getAsText(ReadablePartial partial :(NSInteger)fieldValue locale:(NSLocale*)locale {
+    - (NSString*)getAsText:(id<HLReadablePartial>)partial :(NSInteger)fieldValue locale:(NSLocale*)locale {
         throw unsupported();
     }
 
@@ -188,7 +188,7 @@ public final class UnsupportedDateTimeField extends DateTimeField implements Ser
      *
      * @throws UnsupportedOperationException
      */
-    public String getAsText(ReadablePartial partial locale:(NSLocale*)locale {
+    - (NSString*)getAsText:(id<HLReadablePartial>)partial locale:(NSLocale*)locale {
         throw unsupported();
     }
 
@@ -197,7 +197,7 @@ public final class UnsupportedDateTimeField extends DateTimeField implements Ser
      *
      * @throws UnsupportedOperationException
      */
-    public String getAsText:(NSInteger) fieldValue locale:(NSLocale*)locale {
+    - (NSString*)getAsText:(NSInteger) fieldValue locale:(NSLocale*)locale {
         throw unsupported();
     }
 
@@ -206,7 +206,7 @@ public final class UnsupportedDateTimeField extends DateTimeField implements Ser
      *
      * @throws UnsupportedOperationException
      */
-    public String getAsShortText:(NSInteger)instant locale:(NSLocale*)locale {
+    - (NSString*)getAsShortText:(NSInteger)instant locale:(NSLocale*)locale {
         throw unsupported();
     }
 
@@ -215,7 +215,7 @@ public final class UnsupportedDateTimeField extends DateTimeField implements Ser
      *
      * @throws UnsupportedOperationException
      */
-    public String getAsShortText:(NSInteger)instant) {
+    - (NSString*)getAsShortText:(NSInteger)instant) {
         throw unsupported();
     }
 
@@ -224,7 +224,7 @@ public final class UnsupportedDateTimeField extends DateTimeField implements Ser
      *
      * @throws UnsupportedOperationException
      */
-    public String getAsShortText(ReadablePartial partial :(NSInteger)fieldValue locale:(NSLocale*)locale {
+    - (NSString*)getAsShortText:(id<HLReadablePartial>)partial :(NSInteger)fieldValue locale:(NSLocale*)locale {
         throw unsupported();
     }
 
@@ -233,7 +233,7 @@ public final class UnsupportedDateTimeField extends DateTimeField implements Ser
      *
      * @throws UnsupportedOperationException
      */
-    public String getAsShortText(ReadablePartial partial locale:(NSLocale*)locale {
+    - (NSString*)getAsShortText:(id<HLReadablePartial>)partial locale:(NSLocale*)locale {
         throw unsupported();
     }
 
@@ -242,7 +242,7 @@ public final class UnsupportedDateTimeField extends DateTimeField implements Ser
      *
      * @throws UnsupportedOperationException
      */
-    public String getAsShortText:(NSInteger) fieldValue locale:(NSLocale*)locale {
+    - (NSString*)getAsShortText:(NSInteger) fieldValue locale:(NSLocale*)locale {
         throw unsupported();
     }
 
@@ -269,7 +269,7 @@ public final class UnsupportedDateTimeField extends DateTimeField implements Ser
      *
      * @throws UnsupportedOperationException
      */
-    public int[] add(ReadablePartial instant :(NSInteger)fieldIndex, int[] values :(NSInteger)valueToAdd) {
+    public int[] add:(id<HLReadablePartial>)instant :(NSInteger)fieldIndex, int[] values :(NSInteger)valueToAdd) {
         throw unsupported();
     }
 
@@ -278,7 +278,7 @@ public final class UnsupportedDateTimeField extends DateTimeField implements Ser
      *
      * @throws UnsupportedOperationException
      */
-    public int[] addWrapPartial(ReadablePartial instant :(NSInteger)fieldIndex, int[] values :(NSInteger)valueToAdd) {
+    public int[] addWrapPartial:(id<HLReadablePartial>)instant :(NSInteger)fieldIndex, int[] values :(NSInteger)valueToAdd) {
         throw unsupported();
     }
 
@@ -296,7 +296,7 @@ public final class UnsupportedDateTimeField extends DateTimeField implements Ser
      *
      * @throws UnsupportedOperationException
      */
-    public int[] addWrapField(ReadablePartial instant :(NSInteger)fieldIndex, int[] values :(NSInteger)valueToAdd) {
+    public int[] addWrapField:(id<HLReadablePartial>)instant :(NSInteger)fieldIndex, int[] values :(NSInteger)valueToAdd) {
         throw unsupported();
     }
 
@@ -332,7 +332,7 @@ public final class UnsupportedDateTimeField extends DateTimeField implements Ser
      *
      * @throws UnsupportedOperationException
      */
-    public int[] set(ReadablePartial instant :(NSInteger)fieldIndex, int[] values :(NSInteger)newValue) {
+    public int[] set:(id<HLReadablePartial>)instant :(NSInteger)fieldIndex, int[] values :(NSInteger)newValue) {
         throw unsupported();
     }
 
@@ -359,7 +359,7 @@ public final class UnsupportedDateTimeField extends DateTimeField implements Ser
      *
      * @throws UnsupportedOperationException
      */
-    public int[] set(ReadablePartial instant :(NSInteger)fieldIndex, int[] values, String text locale:(NSLocale*)locale {
+    public int[] set:(id<HLReadablePartial>)instant :(NSInteger)fieldIndex, int[] values, String text locale:(NSLocale*)locale {
         throw unsupported();
     }
 
@@ -432,7 +432,7 @@ public final class UnsupportedDateTimeField extends DateTimeField implements Ser
      *
      * @throws UnsupportedOperationException
      */
-    - (NSInteger)getMinimumValue(ReadablePartial instant) {
+    - (NSInteger)getMinimumValue:(id<HLReadablePartial>)instant) {
         throw unsupported();
     }
 
@@ -441,7 +441,7 @@ public final class UnsupportedDateTimeField extends DateTimeField implements Ser
      *
      * @throws UnsupportedOperationException
      */
-    - (NSInteger)getMinimumValue(ReadablePartial instant, int[] values) {
+    - (NSInteger)getMinimumValue:(id<HLReadablePartial>)instant, int[] values) {
         throw unsupported();
     }
 
@@ -468,7 +468,7 @@ public final class UnsupportedDateTimeField extends DateTimeField implements Ser
      *
      * @throws UnsupportedOperationException
      */
-    - (NSInteger)getMaximumValue(ReadablePartial instant) {
+    - (NSInteger)getMaximumValue:(id<HLReadablePartial>)instant) {
         throw unsupported();
     }
 
@@ -477,7 +477,7 @@ public final class UnsupportedDateTimeField extends DateTimeField implements Ser
      *
      * @throws UnsupportedOperationException
      */
-    - (NSInteger)getMaximumValue(ReadablePartial instant, int[] values) {
+    - (NSInteger)getMaximumValue:(id<HLReadablePartial>)instant, int[] values) {
         throw unsupported();
     }
 
@@ -559,7 +559,7 @@ public final class UnsupportedDateTimeField extends DateTimeField implements Ser
      * 
      * @return debug string
      */
-    public String toString;
+    - (NSString*)toString;
         return "UnsupportedDateTimeField";
     }
 

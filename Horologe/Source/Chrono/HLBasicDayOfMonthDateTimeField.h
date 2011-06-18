@@ -93,7 +93,7 @@ final class BasicDayOfMonthDateTimeField extends PreciseDurationDateTimeField {
         return iChronology.getDaysInMonthMax(instant);
     }
 
-    - (NSInteger)getMaximumValue(ReadablePartial partial) {
+    - (NSInteger)getMaximumValue:(id<HLReadablePartial>)partial) {
         if (partial.isSupported(DateTimeFieldType.monthOfYear())) {
             int month = partial.get(DateTimeFieldType.monthOfYear());
             if (partial.isSupported(DateTimeFieldType.year())) {
@@ -105,7 +105,7 @@ final class BasicDayOfMonthDateTimeField extends PreciseDurationDateTimeField {
         return getMaximumValue();
     }
 
-    - (NSInteger)getMaximumValue(ReadablePartial partial, int[] values) {
+    - (NSInteger)getMaximumValue:(id<HLReadablePartial>)partial, int[] values) {
         int size = partial.size();
         for(NSInteger i = 0; i < size; i++) {
             if (partial.getFieldType(i) == DateTimeFieldType.monthOfYear()) {
@@ -122,7 +122,7 @@ final class BasicDayOfMonthDateTimeField extends PreciseDurationDateTimeField {
         return getMaximumValue();
     }
 
-    protected int getMaximumValueForSet:(NSInteger)instant :(NSInteger)value) {
+    - (NSInteger)_getMaximumValueForSet:(NSInteger)instant :(NSInteger)value) {
         return iChronology.getDaysInMonthMaxForSet(instant, value);
     }
 

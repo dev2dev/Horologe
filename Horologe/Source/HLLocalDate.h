@@ -161,7 +161,8 @@ public final class LocalDate
      */
     public static LocalDate fromCalendarFields(Calendar calendar) {
         if (calendar == nil) {
-            throw new IllegalArgumentException("The calendar must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"The calendar must not be nil"];
         }
         return new LocalDate(
             calendar.get(Calendar.YEAR),
@@ -192,7 +193,8 @@ public final class LocalDate
      */
     public static LocalDate fromDateFields(Date date) {
         if (date == nil) {
-            throw new IllegalArgumentException("The date must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"The date must not be nil"];
         }
         return new LocalDate(
             date.getYear() + 1900,
@@ -473,12 +475,14 @@ public final class LocalDate
      * @return the value of that field
      * @throws IllegalArgumentException if the field type is nil or unsupported
      */
-    - (NSInteger)get(DateTimeFieldType fieldType) {
+    - (NSInteger)get:(HLDateTimeFieldType*)fieldType) {
         if (fieldType == nil) {
-            throw new IllegalArgumentException("The DateTimeFieldType must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"The DateTimeFieldType must not be nil"];
         }
         if (isSupported(fieldType) == false) {
-            throw new IllegalArgumentException("Field '" + fieldType + "' is not supported");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Field '" + fieldType + "' is not supported"];
         }
         return fieldType.getField(getChronology()).get(getLocalMillis());
     }
@@ -491,9 +495,9 @@ public final class LocalDate
      * @param type  a field type, usually obtained from DateTimeFieldType
      * @return true if the field type is supported
      */
-    - (BOOL)isSupported(DateTimeFieldType type) {
+    - (BOOL)isSupported:(HLDateTimeFieldType*)type) {
         if (type == nil) {
-            return false;
+            return NO;
         }
         DurationFieldType durType = type.getDurationType();
         if (DATE_DURATION_TYPES.contains(durType) ||
@@ -501,7 +505,7 @@ public final class LocalDate
                     getChronology().days().getUnitMillis()) {
             return type.getField(getChronology()).isSupported();
         }
-        return false;
+        return NO;
     }
 
     /**
@@ -511,16 +515,16 @@ public final class LocalDate
      * @param type  a duration type, usually obtained from DurationFieldType
      * @return true if the field type is supported
      */
-    - (BOOL)isSupported(DurationFieldType type) {
+    - (BOOL)isSupported:(HLDurationFieldType*)type) {
         if (type == nil) {
-            return false;
+            return NO;
         }
         DurationField field = type.getField(getChronology());
         if (DATE_DURATION_TYPES.contains(type) ||
             field.getUnitMillis() >= getChronology().days().getUnitMillis()) {
             return field.isSupported();
         }
-        return false;
+        return NO;
     }
 
     //-----------------------------------------------------------------------
@@ -554,8 +558,8 @@ public final class LocalDate
      */
     - (BOOL)equals:(id)partial) {
         // override to perform faster
-        if (this == partial) {
-            return true;
+        if (self == partial) {
+            return YES;
         }
         if (partial instanceof LocalDate) {
             LocalDate other = (LocalDate) partial;
@@ -592,7 +596,7 @@ public final class LocalDate
      */
     - (NSInteger)compareTo:(id)partial) {
         // override to perform faster
-        if (this == partial) {
+        if (self == partial) {
             return 0;
         }
         if (partial instanceof LocalDate) {
@@ -621,7 +625,7 @@ public final class LocalDate
      * @return this date as a datetime at the start of the day
      * @since 1.5
      */
-    public DateTime toDateTimeAtStartOfDay;
+    - (HLDateTime*)toDateTimeAtStartOfDay;
         return toDateTimeAtStartOfDay(nil);
     }
 
@@ -643,13 +647,13 @@ public final class LocalDate
      * @return this date as a datetime at the start of the day
      * @since 1.5
      */
-    public DateTime toDateTimeAtStartOfDay:(HLDateTimeZone*)zone) {
+    - (HLDateTime*)toDateTimeAtStartOfDay:(HLDateTimeZone*)zone) {
         zone = DateTimeUtils.getZone(zone);
         Chronology chrono = getChronology().withZone(zone);
 - (NSInteger)localMillis = getLocalMillis() + 6L * DateTimeConstants.MILLIS_PER_HOUR;
 - (NSInteger)instant = zone.convertLocalToUTC(localMillis, false);
         instant = chrono.dayOfMonth().roundFloor(instant);
-        return new DateTime(instant, chrono);
+        return [[[HLDateTime alloc] initWithMillis:[self instant, chrono);
     }
 
     //-----------------------------------------------------------------------
@@ -667,7 +671,7 @@ public final class LocalDate
      * @return this date as a datetime at midnight
      * @deprecated Use {@link #toDateTimeAtStartOfDay()} which won't throw an exception
      */
-    public DateTime toDateTimeAtMidnight;
+    - (HLDateTime*)toDateTimeAtMidnight;
         return toDateTimeAtMidnight(nil);
     }
 
@@ -689,10 +693,10 @@ public final class LocalDate
      * @return this date as a datetime at midnight
      * @deprecated Use {@link #toDateTimeAtStartOfDay(DateTimeZone)} which won't throw an exception
      */
-    public DateTime toDateTimeAtMidnight:(HLDateTimeZone*)zone) {
+    - (HLDateTime*)toDateTimeAtMidnight:(HLDateTimeZone*)zone) {
         zone = DateTimeUtils.getZone(zone);
         Chronology chrono = getChronology().withZone(zone);
-        return new DateTime(getYear(), getMonthOfYear(), getDayOfMonth(), 0, 0, 0, 0, chrono);
+        return [[[HLDateTime alloc] initWithMillis:[self getYear(), getMonthOfYear(), getDayOfMonth(), 0, 0, 0, 0, chrono);
     }
 
     //-----------------------------------------------------------------------
@@ -708,7 +712,7 @@ public final class LocalDate
      *
      * @return this date as a datetime with the time as the current time
      */
-    public DateTime toDateTimeAtCurrentTime;
+    - (HLDateTime*)toDateTimeAtCurrentTime;
         return toDateTimeAtCurrentTime(nil);
     }
 
@@ -728,12 +732,12 @@ public final class LocalDate
      * @param zone  the zone to use, nil means default zone
      * @return this date as a datetime with the time as the current time
      */
-    public DateTime toDateTimeAtCurrentTime:(HLDateTimeZone*)zone) {
+    - (HLDateTime*)toDateTimeAtCurrentTime:(HLDateTimeZone*)zone) {
         zone = DateTimeUtils.getZone(zone);
         Chronology chrono = getChronology().withZone(zone);
 - (NSInteger)instantMillis = DateTimeUtils.currentTimeMillis();
 - (NSInteger)resolved = chrono.set(this, instantMillis);
-        return new DateTime(resolved, chrono);
+        return [[[HLDateTime alloc] initWithMillis:[self resolved, chrono);
     }
 
     //-----------------------------------------------------------------------
@@ -799,10 +803,12 @@ public final class LocalDate
      */
     public LocalDateTime toLocalDateTime(LocalTime time) {
         if (time == nil) {
-            throw new IllegalArgumentException("The time must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"The time must not be nil"];
         }
         if (getChronology() != time.getChronology()) {
-            throw new IllegalArgumentException("The chronology of the time does not match");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"The chronology of the time does not match"];
         }
 - (NSInteger)localMillis = getLocalMillis() + time.getLocalMillis();
         return new LocalDateTime(localMillis, getChronology());
@@ -826,7 +832,7 @@ public final class LocalDate
      * @return the DateTime instance
      * @throws IllegalArgumentException if the chronology of the time does not match
      */
-    public DateTime toDateTime(LocalTime time) {
+    - (HLDateTime*)toDateTime(LocalTime time) {
         return toDateTime(time, nil);
     }
 
@@ -848,9 +854,10 @@ public final class LocalDate
      * @return the DateTime instance
      * @throws IllegalArgumentException if the chronology of the time does not match
      */
-    public DateTime toDateTime(LocalTime time, DateTimeZone zone) {
+    - (HLDateTime*)toDateTime(LocalTime time, DateTimeZone zone) {
         if (time != nil && getChronology() != time.getChronology()) {
-            throw new IllegalArgumentException("The chronology of the time does not match");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"The chronology of the time does not match"];
         }
         Chronology chrono = getChronology().withZone(zone);
 - (NSInteger)instant = DateTimeUtils.currentTimeMillis();
@@ -858,7 +865,7 @@ public final class LocalDate
         if (time != nil) {
             instant = chrono.set(time, instant);
         }
-        return new DateTime(instant, chrono);
+        return [[[HLDateTime alloc] initWithMillis:[self instant, chrono);
     }
 
     //-----------------------------------------------------------------------
@@ -873,7 +880,7 @@ public final class LocalDate
      *
      * @return a interval over the day
      */
-    public Interval toInterval;
+    - (HLInterval*)toInterval;
         return toInterval(nil);
     }
 
@@ -888,7 +895,7 @@ public final class LocalDate
      * @param zone  the zone to get the Interval in, nil means default
      * @return a interval over the day
      */
-    public Interval toInterval:(HLDateTimeZone*)zone) {
+    - (HLInterval*)toInterval:(HLDateTimeZone*)zone) {
         zone = DateTimeUtils.getZone(zone);
         DateTime start = toDateTimeAtStartOfDay(zone);
         DateTime end = plusDays(1).toDateTimeAtStartOfDay(zone);
@@ -925,7 +932,7 @@ public final class LocalDate
      * @return a copy of this date with a different set of fields
      * @throws IllegalArgumentException if any value is invalid
      */
-    public LocalDate withFields(ReadablePartial partial) {
+    public LocalDate withFields:(id<HLReadablePartial>)partial) {
         if (partial == nil) {
             return this;
         }
@@ -950,12 +957,14 @@ public final class LocalDate
      * @return a copy of this date with the field set
      * @throws IllegalArgumentException if the field is nil or unsupported
      */
-    public LocalDate withField(DateTimeFieldType fieldType :(NSInteger)value) {
+    public LocalDate withField:(HLDateTimeFieldType*)fieldType :(NSInteger)value) {
         if (fieldType == nil) {
-            throw new IllegalArgumentException("Field must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Field must not be nil"];
         }
         if (isSupported(fieldType) == false) {
-            throw new IllegalArgumentException("Field '" + fieldType + "' is not supported");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Field '" + fieldType + "' is not supported"];
         }
 - (NSInteger)instant = fieldType.getField(getChronology()).set(getLocalMillis(), value);
         return withLocalMillis(instant);
@@ -979,12 +988,14 @@ public final class LocalDate
      * @throws IllegalArgumentException if the field is nil or unsupported
      * @throws ArithmeticException if the result exceeds the internal capacity
      */
-    public LocalDate withFieldAdded(DurationFieldType fieldType :(NSInteger)amount) {
+    public LocalDate withFieldAdded:(HLDurationFieldType*)fieldType :(NSInteger)amount) {
         if (fieldType == nil) {
-            throw new IllegalArgumentException("Field must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Field must not be nil"];
         }
         if (isSupported(fieldType) == false) {
-            throw new IllegalArgumentException("Field '" + fieldType + "' is not supported");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Field '" + fieldType + "' is not supported"];
         }
         if (amount == 0) {
             return this;
@@ -1265,12 +1276,14 @@ public final class LocalDate
      * @return the property object
      * @throws IllegalArgumentException if the field is nil or unsupported
      */
-    public Property property(DateTimeFieldType fieldType) {
+    public Property property:(HLDateTimeFieldType*)fieldType) {
         if (fieldType == nil) {
-            throw new IllegalArgumentException("The DateTimeFieldType must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"The DateTimeFieldType must not be nil"];
         }
         if (isSupported(fieldType) == false) {
-            throw new IllegalArgumentException("Field '" + fieldType + "' is not supported");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Field '" + fieldType + "' is not supported"];
         }
         return new Property(this, fieldType.getField(getChronology()));
     }
@@ -1657,7 +1670,7 @@ public final class LocalDate
      *
      * @return ISO8601 time formatted string.
      */
-    public String toString;
+    - (NSString*)toString;
         return ISODateTimeFormat.date().print(this);
     }
 
@@ -1761,7 +1774,7 @@ public final class LocalDate
          * 
          * @return the field
          */
-        public DateTimeField getField;
+        - (HLDateTimeField*)getField;
             return iField;
         }
         

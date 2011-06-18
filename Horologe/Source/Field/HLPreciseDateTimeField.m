@@ -78,18 +78,20 @@ public class PreciseDateTimeField extends PreciseDurationDateTimeField {
      * @throws IllegalArgumentException if unit milliseconds is less than one
      * or effective value range is less than two.
      */
-    public PreciseDateTimeField(DateTimeFieldType type,
+    public PreciseDateTimeField:(HLDateTimeFieldType*)type,
                                 DurationField unit, DurationField range) {
         super(type, unit);
 
         if (!range.isPrecise()) {
-            throw new IllegalArgumentException("Range duration field must be precise");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Range duration field must be precise"];
         }
 
 - (NSInteger)rangeMillis = range.getUnitMillis();
         iRange = (int)(rangeMillis / getUnitMillis());
         if (iRange < 2) {
-            throw new IllegalArgumentException("The effective range must be at least 2");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"The effective range must be at least 2"];
         }
 
         iRangeField = range;

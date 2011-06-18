@@ -106,7 +106,7 @@ public final class DateTime
      * Constructs an instance set to the current system millisecond time
      * using <code>ISOChronology</code> in the default time zone.
      */
-    public DateTime {
+    - (HLDateTime*){
         super();
     }
 
@@ -326,7 +326,7 @@ public final class DateTime
      * 
      * @return <code>this</code>
      */
-    public DateTime toDateTime {
+    - (HLDateTime*)toDateTime {
         return this;
     }
 
@@ -336,7 +336,7 @@ public final class DateTime
      * 
      * @return a DateTime using the same millis
      */
-    public DateTime toDateTimeISO {
+    - (HLDateTime*)toDateTimeISO {
         if (getChronology() == ISOChronology.getInstance()) {
             return this;
         }
@@ -349,7 +349,7 @@ public final class DateTime
      * @param zone time zone to apply, or default if nil
      * @return a DateTime using the same millis
      */
-    public DateTime toDateTime:(HLDateTimeZone*)zone) {
+    - (HLDateTime*)toDateTime:(HLDateTimeZone*)zone) {
         zone = DateTimeUtils.getZone(zone);
         if (getZone() == zone) {
             return this;
@@ -363,7 +363,7 @@ public final class DateTime
      * @param chronology chronology to apply, or ISOChronology if nil
      * @return a DateTime using the same millis
      */
-    public DateTime toDateTime:(HLChronology*)chronology) {
+    - (HLDateTime*)toDateTime:(HLChronology*)chronology) {
         chronology = DateTimeUtils.getChronology(chronology);
         if (getChronology() == chronology) {
             return this;
@@ -381,8 +381,8 @@ public final class DateTime
      * @param newMillis  the new millis, from 1970-01-01T00:00:00Z
      * @return a copy of this datetime with different millis
      */
-    public DateTime withMillis:(NSInteger)newMillis) {
-        return (newMillis == getMillis() ? this : new DateTime(newMillis, getChronology()));
+    - (HLDateTime*)withMillis:(NSInteger)newMillis) {
+        return (newMillis == getMillis() ? this : [[[HLDateTime alloc] initWithMillis:[self newMillis, getChronology()));
     }
 
     /**
@@ -394,9 +394,9 @@ public final class DateTime
      * @param newChronology  the new chronology, nil means ISO default
      * @return a copy of this datetime with a different chronology
      */
-    public DateTime withChronology:(HLChronology*)newChronology) {
+    - (HLDateTime*)withChronology:(HLChronology*)newChronology) {
         newChronology = DateTimeUtils.getChronology(newChronology);
-        return (newChronology == getChronology() ? this : new DateTime(getMillis(), newChronology));
+        return (newChronology == getChronology() ? this : [[[HLDateTime alloc] initWithMillis:[self getMillis(), newChronology));
     }
 
     //-----------------------------------------------------------------------
@@ -417,7 +417,7 @@ public final class DateTime
      * @return a copy of this datetime with a different time zone
      * @see #withZoneRetainFields
      */
-    public DateTime withZone:(HLDateTimeZone*)newZone) {
+    - (HLDateTime*)withZone:(HLDateTimeZone*)newZone) {
         return withChronology(getChronology().withZone(newZone));
     }
 
@@ -438,7 +438,7 @@ public final class DateTime
      * @return a copy of this datetime with a different time zone
      * @see #withZone
      */
-    public DateTime withZoneRetainFields:(HLDateTimeZone*)newZone) {
+    - (HLDateTime*)withZoneRetainFields:(HLDateTimeZone*)newZone) {
         newZone = DateTimeUtils.getZone(newZone);
         DateTimeZone originalZone = DateTimeUtils.getZone(getZone());
         if (newZone == originalZone) {
@@ -446,7 +446,7 @@ public final class DateTime
         }
         
 - (NSInteger)millis = originalZone.getMillisKeepLocal(newZone, getMillis());
-        return new DateTime(millis, getChronology().withZone(newZone));
+        return [[[HLDateTime alloc] initWithMillis:[self millis, getChronology().withZone(newZone));
     }
 
     //-----------------------------------------------------------------------
@@ -466,7 +466,7 @@ public final class DateTime
      * @return a copy of this datetime with a different date
      * @throws IllegalArgumentException if any value if invalid
      */
-    public DateTime withDate:(NSInteger) year :(NSInteger)monthOfYear :(NSInteger)dayOfMonth) {
+    - (HLDateTime*)withDate:(NSInteger) year :(NSInteger)monthOfYear :(NSInteger)dayOfMonth) {
         Chronology chrono = getChronology();
 - (NSInteger)instant = getMillis();
         instant = chrono.year().set(instant, year);
@@ -492,7 +492,7 @@ public final class DateTime
      * @return a copy of this datetime with a different time
      * @throws IllegalArgumentException if any value if invalid
      */
-    public DateTime withTime:(NSInteger) hourOfDay :(NSInteger)minuteOfHour :(NSInteger)secondOfMinute :(NSInteger)millisOfSecond) {
+    - (HLDateTime*)withTime:(NSInteger) hourOfDay :(NSInteger)minuteOfHour :(NSInteger)secondOfMinute :(NSInteger)millisOfSecond) {
         Chronology chrono = getChronology();
 - (NSInteger)instant = getMillis();
         instant = chrono.hourOfDay().set(instant, hourOfDay);
@@ -515,7 +515,7 @@ public final class DateTime
      * @return a copy of this datetime with a different set of fields
      * @throws IllegalArgumentException if any value is invalid
      */
-    public DateTime withFields(ReadablePartial partial) {
+    - (HLDateTime*)withFields:(id<HLReadablePartial>)partial) {
         if (partial == nil) {
             return this;
         }
@@ -541,9 +541,10 @@ public final class DateTime
      * @return a copy of this datetime with the field set
      * @throws IllegalArgumentException if the value is nil or invalid
      */
-    public DateTime withField(DateTimeFieldType fieldType :(NSInteger)value) {
+    - (HLDateTime*)withField:(HLDateTimeFieldType*)fieldType :(NSInteger)value) {
         if (fieldType == nil) {
-            throw new IllegalArgumentException("Field must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Field must not be nil"];
         }
 - (NSInteger)instant = fieldType.getField(getChronology()).set(getMillis(), value);
         return withMillis(instant);
@@ -567,9 +568,10 @@ public final class DateTime
      * @throws IllegalArgumentException if the value is nil or invalid
      * @throws ArithmeticException if the new datetime exceeds the capacity of a long
      */
-    public DateTime withFieldAdded(DurationFieldType fieldType :(NSInteger)amount) {
+    - (HLDateTime*)withFieldAdded:(HLDurationFieldType*)fieldType :(NSInteger)amount) {
         if (fieldType == nil) {
-            throw new IllegalArgumentException("Field must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Field must not be nil"];
         }
         if (amount == 0) {
             return this;
@@ -589,7 +591,7 @@ public final class DateTime
      * @return a copy of this datetime with the duration added
      * @throws ArithmeticException if the new datetime exceeds the capacity of a long
      */
-    public DateTime withDurationAdded:(NSInteger)durationToAdd :(NSInteger)scalar) {
+    - (HLDateTime*)withDurationAdded:(NSInteger)durationToAdd :(NSInteger)scalar) {
         if (durationToAdd == 0 || scalar == 0) {
             return this;
         }
@@ -607,7 +609,7 @@ public final class DateTime
      * @return a copy of this datetime with the duration added
      * @throws ArithmeticException if the new datetime exceeds the capacity of a long
      */
-    public DateTime withDurationAdded:(id<HLReadableDuration>)durationToAdd :(NSInteger)scalar) {
+    - (HLDateTime*)withDurationAdded:(id<HLReadableDuration>)durationToAdd :(NSInteger)scalar) {
         if (durationToAdd == nil || scalar == 0) {
             return this;
         }
@@ -629,7 +631,7 @@ public final class DateTime
      * @return a copy of this datetime with the period added
      * @throws ArithmeticException if the new datetime exceeds the capacity of a long
      */
-    public DateTime withPeriodAdded:(id<HLReadablePeriod>)period :(NSInteger)scalar) {
+    - (HLDateTime*)withPeriodAdded:(id<HLReadablePeriod>)period :(NSInteger)scalar) {
         if (period == nil || scalar == 0) {
             return this;
         }
@@ -648,7 +650,7 @@ public final class DateTime
      * @return a copy of this datetime with the duration added
      * @throws ArithmeticException if the new datetime exceeds the capacity of a long
      */
-    public DateTime plus:(NSInteger)duration) {
+    - (HLDateTime*)plus:(NSInteger)duration) {
         return withDurationAdded(duration, 1);
     }
 
@@ -662,7 +664,7 @@ public final class DateTime
      * @return a copy of this datetime with the duration added
      * @throws ArithmeticException if the new datetime exceeds the capacity of a long
      */
-    public DateTime plus:(id<HLReadableDuration>)duration) {
+    - (HLDateTime*)plus:(id<HLReadableDuration>)duration) {
         return withDurationAdded(duration, 1);
     }
 
@@ -688,7 +690,7 @@ public final class DateTime
      * @return a copy of this datetime with the period added
      * @throws ArithmeticException if the new datetime exceeds the capacity of a long
      */
-    public DateTime plus:(id<HLReadablePeriod>)period) {
+    - (HLDateTime*)plus:(id<HLReadablePeriod>)period) {
         return withPeriodAdded(period, 1);
     }
 
@@ -715,7 +717,7 @@ public final class DateTime
      * @return the new datetime plus the increased years
      * @since 1.1
      */
-    public DateTime plusYears:(NSInteger) years) {
+    - (HLDateTime*)plusYears:(NSInteger) years) {
         if (years == 0) {
             return this;
         }
@@ -745,7 +747,7 @@ public final class DateTime
      * @return the new datetime plus the increased months
      * @since 1.1
      */
-    public DateTime plusMonths:(NSInteger) months) {
+    - (HLDateTime*)plusMonths:(NSInteger) months) {
         if (months == 0) {
             return this;
         }
@@ -771,7 +773,7 @@ public final class DateTime
      * @return the new datetime plus the increased weeks
      * @since 1.1
      */
-    public DateTime plusWeeks:(NSInteger) weeks) {
+    - (HLDateTime*)plusWeeks:(NSInteger) weeks) {
         if (weeks == 0) {
             return this;
         }
@@ -806,7 +808,7 @@ public final class DateTime
      * @return the new datetime plus the increased days
      * @since 1.1
      */
-    public DateTime plusDays:(NSInteger) days) {
+    - (HLDateTime*)plusDays:(NSInteger) days) {
         if (days == 0) {
             return this;
         }
@@ -837,7 +839,7 @@ public final class DateTime
      * @return the new datetime plus the increased hours
      * @since 1.1
      */
-    public DateTime plusHours:(NSInteger) hours) {
+    - (HLDateTime*)plusHours:(NSInteger) hours) {
         if (hours == 0) {
             return this;
         }
@@ -864,7 +866,7 @@ public final class DateTime
      * @return the new datetime plus the increased minutes
      * @since 1.1
      */
-    public DateTime plusMinutes:(NSInteger) minutes) {
+    - (HLDateTime*)plusMinutes:(NSInteger) minutes) {
         if (minutes == 0) {
             return this;
         }
@@ -891,7 +893,7 @@ public final class DateTime
      * @return the new datetime plus the increased seconds
      * @since 1.1
      */
-    public DateTime plusSeconds:(NSInteger) seconds) {
+    - (HLDateTime*)plusSeconds:(NSInteger) seconds) {
         if (seconds == 0) {
             return this;
         }
@@ -917,7 +919,7 @@ public final class DateTime
      * @return the new datetime plus the increased millis
      * @since 1.1
      */
-    public DateTime plusMillis:(NSInteger) millis) {
+    - (HLDateTime*)plusMillis:(NSInteger) millis) {
         if (millis == 0) {
             return this;
         }
@@ -936,7 +938,7 @@ public final class DateTime
      * @return a copy of this datetime with the duration taken away
      * @throws ArithmeticException if the new datetime exceeds the capacity of a long
      */
-    public DateTime minus:(NSInteger)duration) {
+    - (HLDateTime*)minus:(NSInteger)duration) {
         return withDurationAdded(duration, -1);
     }
 
@@ -950,7 +952,7 @@ public final class DateTime
      * @return a copy of this datetime with the duration taken away
      * @throws ArithmeticException if the new datetime exceeds the capacity of a long
      */
-    public DateTime minus:(id<HLReadableDuration>)duration) {
+    - (HLDateTime*)minus:(id<HLReadableDuration>)duration) {
         return withDurationAdded(duration, -1);
     }
 
@@ -977,7 +979,7 @@ public final class DateTime
      * @return a copy of this datetime with the period taken away
      * @throws ArithmeticException if the new datetime exceeds the capacity of a long
      */
-    public DateTime minus:(id<HLReadablePeriod>)period) {
+    - (HLDateTime*)minus:(id<HLReadablePeriod>)period) {
         return withPeriodAdded(period, -1);
     }
 
@@ -1004,7 +1006,7 @@ public final class DateTime
      * @return the new datetime minus the increased years
      * @since 1.1
      */
-    public DateTime minusYears:(NSInteger) years) {
+    - (HLDateTime*)minusYears:(NSInteger) years) {
         if (years == 0) {
             return this;
         }
@@ -1034,7 +1036,7 @@ public final class DateTime
      * @return the new datetime minus the increased months
      * @since 1.1
      */
-    public DateTime minusMonths:(NSInteger) months) {
+    - (HLDateTime*)minusMonths:(NSInteger) months) {
         if (months == 0) {
             return this;
         }
@@ -1060,7 +1062,7 @@ public final class DateTime
      * @return the new datetime minus the increased weeks
      * @since 1.1
      */
-    public DateTime minusWeeks:(NSInteger) weeks) {
+    - (HLDateTime*)minusWeeks:(NSInteger) weeks) {
         if (weeks == 0) {
             return this;
         }
@@ -1095,7 +1097,7 @@ public final class DateTime
      * @return the new datetime minus the increased days
      * @since 1.1
      */
-    public DateTime minusDays:(NSInteger) days) {
+    - (HLDateTime*)minusDays:(NSInteger) days) {
         if (days == 0) {
             return this;
         }
@@ -1127,7 +1129,7 @@ public final class DateTime
      * @return the new datetime minus the increased hours
      * @since 1.1
      */
-    public DateTime minusHours:(NSInteger) hours) {
+    - (HLDateTime*)minusHours:(NSInteger) hours) {
         if (hours == 0) {
             return this;
         }
@@ -1154,7 +1156,7 @@ public final class DateTime
      * @return the new datetime minus the increased minutes
      * @since 1.1
      */
-    public DateTime minusMinutes:(NSInteger) minutes) {
+    - (HLDateTime*)minusMinutes:(NSInteger) minutes) {
         if (minutes == 0) {
             return this;
         }
@@ -1181,7 +1183,7 @@ public final class DateTime
      * @return the new datetime minus the increased seconds
      * @since 1.1
      */
-    public DateTime minusSeconds:(NSInteger) seconds) {
+    - (HLDateTime*)minusSeconds:(NSInteger) seconds) {
         if (seconds == 0) {
             return this;
         }
@@ -1208,7 +1210,7 @@ public final class DateTime
      * @return the new datetime minus the increased millis
      * @since 1.1
      */
-    public DateTime minusMillis:(NSInteger) millis) {
+    - (HLDateTime*)minusMillis:(NSInteger) millis) {
         if (millis == 0) {
             return this;
         }
@@ -1224,13 +1226,15 @@ public final class DateTime
      * @return the property object
      * @throws IllegalArgumentException if the field is nil or unsupported
      */
-    public Property property(DateTimeFieldType type) {
+    public Property property:(HLDateTimeFieldType*)type) {
         if (type == nil) {
-            throw new IllegalArgumentException("The DateTimeFieldType must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"The DateTimeFieldType must not be nil"];
         }
         DateTimeField field = type.getField(getChronology());
         if (field.isSupported() == false) {
-            throw new IllegalArgumentException("Field '" + type + "' is not supported");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Field '" + type + "' is not supported"];
         }
         return new Property(this, field);
     }
@@ -1314,7 +1318,7 @@ public final class DateTime
      * @throws IllegalArgumentException if the value is invalid
      * @since 1.3
      */
-    public DateTime withEra:(NSInteger) era) {
+    - (HLDateTime*)withEra:(NSInteger) era) {
         return withMillis(getChronology().era().set(getMillis(), era));
     }
 
@@ -1330,7 +1334,7 @@ public final class DateTime
      * @throws IllegalArgumentException if the value is invalid
      * @since 1.3
      */
-    public DateTime withCenturyOfEra:(NSInteger) centuryOfEra) {
+    - (HLDateTime*)withCenturyOfEra:(NSInteger) centuryOfEra) {
         return withMillis(getChronology().centuryOfEra().set(getMillis(), centuryOfEra));
     }
 
@@ -1346,7 +1350,7 @@ public final class DateTime
      * @throws IllegalArgumentException if the value is invalid
      * @since 1.3
      */
-    public DateTime withYearOfEra:(NSInteger) yearOfEra) {
+    - (HLDateTime*)withYearOfEra:(NSInteger) yearOfEra) {
         return withMillis(getChronology().yearOfEra().set(getMillis(), yearOfEra));
     }
 
@@ -1362,7 +1366,7 @@ public final class DateTime
      * @throws IllegalArgumentException if the value is invalid
      * @since 1.3
      */
-    public DateTime withYearOfCentury:(NSInteger) yearOfCentury) {
+    - (HLDateTime*)withYearOfCentury:(NSInteger) yearOfCentury) {
         return withMillis(getChronology().yearOfCentury().set(getMillis(), yearOfCentury));
     }
 
@@ -1378,7 +1382,7 @@ public final class DateTime
      * @throws IllegalArgumentException if the value is invalid
      * @since 1.3
      */
-    public DateTime withYear:(NSInteger) year) {
+    - (HLDateTime*)withYear:(NSInteger) year) {
         return withMillis(getChronology().year().set(getMillis(), year));
     }
 
@@ -1394,7 +1398,7 @@ public final class DateTime
      * @throws IllegalArgumentException if the value is invalid
      * @since 1.3
      */
-    public DateTime withWeekyear:(NSInteger) weekyear) {
+    - (HLDateTime*)withWeekyear:(NSInteger) weekyear) {
         return withMillis(getChronology().weekyear().set(getMillis(), weekyear));
     }
 
@@ -1410,7 +1414,7 @@ public final class DateTime
      * @throws IllegalArgumentException if the value is invalid
      * @since 1.3
      */
-    public DateTime withMonthOfYear:(NSInteger) monthOfYear) {
+    - (HLDateTime*)withMonthOfYear:(NSInteger) monthOfYear) {
         return withMillis(getChronology().monthOfYear().set(getMillis(), monthOfYear));
     }
 
@@ -1426,7 +1430,7 @@ public final class DateTime
      * @throws IllegalArgumentException if the value is invalid
      * @since 1.3
      */
-    public DateTime withWeekOfWeekyear:(NSInteger) weekOfWeekyear) {
+    - (HLDateTime*)withWeekOfWeekyear:(NSInteger) weekOfWeekyear) {
         return withMillis(getChronology().weekOfWeekyear().set(getMillis(), weekOfWeekyear));
     }
 
@@ -1442,7 +1446,7 @@ public final class DateTime
      * @throws IllegalArgumentException if the value is invalid
      * @since 1.3
      */
-    public DateTime withDayOfYear:(NSInteger) dayOfYear) {
+    - (HLDateTime*)withDayOfYear:(NSInteger) dayOfYear) {
         return withMillis(getChronology().dayOfYear().set(getMillis(), dayOfYear));
     }
 
@@ -1458,7 +1462,7 @@ public final class DateTime
      * @throws IllegalArgumentException if the value is invalid
      * @since 1.3
      */
-    public DateTime withDayOfMonth:(NSInteger) dayOfMonth) {
+    - (HLDateTime*)withDayOfMonth:(NSInteger) dayOfMonth) {
         return withMillis(getChronology().dayOfMonth().set(getMillis(), dayOfMonth));
     }
 
@@ -1474,7 +1478,7 @@ public final class DateTime
      * @throws IllegalArgumentException if the value is invalid
      * @since 1.3
      */
-    public DateTime withDayOfWeek:(NSInteger) dayOfWeek) {
+    - (HLDateTime*)withDayOfWeek:(NSInteger) dayOfWeek) {
         return withMillis(getChronology().dayOfWeek().set(getMillis(), dayOfWeek));
     }
 
@@ -1491,7 +1495,7 @@ public final class DateTime
      * @throws IllegalArgumentException if the value is invalid
      * @since 1.3
      */
-    public DateTime withHourOfDay:(NSInteger) hour) {
+    - (HLDateTime*)withHourOfDay:(NSInteger) hour) {
         return withMillis(getChronology().hourOfDay().set(getMillis(), hour));
     }
 
@@ -1507,7 +1511,7 @@ public final class DateTime
      * @throws IllegalArgumentException if the value is invalid
      * @since 1.3
      */
-    public DateTime withMinuteOfHour:(NSInteger) minute) {
+    - (HLDateTime*)withMinuteOfHour:(NSInteger) minute) {
         return withMillis(getChronology().minuteOfHour().set(getMillis(), minute));
     }
 
@@ -1523,7 +1527,7 @@ public final class DateTime
      * @throws IllegalArgumentException if the value is invalid
      * @since 1.3
      */
-    public DateTime withSecondOfMinute:(NSInteger) second) {
+    - (HLDateTime*)withSecondOfMinute:(NSInteger) second) {
         return withMillis(getChronology().secondOfMinute().set(getMillis(), second));
     }
 
@@ -1539,7 +1543,7 @@ public final class DateTime
      * @throws IllegalArgumentException if the value is invalid
      * @since 1.3
      */
-    public DateTime withMillisOfSecond:(NSInteger) millis) {
+    - (HLDateTime*)withMillisOfSecond:(NSInteger) millis) {
         return withMillis(getChronology().millisOfSecond().set(getMillis(), millis));
     }
 
@@ -1555,7 +1559,7 @@ public final class DateTime
      * @throws IllegalArgumentException if the value is invalid
      * @since 1.3
      */
-    public DateTime withMillisOfDay:(NSInteger) millis) {
+    - (HLDateTime*)withMillisOfDay:(NSInteger) millis) {
         return withMillis(getChronology().millisOfDay().set(getMillis(), millis));
     }
 
@@ -1733,7 +1737,7 @@ public final class DateTime
      * The simplest use of this class is as an alternative get method, here used to
      * get the year '1972' (as an int) and the month 'December' (as a String).
      * <pre>
-     * DateTime dt = new DateTime(1972, 12, 3, 0, 0, 0, 0);
+     * DateTime dt = [[[HLDateTime alloc] initWithMillis:[self 1972, 12, 3, 0, 0, 0, 0);
      * int year = dt.year().get();
      * String monthStr = dt.month().getAsText();
      * </pre>
@@ -1742,7 +1746,7 @@ public final class DateTime
      * of DateTime - they do not modify the original. The example below yields two
      * independent immutable date objects 20 years apart.
      * <pre>
-     * DateTime dt = new DateTime(1972, 12, 3, 0, 0, 0, 0);
+     * DateTime dt = [[[HLDateTime alloc] initWithMillis:[self 1972, 12, 3, 0, 0, 0, 0);
      * DateTime dt20 = dt.year().addToCopy(20);
      * </pre>
      * Serious modification of dates (ie. more than just changing one or two fields)
@@ -1800,7 +1804,7 @@ public final class DateTime
          * 
          * @return the field
          */
-        public DateTimeField getField {
+        - (HLDateTimeField*)getField {
             return iField;
         }
         
@@ -1828,7 +1832,7 @@ public final class DateTime
          * 
          * @return the datetime
          */
-        public DateTime getDateTime {
+        - (HLDateTime*)getDateTime {
             return iInstant;
         }
         
@@ -1845,7 +1849,7 @@ public final class DateTime
          * @return a copy of the DateTime with the field value changed
          * @throws IllegalArgumentException if the value isn't valid
          */
-        public DateTime addToCopy:(NSInteger) value) {
+        - (HLDateTime*)addToCopy:(NSInteger) value) {
             return iInstant.withMillis(iField.add(iInstant.getMillis(), value));
         }
         
@@ -1861,7 +1865,7 @@ public final class DateTime
          * @return a copy of the DateTime with the field value changed
          * @throws IllegalArgumentException if the value isn't valid
          */
-        public DateTime addToCopy:(NSInteger)value) {
+        - (HLDateTime*)addToCopy:(NSInteger)value) {
             return iInstant.withMillis(iField.add(iInstant.getMillis(), value));
         }
         
@@ -1879,7 +1883,7 @@ public final class DateTime
          * @return a copy of the DateTime with the field value changed
          * @throws IllegalArgumentException if the value isn't valid
          */
-        public DateTime addWrapFieldToCopy:(NSInteger) value) {
+        - (HLDateTime*)addWrapFieldToCopy:(NSInteger) value) {
             return iInstant.withMillis(iField.addWrapField(iInstant.getMillis(), value));
         }
         
@@ -1896,7 +1900,7 @@ public final class DateTime
          * @return a copy of the DateTime with the field value changed
          * @throws IllegalArgumentException if the value isn't valid
          */
-        public DateTime setCopy:(NSInteger) value) {
+        - (HLDateTime*)setCopy:(NSInteger) value) {
             return iInstant.withMillis(iField.set(iInstant.getMillis(), value));
         }
         
@@ -1913,7 +1917,7 @@ public final class DateTime
          * @return a copy of the DateTime with the field value changed
          * @throws IllegalArgumentException if the text value isn't valid
          */
-        public DateTime setCopy(String text locale:(NSLocale*)locale {
+        - (HLDateTime*)setCopy(String text locale:(NSLocale*)locale {
             return iInstant.withMillis(iField.set(iInstant.getMillis(), text, locale));
         }
         
@@ -1929,7 +1933,7 @@ public final class DateTime
          * @return a copy of the DateTime with the field value changed
          * @throws IllegalArgumentException if the text value isn't valid
          */
-        public DateTime setCopy(String text) {
+        - (HLDateTime*)setCopy(String text) {
             return setCopy(text, nil);
         }
         
@@ -1949,7 +1953,7 @@ public final class DateTime
          * @return a copy of the DateTime with this field set to its maximum
          * @since 1.2
          */
-        public DateTime withMaximumValue {
+        - (HLDateTime*)withMaximumValue {
             return setCopy(getMaximumValue());
         }
         
@@ -1962,7 +1966,7 @@ public final class DateTime
          * @return a copy of the DateTime with this field set to its minimum
          * @since 1.2
          */
-        public DateTime withMinimumValue {
+        - (HLDateTime*)withMinimumValue {
             return setCopy(getMinimumValue());
         }
         
@@ -1972,7 +1976,7 @@ public final class DateTime
          *
          * @return a copy of the DateTime with the field value changed
          */
-        public DateTime roundFloorCopy {
+        - (HLDateTime*)roundFloorCopy {
             return iInstant.withMillis(iField.roundFloor(iInstant.getMillis()));
         }
         
@@ -1981,7 +1985,7 @@ public final class DateTime
          *
          * @return a copy of the DateTime with the field value changed
          */
-        public DateTime roundCeilingCopy {
+        - (HLDateTime*)roundCeilingCopy {
             return iInstant.withMillis(iField.roundCeiling(iInstant.getMillis()));
         }
         
@@ -1991,7 +1995,7 @@ public final class DateTime
          *
          * @return a copy of the DateTime with the field value changed
          */
-        public DateTime roundHalfFloorCopy {
+        - (HLDateTime*)roundHalfFloorCopy {
             return iInstant.withMillis(iField.roundHalfFloor(iInstant.getMillis()));
         }
         
@@ -2001,7 +2005,7 @@ public final class DateTime
          *
          * @return a copy of the DateTime with the field value changed
          */
-        public DateTime roundHalfCeilingCopy {
+        - (HLDateTime*)roundHalfCeilingCopy {
             return iInstant.withMillis(iField.roundHalfCeiling(iInstant.getMillis()));
         }
         
@@ -2012,7 +2016,7 @@ public final class DateTime
          *
          * @return a copy of the DateTime with the field value changed
          */
-        public DateTime roundHalfEvenCopy {
+        - (HLDateTime*)roundHalfEvenCopy {
             return iInstant.withMillis(iField.roundHalfEven(iInstant.getMillis()));
         }
     }

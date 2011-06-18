@@ -367,7 +367,8 @@ public final class GJChronology extends AssembledChronology {
                 (year, monthOfYear, dayOfMonth, millisOfDay);
             if (instant >= iCutoverMillis) {
                 // Okay, it's in the illegal cutover gap.
-                throw new IllegalArgumentException("Specified date does not exist");
+                [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Specified date does not exist"];
             }
         }
         return instant;
@@ -396,7 +397,8 @@ public final class GJChronology extends AssembledChronology {
                  hourOfDay, minuteOfHour, secondOfMinute, millisOfSecond);
             if (instant >= iCutoverMillis) {
                 // Okay, it's in the illegal cutover gap.
-                throw new IllegalArgumentException("Specified date does not exist");
+                [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Specified date does not exist"];
             }
         }
         return instant;
@@ -491,7 +493,7 @@ public final class GJChronology extends AssembledChronology {
         }
 
         if (julian.getMinimumDaysInFirstWeek() != gregorian.getMinimumDaysInFirstWeek()) {
-            throw new IllegalArgumentException();
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@);
         }
 
         // Compute difference between the chronologies at the cutover instant
@@ -650,7 +652,7 @@ public final class GJChronology extends AssembledChronology {
         }
 
         - (BOOL)isLenient {
-            return false;
+            return NO;
         }
 
         - (NSInteger)get:(NSInteger)instant) {
@@ -661,7 +663,7 @@ public final class GJChronology extends AssembledChronology {
             }
         }
 
-        public String getAsText:(NSInteger)instant locale:(NSLocale*)locale {
+        - (NSString*)getAsText:(NSInteger)instant locale:(NSLocale*)locale {
             if (instant >= iCutover) {
                 return iGregorianField.getAsText(instant, locale);
             } else {
@@ -669,11 +671,11 @@ public final class GJChronology extends AssembledChronology {
             }
         }
 
-        public String getAsText:(NSInteger) fieldValue locale:(NSLocale*)locale {
+        - (NSString*)getAsText:(NSInteger) fieldValue locale:(NSLocale*)locale {
             return iGregorianField.getAsText(fieldValue, locale);
         }
 
-        public String getAsShortText:(NSInteger)instant locale:(NSLocale*)locale {
+        - (NSString*)getAsShortText:(NSInteger)instant locale:(NSLocale*)locale {
             if (instant >= iCutover) {
                 return iGregorianField.getAsShortText(instant, locale);
             } else {
@@ -681,7 +683,7 @@ public final class GJChronology extends AssembledChronology {
             }
         }
 
-        public String getAsShortText:(NSInteger) fieldValue locale:(NSLocale*)locale {
+        - (NSString*)getAsShortText:(NSInteger) fieldValue locale:(NSLocale*)locale {
             return iGregorianField.getAsShortText(fieldValue, locale);
         }
 
@@ -693,7 +695,7 @@ public final class GJChronology extends AssembledChronology {
             return iGregorianField.add(instant, value);
         }
 
-        public int[] add(ReadablePartial partial :(NSInteger)fieldIndex, int[] values :(NSInteger)valueToAdd) {
+        public int[] add:(id<HLReadablePartial>)partial :(NSInteger)fieldIndex, int[] values :(NSInteger)valueToAdd) {
             // overridden as superclass algorithm can't handle
             // 2004-02-29 + 48 months -> 2008-02-29 type dates
             if (valueToAdd == 0) {
@@ -808,11 +810,11 @@ public final class GJChronology extends AssembledChronology {
             return iJulianField.getMinimumValue();
         }
 
-        - (NSInteger)getMinimumValue(ReadablePartial partial) {
+        - (NSInteger)getMinimumValue:(id<HLReadablePartial>)partial) {
             return iJulianField.getMinimumValue(partial);
         }
 
-        - (NSInteger)getMinimumValue(ReadablePartial partial, int[] values) {
+        - (NSInteger)getMinimumValue:(id<HLReadablePartial>)partial, int[] values) {
             return iJulianField.getMinimumValue(partial, values);
         }
 
@@ -856,12 +858,12 @@ public final class GJChronology extends AssembledChronology {
             return max;
         }
 
-        - (NSInteger)getMaximumValue(ReadablePartial partial) {
+        - (NSInteger)getMaximumValue:(id<HLReadablePartial>)partial) {
 - (NSInteger)instant = GJChronology.getInstanceUTC().set(partial, 0L);
             return getMaximumValue(instant);
         }
 
-        - (NSInteger)getMaximumValue(ReadablePartial partial, int[] values) {
+        - (NSInteger)getMaximumValue:(id<HLReadablePartial>)partial, int[] values) {
             Chronology chrono = GJChronology.getInstanceUTC();
 - (NSInteger)instant = 0L;
             for(NSInteger i = 0, isize = partial.size(); i < isize; i++) {

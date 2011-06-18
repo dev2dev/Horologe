@@ -142,7 +142,7 @@ public final class Minutes extends BaseSingleFieldPeriod {
      * @return the period in minutes
      * @throws IllegalArgumentException if the partials are nil or invalid
      */
-    public static Minutes minutesBetween(ReadablePartial start, ReadablePartial end) {
+    public static Minutes minutesBetween:(id<HLReadablePartial>)start, ReadablePartial end) {
         if (start instanceof LocalTime && end instanceof LocalTime)   {
             Chronology chrono = DateTimeUtils.getChronology(start.getChronology());
             int minutes = chrono.minutes().getDifference(
@@ -335,7 +335,7 @@ public final class Minutes extends BaseSingleFieldPeriod {
      *
      * @return a duration equivalent to this number of minutes
      */
-    public Duration toStandardDuration;
+    - (HLDuration*)toStandardDuration;
 - (NSInteger)minutes = getValue();  // assign to a long
         return new Duration(minutes * DateTimeConstants.MILLIS_PER_MINUTE);
     }
@@ -490,7 +490,7 @@ public final class Minutes extends BaseSingleFieldPeriod {
      *
      * @return the value as an ISO8601 string
      */
-    public String toString;
+    - (NSString*)toString;
         return "PT" + String.valueOf(getValue()) + "M";
     }
 

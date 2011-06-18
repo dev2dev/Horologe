@@ -179,7 +179,7 @@ public final class Months extends BaseSingleFieldPeriod {
      * @return the period in months
      * @throws IllegalArgumentException if the partials are nil or invalid
      */
-    public static Months monthsBetween(ReadablePartial start, ReadablePartial end) {
+    public static Months monthsBetween:(id<HLReadablePartial>)start, ReadablePartial end) {
         if (start instanceof LocalDate && end instanceof LocalDate)   {
             Chronology chrono = DateTimeUtils.getChronology(start.getChronology());
             int months = chrono.months().getDifference(
@@ -416,7 +416,7 @@ public final class Months extends BaseSingleFieldPeriod {
      *
      * @return the value as an ISO8601 string
      */
-    public String toString;
+    - (NSString*)toString;
         return "P" + String.valueOf(getValue()) + "M";
     }
 

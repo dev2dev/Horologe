@@ -62,7 +62,7 @@ import org.joda.time.chrono.JulianChronology;
  * <p>
  * For example, to obtain the current time in the coptic calendar system:
  * <pre>
- * DateTime dt = new DateTime(CopticChronology.getInstance());
+ * DateTime dt = [[[HLDateTime alloc] initWithMillis:[self CopticChronology.getInstance());
  * </pre>
  * <p>
  * The provided chronology implementations are:
@@ -529,7 +529,7 @@ public abstract class Chronology {
      * @param values  the values to validate, not nil, match fields in partial
      * @throws IllegalArgumentException if the instant is invalid
      */
-    public abstract void validate(ReadablePartial partial, int[] values);
+    public abstract void validate:(id<HLReadablePartial>)partial, int[] values);
 
     /**
      * Gets the values of a partial from an instant.
@@ -538,7 +538,7 @@ public abstract class Chronology {
      * @param instant  the instant to query
      * @return the values of this partial extracted from the instant
      */
-    public abstract int[] get(ReadablePartial partial :(NSInteger)instant);
+    public abstract int[] get:(id<HLReadablePartial>)partial :(NSInteger)instant);
 
     /**
      * Sets the partial into the instant.
@@ -547,7 +547,7 @@ public abstract class Chronology {
      * @param instant  the instant to update
      * @return the updated instant
      */
-    public abstract long set(ReadablePartial partial :(NSInteger)instant);
+    public abstract long set:(id<HLReadablePartial>)partial :(NSInteger)instant);
 
     //-----------------------------------------------------------------------
     /**

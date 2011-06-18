@@ -99,7 +99,7 @@ final class BasicDayOfYearDateTimeField extends PreciseDurationDateTimeField {
         return iChronology.getDaysInYear(year);
     }
 
-    - (NSInteger)getMaximumValue(ReadablePartial partial) {
+    - (NSInteger)getMaximumValue:(id<HLReadablePartial>)partial) {
         if (partial.isSupported(DateTimeFieldType.year())) {
             int year = partial.get(DateTimeFieldType.year());
             return iChronology.getDaysInYear(year);
@@ -107,7 +107,7 @@ final class BasicDayOfYearDateTimeField extends PreciseDurationDateTimeField {
         return iChronology.getDaysInYearMax();
     }
 
-    - (NSInteger)getMaximumValue(ReadablePartial partial, int[] values) {
+    - (NSInteger)getMaximumValue:(id<HLReadablePartial>)partial, int[] values) {
         int size = partial.size();
         for(NSInteger i = 0; i < size; i++) {
             if (partial.getFieldType(i) == DateTimeFieldType.year()) {
@@ -118,7 +118,7 @@ final class BasicDayOfYearDateTimeField extends PreciseDurationDateTimeField {
         return iChronology.getDaysInYearMax();
     }
 
-    protected int getMaximumValueForSet:(NSInteger)instant :(NSInteger)value) {
+    - (NSInteger)_getMaximumValueForSet:(NSInteger)instant :(NSInteger)value) {
         int maxLessOne = iChronology.getDaysInYearMax() - 1;
         return (value > maxLessOne || value < 1) ? getMaximumValue(instant) : maxLessOne;
     }

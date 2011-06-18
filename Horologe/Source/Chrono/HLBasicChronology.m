@@ -776,7 +776,7 @@ abstract class BasicChronology extends AssembledChronology {
             super(DateTimeFieldType.halfdayOfDay(), cHalfdaysField, cDaysField);
         }
 
-        public String getAsText:(NSInteger) fieldValue locale:(NSLocale*)locale {
+        - (NSString*)getAsText:(NSInteger) fieldValue locale:(NSLocale*)locale {
             return GJLocaleSymbols.forLocale(locale).halfdayValueToText(fieldValue);
         }
 

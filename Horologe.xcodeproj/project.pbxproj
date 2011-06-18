@@ -121,7 +121,6 @@
 		5B6917D913A7194900C913B7 /* HLCalendarConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916A313A7194600C913B7 /* HLCalendarConverter.h */; };
 		5B6917DA13A7194900C913B7 /* HLCalendarConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916A413A7194600C913B7 /* HLCalendarConverter.m */; };
 		5B6917DB13A7194900C913B7 /* HLConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916A513A7194600C913B7 /* HLConverter.h */; };
-		5B6917DC13A7194900C913B7 /* HLConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916A613A7194600C913B7 /* HLConverter.m */; };
 		5B6917DD13A7194900C913B7 /* HLConverterManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916A713A7194600C913B7 /* HLConverterManager.h */; };
 		5B6917DE13A7194900C913B7 /* HLConverterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916A813A7194600C913B7 /* HLConverterManager.m */; };
 		5B6917DF13A7194900C913B7 /* HLConverterSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916A913A7194600C913B7 /* HLConverterSet.h */; };
@@ -129,19 +128,14 @@
 		5B6917E113A7194900C913B7 /* HLDateConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916AB13A7194600C913B7 /* HLDateConverter.h */; };
 		5B6917E213A7194900C913B7 /* HLDateConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916AC13A7194600C913B7 /* HLDateConverter.m */; };
 		5B6917E313A7194900C913B7 /* HLDurationConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916AD13A7194600C913B7 /* HLDurationConverter.h */; };
-		5B6917E413A7194900C913B7 /* HLDurationConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916AE13A7194600C913B7 /* HLDurationConverter.m */; };
 		5B6917E513A7194900C913B7 /* HLInstantConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916AF13A7194600C913B7 /* HLInstantConverter.h */; };
-		5B6917E613A7194900C913B7 /* HLInstantConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916B013A7194600C913B7 /* HLInstantConverter.m */; };
 		5B6917E713A7194900C913B7 /* HLIntervalConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916B113A7194600C913B7 /* HLIntervalConverter.h */; };
-		5B6917E813A7194900C913B7 /* HLIntervalConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916B213A7194600C913B7 /* HLIntervalConverter.m */; };
 		5B6917E913A7194900C913B7 /* HLLongConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916B313A7194600C913B7 /* HLLongConverter.h */; };
 		5B6917EA13A7194900C913B7 /* HLLongConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916B413A7194600C913B7 /* HLLongConverter.m */; };
 		5B6917EB13A7194A00C913B7 /* HLNullConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916B513A7194600C913B7 /* HLNullConverter.h */; };
 		5B6917EC13A7194A00C913B7 /* HLNullConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916B613A7194600C913B7 /* HLNullConverter.m */; };
 		5B6917ED13A7194A00C913B7 /* HLPartialConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916B713A7194600C913B7 /* HLPartialConverter.h */; };
-		5B6917EE13A7194A00C913B7 /* HLPartialConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916B813A7194600C913B7 /* HLPartialConverter.m */; };
 		5B6917EF13A7194A00C913B7 /* HLPeriodConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916B913A7194600C913B7 /* HLPeriodConverter.h */; };
-		5B6917F013A7194A00C913B7 /* HLPeriodConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916BA13A7194600C913B7 /* HLPeriodConverter.m */; };
 		5B6917F113A7194A00C913B7 /* HLReadableDurationConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916BB13A7194600C913B7 /* HLReadableDurationConverter.h */; };
 		5B6917F213A7194A00C913B7 /* HLReadableDurationConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916BC13A7194600C913B7 /* HLReadableDurationConverter.m */; };
 		5B6917F313A7194A00C913B7 /* HLReadableInstantConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6916BD13A7194600C913B7 /* HLReadableInstantConverter.h */; };
@@ -457,7 +451,6 @@
 		5B6916A313A7194600C913B7 /* HLCalendarConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLCalendarConverter.h; sourceTree = "<group>"; };
 		5B6916A413A7194600C913B7 /* HLCalendarConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLCalendarConverter.m; sourceTree = "<group>"; };
 		5B6916A513A7194600C913B7 /* HLConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLConverter.h; sourceTree = "<group>"; };
-		5B6916A613A7194600C913B7 /* HLConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLConverter.m; sourceTree = "<group>"; };
 		5B6916A713A7194600C913B7 /* HLConverterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLConverterManager.h; sourceTree = "<group>"; };
 		5B6916A813A7194600C913B7 /* HLConverterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLConverterManager.m; sourceTree = "<group>"; };
 		5B6916A913A7194600C913B7 /* HLConverterSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLConverterSet.h; sourceTree = "<group>"; };
@@ -465,19 +458,14 @@
 		5B6916AB13A7194600C913B7 /* HLDateConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLDateConverter.h; sourceTree = "<group>"; };
 		5B6916AC13A7194600C913B7 /* HLDateConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLDateConverter.m; sourceTree = "<group>"; };
 		5B6916AD13A7194600C913B7 /* HLDurationConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLDurationConverter.h; sourceTree = "<group>"; };
-		5B6916AE13A7194600C913B7 /* HLDurationConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLDurationConverter.m; sourceTree = "<group>"; };
 		5B6916AF13A7194600C913B7 /* HLInstantConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLInstantConverter.h; sourceTree = "<group>"; };
-		5B6916B013A7194600C913B7 /* HLInstantConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLInstantConverter.m; sourceTree = "<group>"; };
 		5B6916B113A7194600C913B7 /* HLIntervalConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLIntervalConverter.h; sourceTree = "<group>"; };
-		5B6916B213A7194600C913B7 /* HLIntervalConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLIntervalConverter.m; sourceTree = "<group>"; };
 		5B6916B313A7194600C913B7 /* HLLongConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLLongConverter.h; sourceTree = "<group>"; };
 		5B6916B413A7194600C913B7 /* HLLongConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLLongConverter.m; sourceTree = "<group>"; };
 		5B6916B513A7194600C913B7 /* HLNullConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLNullConverter.h; sourceTree = "<group>"; };
 		5B6916B613A7194600C913B7 /* HLNullConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLNullConverter.m; sourceTree = "<group>"; };
 		5B6916B713A7194600C913B7 /* HLPartialConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLPartialConverter.h; sourceTree = "<group>"; };
-		5B6916B813A7194600C913B7 /* HLPartialConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLPartialConverter.m; sourceTree = "<group>"; };
 		5B6916B913A7194600C913B7 /* HLPeriodConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLPeriodConverter.h; sourceTree = "<group>"; };
-		5B6916BA13A7194600C913B7 /* HLPeriodConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLPeriodConverter.m; sourceTree = "<group>"; };
 		5B6916BB13A7194600C913B7 /* HLReadableDurationConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLReadableDurationConverter.h; sourceTree = "<group>"; };
 		5B6916BC13A7194600C913B7 /* HLReadableDurationConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLReadableDurationConverter.m; sourceTree = "<group>"; };
 		5B6916BD13A7194600C913B7 /* HLReadableInstantConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLReadableInstantConverter.h; sourceTree = "<group>"; };
@@ -983,7 +971,6 @@
 				5B6916A313A7194600C913B7 /* HLCalendarConverter.h */,
 				5B6916A413A7194600C913B7 /* HLCalendarConverter.m */,
 				5B6916A513A7194600C913B7 /* HLConverter.h */,
-				5B6916A613A7194600C913B7 /* HLConverter.m */,
 				5B6916A713A7194600C913B7 /* HLConverterManager.h */,
 				5B6916A813A7194600C913B7 /* HLConverterManager.m */,
 				5B6916A913A7194600C913B7 /* HLConverterSet.h */,
@@ -991,19 +978,14 @@
 				5B6916AB13A7194600C913B7 /* HLDateConverter.h */,
 				5B6916AC13A7194600C913B7 /* HLDateConverter.m */,
 				5B6916AD13A7194600C913B7 /* HLDurationConverter.h */,
-				5B6916AE13A7194600C913B7 /* HLDurationConverter.m */,
 				5B6916AF13A7194600C913B7 /* HLInstantConverter.h */,
-				5B6916B013A7194600C913B7 /* HLInstantConverter.m */,
 				5B6916B113A7194600C913B7 /* HLIntervalConverter.h */,
-				5B6916B213A7194600C913B7 /* HLIntervalConverter.m */,
 				5B6916B313A7194600C913B7 /* HLLongConverter.h */,
 				5B6916B413A7194600C913B7 /* HLLongConverter.m */,
 				5B6916B513A7194600C913B7 /* HLNullConverter.h */,
 				5B6916B613A7194600C913B7 /* HLNullConverter.m */,
 				5B6916B713A7194600C913B7 /* HLPartialConverter.h */,
-				5B6916B813A7194600C913B7 /* HLPartialConverter.m */,
 				5B6916B913A7194600C913B7 /* HLPeriodConverter.h */,
-				5B6916BA13A7194600C913B7 /* HLPeriodConverter.m */,
 				5B6916BB13A7194600C913B7 /* HLReadableDurationConverter.h */,
 				5B6916BC13A7194600C913B7 /* HLReadableDurationConverter.m */,
 				5B6916BD13A7194600C913B7 /* HLReadableInstantConverter.h */,
@@ -1465,17 +1447,11 @@
 				5B6917D613A7194900C913B7 /* HLZonedChronology.m in Sources */,
 				5B6917D813A7194900C913B7 /* HLAbstractConverter.m in Sources */,
 				5B6917DA13A7194900C913B7 /* HLCalendarConverter.m in Sources */,
-				5B6917DC13A7194900C913B7 /* HLConverter.m in Sources */,
 				5B6917DE13A7194900C913B7 /* HLConverterManager.m in Sources */,
 				5B6917E013A7194900C913B7 /* HLConverterSet.m in Sources */,
 				5B6917E213A7194900C913B7 /* HLDateConverter.m in Sources */,
-				5B6917E413A7194900C913B7 /* HLDurationConverter.m in Sources */,
-				5B6917E613A7194900C913B7 /* HLInstantConverter.m in Sources */,
-				5B6917E813A7194900C913B7 /* HLIntervalConverter.m in Sources */,
 				5B6917EA13A7194900C913B7 /* HLLongConverter.m in Sources */,
 				5B6917EC13A7194A00C913B7 /* HLNullConverter.m in Sources */,
-				5B6917EE13A7194A00C913B7 /* HLPartialConverter.m in Sources */,
-				5B6917F013A7194A00C913B7 /* HLPeriodConverter.m in Sources */,
 				5B6917F213A7194A00C913B7 /* HLReadableDurationConverter.m in Sources */,
 				5B6917F413A7194A00C913B7 /* HLReadableInstantConverter.m in Sources */,
 				5B6917F613A7194A00C913B7 /* HLReadableIntervalConverter.m in Sources */,

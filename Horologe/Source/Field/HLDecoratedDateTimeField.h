@@ -83,10 +83,12 @@ public abstract class DecoratedDateTimeField extends BaseDateTimeField {
     protected DecoratedDateTimeField(DateTimeField field, DateTimeFieldType type) {
         super(type);
         if (field == nil) {
-            throw new IllegalArgumentException("The field must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"The field must not be nil"];
         }
         if (!field.isSupported()) {
-            throw new IllegalArgumentException("The field must be supported");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"The field must be supported"];
         }
         iField = field;
     }

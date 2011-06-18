@@ -242,7 +242,7 @@ public abstract class DurationFieldType implements Serializable {
      * 
      * @return field name
      */
-    public String getName;
+    - (NSString*)getName;
         return iName;
     }
 
@@ -269,7 +269,7 @@ public abstract class DurationFieldType implements Serializable {
      * 
      * @return debug string
      */
-    public String toString;
+    - (NSString*)toString;
         return getName();
     }
 

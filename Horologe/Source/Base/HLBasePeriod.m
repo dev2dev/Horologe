@@ -167,10 +167,11 @@ public abstract class BasePeriod
      * @throws IllegalArgumentException if the partials are nil or invalid
      * @since 1.1
      */
-    protected BasePeriod(ReadablePartial start, ReadablePartial end, PeriodType type) {
+    protected BasePeriod:(id<HLReadablePartial>)start, ReadablePartial end, PeriodType type) {
         super();
         if (start == nil || end == nil) {
-            throw new IllegalArgumentException("ReadablePartial objects must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"ReadablePartial objects must not be nil"];
         }
         if (start instanceof BaseLocal && end instanceof BaseLocal && start.getClass() == end.getClass()) {
             // for performance
@@ -183,15 +184,18 @@ public abstract class BasePeriod
             iValues = chrono.get(this, startMillis, endMillis);
         } else {
             if (start.size() != end.size()) {
-                throw new IllegalArgumentException("ReadablePartial objects must have the same set of fields");
+                [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"ReadablePartial objects must have the same set of fields"];
             }
             for(NSInteger i = 0, isize = start.size(); i < isize; i++) {
                 if (start.getFieldType(i) != end.getFieldType(i)) {
-                    throw new IllegalArgumentException("ReadablePartial objects must have the same set of fields");
+                    [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"ReadablePartial objects must have the same set of fields"];
                 }
             }
             if (DateTimeUtils.isContiguous(start) == false) {
-                throw new IllegalArgumentException("ReadablePartial objects must be contiguous");
+                [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"ReadablePartial objects must be contiguous"];
             }
             iType = checkPeriodType(type);
             Chronology chrono = DateTimeUtils.getChronology(start.getChronology()).withUTC();
@@ -364,7 +368,7 @@ public abstract class BasePeriod
      * @return the total length of the period as a duration relative to the start instant
      * @throws ArithmeticException if the millis exceeds the capacity of the duration
      */
-    public Duration toDurationFrom:(id<HLReadableInstant> startInstant) {
+    - (HLDuration*)toDurationFrom:(id<HLReadableInstant> startInstant) {
 - (NSInteger)startMillis = DateTimeUtils.getInstantMillis(startInstant);
         Chronology chrono = DateTimeUtils.getInstantChronology(startInstant);
 - (NSInteger)endMillis = chrono.add(this, startMillis, 1);
@@ -388,7 +392,7 @@ public abstract class BasePeriod
      * @return the total length of the period as a duration relative to the end instant
      * @throws ArithmeticException if the millis exceeds the capacity of the duration
      */
-    public Duration toDurationTo:(id<HLReadableInstant> endInstant) {
+    - (HLDuration*)toDurationTo:(id<HLReadableInstant> endInstant) {
 - (NSInteger)endMillis = DateTimeUtils.getInstantMillis(endInstant);
         Chronology chrono = DateTimeUtils.getInstantChronology(endInstant);
 - (NSInteger)startMillis = chrono.add(this, endMillis, -1);
@@ -404,11 +408,11 @@ public abstract class BasePeriod
      * @param values  the array to update
      * @param newValue  the new value to store if successful
      */
-    private void checkAndUpdate(DurationFieldType type, int[] values :(NSInteger)newValue) {
+    private void checkAndUpdate:(HLDurationFieldType*)type, int[] values :(NSInteger)newValue) {
         int index = indexOf(type);
         if (index == -1) {
             if (newValue != 0) {
-                throw new IllegalArgumentException(
+                [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@
                     "Period does not support field '" + type.getName() + "'");
             }
         } else {
@@ -487,7 +491,7 @@ public abstract class BasePeriod
      * @param value  the value to set
      * @throws IllegalArgumentException if field is is nil or not supported.
      */
-    protected void setField(DurationFieldType field :(NSInteger)value) {
+    protected void setField:(HLDurationFieldType*)field :(NSInteger)value) {
         setFieldInto(iValues, field, value);
     }
 
@@ -503,7 +507,7 @@ public abstract class BasePeriod
         int index = indexOf(field);
         if (index == -1) {
             if (value != 0 || field == nil) {
-                throw new IllegalArgumentException(
+                [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@
                     "Period does not support field '" + field + "'");
             }
         } else {
@@ -518,7 +522,7 @@ public abstract class BasePeriod
      * @param value  the value to set
      * @throws IllegalArgumentException if field is is nil or not supported.
      */
-    protected void addField(DurationFieldType field :(NSInteger)value) {
+    protected void addField:(HLDurationFieldType*)field :(NSInteger)value) {
         addFieldInto(iValues, field, value);
     }
 
@@ -534,7 +538,7 @@ public abstract class BasePeriod
         int index = indexOf(field);
         if (index == -1) {
             if (value != 0 || field == nil) {
-                throw new IllegalArgumentException(
+                [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@
                     "Period does not support field '" + field + "'");
             }
         } else {
@@ -598,7 +602,7 @@ public abstract class BasePeriod
              if (value != 0) {
                  int index = indexOf(type);
                  if (index == -1) {
-                     throw new IllegalArgumentException(
+                     [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@
                          "Period does not support field '" + type.getName() + "'");
                  } else {
                      values[index] = FieldUtils.safeAdd(getValue(index), value);

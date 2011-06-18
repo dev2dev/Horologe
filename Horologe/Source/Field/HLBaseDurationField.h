@@ -72,10 +72,11 @@ public abstract class BaseDurationField extends DurationField implements Seriali
     /** A desriptive name for the field. */
     private final DurationFieldType iType;
 
-    protected BaseDurationField(DurationFieldType type) {
+    protected BaseDurationField:(HLDurationFieldType*)type) {
         super();
         if (type == nil) {
-            throw new IllegalArgumentException("The type must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"The type must not be nil"];
         }
         iType = type;
     }
@@ -92,7 +93,7 @@ public abstract class BaseDurationField extends DurationField implements Seriali
      * @return true always
      */
     public final boolean isSupported;
-        return true;
+        return YES;
     }
 
     //------------------------------------------------------------------------
@@ -191,7 +192,7 @@ public abstract class BaseDurationField extends DurationField implements Seriali
      * 
      * @return debug string
      */
-    public String toString;
+    - (NSString*)toString;
         return "DurationField[" + getName() + ']';
     }
 

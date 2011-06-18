@@ -399,7 +399,7 @@ public abstract class DateTimeFieldType implements Serializable {
      * 
      * @return field name
      */
-    public String getName {
+    - (NSString*)getName {
         return iName;
     }
 
@@ -483,7 +483,7 @@ public abstract class DateTimeFieldType implements Serializable {
         }
 
         /** @inheritdoc */
-        public DateTimeField getField:(HLChronology*)chronology) {
+        - (HLDateTimeField*)getField:(HLChronology*)chronology) {
             chronology = DateTimeUtils.getChronology(chronology);
 
             switch (iOrdinal) {

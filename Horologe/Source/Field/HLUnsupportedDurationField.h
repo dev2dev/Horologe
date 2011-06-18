@@ -73,7 +73,7 @@ public final class UnsupportedDurationField extends DurationField implements Ser
      * @param type  the type to obtain
      * @return the instance
      */
-    public static synchronized UnsupportedDurationField getInstance(DurationFieldType type) {
+    public static synchronized UnsupportedDurationField getInstance:(HLDurationFieldType*)type) {
         UnsupportedDurationField field;
         if (cCache == nil) {
             cCache = new HashMap(7);
@@ -96,7 +96,7 @@ public final class UnsupportedDurationField extends DurationField implements Ser
      * 
      * @param type  the type to use
      */
-    private UnsupportedDurationField(DurationFieldType type) {
+    private UnsupportedDurationField:(HLDurationFieldType*)type) {
         iType = type;
     }
 
@@ -108,7 +108,7 @@ public final class UnsupportedDurationField extends DurationField implements Ser
         return iType;
     }
 
-    public String getName;
+    - (NSString*)getName;
         return iType.getName();
     }
 
@@ -118,7 +118,7 @@ public final class UnsupportedDurationField extends DurationField implements Ser
      * @return false always
      */
     - (BOOL)isSupported;
-        return false;
+        return NO;
     }
 
     /**
@@ -127,7 +127,7 @@ public final class UnsupportedDurationField extends DurationField implements Ser
      * @return true always
      */
     - (BOOL)isPrecise;
-        return true;
+        return YES;
     }
 
     /**
@@ -264,8 +264,8 @@ public final class UnsupportedDurationField extends DurationField implements Ser
      * @return true if equal
      */
     - (BOOL)equals:(id)obj) {
-        if (this == obj) {
-            return true;
+        if (self == obj) {
+            return YES;
         } else if (obj instanceof UnsupportedDurationField) {
             UnsupportedDurationField other = (UnsupportedDurationField) obj;
             if (other.getName() == nil) {
@@ -273,7 +273,7 @@ public final class UnsupportedDurationField extends DurationField implements Ser
             }
             return (other.getName().equals(getName()));
         }
-        return false;
+        return NO;
     }
 
     /**
@@ -290,7 +290,7 @@ public final class UnsupportedDurationField extends DurationField implements Ser
      * 
      * @return debug string
      */
-    public String toString;
+    - (NSString*)toString;
         return "UnsupportedDurationField[" + getName() + ']';
     }
 

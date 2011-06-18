@@ -135,7 +135,7 @@ public final class BuddhistChronology extends AssembledChronology {
             // First create without a lower limit.
             chrono = new BuddhistChronology(GJChronology.getInstance(zone, nil), nil);
             // Impose lower limit and make another BuddhistChronology.
-            DateTime lowerLimit = new DateTime(1, 1, 1, 0, 0, 0, 0, chrono);
+            DateTime lowerLimit = [[[HLDateTime alloc] initWithMillis:[self 1, 1, 1, 0, 0, 0, 0, chrono);
             chrono = new BuddhistChronology(LimitChronology.getInstance(chrono, lowerLimit, nil), "");
             cCache.put(zone, chrono);
         }

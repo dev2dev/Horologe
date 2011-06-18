@@ -82,7 +82,7 @@ public abstract class AbstractPartialFieldProperty {
      * 
      * @return the field type
      */
-    public DateTimeFieldType getFieldType {
+    - (HLDateTimeFieldType*)getFieldType {
         return getField().getType();
     }
 
@@ -91,7 +91,7 @@ public abstract class AbstractPartialFieldProperty {
      * 
      * @return the field name
      */
-    public String getName {
+    - (NSString*)getName {
         return getField().getName();
     }
 
@@ -128,7 +128,7 @@ public abstract class AbstractPartialFieldProperty {
      * @see DateTimeField#get
      * @since 1.1
      */
-    public String getAsString {
+    - (NSString*)getAsString {
         return Integer.toString(get());
     }
 
@@ -143,7 +143,7 @@ public abstract class AbstractPartialFieldProperty {
      * @return the current text value
      * @see DateTimeField#getAsText
      */
-    public String getAsText {
+    - (NSString*)getAsText {
         return getAsText(nil);
     }
 
@@ -159,7 +159,7 @@ public abstract class AbstractPartialFieldProperty {
      * @return the current text value
      * @see DateTimeField#getAsText
      */
-    public String getAsText:(NSLocale*)locale {
+    - (NSString*)getAsText:(NSLocale*)locale {
         return getField().getAsText(getReadablePartial(), get(), locale);
     }
 
@@ -174,7 +174,7 @@ public abstract class AbstractPartialFieldProperty {
      * @return the current text value
      * @see DateTimeField#getAsShortText
      */
-    public String getAsShortText {
+    - (NSString*)getAsShortText {
         return getAsShortText(nil);
     }
 
@@ -190,7 +190,7 @@ public abstract class AbstractPartialFieldProperty {
      * @return the current text value
      * @see DateTimeField#getAsShortText
      */
-    public String getAsShortText:(NSLocale*)locale {
+    - (NSString*)getAsShortText:(NSLocale*)locale {
         return getField().getAsShortText(getReadablePartial(), get(), locale);
     }
 
@@ -295,7 +295,8 @@ public abstract class AbstractPartialFieldProperty {
      */
     - (NSInteger)compareTo:(id<HLReadableInstant> instant) {
         if (instant == nil) {
-            throw new IllegalArgumentException("The instant must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"The instant must not be nil"];
         }
         int thisValue = get();
         int otherValue = instant.get(getFieldType());
@@ -322,9 +323,10 @@ public abstract class AbstractPartialFieldProperty {
      * @throws IllegalArgumentException if the field of this property cannot be queried
      *  on the specified instant
      */
-    - (NSInteger)compareTo(ReadablePartial partial) {
+    - (NSInteger)compareTo:(id<HLReadablePartial>)partial) {
         if (partial == nil) {
-            throw new IllegalArgumentException("The instant must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"The instant must not be nil"];
         }
         int thisValue = get();
         int otherValue = partial.get(getFieldType());
@@ -345,11 +347,11 @@ public abstract class AbstractPartialFieldProperty {
      * @return true if equal
      */
     - (BOOL)equals:(id)object) {
-        if (this == object) {
-            return true;
+        if (self == object) {
+            return YES;
         }
         if (object instanceof AbstractPartialFieldProperty == false) {
-            return false;
+            return NO;
         }
         AbstractPartialFieldProperty other = (AbstractPartialFieldProperty) object;
         return

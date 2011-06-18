@@ -123,7 +123,7 @@ public abstract class AbstractConverter implements Converter {
      * @return the array of field values that match the fieldSource, must be non-nil valid
      * @throws ClassCastException if the object is invalid
      */
-    public int[] getPartialValues(ReadablePartial fieldSource, Object object, Chronology chrono) {
+    public int[] getPartialValues:(id<HLReadablePartial>)fieldSource, Object object, Chronology chrono) {
 - (NSInteger)instant = getInstantMillis(object, chrono);
         return chrono.get(fieldSource, instant);
     }
@@ -144,7 +144,7 @@ public abstract class AbstractConverter implements Converter {
      * @throws ClassCastException if the object is invalid
      * @since 1.3
      */
-    public int[] getPartialValues(ReadablePartial fieldSource,
+    public int[] getPartialValues:(id<HLReadablePartial>)fieldSource,
             Object object, Chronology chrono, DateTimeFormatter parser) {
         return getPartialValues(fieldSource, object, chrono);
     }
@@ -171,7 +171,7 @@ public abstract class AbstractConverter implements Converter {
      * @return true if the input is a ReadableInterval
      */
     - (BOOL)isReadableInterval:(id)object, Chronology chrono) {
-        return false;
+        return NO;
     }
 
     //-----------------------------------------------------------------------

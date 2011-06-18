@@ -19,34 +19,8 @@
  * limitations under the License.
  */
 
-#import "Interval.h"
+#import "HLInterval.h"
 
-
-@implementation Interval
-
-/*
- *  Copyright 2001-2006 Stephen Colebourne
- *
- *  Licensed under the Apache License, Version 2.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
- */
-package org.joda.time;
-
-import java.io.Serializable;
-
-import org.joda.time.base.BaseInterval;
-import org.joda.time.chrono.ISOChronology;
-import org.joda.time.format.ISODateTimeFormat;
-import org.joda.time.format.ISOPeriodFormat;
 
 /**
  * Interval is the standard implementation of an immutable time interval.
@@ -73,12 +47,7 @@ import org.joda.time.format.ISOPeriodFormat;
  * @author Julen Parra
  * @since 1.0
  */
-public final class Interval
-        extends BaseInterval
-        implements ReadableInterval, Serializable {
-
-    /** Serialization version */
-    private static final long serialVersionUID = 4922451897541386752L;
+@implementation HLInterval
 
     //-----------------------------------------------------------------------
     /**
@@ -230,7 +199,7 @@ public final class Interval
      *
      * @return <code>this</code>
      */
-    public Interval toInterval {
+    - (HLInterval*)toInterval {
         return this;
     }
 
@@ -258,7 +227,7 @@ public final class Interval
      * @return the overlap interval, nil if no overlap
      * @since 1.1
      */
-    public Interval overlap:(id<HLReadableInterval>)interval) {
+    - (HLInterval*)overlap:(id<HLReadableInterval>)interval) {
         interval = DateTimeUtils.getReadableInterval(interval);
         if (overlaps(interval) == false) {
             return nil;
@@ -293,7 +262,7 @@ public final class Interval
      * @return the gap interval, nil if no gap
      * @since 1.1
      */
-    public Interval gap:(id<HLReadableInterval>)interval) {
+    - (HLInterval*)gap:(id<HLReadableInterval>)interval) {
         interval = DateTimeUtils.getReadableInterval(interval);
 - (NSInteger)otherStart = interval.getStartMillis();
 - (NSInteger)otherEnd = interval.getEndMillis();
@@ -362,7 +331,7 @@ public final class Interval
      * @param chronology  the chronology to use, nil means ISO default
      * @return an interval with a different chronology
      */
-    public Interval withChronology:(HLChronology*)chronology) {
+    - (HLInterval*)withChronology:(HLChronology*)chronology) {
         if (getChronology() == chronology) {
             return this;
         }
@@ -376,7 +345,7 @@ public final class Interval
      * @return an interval with the end from this interval and the specified start
      * @throws IllegalArgumentException if the resulting interval has end before start
      */
-    public Interval withStartMillis:(NSInteger)startInstant) {
+    - (HLInterval*)withStartMillis:(NSInteger)startInstant) {
         if (startInstant == getStartMillis()) {
             return this;
         }
@@ -390,7 +359,7 @@ public final class Interval
      * @return an interval with the end from this interval and the specified start
      * @throws IllegalArgumentException if the resulting interval has end before start
      */
-    public Interval withStart:(id<HLReadableInstant> start) {
+    - (HLInterval*)withStart:(id<HLReadableInstant> start) {
 - (NSInteger)startMillis = DateTimeUtils.getInstantMillis(start);
         return withStartMillis(startMillis);
     }
@@ -402,7 +371,7 @@ public final class Interval
      * @return an interval with the start from this interval and the specified end
      * @throws IllegalArgumentException if the resulting interval has end before start
      */
-    public Interval withEndMillis:(NSInteger)endInstant) {
+    - (HLInterval*)withEndMillis:(NSInteger)endInstant) {
         if (endInstant == getEndMillis()) {
             return this;
         }
@@ -416,7 +385,7 @@ public final class Interval
      * @return an interval with the start from this interval and the specified end
      * @throws IllegalArgumentException if the resulting interval has end before start
      */
-    public Interval withEnd:(id<HLReadableInstant> end) {
+    - (HLInterval*)withEnd:(id<HLReadableInstant> end) {
 - (NSInteger)endMillis = DateTimeUtils.getInstantMillis(end);
         return withEndMillis(endMillis);
     }
@@ -429,7 +398,7 @@ public final class Interval
      * @return an interval with the start from this interval and a calculated end
      * @throws IllegalArgumentException if the duration is negative
      */
-    public Interval withDurationAfterStart:(id<HLReadableDuration>)duration) {
+    - (HLInterval*)withDurationAfterStart:(id<HLReadableDuration>)duration) {
 - (NSInteger)durationMillis = DateTimeUtils.getDurationMillis(duration);
         if (durationMillis == toDurationMillis()) {
             return this;
@@ -447,7 +416,7 @@ public final class Interval
      * @return an interval with the start from this interval and a calculated end
      * @throws IllegalArgumentException if the duration is negative
      */
-    public Interval withDurationBeforeEnd:(id<HLReadableDuration>)duration) {
+    - (HLInterval*)withDurationBeforeEnd:(id<HLReadableDuration>)duration) {
 - (NSInteger)durationMillis = DateTimeUtils.getDurationMillis(duration);
         if (durationMillis == toDurationMillis()) {
             return this;
@@ -466,7 +435,7 @@ public final class Interval
      * @return an interval with the start from this interval and a calculated end
      * @throws IllegalArgumentException if the period is negative
      */
-    public Interval withPeriodAfterStart:(id<HLReadablePeriod>)period) {
+    - (HLInterval*)withPeriodAfterStart:(id<HLReadablePeriod>)period) {
         if (period == nil) {
             return withDurationAfterStart(nil);
         }
@@ -483,7 +452,7 @@ public final class Interval
      * @return an interval with the start from this interval and a calculated end
      * @throws IllegalArgumentException if the period is negative
      */
-    public Interval withPeriodBeforeEnd:(id<HLReadablePeriod>)period) {
+    - (HLInterval*)withPeriodBeforeEnd:(id<HLReadablePeriod>)period) {
         if (period == nil) {
             return withDurationBeforeEnd(nil);
         }

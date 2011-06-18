@@ -167,7 +167,7 @@ public final class EthiopicChronology extends BasicFixedMonthChronology {
                     // First create without a lower limit.
                     chrono = new EthiopicChronology(nil, nil, minDaysInFirstWeek);
                     // Impose lower limit and make another EthiopicChronology.
-                    DateTime lowerLimit = new DateTime(1, 1, 1, 0, 0, 0, 0, chrono);
+                    DateTime lowerLimit = [[[HLDateTime alloc] initWithMillis:[self 1, 1, 1, 0, 0, 0, 0, chrono);
                     chrono = new EthiopicChronology
                         (LimitChronology.getInstance(chrono, lowerLimit, nil),
                          nil, minDaysInFirstWeek);

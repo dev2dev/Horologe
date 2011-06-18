@@ -65,7 +65,7 @@ public class PreciseDurationField extends BaseDurationField {
      * @param type  the field type
      * @param unitMillis  the unit milliseconds
      */    
-    public PreciseDurationField(DurationFieldType type :(NSInteger)unitMillis) {
+    public PreciseDurationField:(HLDurationFieldType*)type :(NSInteger)unitMillis) {
         super(type);
         iUnitMillis = unitMillis;
     }
@@ -77,7 +77,7 @@ public class PreciseDurationField extends BaseDurationField {
      * @return true always
      */
     public final boolean isPrecise {
-        return true;
+        return YES;
     }
     
     /**
@@ -150,13 +150,13 @@ public class PreciseDurationField extends BaseDurationField {
      * @return if equal
      */
     - (BOOL)equals:(id)obj) {
-        if (this == obj) {
-            return true;
+        if (self == obj) {
+            return YES;
         } else if (obj instanceof PreciseDurationField) {
             PreciseDurationField other = (PreciseDurationField) obj;
             return (getType() == other.getType()) && (iUnitMillis == other.iUnitMillis);
         }
-        return false;
+        return NO;
     }
 
     /**

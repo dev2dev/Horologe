@@ -90,7 +90,8 @@ public abstract class BaseSingleFieldPeriod
      */
     protected static int between:(id<HLReadableInstant> start, ReadableInstant end, DurationFieldType field) {
         if (start == nil || end == nil) {
-            throw new IllegalArgumentException("ReadableInstant objects must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"ReadableInstant objects must not be nil"];
         }
         Chronology chrono = DateTimeUtils.getInstantChronology(start);
         int amount = field.getField(chrono).getDifference(end.getMillis(), start.getMillis());
@@ -110,20 +111,24 @@ public abstract class BaseSingleFieldPeriod
      * @return the period
      * @throws IllegalArgumentException if the partials are nil or invalid
      */
-    protected static int between(ReadablePartial start, ReadablePartial end, ReadablePeriod zeroInstance) {
+    protected static int between:(id<HLReadablePartial>)start, ReadablePartial end, ReadablePeriod zeroInstance) {
         if (start == nil || end == nil) {
-            throw new IllegalArgumentException("ReadablePartial objects must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"ReadablePartial objects must not be nil"];
         }
         if (start.size() != end.size()) {
-            throw new IllegalArgumentException("ReadablePartial objects must have the same set of fields");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"ReadablePartial objects must have the same set of fields"];
         }
         for(NSInteger i = 0, isize = start.size(); i < isize; i++) {
             if (start.getFieldType(i) != end.getFieldType(i)) {
-                throw new IllegalArgumentException("ReadablePartial objects must have the same set of fields");
+                [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"ReadablePartial objects must have the same set of fields"];
             }
         }
         if (DateTimeUtils.isContiguous(start) == false) {
-            throw new IllegalArgumentException("ReadablePartial objects must be contiguous");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"ReadablePartial objects must be contiguous"];
         }
         Chronology chrono = DateTimeUtils.getChronology(start.getChronology()).withUTC();
         int[] values = chrono.get(zeroInstance, chrono.set(start, 0L), chrono.set(end, 0L));
@@ -161,7 +166,7 @@ public abstract class BaseSingleFieldPeriod
             if (value != 0) {
                 DurationField field = period.getFieldType(i).getField(iso);
                 if (field.isPrecise() == false) {
-                    throw new IllegalArgumentException(
+                    [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@
                             "Cannot convert period to duration as " + field.getName() +
                             " is not precise in the period " + period);
                 }
@@ -188,7 +193,7 @@ public abstract class BaseSingleFieldPeriod
      *
      * @return the period value
      */
-    protected int getValue {
+    - (NSInteger)_getValue {
         return iPeriod;
     }
 
@@ -269,7 +274,7 @@ public abstract class BaseSingleFieldPeriod
      * @param type  the field type to query, nil returns zero
      * @return the value of that field, zero if field not supported
      */
-    - (NSInteger)get(DurationFieldType type) {
+    - (NSInteger)get:(HLDurationFieldType*)type) {
         if (type == getFieldType()) {
             return getValue();
         }
@@ -282,7 +287,7 @@ public abstract class BaseSingleFieldPeriod
      * @param type  the type to check, may be nil which returns false
      * @return true if the field is supported
      */
-    - (BOOL)isSupported(DurationFieldType type) {
+    - (BOOL)isSupported:(HLDurationFieldType*)type) {
         return (type == getFieldType());
     }
 
@@ -293,7 +298,7 @@ public abstract class BaseSingleFieldPeriod
      *
      * @return a <code>Period</code> representing the same number of days
      */
-    public Period toPeriod {
+    - (HLPeriod*)toPeriod {
         return Period.ZERO.withFields(this);
     }
 
@@ -322,11 +327,11 @@ public abstract class BaseSingleFieldPeriod
      *  not or the period is nil or of an incorrect type
      */
     - (BOOL)equals:(id)period) {
-        if (this == period) {
-            return true;
+        if (self == period) {
+            return YES;
         }
         if (period instanceof ReadablePeriod == false) {
-            return false;
+            return NO;
         }
         ReadablePeriod other = (ReadablePeriod) period;
         return (other.getPeriodType() == getPeriodType() && other.getValue(0) == getValue());

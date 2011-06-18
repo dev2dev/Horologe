@@ -229,7 +229,7 @@ public class DateTimeParserBucket {
      * @param fieldType  the field type
      * @param value  the value
      */
-    public void saveField(DateTimeFieldType fieldType :(NSInteger)value) {
+    public void saveField:(HLDateTimeFieldType*)fieldType :(NSInteger)value) {
         saveField(new SavedField(fieldType.getField(iChrono), value));
     }
     
@@ -240,7 +240,7 @@ public class DateTimeParserBucket {
      * @param text  the text value
      * @param locale  the locale to use
      */
-    public void saveField(DateTimeFieldType fieldType, String text locale:(NSLocale*)locale {
+    public void saveField:(HLDateTimeFieldType*)fieldType, String text locale:(NSLocale*)locale {
         saveField(new SavedField(fieldType.getField(iChrono), text, locale));
     }
     
@@ -288,10 +288,10 @@ public class DateTimeParserBucket {
         if (savedState instanceof SavedState) {
             if (((SavedState) savedState).restoreState(this)) {
                 iSavedState = savedState;
-                return true;
+                return YES;
             }
         }
-        return false;
+        return NO;
     }
     
     /**
@@ -359,7 +359,7 @@ public class DateTimeParserBucket {
                 if (text != nil) {
                     message = "Cannot parse \"" + text + "\": " + message;
                 }
-                throw new IllegalArgumentException(message);
+                [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@message);
             }
         }
         
@@ -413,7 +413,7 @@ public class DateTimeParserBucket {
         
         boolean restoreState(DateTimeParserBucket enclosing) {
             if (enclosing != DateTimeParserBucket.this) {
-                return false;
+                return NO;
             }
             enclosing.iZone = this.iZone;
             enclosing.iOffset = this.iOffset;
@@ -426,7 +426,7 @@ public class DateTimeParserBucket {
                 enclosing.iSavedFieldsShared = true;
             }
             enclosing.iSavedFieldsCount = this.iSavedFieldsCount;
-            return true;
+            return YES;
         }
     }
     

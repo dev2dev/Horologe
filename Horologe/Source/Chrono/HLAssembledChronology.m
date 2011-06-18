@@ -434,30 +434,30 @@ public abstract class AssembledChronology extends BaseChronology {
         public DurationField centuries;
         public DurationField eras;
     
-        public DateTimeField millisOfSecond;
-        public DateTimeField millisOfDay;
-        public DateTimeField secondOfMinute;
-        public DateTimeField secondOfDay;
-        public DateTimeField minuteOfHour;
-        public DateTimeField minuteOfDay;
-        public DateTimeField hourOfDay;
-        public DateTimeField clockhourOfDay;
-        public DateTimeField hourOfHalfday;
-        public DateTimeField clockhourOfHalfday;
-        public DateTimeField halfdayOfDay;
+        - (HLDateTimeField*)millisOfSecond;
+        - (HLDateTimeField*)millisOfDay;
+        - (HLDateTimeField*)secondOfMinute;
+        - (HLDateTimeField*)secondOfDay;
+        - (HLDateTimeField*)minuteOfHour;
+        - (HLDateTimeField*)minuteOfDay;
+        - (HLDateTimeField*)hourOfDay;
+        - (HLDateTimeField*)clockhourOfDay;
+        - (HLDateTimeField*)hourOfHalfday;
+        - (HLDateTimeField*)clockhourOfHalfday;
+        - (HLDateTimeField*)halfdayOfDay;
     
-        public DateTimeField dayOfWeek;
-        public DateTimeField dayOfMonth;
-        public DateTimeField dayOfYear;
-        public DateTimeField weekOfWeekyear;
-        public DateTimeField weekyear;
-        public DateTimeField weekyearOfCentury;
-        public DateTimeField monthOfYear;
-        public DateTimeField year;
-        public DateTimeField yearOfEra;
-        public DateTimeField yearOfCentury;
-        public DateTimeField centuryOfEra;
-        public DateTimeField era;
+        - (HLDateTimeField*)dayOfWeek;
+        - (HLDateTimeField*)dayOfMonth;
+        - (HLDateTimeField*)dayOfYear;
+        - (HLDateTimeField*)weekOfWeekyear;
+        - (HLDateTimeField*)weekyear;
+        - (HLDateTimeField*)weekyearOfCentury;
+        - (HLDateTimeField*)monthOfYear;
+        - (HLDateTimeField*)year;
+        - (HLDateTimeField*)yearOfEra;
+        - (HLDateTimeField*)yearOfCentury;
+        - (HLDateTimeField*)centuryOfEra;
+        - (HLDateTimeField*)era;
 
         Fields {
         }

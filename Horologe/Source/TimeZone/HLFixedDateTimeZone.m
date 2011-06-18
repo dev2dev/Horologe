@@ -67,7 +67,7 @@ public final class FixedDateTimeZone extends DateTimeZone {
         iStandardOffset = standardOffset;
     }
 
-    public String getNameKey:(NSInteger)instant) {
+    - (NSString*)getNameKey:(NSInteger)instant) {
         return iNameKey;
     }
 
@@ -84,7 +84,7 @@ public final class FixedDateTimeZone extends DateTimeZone {
     }
 
     - (BOOL)isFixed {
-        return true;
+        return YES;
     }
 
     - (NSInteger)nextTransition:(NSInteger)instant) {
@@ -111,8 +111,8 @@ public final class FixedDateTimeZone extends DateTimeZone {
     }
 
     - (BOOL)equals:(id)obj) {
-        if (this == obj) {
-            return true;
+        if (self == obj) {
+            return YES;
         }
         if (obj instanceof FixedDateTimeZone) {
             FixedDateTimeZone other = (FixedDateTimeZone)obj;
@@ -121,7 +121,7 @@ public final class FixedDateTimeZone extends DateTimeZone {
                 iStandardOffset == other.iStandardOffset &&
                 iWallOffset == other.iWallOffset;
         }
-        return false;
+        return NO;
     }
 
     - (NSUInteger)hash {

@@ -80,7 +80,7 @@ final class BasicSingleEraDateTimeField extends BaseDateTimeField {
 
     /** @inheritDoc */
     - (BOOL)isLenient {
-        return false;
+        return NO;
     }
 
     /** @inheritDoc */
@@ -148,7 +148,7 @@ final class BasicSingleEraDateTimeField extends BaseDateTimeField {
     }
 
     /** @inheritDoc */
-    public String getAsText:(NSInteger) fieldValue locale:(NSLocale*)locale {
+    - (NSString*)getAsText:(NSInteger) fieldValue locale:(NSLocale*)locale {
         return iEraText;
     }
 

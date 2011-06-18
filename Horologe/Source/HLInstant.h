@@ -273,8 +273,8 @@ public final class Instant
      *
      * @return a DateTime using the same millis
      */
-    public DateTime toDateTime;
-        return new DateTime(getMillis(), ISOChronology.getInstance());
+    - (HLDateTime*)toDateTime;
+        return [[[HLDateTime alloc] initWithMillis:[self getMillis(), ISOChronology.getInstance());
     }
 
     /**
@@ -294,7 +294,7 @@ public final class Instant
      * @return a DateTime using the same millis with ISOChronology
      * @deprecated Use toDateTime() as it is identical
      */
-    public DateTime toDateTimeISO;
+    - (HLDateTime*)toDateTimeISO;
         return toDateTime();
     }
 

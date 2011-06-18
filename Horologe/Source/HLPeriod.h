@@ -21,36 +21,13 @@
 
 #import <Foundation/Foundation.h>
 
+#import "HLBasePeriod.h"
+#import "HLReadablePeriod.h"
 
-@interface Period {
 
-@private
+@class HLPeriod;
 
-}
-
-/*
- *  Copyright 2001-2006 Stephen Colebourne
- *
- *  Licensed under the Apache License, Version 2.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
- */
-package org.joda.time;
-
-import java.io.Serializable;
-
-import org.joda.time.base.BasePeriod;
-import org.joda.time.chrono.ISOChronology;
-import org.joda.time.field.FieldUtils;
-import org.joda.time.format.ISOPeriodFormat;
+extern const HLPeriod* ZERO_PERIOD;
 
 /**
  * An immutable time period specifying a set of duration field values.
@@ -82,18 +59,11 @@ import org.joda.time.format.ISOPeriodFormat;
  * @since 1.0
  * @see MutablePeriod
  */
-public final class Period
-        extends BasePeriod
-        implements ReadablePeriod, Serializable {
+@interface HLPeriod : HLBasePeriod <HLReadablePeriod> {
 
-    /**
-     * A period of zero length and standard period type.
-     * @since 1.4
-     */
-    public static final Period ZERO = new Period();
+@private
 
-    /** Serialization version */
-    private static final long serialVersionUID = 741052353876488155L;
+}
 
     //-----------------------------------------------------------------------
     /**
@@ -109,7 +79,7 @@ public final class Period
      * @param years  the amount of years in this period
      * @return the period
      */
-    public static Period years:(NSInteger) years) {
+    + (HLPeriod*)periodWithyears:(NSInteger) years) {
         return new Period(new int[] {years, 0, 0, 0, 0, 0, 0, 0, 0}, PeriodType.standard());
     }
 
@@ -126,7 +96,7 @@ public final class Period
      * @param months  the amount of months in this period
      * @return the period
      */
-    public static Period months:(NSInteger) months) {
+    + (HLPeriod*)periodWithmonths:(NSInteger) months) {
         return new Period(new int[] {0, months, 0, 0, 0, 0, 0, 0}, PeriodType.standard());
     }
 
@@ -143,7 +113,7 @@ public final class Period
      * @param weeks  the amount of weeks in this period
      * @return the period
      */
-    public static Period weeks:(NSInteger) weeks) {
+    + (HLPeriod*)periodWithweeks:(NSInteger) weeks) {
         return new Period(new int[] {0, 0, weeks, 0, 0, 0, 0, 0}, PeriodType.standard());
     }
 
@@ -160,7 +130,7 @@ public final class Period
      * @param days  the amount of days in this period
      * @return the period
      */
-    public static Period days:(NSInteger) days) {
+    + (HLPeriod*)periodWithdays:(NSInteger) days) {
         return new Period(new int[] {0, 0, 0, days, 0, 0, 0, 0}, PeriodType.standard());
     }
 
@@ -177,7 +147,7 @@ public final class Period
      * @param hours  the amount of hours in this period
      * @return the period
      */
-    public static Period hours:(NSInteger) hours) {
+    + (HLPeriod*)periodWithhours:(NSInteger) hours) {
         return new Period(new int[] {0, 0, 0, 0, hours, 0, 0, 0}, PeriodType.standard());
     }
 
@@ -194,7 +164,7 @@ public final class Period
      * @param minutes  the amount of minutes in this period
      * @return the period
      */
-    public static Period minutes:(NSInteger) minutes) {
+    + (HLPeriod*)periodWithminutes:(NSInteger) minutes) {
         return new Period(new int[] {0, 0, 0, 0, 0, minutes, 0, 0}, PeriodType.standard());
     }
 
@@ -211,7 +181,7 @@ public final class Period
      * @param seconds  the amount of seconds in this period
      * @return the period
      */
-    public static Period seconds:(NSInteger) seconds) {
+    + (HLPeriod*)periodWithseconds:(NSInteger) seconds) {
         return new Period(new int[] {0, 0, 0, 0, 0, 0, seconds, 0}, PeriodType.standard());
     }
 
@@ -225,7 +195,7 @@ public final class Period
      * @param millis  the amount of millis in this period
      * @return the period
      */
-    public static Period millis:(NSInteger) millis) {
+    + (HLPeriod*)periodWithmillis:(NSInteger) millis) {
         return new Period(new int[] {0, 0, 0, 0, 0, 0, 0, millis}, PeriodType.standard());
     }
 
@@ -256,22 +226,26 @@ public final class Period
      * @throws IllegalArgumentException if the partials are nil or invalid
      * @since 1.1
      */
-    public static Period fieldDifference(ReadablePartial start, ReadablePartial end) {
+    + (HLPeriod*)periodWithfieldDifference:(id<HLReadablePartial>)start, ReadablePartial end) {
         if (start == nil || end == nil) {
-            throw new IllegalArgumentException("ReadablePartial objects must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"ReadablePartial objects must not be nil"];
         }
         if (start.size() != end.size()) {
-            throw new IllegalArgumentException("ReadablePartial objects must have the same set of fields");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"ReadablePartial objects must have the same set of fields"];
         }
         DurationFieldType[] types = new DurationFieldType[start.size()];
         int[] values = new int[start.size()];
         for(NSInteger i = 0, isize = start.size(); i < isize; i++) {
             if (start.getFieldType(i) != end.getFieldType(i)) {
-                throw new IllegalArgumentException("ReadablePartial objects must have the same set of fields");
+                [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"ReadablePartial objects must have the same set of fields"];
             }
             types[i] = start.getFieldType(i).getDurationType();
             if (i > 0 && types[i - 1] == types[i]) {
-                throw new IllegalArgumentException("ReadablePartial objects must not have overlapping fields");
+                [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"ReadablePartial objects must not have overlapping fields"];
             }
             values[i] = end.getValue(i) - start.getValue(i);
         }
@@ -536,7 +510,7 @@ public final class Period
      * @throws IllegalArgumentException if the partials are nil or invalid
      * @since 1.1
      */
-    public Period(ReadablePartial start, ReadablePartial end) {
+    public Period:(id<HLReadablePartial>)start, ReadablePartial end) {
         super(start, end, nil);
     }
 
@@ -562,7 +536,7 @@ public final class Period
      * @throws IllegalArgumentException if the partials are nil or invalid
      * @since 1.1
      */
-    public Period(ReadablePartial start, ReadablePartial end, PeriodType type) {
+    public Period:(id<HLReadablePartial>)start, ReadablePartial end, PeriodType type) {
         super(start, end, type);
     }
 
@@ -693,7 +667,7 @@ public final class Period
      * 
      * @return <code>this</code>
      */
-    public Period toPeriod;
+    - (HLPeriod*)toPeriod;
         return this;
     }
 
@@ -782,7 +756,7 @@ public final class Period
      * @return the new period instance
      * @throws IllegalArgumentException if the new period won't accept all of the current fields
      */
-    public Period withPeriodType(PeriodType type) {
+    - (HLPeriod*)withPeriodType(PeriodType type) {
         type = DateTimeUtils.getPeriodType(type);
         if (type.equals(getPeriodType())) {
             return this;
@@ -800,7 +774,7 @@ public final class Period
      * @return the new period instance
      * @throws IllegalArgumentException if a field type is unsupported
      */
-    public Period withFields:(id<HLReadablePeriod>)period) {
+    - (HLPeriod*)withFields:(id<HLReadablePeriod>)period) {
         if (period == nil) {
             return this;
         }
@@ -820,9 +794,10 @@ public final class Period
      * @return the new period instance
      * @throws IllegalArgumentException if the field type is nil or unsupported
      */
-    public Period withField(DurationFieldType field :(NSInteger)value) {
+    - (HLPeriod*)withField:(HLDurationFieldType*)field :(NSInteger)value) {
         if (field == nil) {
-            throw new IllegalArgumentException("Field must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Field must not be nil"];
         }
         int[] newValues = getValues();  // cloned
         super.setFieldInto(newValues, field, value);
@@ -839,9 +814,10 @@ public final class Period
      * @return the new period instance
      * @throws IllegalArgumentException if the field type is nil or unsupported
      */
-    public Period withFieldAdded(DurationFieldType field :(NSInteger)value) {
+    - (HLPeriod*)withFieldAdded:(HLDurationFieldType*)field :(NSInteger)value) {
         if (field == nil) {
-            throw new IllegalArgumentException("Field must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Field must not be nil"];
         }
         if (value == 0) {
             return this;
@@ -861,7 +837,7 @@ public final class Period
      * @return the new period with the increased years
      * @throws UnsupportedOperationException if the field is not supported
      */
-    public Period withYears:(NSInteger) years) {
+    - (HLPeriod*)withYears:(NSInteger) years) {
         int[] values = getValues();  // cloned
         getPeriodType().setIndexedField(this, PeriodType.YEAR_INDEX, values, years);
         return new Period(values, getPeriodType());
@@ -876,7 +852,7 @@ public final class Period
      * @return the new period with the increased months
      * @throws UnsupportedOperationException if the field is not supported
      */
-    public Period withMonths:(NSInteger) months) {
+    - (HLPeriod*)withMonths:(NSInteger) months) {
         int[] values = getValues();  // cloned
         getPeriodType().setIndexedField(this, PeriodType.MONTH_INDEX, values, months);
         return new Period(values, getPeriodType());
@@ -891,7 +867,7 @@ public final class Period
      * @return the new period with the increased weeks
      * @throws UnsupportedOperationException if the field is not supported
      */
-    public Period withWeeks:(NSInteger) weeks) {
+    - (HLPeriod*)withWeeks:(NSInteger) weeks) {
         int[] values = getValues();  // cloned
         getPeriodType().setIndexedField(this, PeriodType.WEEK_INDEX, values, weeks);
         return new Period(values, getPeriodType());
@@ -906,7 +882,7 @@ public final class Period
      * @return the new period with the increased days
      * @throws UnsupportedOperationException if the field is not supported
      */
-    public Period withDays:(NSInteger) days) {
+    - (HLPeriod*)withDays:(NSInteger) days) {
         int[] values = getValues();  // cloned
         getPeriodType().setIndexedField(this, PeriodType.DAY_INDEX, values, days);
         return new Period(values, getPeriodType());
@@ -921,7 +897,7 @@ public final class Period
      * @return the new period with the increased hours
      * @throws UnsupportedOperationException if the field is not supported
      */
-    public Period withHours:(NSInteger) hours) {
+    - (HLPeriod*)withHours:(NSInteger) hours) {
         int[] values = getValues();  // cloned
         getPeriodType().setIndexedField(this, PeriodType.HOUR_INDEX, values, hours);
         return new Period(values, getPeriodType());
@@ -936,7 +912,7 @@ public final class Period
      * @return the new period with the increased minutes
      * @throws UnsupportedOperationException if the field is not supported
      */
-    public Period withMinutes:(NSInteger) minutes) {
+    - (HLPeriod*)withMinutes:(NSInteger) minutes) {
         int[] values = getValues();  // cloned
         getPeriodType().setIndexedField(this, PeriodType.MINUTE_INDEX, values, minutes);
         return new Period(values, getPeriodType());
@@ -951,7 +927,7 @@ public final class Period
      * @return the new period with the increased seconds
      * @throws UnsupportedOperationException if the field is not supported
      */
-    public Period withSeconds:(NSInteger) seconds) {
+    - (HLPeriod*)withSeconds:(NSInteger) seconds) {
         int[] values = getValues();  // cloned
         getPeriodType().setIndexedField(this, PeriodType.SECOND_INDEX, values, seconds);
         return new Period(values, getPeriodType());
@@ -966,7 +942,7 @@ public final class Period
      * @return the new period with the increased millis
      * @throws UnsupportedOperationException if the field is not supported
      */
-    public Period withMillis:(NSInteger) millis) {
+    - (HLPeriod*)withMillis:(NSInteger) millis) {
         int[] values = getValues();  // cloned
         getPeriodType().setIndexedField(this, PeriodType.MILLI_INDEX, values, millis);
         return new Period(values, getPeriodType());
@@ -990,7 +966,7 @@ public final class Period
      * @throws UnsupportedOperationException if any field is not supported
      * @since 1.5
      */
-    public Period plus:(id<HLReadablePeriod>)period) {
+    - (HLPeriod*)plus:(id<HLReadablePeriod>)period) {
         if (period == nil) {
             return this;
         }
@@ -1016,7 +992,7 @@ public final class Period
      * @return the new period with the increased years
      * @throws UnsupportedOperationException if the field is not supported
      */
-    public Period plusYears:(NSInteger) years) {
+    - (HLPeriod*)plusYears:(NSInteger) years) {
         if (years == 0) {
             return this;
         }
@@ -1034,7 +1010,7 @@ public final class Period
      * @return the new period plus the increased months
      * @throws UnsupportedOperationException if the field is not supported
      */
-    public Period plusMonths:(NSInteger) months) {
+    - (HLPeriod*)plusMonths:(NSInteger) months) {
         if (months == 0) {
             return this;
         }
@@ -1052,7 +1028,7 @@ public final class Period
      * @return the new period plus the increased weeks
      * @throws UnsupportedOperationException if the field is not supported
      */
-    public Period plusWeeks:(NSInteger) weeks) {
+    - (HLPeriod*)plusWeeks:(NSInteger) weeks) {
         if (weeks == 0) {
             return this;
         }
@@ -1070,7 +1046,7 @@ public final class Period
      * @return the new period plus the increased days
      * @throws UnsupportedOperationException if the field is not supported
      */
-    public Period plusDays:(NSInteger) days) {
+    - (HLPeriod*)plusDays:(NSInteger) days) {
         if (days == 0) {
             return this;
         }
@@ -1088,7 +1064,7 @@ public final class Period
      * @return the new period plus the increased hours
      * @throws UnsupportedOperationException if the field is not supported
      */
-    public Period plusHours:(NSInteger) hours) {
+    - (HLPeriod*)plusHours:(NSInteger) hours) {
         if (hours == 0) {
             return this;
         }
@@ -1106,7 +1082,7 @@ public final class Period
      * @return the new period plus the increased minutes
      * @throws UnsupportedOperationException if the field is not supported
      */
-    public Period plusMinutes:(NSInteger) minutes) {
+    - (HLPeriod*)plusMinutes:(NSInteger) minutes) {
         if (minutes == 0) {
             return this;
         }
@@ -1124,7 +1100,7 @@ public final class Period
      * @return the new period plus the increased seconds
      * @throws UnsupportedOperationException if the field is not supported
      */
-    public Period plusSeconds:(NSInteger) seconds) {
+    - (HLPeriod*)plusSeconds:(NSInteger) seconds) {
         if (seconds == 0) {
             return this;
         }
@@ -1142,7 +1118,7 @@ public final class Period
      * @return the new period plus the increased millis
      * @throws UnsupportedOperationException if the field is not supported
      */
-    public Period plusMillis:(NSInteger) millis) {
+    - (HLPeriod*)plusMillis:(NSInteger) millis) {
         if (millis == 0) {
             return this;
         }
@@ -1169,7 +1145,7 @@ public final class Period
      * @throws UnsupportedOperationException if any field is not supported
      * @since 1.5
      */
-    public Period minus:(id<HLReadablePeriod>)period) {
+    - (HLPeriod*)minus:(id<HLReadablePeriod>)period) {
         if (period == nil) {
             return this;
         }
@@ -1195,7 +1171,7 @@ public final class Period
      * @return the new period with the increased years
      * @throws UnsupportedOperationException if the field is not supported
      */
-    public Period minusYears:(NSInteger) years) {
+    - (HLPeriod*)minusYears:(NSInteger) years) {
         return plusYears(-years);
     }
 
@@ -1208,7 +1184,7 @@ public final class Period
      * @return the new period minus the increased months
      * @throws UnsupportedOperationException if the field is not supported
      */
-    public Period minusMonths:(NSInteger) months) {
+    - (HLPeriod*)minusMonths:(NSInteger) months) {
         return plusMonths(-months);
     }
 
@@ -1221,7 +1197,7 @@ public final class Period
      * @return the new period minus the increased weeks
      * @throws UnsupportedOperationException if the field is not supported
      */
-    public Period minusWeeks:(NSInteger) weeks) {
+    - (HLPeriod*)minusWeeks:(NSInteger) weeks) {
         return plusWeeks(-weeks);
     }
 
@@ -1234,7 +1210,7 @@ public final class Period
      * @return the new period minus the increased days
      * @throws UnsupportedOperationException if the field is not supported
      */
-    public Period minusDays:(NSInteger) days) {
+    - (HLPeriod*)minusDays:(NSInteger) days) {
         return plusDays(-days);
     }
 
@@ -1247,7 +1223,7 @@ public final class Period
      * @return the new period minus the increased hours
      * @throws UnsupportedOperationException if the field is not supported
      */
-    public Period minusHours:(NSInteger) hours) {
+    - (HLPeriod*)minusHours:(NSInteger) hours) {
         return plusHours(-hours);
     }
 
@@ -1260,7 +1236,7 @@ public final class Period
      * @return the new period minus the increased minutes
      * @throws UnsupportedOperationException if the field is not supported
      */
-    public Period minusMinutes:(NSInteger) minutes) {
+    - (HLPeriod*)minusMinutes:(NSInteger) minutes) {
         return plusMinutes(-minutes);
     }
 
@@ -1273,7 +1249,7 @@ public final class Period
      * @return the new period minus the increased seconds
      * @throws UnsupportedOperationException if the field is not supported
      */
-    public Period minusSeconds:(NSInteger) seconds) {
+    - (HLPeriod*)minusSeconds:(NSInteger) seconds) {
         return plusSeconds(-seconds);
     }
 
@@ -1286,7 +1262,7 @@ public final class Period
      * @return the new period minus the increased millis
      * @throws UnsupportedOperationException if the field is not supported
      */
-    public Period minusMillis:(NSInteger) millis) {
+    - (HLPeriod*)minusMillis:(NSInteger) millis) {
         return plusMillis(-millis);
     }
 
@@ -1463,7 +1439,7 @@ public final class Period
      * @throws UnsupportedOperationException if the period contains years or months
      * @since 1.5
      */
-    public Duration toStandardDuration;
+    - (HLDuration*)toStandardDuration;
         checkYearsAndMonths("Duration");
 - (NSInteger)millis = getMillis();  // no overflow can happen, even with Integer.MAX_VALUEs
         millis += (((long) getSeconds()) * ((long) DateTimeConstants.MILLIS_PER_SECOND));
@@ -1515,7 +1491,7 @@ public final class Period
      * @throws ArithmeticException if any field is too large to be represented
      * @since 1.5
      */
-    public Period normalizedStandard;
+    - (HLPeriod*)normalizedStandard;
         return normalizedStandard(PeriodType.standard());
     }
 
@@ -1551,7 +1527,7 @@ public final class Period
      *  years or months but the specified period type does not support them
      * @since 1.5
      */
-    public Period normalizedStandard(PeriodType type) {
+    - (HLPeriod*)normalizedStandard(PeriodType type) {
 - (NSInteger)millis = getMillis();  // no overflow can happen, even with Integer.MAX_VALUEs
         millis += (((long) getSeconds()) * ((long) DateTimeConstants.MILLIS_PER_SECOND));
         millis += (((long) getMinutes()) * ((long) DateTimeConstants.MILLIS_PER_MINUTE));

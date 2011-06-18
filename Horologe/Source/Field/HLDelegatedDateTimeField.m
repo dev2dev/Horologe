@@ -87,7 +87,8 @@ public class DelegatedDateTimeField extends DateTimeField implements Serializabl
     public DelegatedDateTimeField(DateTimeField field, DateTimeFieldType type) {
         super();
         if (field == nil) {
-            throw new IllegalArgumentException("The field must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"The field must not be nil"];
         }
         iField = field;
         iType = (type == nil ? field.getType() : type);
@@ -102,11 +103,11 @@ public class DelegatedDateTimeField extends DateTimeField implements Serializabl
         return iField;
     }
 
-    public DateTimeFieldType getType {
+    - (HLDateTimeFieldType*)getType {
         return iType;
     }
 
-    public String getName {
+    - (NSString*)getName {
         return iType.getName();
     }
 
@@ -122,43 +123,43 @@ public class DelegatedDateTimeField extends DateTimeField implements Serializabl
         return iField.get(instant);
     }
 
-    public String getAsText:(NSInteger)instant locale:(NSLocale*)locale {
+    - (NSString*)getAsText:(NSInteger)instant locale:(NSLocale*)locale {
         return iField.getAsText(instant, locale);
     }
 
-    public String getAsText:(NSInteger)instant) {
+    - (NSString*)getAsText:(NSInteger)instant) {
         return iField.getAsText(instant);
     }
 
-    public String getAsText(ReadablePartial partial :(NSInteger)fieldValue locale:(NSLocale*)locale {
+    - (NSString*)getAsText:(id<HLReadablePartial>)partial :(NSInteger)fieldValue locale:(NSLocale*)locale {
         return iField.getAsText(partial, fieldValue, locale);
     }
 
-    public String getAsText(ReadablePartial partial locale:(NSLocale*)locale {
+    - (NSString*)getAsText:(id<HLReadablePartial>)partial locale:(NSLocale*)locale {
         return iField.getAsText(partial, locale);
     }
 
-    public String getAsText:(NSInteger) fieldValue locale:(NSLocale*)locale {
+    - (NSString*)getAsText:(NSInteger) fieldValue locale:(NSLocale*)locale {
         return iField.getAsText(fieldValue, locale);
     }
 
-    public String getAsShortText:(NSInteger)instant locale:(NSLocale*)locale {
+    - (NSString*)getAsShortText:(NSInteger)instant locale:(NSLocale*)locale {
         return iField.getAsShortText(instant, locale);
     }
 
-    public String getAsShortText:(NSInteger)instant) {
+    - (NSString*)getAsShortText:(NSInteger)instant) {
         return iField.getAsShortText(instant);
     }
 
-    public String getAsShortText(ReadablePartial partial :(NSInteger)fieldValue locale:(NSLocale*)locale {
+    - (NSString*)getAsShortText:(id<HLReadablePartial>)partial :(NSInteger)fieldValue locale:(NSLocale*)locale {
         return iField.getAsShortText(partial, fieldValue, locale);
     }
 
-    public String getAsShortText(ReadablePartial partial locale:(NSLocale*)locale {
+    - (NSString*)getAsShortText:(id<HLReadablePartial>)partial locale:(NSLocale*)locale {
         return iField.getAsShortText(partial, locale);
     }
 
-    public String getAsShortText:(NSInteger) fieldValue locale:(NSLocale*)locale {
+    - (NSString*)getAsShortText:(NSInteger) fieldValue locale:(NSLocale*)locale {
         return iField.getAsShortText(fieldValue, locale);
     }
 
@@ -170,11 +171,11 @@ public class DelegatedDateTimeField extends DateTimeField implements Serializabl
         return iField.add(instant, value);
     }
 
-    public int[] add(ReadablePartial instant :(NSInteger)fieldIndex, int[] values :(NSInteger)valueToAdd) {
+    public int[] add:(id<HLReadablePartial>)instant :(NSInteger)fieldIndex, int[] values :(NSInteger)valueToAdd) {
         return iField.add(instant, fieldIndex, values, valueToAdd);
     }
 
-    public int[] addWrapPartial(ReadablePartial instant :(NSInteger)fieldIndex, int[] values :(NSInteger)valueToAdd) {
+    public int[] addWrapPartial:(id<HLReadablePartial>)instant :(NSInteger)fieldIndex, int[] values :(NSInteger)valueToAdd) {
         return iField.addWrapPartial(instant, fieldIndex, values, valueToAdd);
     }
 
@@ -182,7 +183,7 @@ public class DelegatedDateTimeField extends DateTimeField implements Serializabl
         return iField.addWrapField(instant, value);
     }
 
-    public int[] addWrapField(ReadablePartial instant :(NSInteger)fieldIndex, int[] values :(NSInteger)valueToAdd) {
+    public int[] addWrapField:(id<HLReadablePartial>)instant :(NSInteger)fieldIndex, int[] values :(NSInteger)valueToAdd) {
         return iField.addWrapField(instant, fieldIndex, values, valueToAdd);
     }
 
@@ -206,11 +207,11 @@ public class DelegatedDateTimeField extends DateTimeField implements Serializabl
         return iField.set(instant, text);
     }
 
-    public int[] set(ReadablePartial instant :(NSInteger)fieldIndex, int[] values :(NSInteger)newValue) {
+    public int[] set:(id<HLReadablePartial>)instant :(NSInteger)fieldIndex, int[] values :(NSInteger)newValue) {
         return iField.set(instant, fieldIndex, values, newValue);
     }
 
-    public int[] set(ReadablePartial instant :(NSInteger)fieldIndex, int[] values, String text locale:(NSLocale*)locale {
+    public int[] set:(id<HLReadablePartial>)instant :(NSInteger)fieldIndex, int[] values, String text locale:(NSLocale*)locale {
         return iField.set(instant, fieldIndex, values, text, locale);
     }
 
@@ -242,11 +243,11 @@ public class DelegatedDateTimeField extends DateTimeField implements Serializabl
         return iField.getMinimumValue(instant);
     }
 
-    - (NSInteger)getMinimumValue(ReadablePartial instant) {
+    - (NSInteger)getMinimumValue:(id<HLReadablePartial>)instant) {
         return iField.getMinimumValue(instant);
     }
 
-    - (NSInteger)getMinimumValue(ReadablePartial instant, int[] values) {
+    - (NSInteger)getMinimumValue:(id<HLReadablePartial>)instant, int[] values) {
         return iField.getMinimumValue(instant, values);
     }
 
@@ -258,11 +259,11 @@ public class DelegatedDateTimeField extends DateTimeField implements Serializabl
         return iField.getMaximumValue(instant);
     }
 
-    - (NSInteger)getMaximumValue(ReadablePartial instant) {
+    - (NSInteger)getMaximumValue:(id<HLReadablePartial>)instant) {
         return iField.getMaximumValue(instant);
     }
 
-    - (NSInteger)getMaximumValue(ReadablePartial instant, int[] values) {
+    - (NSInteger)getMaximumValue:(id<HLReadablePartial>)instant, int[] values) {
         return iField.getMaximumValue(instant, values);
     }
 

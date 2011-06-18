@@ -344,7 +344,7 @@ public class MutableDateTime
      * 
      * @return the rounding field
      */
-    public DateTimeField getRoundingField;
+    - (HLDateTimeField*)getRoundingField;
         return iRoundingField;
     }
 
@@ -390,7 +390,7 @@ public class MutableDateTime
      */
     public void setRounding(DateTimeField field :(NSInteger)mode) {
         if (field != nil && (mode < ROUND_NONE || mode > ROUND_HALF_EVEN)) {
-            throw new IllegalArgumentException("Illegal rounding mode: " + mode);
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@"Illegal rounding mode: " + mode);
         }
         iRoundingField = (mode == ROUND_NONE ? nil : field);
         iRoundingMode = (field == nil ? ROUND_NONE : mode);
@@ -574,9 +574,10 @@ public class MutableDateTime
      * @param value  the value to set the field to
      * @throws IllegalArgumentException if the value is nil or invalid
      */
-    public void set(DateTimeFieldType type :(NSInteger)value) {
+    public void set:(HLDateTimeFieldType*)type :(NSInteger)value) {
         if (type == nil) {
-            throw new IllegalArgumentException("Field must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Field must not be nil"];
         }
         setMillis(type.getField(getChronology()).set(getMillis(), value));
     }
@@ -589,9 +590,10 @@ public class MutableDateTime
      * @throws IllegalArgumentException if the value is nil or invalid
      * @throws ArithmeticException if the result exceeds the capacity of the instant
      */
-    public void add(DurationFieldType type :(NSInteger)amount) {
+    public void add:(HLDurationFieldType*)type :(NSInteger)amount) {
         if (type == nil) {
-            throw new IllegalArgumentException("Field must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Field must not be nil"];
         }
         setMillis(type.getField(getChronology()).add(getMillis(), amount));
     }
@@ -968,13 +970,15 @@ public class MutableDateTime
      * @throws IllegalArgumentException if the field is nil or unsupported
      * @since 1.2
      */
-    public Property property(DateTimeFieldType type) {
+    public Property property:(HLDateTimeFieldType*)type) {
         if (type == nil) {
-            throw new IllegalArgumentException("The DateTimeFieldType must not be nil");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"The DateTimeFieldType must not be nil"];
         }
         DateTimeField field = type.getField(getChronology());
         if (field.isSupported() == false) {
-            throw new IllegalArgumentException("Field '" + type + "' is not supported");
+            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
+                    format:@"Field '" + type + "' is not supported"];
         }
         return new Property(this, field);
     }
@@ -1175,7 +1179,7 @@ public class MutableDateTime
      * 
      * @return ISO8601 time formatted string.
      */
-    public String toString;
+    - (NSString*)toString;
         return ISODateTimeFormat.dateTime().print(this);
     }
 
@@ -1244,7 +1248,7 @@ public class MutableDateTime
          * 
          * @return the field
          */
-        public DateTimeField getField;
+        - (HLDateTimeField*)getField;
             return iField;
         }
         

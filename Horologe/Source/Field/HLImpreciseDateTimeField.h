@@ -81,7 +81,7 @@ public abstract class ImpreciseDateTimeField extends BaseDateTimeField {
      * @param type  the field type
      * @param unitMillis  the average duration unit milliseconds
      */
-    public ImpreciseDateTimeField(DateTimeFieldType type :(NSInteger)unitMillis) {
+    public ImpreciseDateTimeField:(HLDateTimeFieldType*)type :(NSInteger)unitMillis) {
         super(type);
         iUnitMillis = unitMillis;
         iDurationField = new LinkedDurationField(type.getDurationType());
@@ -178,12 +178,12 @@ public abstract class ImpreciseDateTimeField extends BaseDateTimeField {
     private final class LinkedDurationField extends BaseDurationField {
         private static final long serialVersionUID = -203813474600094134L;
 
-        LinkedDurationField(DurationFieldType type) {
+        LinkedDurationField:(HLDurationFieldType*)type) {
             super(type);
         }
     
         - (BOOL)isPrecise;
-            return false;
+            return NO;
         }
     
         - (NSInteger)getUnitMillis;

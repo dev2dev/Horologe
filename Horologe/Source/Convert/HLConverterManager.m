@@ -19,10 +19,10 @@
  * limitations under the License.
  */
 
-#import "ConverterManager.h"
+#import "HLConverterManager.h"
 
 
-@implementation ConverterManager
+@implementation HLConverterManager
 
 /*
  *  Copyright 2001-2005 Stephen Colebourne
@@ -182,13 +182,13 @@ public final class ConverterManager {
      * @throws IllegalStateException if multiple converters match the type
      * equally well
      */
-    public InstantConverter getInstantConverter:(id)object) {
+    - (HLInstantConverter*)getInstantConverter:(id)object) {
         InstantConverter converter =
             (InstantConverter)iInstantConverters.select(object == nil ? nil : object.getClass());
         if (converter != nil) {
             return converter;
         }
-        throw new IllegalArgumentException("No instant converter found for type: " +
+        [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@"No instant converter found for type: " +
             (object == nil ? "nil" : object.getClass().getName()));
     }
     
@@ -216,7 +216,7 @@ public final class ConverterManager {
      * @param converter  the converter to add, nil ignored
      * @return replaced converter, or nil
      */
-    public InstantConverter addInstantConverter(InstantConverter converter)
+    - (HLInstantConverter*)addInstantConverter:(HLInstantConverter*)converter)
             throws SecurityException {
         
         checkAlterInstantConverters();
@@ -235,7 +235,7 @@ public final class ConverterManager {
      * @param converter  the converter to remove, nil ignored
      * @return replaced converter, or nil
      */
-    public InstantConverter removeInstantConverter(InstantConverter converter)
+    - (HLInstantConverter*)removeInstantConverter:(HLInstantConverter*)converter)
             throws SecurityException {
         
         checkAlterInstantConverters();
@@ -269,13 +269,13 @@ public final class ConverterManager {
      * @throws IllegalStateException if multiple converters match the type
      * equally well
      */
-    public PartialConverter getPartialConverter:(id)object) {
+    - (HLPartialConverter*)getPartialConverter:(id)object) {
         PartialConverter converter =
             (PartialConverter)iPartialConverters.select(object == nil ? nil : object.getClass());
         if (converter != nil) {
             return converter;
         }
-        throw new IllegalArgumentException("No partial converter found for type: " +
+        [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@"No partial converter found for type: " +
             (object == nil ? "nil" : object.getClass().getName()));
     }
     
@@ -303,7 +303,7 @@ public final class ConverterManager {
      * @param converter  the converter to add, nil ignored
      * @return replaced converter, or nil
      */
-    public PartialConverter addPartialConverter(PartialConverter converter)
+    - (HLPartialConverter*)addPartialConverter:(HLPartialConverter*)converter)
             throws SecurityException {
         
         checkAlterPartialConverters();
@@ -322,7 +322,7 @@ public final class ConverterManager {
      * @param converter  the converter to remove, nil ignored
      * @return replaced converter, or nil
      */
-    public PartialConverter removePartialConverter(PartialConverter converter)
+    - (HLPartialConverter*)removePartialConverter:(HLPartialConverter*)converter)
             throws SecurityException {
         
         checkAlterPartialConverters();
@@ -356,13 +356,13 @@ public final class ConverterManager {
      * @throws IllegalStateException if multiple converters match the type
      * equally well
      */
-    public DurationConverter getDurationConverter:(id)object) {
+    - (HLDurationConverter*)getDurationConverter:(id)object) {
         DurationConverter converter =
             (DurationConverter)iDurationConverters.select(object == nil ? nil : object.getClass());
         if (converter != nil) {
             return converter;
         }
-        throw new IllegalArgumentException("No duration converter found for type: " +
+        [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@"No duration converter found for type: " +
             (object == nil ? "nil" : object.getClass().getName()));
     }
     
@@ -390,7 +390,7 @@ public final class ConverterManager {
      * @param converter  the converter to add, nil ignored
      * @return replaced converter, or nil
      */
-    public DurationConverter addDurationConverter(DurationConverter converter)
+    - (HLDurationConverter*)addDurationConverter:(HLDurationConverter*)converter)
             throws SecurityException {
         
         checkAlterDurationConverters();
@@ -409,7 +409,7 @@ public final class ConverterManager {
      * @param converter  the converter to remove, nil ignored
      * @return replaced converter, or nil
      */
-    public DurationConverter removeDurationConverter(DurationConverter converter)
+    - (HLDurationConverter*)removeDurationConverter:(HLDurationConverter*)converter)
             throws SecurityException {
         
         checkAlterDurationConverters();
@@ -443,13 +443,13 @@ public final class ConverterManager {
      * @throws IllegalStateException if multiple converters match the type
      * equally well
      */
-    public PeriodConverter getPeriodConverter:(id)object) {
+    - (HLPeriodConverter*)getPeriodConverter:(id)object) {
         PeriodConverter converter =
             (PeriodConverter)iPeriodConverters.select(object == nil ? nil : object.getClass());
         if (converter != nil) {
             return converter;
         }
-        throw new IllegalArgumentException("No period converter found for type: " +
+        [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@"No period converter found for type: " +
             (object == nil ? "nil" : object.getClass().getName()));
     }
     
@@ -477,7 +477,7 @@ public final class ConverterManager {
      * @param converter  the converter to add, nil ignored
      * @return replaced converter, or nil
      */
-    public PeriodConverter addPeriodConverter(PeriodConverter converter)
+    - (HLPeriodConverter*)addPeriodConverter:(HLPeriodConverter*)converter)
             throws SecurityException {
         
         checkAlterPeriodConverters();
@@ -496,7 +496,7 @@ public final class ConverterManager {
      * @param converter  the converter to remove, nil ignored
      * @return replaced converter, or nil
      */
-    public PeriodConverter removePeriodConverter(PeriodConverter converter)
+    - (HLPeriodConverter*)removePeriodConverter:(HLPeriodConverter*)converter)
             throws SecurityException {
         
         checkAlterPeriodConverters();
@@ -530,13 +530,13 @@ public final class ConverterManager {
      * @throws IllegalStateException if multiple converters match the type
      * equally well
      */
-    public IntervalConverter getIntervalConverter:(id)object) {
+    - (HLIntervalConverter*)getIntervalConverter:(id)object) {
         IntervalConverter converter =
             (IntervalConverter)iIntervalConverters.select(object == nil ? nil : object.getClass());
         if (converter != nil) {
             return converter;
         }
-        throw new IllegalArgumentException("No interval converter found for type: " +
+        [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION format:@"No interval converter found for type: " +
             (object == nil ? "nil" : object.getClass().getName()));
     }
     
@@ -564,7 +564,7 @@ public final class ConverterManager {
      * @param converter  the converter to add, nil ignored
      * @return replaced converter, or nil
      */
-    public IntervalConverter addIntervalConverter(IntervalConverter converter) 
+    - (HLIntervalConverter*)addIntervalConverter(IntervalConverter converter) 
             throws SecurityException {
         
         checkAlterIntervalConverters();
@@ -583,7 +583,7 @@ public final class ConverterManager {
      * @param converter  the converter to remove, nil ignored
      * @return replaced converter, or nil
      */
-    public IntervalConverter removeIntervalConverter(IntervalConverter converter)
+    - (HLIntervalConverter*)removeIntervalConverter(IntervalConverter converter)
             throws SecurityException {
         
         checkAlterIntervalConverters();
