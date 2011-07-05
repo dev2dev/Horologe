@@ -19,64 +19,23 @@
  * limitations under the License.
  */
 
-#import "Weeks.h"
+#import "HLWeeks.h"
 
 
-@implementation Weeks
+/** Constant representing zero weeks. */
+static HLWeeks* HL_WEEKS_ZERO = [[HLWeeks alloc] initWithPeriod:0];
+/** Constant representing one week. */
+static HLWeeks* HL_WEEKS_ONE = [[HLWeeks alloc] initWithPeriod:1];
+/** Constant representing two weeks. */
+static HLWeeks* HL_WEEKS_TWO = [[HLWeeks alloc] initWithPeriod:2];
+/** Constant representing three weeks. */
+static HLWeeks* HL_WEEKS_THREE = [[HLWeeks alloc] initWithPeriod:3];
+/** Constant representing the maximum number of weeks that can be stored in this object. */
+static HLWeeks* HL_WEEKS_MAX_VALUE = [[HLWeeks alloc] initWithPeriod:NSIntegerMax];
+/** Constant representing the minimum number of weeks that can be stored in this object. */
+static HLWeeks* HL_WEEKS_MIN_VALUE = [[HLWeeks alloc] initWithPeriod:NSIntegerMin];
 
-/*
- *  Copyright 2001-2006 Stephen Colebourne
- *
- *  Licensed under the Apache License, Version 2.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
- */
-package org.joda.time;
-
-import org.joda.time.base.BaseSingleFieldPeriod;
-import org.joda.time.field.FieldUtils;
-import org.joda.time.format.ISOPeriodFormat;
-import org.joda.time.format.PeriodFormatter;
-
-/**
- * An immutable time period representing a number of weeks.
- * <p>
- * <code>Weeks</code> is an immutable period that can only store weeks.
- * It does not store years, months or hours for example. As such it is a
- * type-safe way of representing a number of weeks in an application.
- * <p>
- * The number of weeks is set in the constructor, and may be queried using
- * <code>getWeeks()</code>. Basic mathematical operations are provided -
- * <code>plus()</code>, <code>minus()</code>, <code>multipliedBy()</code> and
- * <code>dividedBy()</code>.
- * <p>
- * <code>Weeks</code> is thread-safe and immutable.
- *
- * @author Stephen Colebourne
- * @since 1.4
- */
-public final class Weeks extends BaseSingleFieldPeriod {
-
-    /** Constant representing zero weeks. */
-    public static final Weeks ZERO = new Weeks(0);
-    /** Constant representing one week. */
-    public static final Weeks ONE = new Weeks(1);
-    /** Constant representing two weeks. */
-    public static final Weeks TWO = new Weeks(2);
-    /** Constant representing three weeks. */
-    public static final Weeks THREE = new Weeks(3);
-    /** Constant representing the maximum number of weeks that can be stored in this object. */
-    public static final Weeks MAX_VALUE = new Weeks(Integer.MAX_VALUE);
-    /** Constant representing the minimum number of weeks that can be stored in this object. */
-    public static final Weeks MIN_VALUE = new Weeks(Integer.MIN_VALUE);
+@implementation HLWeeks
 
     /** The paser to use for this class. */
     private static final PeriodFormatter PARSER = ISOPeriodFormat.standard().withParseType(PeriodType.weeks());

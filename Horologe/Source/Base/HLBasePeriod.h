@@ -25,6 +25,13 @@
 #import "HLReadablePeriod.h"
 
 
+@class HLChronology;
+@class HLPeriodType;
+@class HLDuration;
+@protocol HLReadableInstant;
+@protocol HLReadableDuration;
+@protocol HLReadablePartial;
+
 /**
  * BasePeriod is an abstract implementation of ReadablePeriod that stores
  * data in a <code>PeriodType</code> and an <code>int[]</code>.

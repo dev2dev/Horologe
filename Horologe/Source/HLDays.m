@@ -19,10 +19,10 @@
  * limitations under the License.
  */
 
-#import "Days.h"
+#import "HLDays.h"
 
 
-@implementation Days
+@implementation HLDays
 
 /*
  *  Copyright 2001-2006 Stephen Colebourne

@@ -44,11 +44,6 @@
     
 }
 
-/**
- * Restrictive constructor
- */
-- (id)init;
-
 //-----------------------------------------------------------------------
 /**
  * Gets the current time in milliseconds.
@@ -98,7 +93,7 @@
  * 
  * @throws SecurityException if the provider may not be changed
  */
-+ (void)_checkPermission;
++ (void)checkPermission;
 
 //-----------------------------------------------------------------------
 /**
@@ -110,7 +105,7 @@
  * @param instant  the instant to examine, nil means now
  * @return the time in milliseconds from 1970-01-01T00:00:00Z
  */
-+ (NSInteger)getInstantMillis:(id<HLReadableInstant>)instant;
++ (NSInteger)instantMillis:(id<HLReadableInstant>)instant;
 
 //-----------------------------------------------------------------------
 /**

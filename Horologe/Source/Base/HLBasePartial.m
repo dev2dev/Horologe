@@ -21,13 +21,21 @@
 
 #import "HLBasePartial.h"
 
+#import "HLDateTimeUtils.h"
+
 
 @implementation HLBasePartial
 
     //-----------------------------------------------------------------------
-    protected BasePartial {
-        this(DateTimeUtils.currentTimeMillis(), nil);
+- (id)init {
+    self = [self initWithInstantValue:[HLDateTimeUtils currentTimeMillis]
+                           chronology:nil];
+    if(self) {
+        
     }
+    
+    return self;
+}
 
     protected BasePartial:(HLChronology*)chronology) {
         this(DateTimeUtils.currentTimeMillis(), chronology);

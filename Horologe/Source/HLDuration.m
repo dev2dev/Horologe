@@ -19,10 +19,10 @@
  * limitations under the License.
  */
 
-#import "Duration.h"
+#import "HLDuration.h"
 
 
-@implementation Duration
+@implementation HLDuration
 
 /*
  *  Copyright 2001-2005,2008 Stephen Colebourne

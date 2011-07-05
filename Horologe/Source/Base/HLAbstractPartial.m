@@ -46,8 +46,8 @@
 }
 
 //-----------------------------------------------------------------------
-- (HLDateTimeFieldType*)getFieldType:(NSInteger)index {
-    return [[self _fieldAtIndex:index
+- (HLDateTimeFieldType*)fieldTypeAtIndex:(NSInteger)index {
+    return [[self fieldAtIndex:index
                  withChronology:[self chronology]] type];
 }
 
@@ -60,8 +60,9 @@
     return result;
 }
 
-- (HLDateTimeField*)getField:(NSInteger) index) {
-    return getField(index, getChronology());
+- (HLDateTimeField*)fieldAtIndex:(NSInteger)index {
+    return [self fieldAtIndex:index 
+               withChronology:[self chronology]];
 }
 
 - (NSArray*)fields {
@@ -94,8 +95,8 @@
  * @return the value of that field
  * @throws IllegalArgumentException if the field is nil or not supported
  */
-- (NSInteger)get:(HLDateTimeFieldType*)type {
-    return [self valueAtIndex:[self _indexOfSupportedDateTime:type]];
+- (NSInteger)valueOfFieldType:(HLDateTimeFieldType *)type {
+    return [self valueAtIndex:[self indexOfSupportedDateTime:type]];
 }
 
 /**
@@ -132,8 +133,8 @@
  * @return the index of the field
  * @throws IllegalArgumentException if the field is nil or not supported
  */
-- (NSInteger)_indexOfSupported:(HLDateTimeFieldType*)type) {
-    NSInteger index = [self indexOf:type];
+- (NSInteger)indexOfSupported:(HLDateTimeFieldType*)type) {
+    NSInteger index = [self indexOfFieldType:type];
     if (index == -1) {
         [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
                     format:@"Field '%@' is not supported", type];
@@ -149,7 +150,7 @@
  * @param type  the type to check, may be nil which returns -1
  * @return the index of the field, -1 if unsupported
  */
-- (NSInteger)_indexOf:(HLDurationFieldType*)type) {
+- (NSInteger)indexOf:(HLDurationFieldType*)type) {
     for(NSInteger i = 0, isize = [self size]; i < isize; i++) {
         if ([[self fieldTypeAtIndex:i] durationType] == type) {
             return i;
@@ -167,7 +168,7 @@
  * @return the index of the field
  * @throws IllegalArgumentException if the field is nil or not supported
  */
-- (NSInteger)_indexOfSupported:(HLDurationFieldType*)type) {
+- (NSInteger)indexOfSupported:(HLDurationFieldType*)type) {
     int index = [self _indexOf:type];
     if (index == -1) {
         [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION

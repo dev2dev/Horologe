@@ -60,9 +60,9 @@
  * @return the period
  * @throws IllegalArgumentException if the instants are nil or invalid
  */
-+ (NSInteger)_betweenStart:(id<HLReadableInstant>)start
-                       end:(id<HLReadableInstant>)end
-                 fieldType:(HLDurationFieldType*)field;
++ (NSInteger)betweenStartInstant:(id<HLReadableInstant>)start
+                      endInstant:(id<HLReadableInstant>)end
+                       fieldType:(HLDurationFieldType*)field;
 
 //-----------------------------------------------------------------------
 /**
@@ -77,9 +77,9 @@
  * @return the period
  * @throws IllegalArgumentException if the partials are nil or invalid
  */
-+ (NSInteger)_betweenStart:(id<HLReadablePartial>)start
-                       end:(id<HLReadablePartial>)end
-                      zero:(id<HLReadablePeriod>)zeroInstance;
++ (NSInteger)betweenStartPartial:(id<HLReadablePartial>)start
+                      endPartial:(id<HLReadablePartial>)end
+                            zero:(id<HLReadablePeriod>)zeroInstance;
 
 /**
  * Creates a new instance representing the number of complete standard length units
@@ -101,8 +101,8 @@
  * @param millisPerUnit  the number of milliseconds in one standard unit of this period
  * @throws IllegalArgumentException if the period contains imprecise duration values
  */
-+ (NSInteger)_standardPeriodIn:(id<HLReadablePeriod>)period 
-                        millis:(NSInteger)millisPerUnit;
++ (NSInteger)standardPeriodInPeriod:(id<HLReadablePeriod>)period 
+                             millis:(NSInteger)millisPerUnit;
 
 //-----------------------------------------------------------------------
 /**
@@ -118,7 +118,7 @@
  *
  * @return the period value
  */
-- (NSInteger)_value;
+- (NSInteger)value;
 
 /**
  * Sets the amount of this period.
@@ -126,7 +126,7 @@
  *
  * @param value  the period value
  */
-- (void)_setValue:(NSInteger)value;
+- (void)setValue:(NSInteger)value;
 
 //-----------------------------------------------------------------------
 /**
@@ -183,7 +183,7 @@
  * @param type  the field type to query, nil returns zero
  * @return the value of that field, zero if field not supported
  */
-- (NSInteger)get:(HLDurationFieldType*)type;
+- (NSInteger)valueOfFieldType:(HLDurationFieldType*)type;
 
 /**
  * Checks whether the duration field specified is supported by this period.

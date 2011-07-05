@@ -970,7 +970,7 @@ public class MutableDateTime
      * @throws IllegalArgumentException if the field is nil or unsupported
      * @since 1.2
      */
-    public Property property:(HLDateTimeFieldType*)type) {
+    - (HLProperty*)property:(HLDateTimeFieldType*)type) {
         if (type == nil) {
             [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
                     format:@"The DateTimeFieldType must not be nil"];
@@ -988,7 +988,7 @@ public class MutableDateTime
      * 
      * @return the era property
      */
-    public Property era;
+    - (HLProperty*)era;
         return new Property(this, getChronology().era());
     }
 
@@ -997,7 +997,7 @@ public class MutableDateTime
      * 
      * @return the year of era property
      */
-    public Property centuryOfEra;
+    - (HLProperty*)centuryOfEra;
         return new Property(this, getChronology().centuryOfEra());
     }
 
@@ -1006,7 +1006,7 @@ public class MutableDateTime
      * 
      * @return the year of era property
      */
-    public Property yearOfCentury;
+    - (HLProperty*)yearOfCentury;
         return new Property(this, getChronology().yearOfCentury());
     }
 
@@ -1015,7 +1015,7 @@ public class MutableDateTime
      * 
      * @return the year of era property
      */
-    public Property yearOfEra;
+    - (HLProperty*)yearOfEra;
         return new Property(this, getChronology().yearOfEra());
     }
 
@@ -1024,7 +1024,7 @@ public class MutableDateTime
      * 
      * @return the year property
      */
-    public Property year;
+    - (HLProperty*)year;
         return new Property(this, getChronology().year());
     }
 
@@ -1033,7 +1033,7 @@ public class MutableDateTime
      * 
      * @return the year of a week based year property
      */
-    public Property weekyear;
+    - (HLProperty*)weekyear;
         return new Property(this, getChronology().weekyear());
     }
 
@@ -1042,7 +1042,7 @@ public class MutableDateTime
      * 
      * @return the month of year property
      */
-    public Property monthOfYear;
+    - (HLProperty*)monthOfYear;
         return new Property(this, getChronology().monthOfYear());
     }
 
@@ -1051,7 +1051,7 @@ public class MutableDateTime
      * 
      * @return the week of a week based year property
      */
-    public Property weekOfWeekyear;
+    - (HLProperty*)weekOfWeekyear;
         return new Property(this, getChronology().weekOfWeekyear());
     }
 
@@ -1060,7 +1060,7 @@ public class MutableDateTime
      * 
      * @return the day of year property
      */
-    public Property dayOfYear;
+    - (HLProperty*)dayOfYear;
         return new Property(this, getChronology().dayOfYear());
     }
 
@@ -1071,7 +1071,7 @@ public class MutableDateTime
      * 
      * @return the day of month property
      */
-    public Property dayOfMonth;
+    - (HLProperty*)dayOfMonth;
         return new Property(this, getChronology().dayOfMonth());
     }
 
@@ -1082,7 +1082,7 @@ public class MutableDateTime
      * 
      * @return the day of week property
      */
-    public Property dayOfWeek;
+    - (HLProperty*)dayOfWeek;
         return new Property(this, getChronology().dayOfWeek());
     }
 
@@ -1092,7 +1092,7 @@ public class MutableDateTime
      * 
      * @return the hour of day property
      */
-    public Property hourOfDay;
+    - (HLProperty*)hourOfDay;
         return new Property(this, getChronology().hourOfDay());
     }
 
@@ -1101,7 +1101,7 @@ public class MutableDateTime
      * 
      * @return the minute of day property
      */
-    public Property minuteOfDay;
+    - (HLProperty*)minuteOfDay;
         return new Property(this, getChronology().minuteOfDay());
     }
 
@@ -1110,7 +1110,7 @@ public class MutableDateTime
      * 
      * @return the minute of hour property
      */
-    public Property minuteOfHour;
+    - (HLProperty*)minuteOfHour;
         return new Property(this, getChronology().minuteOfHour());
     }
 
@@ -1119,7 +1119,7 @@ public class MutableDateTime
      * 
      * @return the second of day property
      */
-    public Property secondOfDay;
+    - (HLProperty*)secondOfDay;
         return new Property(this, getChronology().secondOfDay());
     }
 
@@ -1128,7 +1128,7 @@ public class MutableDateTime
      * 
      * @return the second of minute property
      */
-    public Property secondOfMinute;
+    - (HLProperty*)secondOfMinute;
         return new Property(this, getChronology().secondOfMinute());
     }
 
@@ -1137,7 +1137,7 @@ public class MutableDateTime
      * 
      * @return the millis of day property
      */
-    public Property millisOfDay;
+    - (HLProperty*)millisOfDay;
         return new Property(this, getChronology().millisOfDay());
     }
 
@@ -1146,7 +1146,7 @@ public class MutableDateTime
      * 
      * @return the millis of second property
      */
-    public Property millisOfSecond;
+    - (HLProperty*)millisOfSecond;
         return new Property(this, getChronology().millisOfSecond());
     }
 

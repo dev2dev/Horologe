@@ -28,6 +28,7 @@
 @class HLChronology;
 @protocol HLReadablePeriod;
 @protocol HLReadableInstant;
+@protocol HLReadableDuration;
 
 /**
  * BaseInterval is an abstract implementation of ReadableInterval that stores
@@ -44,7 +45,7 @@
  * @author Stephen Colebourne
  * @since 1.0
  */
-@interface HLBaseInterval {
+@interface HLBaseInterval : HLAbstractInterval <HLReadableInterval> {
     
 @private
     /** The chronology of the interval */

@@ -56,12 +56,6 @@
 
 //-----------------------------------------------------------------------
 /**
- * Constructor.
- */
-- (id)init;
-
-//-----------------------------------------------------------------------
-/**
  * Gets the field for a specific index in the chronology specified.
  * <p>
  * This method must not use any instance variables.
@@ -71,7 +65,7 @@
  * @return the field
  * @throws IndexOutOfBoundsException if the index is invalid
  */
-- (HLDateTimeField*)_fieldAtIndex:(NSInteger)index
+- (HLDateTimeField*)fieldAtIndex:(NSInteger)index
                    withChronology:(HLChronology*)chrono;
 
 //-----------------------------------------------------------------------
@@ -147,7 +141,7 @@
  * @param type  the type to check, may be nil which returns -1
  * @return the index of the field, -1 if unsupported
  */
-- (NSInteger)indexOf:(HLDateTimeFieldType*)type;
+- (NSInteger)indexOfFieldType:(HLDateTimeFieldType*)type;
 
 /**
  * Gets the index of the specified field, throwing an exception if the
@@ -157,16 +151,7 @@
  * @return the index of the field
  * @throws IllegalArgumentException if the field is nil or not supported
  */
-- (NSInteger)_indexOfSupportedDateTime:(HLDateTimeFieldType*)type;
-
-/**
- * Gets the index of the first fields to have the specified duration,
- * or -1 if the field is unsupported.
- *
- * @param type  the type to check, may be nil which returns -1
- * @return the index of the field, -1 if unsupported
- */
-- (NSInteger)_indexOf:(HLDurationFieldType*)type;
+- (NSInteger)indexOfSupportedDateTime:(HLDateTimeFieldType*)type;
 
 /**
  * Gets the index of the first fields to have the specified duration,
@@ -176,7 +161,7 @@
  * @return the index of the field
  * @throws IllegalArgumentException if the field is nil or not supported
  */
-- (NSInteger)_indexOfSupportedDuration:(HLDurationFieldType*)type;
+- (NSInteger)indexOfSupportedDuration:(HLDurationFieldType*)type;
 
 //-----------------------------------------------------------------------
 /**

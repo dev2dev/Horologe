@@ -91,8 +91,8 @@
  * @param instant  the milliseconds from 1970-01-01T00:00:00Z
  * @param zone  the time zone, nil means default zone
  */
-- (id)initWithInstant:(NSInteger)instant
-                 zone:(HLDateTimeZone*)zone;
+- (id)initWithInstantValue:(NSInteger)instant
+                      zone:(HLDateTimeZone*)zone;
 
 /**
  * Constructs an instance set to the milliseconds from 1970-01-01T00:00:00Z
@@ -104,8 +104,8 @@
  * @param instant  the milliseconds from 1970-01-01T00:00:00Z
  * @param chronology  the chronology, nil means ISOChronology in default zone
  */
-- (id)initWithInstant:(NSInteger)instant
-           chronology:(HLChronology*)chronology;
+- (id)initWithInstantValue:(NSInteger)instant
+                chronology:(HLChronology*)chronology;
 
 //-----------------------------------------------------------------------
 /**
@@ -140,7 +140,7 @@
  * @param chronology  the chronology
  * @throws IllegalArgumentException if the instant is invalid
  */
-- (id)initWithInstantObject:(id)instant
+- (id)initWithInstant:(id)instant
            chronology:(HLChronology*)chronology;
 
 //-----------------------------------------------------------------------
@@ -223,7 +223,7 @@
  * @param chronology  the chronology to use, may be nil
  * @return the chronology to store in this datetime, not nil
  */
-- (HLChronology*)_checkChronology:(HLChronology*)chronology;
+- (HLChronology*)checkChronology:(HLChronology*)chronology;
 
 /**
  * Checks the specified instant before storing it, potentially altering it.
@@ -235,8 +235,8 @@
  * @param chronology  the chronology to use, not nil
  * @return the instant to store in this datetime
  */
-- (NSInteger)_checkInstant:(NSInteger)instant
-                chronology:(HLChronology*)chronology;
+- (NSInteger)checkInstant:(NSInteger)instant
+               chronology:(HLChronology*)chronology;
 
 //-----------------------------------------------------------------------
 /**
@@ -263,7 +263,7 @@
  *
  * @param instant  the milliseconds since 1970-01-01T00:00:00Z to set the datetime to
  */
-- (void)_setMillis:(NSInteger)instant;
+- (void)setMillis:(NSInteger)instant;
 
 /**
  * Sets the chronology of the datetime.
@@ -273,6 +273,6 @@
  *
  * @param chronology  the chronology to set
  */
-- (void)_setChronology:(HLChronology*)chronology;
+- (void)setChronology:(HLChronology*)chronology;
 
 @end

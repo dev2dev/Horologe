@@ -1796,8 +1796,8 @@ public class DateTimeFormatterBuilder {
             implements DateTimePrinter, DateTimeParser {
 
         private final DateTimeFieldType iFieldType;
-        - (NSInteger)_iMinDigits;
-        - (NSInteger)_iMaxDigits;
+        - (NSInteger)iMinDigits;
+        - (NSInteger)iMaxDigits;
 
         protected Fraction:(HLDateTimeFieldType*)fieldType :(NSInteger)minDigits :(NSInteger)maxDigits) {
             super();

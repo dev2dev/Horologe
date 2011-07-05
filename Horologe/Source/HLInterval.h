@@ -26,6 +26,7 @@
 
 
 @class HLChronology;
+@class HLDateTimeZone;
 @protocol HLReadablePeriod;
 
 /**

@@ -832,7 +832,7 @@ public final class TimeOfDay
      * @return the property object
      * @throws IllegalArgumentException if the field is nil or unsupported
      */
-    public Property property:(HLDateTimeFieldType*)type) {
+    - (HLProperty*)property:(HLDateTimeFieldType*)type) {
         return new Property(this, indexOfSupported(type));
     }
 
@@ -994,7 +994,7 @@ public final class TimeOfDay
      * 
      * @return the hour of day property
      */
-    public Property hourOfDay;
+    - (HLProperty*)hourOfDay;
         return new Property(this, HOUR_OF_DAY);
     }
 
@@ -1003,7 +1003,7 @@ public final class TimeOfDay
      * 
      * @return the minute of hour property
      */
-    public Property minuteOfHour;
+    - (HLProperty*)minuteOfHour;
         return new Property(this, MINUTE_OF_HOUR);
     }
 
@@ -1012,7 +1012,7 @@ public final class TimeOfDay
      * 
      * @return the second of minute property
      */
-    public Property secondOfMinute;
+    - (HLProperty*)secondOfMinute;
         return new Property(this, SECOND_OF_MINUTE);
     }
 
@@ -1021,7 +1021,7 @@ public final class TimeOfDay
      * 
      * @return the millis of second property
      */
-    public Property millisOfSecond;
+    - (HLProperty*)millisOfSecond;
         return new Property(this, MILLIS_OF_SECOND);
     }
 

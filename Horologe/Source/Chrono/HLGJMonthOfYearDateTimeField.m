@@ -74,7 +74,7 @@ final class GJMonthOfYearDateTimeField extends BasicMonthOfYearDateTimeField {
     }
 
     //-----------------------------------------------------------------------
-    - (NSInteger)_convertText(String text locale:(NSLocale*)locale {
+    - (NSInteger)convertText(String text locale:(NSLocale*)locale {
         return GJLocaleSymbols.forLocale(locale).monthOfYearTextToValue(text);
     }
 

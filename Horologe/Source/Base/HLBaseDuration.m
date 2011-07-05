@@ -99,7 +99,7 @@
 }
 
 //-----------------------------------------------------------------------
-- (void)_setMillis:(NSInteger)duration {
+- (void)setMillis:(NSInteger)duration {
     
     [self willChangeValueForKey:@"millis"];
     _iMillis = duration;

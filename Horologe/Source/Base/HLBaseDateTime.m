@@ -215,11 +215,11 @@
 }
 
 //-----------------------------------------------------------------------
-- (HLChronology*)_checkChronology:(HLChronology*)chronology {
+- (HLChronology*)checkChronology:(HLChronology*)chronology {
     return [HLDateTimeUtils chronology:chronology];
 }
 
-- (NSInteger)_checkInstant:(NSInteger)instant
+- (NSInteger)checkInstant:(NSInteger)instant
                 chronology:(HLChronology*)chronology {
     return instant;
 }
@@ -234,7 +234,7 @@
 }
 
 //-----------------------------------------------------------------------
-- (void)_setMillis:(NSInteger)instant {
+- (void)setMillis:(NSInteger)instant {
     
     [self willChangeValueForKey:@"millis"];
     _iMillis = [self _checkInstant:instant
@@ -242,7 +242,7 @@
     [self didChangeValueForKey:@"millis"];
 }
 
-- (void)_setChronology:(HLChronology*)chronology {
+- (void)setChronology:(HLChronology*)chronology {
     
     [self willChangeValueForKey:@"chronology"];
     [_iChronology release], _iChronology = nil;

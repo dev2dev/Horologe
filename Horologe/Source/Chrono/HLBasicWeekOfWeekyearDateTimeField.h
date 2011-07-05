@@ -137,7 +137,7 @@ final class BasicWeekOfWeekyearDateTimeField extends PreciseDurationDateTimeFiel
         return 53;
     }
 
-    - (NSInteger)_getMaximumValueForSet:(NSInteger)instant :(NSInteger)value) {
+    - (NSInteger)getMaximumValueForSet:(NSInteger)instant :(NSInteger)value) {
         return value > 52 ? getMaximumValue(instant) : 52;
     }
 

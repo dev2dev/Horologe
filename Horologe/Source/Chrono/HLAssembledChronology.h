@@ -21,37 +21,14 @@
 
 #import <Foundation/Foundation.h>
 
+#import "HLBaseChronology.h"
 
-@interface AssembledChronology {
 
-@private
-
-}
-
-/*
- *  Copyright 2001-2005 Stephen Colebourne
- *
- *  Licensed under the Apache License, Version 2.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
- */
-package org.joda.time.chrono;
-
-import java.io.IOException;
-import java.io.ObjectInputStream;
-
-import org.joda.time.Chronology;
-import org.joda.time.DateTimeField;
-import org.joda.time.DateTimeZone;
-import org.joda.time.DurationField;
+@class HLChronology;
+@class HLDurationField;
+@class HLDateTimeField;
+@class HLDateTimeZone;
+@class HLFields;
 
 /**
  * Abstract Chronology that enables chronologies to be assembled from
@@ -62,537 +39,234 @@ import org.joda.time.DurationField;
  * @author Brian S O'Neill
  * @since 1.0
  */
-public abstract class AssembledChronology extends BaseChronology {
-
-    private static final long serialVersionUID = -6728465968995518215L;
-
-    private final Chronology iBase;
-    private final Object iParam;
-
-    private transient DurationField iMillis;
-    private transient DurationField iSeconds;
-    private transient DurationField iMinutes;
-    private transient DurationField iHours;
-    private transient DurationField iHalfdays;
-
-    private transient DurationField iDays;
-    private transient DurationField iWeeks;
-    private transient DurationField iWeekyears;
-    private transient DurationField iMonths;
-    private transient DurationField iYears;
-    private transient DurationField iCenturies;
-    private transient DurationField iEras;
-
-    private transient DateTimeField iMillisOfSecond;
-    private transient DateTimeField iMillisOfDay;
-    private transient DateTimeField iSecondOfMinute;
-    private transient DateTimeField iSecondOfDay;
-    private transient DateTimeField iMinuteOfHour;
-    private transient DateTimeField iMinuteOfDay;
-    private transient DateTimeField iHourOfDay;
-    private transient DateTimeField iClockhourOfDay;
-    private transient DateTimeField iHourOfHalfday;
-    private transient DateTimeField iClockhourOfHalfday;
-    private transient DateTimeField iHalfdayOfDay;
-
-    private transient DateTimeField iDayOfWeek;
-    private transient DateTimeField iDayOfMonth;
-    private transient DateTimeField iDayOfYear;
-    private transient DateTimeField iWeekOfWeekyear;
-    private transient DateTimeField iWeekyear;
-    private transient DateTimeField iWeekyearOfCentury;
-    private transient DateTimeField iMonthOfYear;
-    private transient DateTimeField iYear;
-    private transient DateTimeField iYearOfEra;
-    private transient DateTimeField iYearOfCentury;
-    private transient DateTimeField iCenturyOfEra;
-    private transient DateTimeField iEra;
-
+@interface HLAssembledChronology : HLBaseChronology {
+    
+@private
+    HLChronology* _iBase;
+    id _iParam;
+    
+    volatile HLDurationField* _iMillis;
+    volatile HLDurationField* _iSeconds;
+    volatile HLDurationField* _iMinutes;
+    volatile HLDurationField* _iHours;
+    volatile HLDurationField* _iHalfdays;
+    
+    volatile HLDurationField* _iDays;
+    volatile HLDurationField* _iWeeks;
+    volatile HLDurationField* _iWeekyears;
+    volatile HLDurationField* _iMonths;
+    volatile HLDurationField* _iYears;
+    volatile HLDurationField* _iCenturies;
+    volatile HLDurationField* _iEras;
+    
+    volatile HLDateTimeField* _iMillisOfSecond;
+    volatile HLDateTimeField* _iMillisOfDay;
+    volatile HLDateTimeField* _iSecondOfMinute;
+    volatile HLDateTimeField* _iSecondOfDay;
+    volatile HLDateTimeField* _iMinuteOfHour;
+    volatile HLDateTimeField* _iMinuteOfDay;
+    volatile HLDateTimeField* _iHourOfDay;
+    volatile HLDateTimeField* _iClockhourOfDay;
+    volatile HLDateTimeField* _iHourOfHalfday;
+    volatile HLDateTimeField* _iClockhourOfHalfday;
+    volatile HLDateTimeField* _iHalfdayOfDay;
+    
+    volatile HLDateTimeField* _iDayOfWeek;
+    volatile HLDateTimeField* _iDayOfMonth;
+    volatile HLDateTimeField* _iDayOfYear;
+    volatile HLDateTimeField* _iWeekOfWeekyear;
+    volatile HLDateTimeField* _iWeekyear;
+    volatile HLDateTimeField* _iWeekyearOfCentury;
+    volatile HLDateTimeField* _iMonthOfYear;
+    volatile HLDateTimeField* _iYear;
+    volatile HLDateTimeField* _iYearOfEra;
+    volatile HLDateTimeField* _iYearOfCentury;
+    volatile HLDateTimeField* _iCenturyOfEra;
+    volatile HLDateTimeField* _iEra;
+    
     // Bit set determines which base fields are used
     // bit 1 set: hourOfDay, minuteOfHour, secondOfMinute, and millisOfSecond fields
     // bit 2 set: millisOfDayField
     // bit 3 set: year, monthOfYear, and dayOfMonth fields
-    private transient int iBaseFlags;
-
-    /**
-     * Constructor calls the assemble method, enabling subclasses to define its
-     * supported fields. If a base chronology is supplied, the field set
-     * initially contains references to each base chronology field.
-     * <p>
-     * Other methods in this class will delegate to the base chronology, if it
-     * can be determined that the base chronology will produce the same results
-     * as AbstractChronology.
-     *
-     * @param base optional base chronology to copy initial fields from
-     * @param param optional param object avalable for assemble method
-     */
-    protected AssembledChronology:(HLChronology*)base, Object param) {
-        iBase = base;
-        iParam = param;
-        setFields();
-    }
-
-    public DateTimeZone getZone;
-        Chronology base;
-        if ((base = iBase) != nil) {
-            return base.getZone();
-        }
-        return nil;
-    }
-
-    - (NSInteger)getDateTimeMillis:(NSInteger) year :(NSInteger)monthOfYear :(NSInteger)dayOfMonth,
-                                  int millisOfDay)
-        throws IllegalArgumentException
-    {
-        Chronology base;
-        if ((base = iBase) != nil && (iBaseFlags & 6) == 6) {
-            // Only call specialized implementation if applicable fields are the same.
-            return base.getDateTimeMillis(year, monthOfYear, dayOfMonth, millisOfDay);
-        }
-        return super.getDateTimeMillis(year, monthOfYear, dayOfMonth, millisOfDay);
-    }
-
-    - (NSInteger)getDateTimeMillis:(NSInteger) year :(NSInteger)monthOfYear :(NSInteger)dayOfMonth,
-                                  int hourOfDay :(NSInteger)minuteOfHour,
-                                  int secondOfMinute :(NSInteger)millisOfSecond)
-        throws IllegalArgumentException
-    {
-        Chronology base;
-        if ((base = iBase) != nil && (iBaseFlags & 5) == 5) {
-            // Only call specialized implementation if applicable fields are the same.
-            return base.getDateTimeMillis(year, monthOfYear, dayOfMonth,
-                                          hourOfDay, minuteOfHour, secondOfMinute, millisOfSecond);
-        }
-        return super.getDateTimeMillis(year, monthOfYear, dayOfMonth,
-                                       hourOfDay, minuteOfHour, secondOfMinute, millisOfSecond);
-    }
-
-    - (NSInteger)getDateTimeMillis:(NSInteger)instant,
-                                  int hourOfDay :(NSInteger)minuteOfHour,
-                                  int secondOfMinute :(NSInteger)millisOfSecond)
-        throws IllegalArgumentException
-    {
-        Chronology base;
-        if ((base = iBase) != nil && (iBaseFlags & 1) == 1) {
-            // Only call specialized implementation if applicable fields are the same.
-            return base.getDateTimeMillis
-                (instant, hourOfDay, minuteOfHour, secondOfMinute, millisOfSecond);
-        }
-        return super.getDateTimeMillis
-            (instant, hourOfDay, minuteOfHour, secondOfMinute, millisOfSecond);
-    }
-
-    public final DurationField millis;
-        return iMillis;
-    }
-
-    public final DateTimeField millisOfSecond;
-        return iMillisOfSecond;
-    }
-
-    public final DateTimeField millisOfDay;
-        return iMillisOfDay;
-    }
-
-    public final DurationField seconds;
-        return iSeconds;
-    }
-
-    public final DateTimeField secondOfMinute;
-        return iSecondOfMinute;
-    }
-
-    public final DateTimeField secondOfDay;
-        return iSecondOfDay;
-    }
-
-    public final DurationField minutes;
-        return iMinutes;
-    }
-
-    public final DateTimeField minuteOfHour;
-        return iMinuteOfHour;
-    }
-
-    public final DateTimeField minuteOfDay;
-        return iMinuteOfDay;
-    }
-
-    public final DurationField hours;
-        return iHours;
-    }
-
-    public final DateTimeField hourOfDay;
-        return iHourOfDay;
-    }
-
-    public final DateTimeField clockhourOfDay;
-        return iClockhourOfDay;
-    }
-
-    public final DurationField halfdays;
-        return iHalfdays;
-    }
-
-    public final DateTimeField hourOfHalfday;
-        return iHourOfHalfday;
-    }
-
-    public final DateTimeField clockhourOfHalfday;
-        return iClockhourOfHalfday;
-    }
-
-    public final DateTimeField halfdayOfDay;
-        return iHalfdayOfDay;
-    }
-
-    public final DurationField days;
-        return iDays;
-    }
-
-    public final DateTimeField dayOfWeek;
-        return iDayOfWeek;
-    }
-
-    public final DateTimeField dayOfMonth;
-        return iDayOfMonth;
-    }
-
-    public final DateTimeField dayOfYear;
-        return iDayOfYear;
-    }
-
-    public final DurationField weeks;
-        return iWeeks;
-    }
-
-    public final DateTimeField weekOfWeekyear;
-        return iWeekOfWeekyear;
-    }
-
-    public final DurationField weekyears;
-        return iWeekyears;
-    }
-
-    public final DateTimeField weekyear;
-        return iWeekyear;
-    }
-
-    public final DateTimeField weekyearOfCentury;
-        return iWeekyearOfCentury;
-    }
-
-    public final DurationField months;
-        return iMonths;
-    }
-
-    public final DateTimeField monthOfYear;
-        return iMonthOfYear;
-    }
-
-    public final DurationField years;
-        return iYears;
-    }
-
-    public final DateTimeField year;
-        return iYear;
-    }
-
-    public final DateTimeField yearOfEra;
-        return iYearOfEra;
-    }
-
-    public final DateTimeField yearOfCentury;
-        return iYearOfCentury;
-    }
-
-    public final DurationField centuries;
-        return iCenturies;
-    }
-
-    public final DateTimeField centuryOfEra;
-        return iCenturyOfEra;
-    }
-
-    public final DurationField eras;
-        return iEras;
-    }
-
-    public final DateTimeField era;
-        return iEra;
-    }
-
-    /**
-     * Invoked by the constructor and after deserialization to allow subclasses
-     * to define all of its supported fields. All unset fields default to
-     * unsupported instances.
-     *
-     * @param fields container of fields
-     */
-    protected abstract void assemble(Fields fields);
-
-    /**
-     * Returns the same base chronology as passed into the constructor.
-     */
-    protected final Chronology getBase;
-        return iBase;
-    }
-
-    /**
-     * Returns the same param object as passed into the constructor.
-     */
-    protected final Object getParam;
-        return iParam;
-    }
-
-    private void setFields;
-        Fields fields = new Fields();
-        if (iBase != nil) {
-            fields.copyFieldsFrom(iBase);
-        }
-        assemble(fields);
-
-        {
-            DurationField f;
-            iMillis    = (f = fields.millis)    != nil ? f : super.millis();
-            iSeconds   = (f = fields.seconds)   != nil ? f : super.seconds();
-            iMinutes   = (f = fields.minutes)   != nil ? f : super.minutes();
-            iHours     = (f = fields.hours)     != nil ? f : super.hours();
-            iHalfdays  = (f = fields.halfdays)  != nil ? f : super.halfdays();
-            iDays      = (f = fields.days)      != nil ? f : super.days();
-            iWeeks     = (f = fields.weeks)     != nil ? f : super.weeks();
-            iWeekyears = (f = fields.weekyears) != nil ? f : super.weekyears();
-            iMonths    = (f = fields.months)    != nil ? f : super.months();
-            iYears     = (f = fields.years)     != nil ? f : super.years();
-            iCenturies = (f = fields.centuries) != nil ? f : super.centuries();
-            iEras      = (f = fields.eras)      != nil ? f : super.eras();
-        }
-
-        {
-            DateTimeField f;
-            iMillisOfSecond     = (f = fields.millisOfSecond)     != nil ? f : super.millisOfSecond();
-            iMillisOfDay        = (f = fields.millisOfDay)        != nil ? f : super.millisOfDay();
-            iSecondOfMinute     = (f = fields.secondOfMinute)     != nil ? f : super.secondOfMinute();
-            iSecondOfDay        = (f = fields.secondOfDay)        != nil ? f : super.secondOfDay();
-            iMinuteOfHour       = (f = fields.minuteOfHour)       != nil ? f : super.minuteOfHour();
-            iMinuteOfDay        = (f = fields.minuteOfDay)        != nil ? f : super.minuteOfDay();
-            iHourOfDay          = (f = fields.hourOfDay)          != nil ? f : super.hourOfDay();
-            iClockhourOfDay     = (f = fields.clockhourOfDay)     != nil ? f : super.clockhourOfDay();
-            iHourOfHalfday      = (f = fields.hourOfHalfday)      != nil ? f : super.hourOfHalfday();
-            iClockhourOfHalfday = (f = fields.clockhourOfHalfday) != nil ? f : super.clockhourOfHalfday();
-            iHalfdayOfDay       = (f = fields.halfdayOfDay)       != nil ? f : super.halfdayOfDay();
-            iDayOfWeek          = (f = fields.dayOfWeek)          != nil ? f : super.dayOfWeek();
-            iDayOfMonth         = (f = fields.dayOfMonth)         != nil ? f : super.dayOfMonth();
-            iDayOfYear          = (f = fields.dayOfYear)          != nil ? f : super.dayOfYear();
-            iWeekOfWeekyear     = (f = fields.weekOfWeekyear)     != nil ? f : super.weekOfWeekyear();
-            iWeekyear           = (f = fields.weekyear)           != nil ? f : super.weekyear();
-            iWeekyearOfCentury  = (f = fields.weekyearOfCentury)  != nil ? f : super.weekyearOfCentury();
-            iMonthOfYear        = (f = fields.monthOfYear)        != nil ? f : super.monthOfYear();
-            iYear               = (f = fields.year)               != nil ? f : super.year();
-            iYearOfEra          = (f = fields.yearOfEra)          != nil ? f : super.yearOfEra();
-            iYearOfCentury      = (f = fields.yearOfCentury)      != nil ? f : super.yearOfCentury();
-            iCenturyOfEra       = (f = fields.centuryOfEra)       != nil ? f : super.centuryOfEra();
-            iEra                = (f = fields.era)                != nil ? f : super.era();
-        }
-
-        int flags;
-        if (iBase == nil) {
-            flags = 0;
-        } else {
-            flags = 
-                ((iHourOfDay      == iBase.hourOfDay()      &&
-                  iMinuteOfHour   == iBase.minuteOfHour()   &&
-                  iSecondOfMinute == iBase.secondOfMinute() &&
-                  iMillisOfSecond == iBase.millisOfSecond()   ) ? 1 : 0) |
-
-                ((iMillisOfDay == iBase.millisOfDay()) ? 2 : 0) |
-
-                ((iYear        == iBase.year()        &&
-                  iMonthOfYear == iBase.monthOfYear() &&
-                  iDayOfMonth  == iBase.dayOfMonth()    ) ? 4 : 0);
-        }
-
-        iBaseFlags = flags;
-    }
-
-    private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
-        in.defaultReadObject();
-        setFields();
-    }
-
-    /**
-     * A container of fields used for assembling a chronology.
-     */
-    public static final class Fields {
-        public DurationField millis;
-        public DurationField seconds;
-        public DurationField minutes;
-        public DurationField hours;
-        public DurationField halfdays;
+    volatile NSInteger _iBaseFlags;
     
-        public DurationField days;
-        public DurationField weeks;
-        public DurationField weekyears;
-        public DurationField months;
-        public DurationField years;
-        public DurationField centuries;
-        public DurationField eras;
-    
-        - (HLDateTimeField*)millisOfSecond;
-        - (HLDateTimeField*)millisOfDay;
-        - (HLDateTimeField*)secondOfMinute;
-        - (HLDateTimeField*)secondOfDay;
-        - (HLDateTimeField*)minuteOfHour;
-        - (HLDateTimeField*)minuteOfDay;
-        - (HLDateTimeField*)hourOfDay;
-        - (HLDateTimeField*)clockhourOfDay;
-        - (HLDateTimeField*)hourOfHalfday;
-        - (HLDateTimeField*)clockhourOfHalfday;
-        - (HLDateTimeField*)halfdayOfDay;
-    
-        - (HLDateTimeField*)dayOfWeek;
-        - (HLDateTimeField*)dayOfMonth;
-        - (HLDateTimeField*)dayOfYear;
-        - (HLDateTimeField*)weekOfWeekyear;
-        - (HLDateTimeField*)weekyear;
-        - (HLDateTimeField*)weekyearOfCentury;
-        - (HLDateTimeField*)monthOfYear;
-        - (HLDateTimeField*)year;
-        - (HLDateTimeField*)yearOfEra;
-        - (HLDateTimeField*)yearOfCentury;
-        - (HLDateTimeField*)centuryOfEra;
-        - (HLDateTimeField*)era;
-
-        Fields;
-        }
-
-        /**
-         * Copy the supported fields from a chronology into this container.
-         */
-        - (void)copyFieldsFrom:(HLChronology*)chrono) {
-            {
-                DurationField f;
-                if (isSupported(f = chrono.millis())) {
-                    millis = f;
-                }
-                if (isSupported(f = chrono.seconds())) {
-                    seconds = f;
-                }
-                if (isSupported(f = chrono.minutes())) {
-                    minutes = f;
-                }
-                if (isSupported(f = chrono.hours())) {
-                    hours = f;
-                }
-                if (isSupported(f = chrono.halfdays())) {
-                    halfdays = f;
-                }
-                if (isSupported(f = chrono.days())) {
-                    days = f;
-                }
-                if (isSupported(f = chrono.weeks())) {
-                    weeks = f;
-                }
-                if (isSupported(f = chrono.weekyears())) {
-                    weekyears = f;
-                }
-                if (isSupported(f = chrono.months())) {
-                    months = f;
-                }
-                if (isSupported(f = chrono.years())) {
-                    years = f;
-                }
-                if (isSupported(f = chrono.centuries())) {
-                    centuries = f;
-                }
-                if (isSupported(f = chrono.eras())) {
-                    eras = f;
-                }
-            }
-
-            {
-                DateTimeField f;
-                if (isSupported(f = chrono.millisOfSecond())) {
-                    millisOfSecond = f;
-                }
-                if (isSupported(f = chrono.millisOfDay())) {
-                    millisOfDay = f;
-                }
-                if (isSupported(f = chrono.secondOfMinute())) {
-                    secondOfMinute = f;
-                }
-                if (isSupported(f = chrono.secondOfDay())) {
-                    secondOfDay = f;
-                }
-                if (isSupported(f = chrono.minuteOfHour())) {
-                    minuteOfHour = f;
-                }
-                if (isSupported(f = chrono.minuteOfDay())) {
-                    minuteOfDay = f;
-                }
-                if (isSupported(f = chrono.hourOfDay())) {
-                    hourOfDay = f;
-                }
-                if (isSupported(f = chrono.clockhourOfDay())) {
-                    clockhourOfDay = f;
-                }
-                if (isSupported(f = chrono.hourOfHalfday())) {
-                    hourOfHalfday = f;
-                }
-                if (isSupported(f = chrono.clockhourOfHalfday())) {
-                    clockhourOfHalfday = f;
-                }
-                if (isSupported(f = chrono.halfdayOfDay())) {
-                    halfdayOfDay = f;
-                }
-                if (isSupported(f = chrono.dayOfWeek())) {
-                    dayOfWeek = f;
-                }
-                if (isSupported(f = chrono.dayOfMonth())) {
-                    dayOfMonth = f;
-                }
-                if (isSupported(f = chrono.dayOfYear())) {
-                    dayOfYear = f;
-                }
-                if (isSupported(f = chrono.weekOfWeekyear())) {
-                    weekOfWeekyear = f;
-                }
-                if (isSupported(f = chrono.weekyear())) {
-                    weekyear = f;
-                }
-                if (isSupported(f = chrono.weekyearOfCentury())) {
-                    weekyearOfCentury = f;
-                }
-                if (isSupported(f = chrono.monthOfYear())) {
-                    monthOfYear = f;
-                }
-                if (isSupported(f = chrono.year())) {
-                    year = f;
-                }
-                if (isSupported(f = chrono.yearOfEra())) {
-                    yearOfEra = f;
-                }
-                if (isSupported(f = chrono.yearOfCentury())) {
-                    yearOfCentury = f;
-                }
-                if (isSupported(f = chrono.centuryOfEra())) {
-                    centuryOfEra = f;
-                }
-                if (isSupported(f = chrono.era())) {
-                    era = f;
-                }
-            }
-        }
-
-        private static boolean isSupported(DurationField field) {
-            return field == nil ? false : field.isSupported();
-        }
-
-        private static boolean isSupported(DateTimeField field) {
-            return field == nil ? false : field.isSupported();
-        }
-    }
 }
 
+/**
+ * Constructor calls the assemble method, enabling subclasses to define its
+ * supported fields. If a base chronology is supplied, the field set
+ * initially contains references to each base chronology field.
+ * <p>
+ * Other methods in this class will delegate to the base chronology, if it
+ * can be determined that the base chronology will produce the same results
+ * as AbstractChronology.
+ *
+ * @param base optional base chronology to copy initial fields from
+ * @param param optional param object avalable for assemble method
+ */
+- (id)initWithBase:(HLChronology*)base
+             param:(id)param;
+
+- (HLDateTimeZone*)dateTimeZone;
+
+- (NSInteger)dateTimeMillisWithYear:(NSInteger)year 
+                        monthOfYear:(NSInteger)monthOfYear
+                         dayOfMonth:(NSInteger)dayOfMonth
+                        millisOfDay:(NSInteger)millisOfDay;
+
+- (NSInteger)dateTimeMillisWithYear:(NSInteger)year 
+                        monthOfYear:(NSInteger)monthOfYear 
+                         dayOfMonth:(NSInteger)dayOfMonth
+                          hourOfDay:(NSInteger)hourOfDay 
+                       minuteOfHour:(NSInteger)minuteOfHour
+                     secondOfMinute:(NSInteger)secondOfMinute 
+                     millisOfSecond:(NSInteger)millisOfSecond;
+
+- (NSInteger)getDateTimeMillisWithInstantValue:(NSInteger)instant,
+hourOfDay:(NSInteger)hourOfDay 
+minuteOfHour:(NSInteger)minuteOfHour
+secondOfMinute:(NSInteger)secondOfMinute 
+millisOfSecond:(NSInteger)millisOfSecond;
+
+- (HLDurationField*)millis;
+
+- (HLDateTimeField*)millisOfSecond;
+
+- (HLDateTimeField*)millisOfDay;
+
+- (HLDurationField*)seconds;
+
+- (HLDateTimeField*)secondOfMinute;
+
+- (HLDateTimeField*)secondOfDay;
+
+- (HLDurationField*)minutes;
+
+- (HLDateTimeField*)minuteOfHour;
+
+- (HLDateTimeField*)minuteOfDay;
+
+- (HLDurationField*)hours;
+
+- (HLDateTimeField*)hourOfDay;
+
+- (HLDateTimeField*)clockhourOfDay;
+
+- (HLDurationField*)halfdays;
+
+- (HLDateTimeField*)hourOfHalfday;
+
+- (HLDateTimeField*)clockhourOfHalfday;
+
+- (HLDateTimeField*)halfdayOfDay;
+
+- (HLDurationField*)days;
+
+- (HLDateTimeField*)dayOfWeek;
+
+- (HLDateTimeField*)dayOfMonth;
+
+- (HLDateTimeField*)dayOfYear;
+
+- (HLDurationField*)weeks;
+
+- (HLDateTimeField*)weekOfWeekyear;
+
+- (HLDurationField*)weekyears;
+
+- (HLDateTimeField*)weekyear;
+
+- (HLDateTimeField*)weekyearOfCentury;
+
+- (HLDurationField*)months;
+
+- (HLDateTimeField*)monthOfYear;
+
+- (HLDurationField*)years;
+
+- (HLDateTimeField*)year;
+
+- (HLDateTimeField*)yearOfEra;
+
+- (HLDateTimeField*)yearOfCentury;
+
+- (HLDurationField*)centuries;
+
+- (HLDateTimeField*)centuryOfEra;
+
+- (HLDurationField*)eras;
+
+- (HLDateTimeField*)era;
+
+/**
+ * Invoked by the constructor and after deserialization to allow subclasses
+ * to define all of its supported fields. All unset fields default to
+ * unsupported instances.
+ *
+ * @param fields container of fields
+ */
+- (void)assemble:(HLFields*)fields;
+
+/**
+ * Returns the same base chronology as passed into the constructor.
+ */
+- (HLChronology*)base;
+
+/**
+ * Returns the same param object as passed into the constructor.
+ */
+- (id)param;
+
+@end
+
+
+@interface HLFields : NSObject {
+    
+@public
+    HLDurationField* millis;
+    HLDurationField* seconds;
+    HLDurationField* minutes;
+    HLDurationField* hours;
+    HLDurationField* halfdays;
+    
+    HLDurationField* days;
+    HLDurationField* weeks;
+    HLDurationField* weekyears;
+    HLDurationField* months;
+    HLDurationField* years;
+    HLDurationField* centuries;
+    HLDurationField* eras;
+    
+    HLDateTimeField* millisOfSecond;
+    HLDateTimeField* millisOfDay;
+    HLDateTimeField* secondOfMinute;
+    HLDateTimeField* secondOfDay;
+    HLDateTimeField* minuteOfHour;
+    HLDateTimeField* minuteOfDay;
+    HLDateTimeField* hourOfDay;
+    HLDateTimeField* clockhourOfDay;
+    HLDateTimeField* hourOfHalfday;
+    HLDateTimeField* clockhourOfHalfday;
+    HLDateTimeField* halfdayOfDay;
+    
+    HLDateTimeField* dayOfWeek;
+    HLDateTimeField* dayOfMonth;
+    HLDateTimeField* dayOfYear;
+    HLDateTimeField* weekOfWeekyear;
+    HLDateTimeField* weekyear;
+    HLDateTimeField* weekyearOfCentury;
+    HLDateTimeField* monthOfYear;
+    HLDateTimeField* year;
+    HLDateTimeField* yearOfEra;
+    HLDateTimeField* yearOfCentury;
+    HLDateTimeField* centuryOfEra;
+    HLDateTimeField* era;
+    
+}
+
+/**
+ * Copy the supported fields from a chronology into this container.
+ */
+- (void)copyFieldsFrom:(HLChronology*)chrono;
 
 @end

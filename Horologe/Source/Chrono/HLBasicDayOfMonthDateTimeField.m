@@ -118,7 +118,7 @@ final class BasicDayOfMonthDateTimeField extends PreciseDurationDateTimeField {
         return getMaximumValue();
     }
 
-    - (NSInteger)_getMaximumValueForSet:(NSInteger)instant :(NSInteger)value) {
+    - (NSInteger)getMaximumValueForSet:(NSInteger)instant :(NSInteger)value) {
         return iChronology.getDaysInMonthMaxForSet(instant, value);
     }
 

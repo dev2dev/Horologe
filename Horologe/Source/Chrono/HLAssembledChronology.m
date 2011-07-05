@@ -19,10 +19,10 @@
  * limitations under the License.
  */
 
-#import "AssembledChronology.h"
+#import "HLAssembledChronology.h"
 
 
-@implementation AssembledChronology
+@implementation HLAssembledChronology
 
 /*
  *  Copyright 2001-2005 Stephen Colebourne

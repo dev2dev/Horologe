@@ -118,7 +118,7 @@ final class BasicDayOfYearDateTimeField extends PreciseDurationDateTimeField {
         return iChronology.getDaysInYearMax();
     }
 
-    - (NSInteger)_getMaximumValueForSet:(NSInteger)instant :(NSInteger)value) {
+    - (NSInteger)getMaximumValueForSet:(NSInteger)instant :(NSInteger)value) {
         int maxLessOne = iChronology.getDaysInYearMax() - 1;
         return (value > maxLessOne || value < 1) ? getMaximumValue(instant) : maxLessOne;
     }

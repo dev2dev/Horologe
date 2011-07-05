@@ -101,7 +101,7 @@ public abstract class DateTimeField {
      * @param instant  the milliseconds from 1970-01-01T00:00:00Z to query
      * @return the value of the field, in the units of the field
      */
-    - (NSInteger)_a_get:(NSInteger)instant);
+    - (NSInteger)<*abstract*>get:(NSInteger)instant);
 
     /**
      * Get the human-readable, text value of this field from the milliseconds.
@@ -363,7 +363,7 @@ public abstract class DateTimeField {
      * subtract off the minuend
      * @return the difference in the units of this field
      */
-    - (NSInteger)_a_getDifference:(NSInteger)minuendInstant :(NSInteger)subtrahendInstant);
+    - (NSInteger)<*abstract*>getDifference:(NSInteger)minuendInstant :(NSInteger)subtrahendInstant);
 
     /**
      * Computes the difference between two instants, as measured in the units
@@ -514,7 +514,7 @@ public abstract class DateTimeField {
      * @param instant  the instant to check for leap status
      * @return the amount, in units of the leap duration field, that the field is leap
      */
-    - (NSInteger)_a_getLeapAmount:(NSInteger)instant);
+    - (NSInteger)<*abstract*>getLeapAmount:(NSInteger)instant);
 
     /**
      * If this field were to leap, then it would be in units described by the
@@ -530,7 +530,7 @@ public abstract class DateTimeField {
      * @return the minimum valid value for this field, in the units of the
      * field
      */
-    - (NSInteger)_a_getMinimumValue();
+    - (NSInteger)<*abstract*>getMinimumValue();
 
     /**
      * Get the minimum value for this field evaluated at the specified time.
@@ -538,7 +538,7 @@ public abstract class DateTimeField {
      * @param instant  the milliseconds from 1970-01-01T00:00:00Z to query
      * @return the minimum value for this field, in the units of the field
      */
-    - (NSInteger)_a_getMinimumValue:(NSInteger)instant);
+    - (NSInteger)<*abstract*>getMinimumValue:(NSInteger)instant);
 
     /**
      * Get the minimum value for this field evaluated at the specified time.
@@ -546,7 +546,7 @@ public abstract class DateTimeField {
      * @param instant  the partial instant to query
      * @return the minimum value for this field, in the units of the field
      */
-    - (NSInteger)_a_getMinimumValue:(id<HLReadablePartial>)instant);
+    - (NSInteger)<*abstract*>getMinimumValue:(id<HLReadablePartial>)instant);
 
     /**
      * Get the minimum value for this field using the partial instant and
@@ -556,7 +556,7 @@ public abstract class DateTimeField {
      * @param values  the values to use
      * @return the minimum value for this field, in the units of the field
      */
-    - (NSInteger)_a_getMinimumValue:(id<HLReadablePartial>)instant, int[] values);
+    - (NSInteger)<*abstract*>getMinimumValue:(id<HLReadablePartial>)instant, int[] values);
 
     /**
      * Get the maximum allowable value for this field.
@@ -564,7 +564,7 @@ public abstract class DateTimeField {
      * @return the maximum valid value for this field, in the units of the
      * field
      */
-    - (NSInteger)_a_getMaximumValue();
+    - (NSInteger)<*abstract*>getMaximumValue();
 
     /**
      * Get the maximum value for this field evaluated at the specified time.
@@ -572,7 +572,7 @@ public abstract class DateTimeField {
      * @param instant  the milliseconds from 1970-01-01T00:00:00Z to query
      * @return the maximum value for this field, in the units of the field
      */
-    - (NSInteger)_a_getMaximumValue:(NSInteger)instant);
+    - (NSInteger)<*abstract*>getMaximumValue:(NSInteger)instant);
 
     /**
      * Get the maximum value for this field evaluated at the specified time.
@@ -580,7 +580,7 @@ public abstract class DateTimeField {
      * @param instant  the partial instant to query
      * @return the maximum value for this field, in the units of the field
      */
-    - (NSInteger)_a_getMaximumValue:(id<HLReadablePartial>)instant);
+    - (NSInteger)<*abstract*>getMaximumValue:(id<HLReadablePartial>)instant);
 
     /**
      * Get the maximum value for this field using the partial instant and
@@ -590,7 +590,7 @@ public abstract class DateTimeField {
      * @param values  the values to use
      * @return the maximum value for this field, in the units of the field
      */
-    - (NSInteger)_a_getMaximumValue:(id<HLReadablePartial>)instant, int[] values);
+    - (NSInteger)<*abstract*>getMaximumValue:(id<HLReadablePartial>)instant, int[] values);
 
     /**
      * Get the maximum text value for this field.
@@ -598,7 +598,7 @@ public abstract class DateTimeField {
      * @param locale  the locale to use for selecting a text symbol
      * @return the maximum text length
      */
-    - (NSInteger)_a_getMaximumTextLength:(NSLocale*)locale;
+    - (NSInteger)<*abstract*>getMaximumTextLength:(NSLocale*)locale;
 
     /**
      * Get the maximum short text value for this field.
@@ -606,7 +606,7 @@ public abstract class DateTimeField {
      * @param locale  the locale to use for selecting a text symbol
      * @return the maximum short text length
      */
-    - (NSInteger)_a_getMaximumShortTextLength:(NSLocale*)locale;
+    - (NSInteger)<*abstract*>getMaximumShortTextLength:(NSLocale*)locale;
 
     // Calculation API
     //------------------------------------------------------------------------

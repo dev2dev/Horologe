@@ -27,16 +27,17 @@
 @class HLPeriodType;
 @class HLDurationFieldType;
 @class HLPeriodFormatter;
+@class HLYears;
 @protocol HLReadableInstant;
 @protocol HLReadablePartial;
 @protocol HLReadableInterval;
 
-extern HLYears* HL_YEARS_ZERO;
-extern HLYears* HL_YEARS_ONE;
-extern HLYears* HL_YEARS_TWO;
-extern HLYears* HL_YEARS_THREE;
-extern HLYears* HL_YEARS_MAX_VALUE;
-extern HLYears* HL_YEARS_MIN_VALUE;
+extern const HLYears* HL_YEARS_ZERO;
+extern const HLYears* HL_YEARS_ONE;
+extern const HLYears* HL_YEARS_TWO;
+extern const HLYears* HL_YEARS_THREE;
+extern const HLYears* HL_YEARS_MAX_VALUE;
+extern const HLYears* HL_YEARS_MIN_VALUE;
 
 /**
  * An immutable time period representing a number of years.
@@ -83,8 +84,8 @@ extern HLYears* HL_YEARS_MIN_VALUE;
  * @return the period in years
  * @throws IllegalArgumentException if the instants are nil or invalid
  */
-+ (HLYears*)yearsBetweenStart:(id<HLReadableInstant>)start
-                          end:(id<HLReadableInstant>)end;
++ (HLYears*)yearsBetweenStartInstant:(id<HLReadableInstant>)start
+                          endInstant:(id<HLReadableInstant>)end;
 
 /**
  * Creates a <code>Years</code> representing the number of whole years
@@ -98,8 +99,8 @@ extern HLYears* HL_YEARS_MIN_VALUE;
  * @return the period in years
  * @throws IllegalArgumentException if the partials are nil or invalid
  */
-+ (HLYears*)yearsBetweenStart:(id<HLReadablePartial>)start
-                          end:(id<HLReadablePartial>)end;
++ (HLYears*)yearsBetweenStartPartial:(id<HLReadablePartial>)start
+                          endPartial:(id<HLReadablePartial>)end;
 
 /**
  * Creates a <code>Years</code> representing the number of whole years
@@ -110,7 +111,7 @@ extern HLYears* HL_YEARS_MIN_VALUE;
  * @return the period in years
  * @throws IllegalArgumentException if the partials are nil or invalid
  */
-+ (HLYears*)yearsIn:(id<HLReadableInterval>)interval;
++ (HLYears*)yearsInInterval:(id<HLReadableInterval>)interval;
 
 /**
  * Creates a new <code>Years</code> by parsing a string in the ISO8601 format 'PnY'.
@@ -140,7 +141,7 @@ extern HLYears* HL_YEARS_MIN_VALUE;
  * 
  * @return the singleton instance
  */
-- (id)_readResolve;
+- (id)readResolve;
 
 //-----------------------------------------------------------------------
 /**
@@ -175,7 +176,7 @@ extern HLYears* HL_YEARS_MIN_VALUE;
  * @return the new period plus the specified number of years
  * @throws ArithmeticException if the result overflows an int
  */
-- (HLYears*)plus:(NSInteger)years;
+- (HLYears*)plusYearsValue:(NSInteger)years;
 
 /**
  * Returns a new instance with the specified number of years added.
@@ -186,7 +187,7 @@ extern HLYears* HL_YEARS_MIN_VALUE;
  * @return the new period plus the specified number of years
  * @throws ArithmeticException if the result overflows an int
  */
-- (HLYears*)plus:(HLYears*)years;
+- (HLYears*)plusYears:(HLYears*)years;
 
 //-----------------------------------------------------------------------
 /**
@@ -198,7 +199,7 @@ extern HLYears* HL_YEARS_MIN_VALUE;
  * @return the new period minus the specified number of years
  * @throws ArithmeticException if the result overflows an int
  */
-- (HLYears*)minus:(NSInteger)years;
+- (HLYears*)minusYearsValue:(NSInteger)years;
 
 /**
  * Returns a new instance with the specified number of years taken away.
@@ -209,7 +210,7 @@ extern HLYears* HL_YEARS_MIN_VALUE;
  * @return the new period minus the specified number of years
  * @throws ArithmeticException if the result overflows an int
  */
-- (HLYears*)minus:(HLYears*)years;
+- (HLYears*)minusYears:(HLYears*)years;
 
 //-----------------------------------------------------------------------
 /**
@@ -251,7 +252,7 @@ extern HLYears* HL_YEARS_MIN_VALUE;
  * @param other  the other period, nil means zero
  * @return true if this years instance is greater than the specified one
  */
-- (BOOL)isGreaterThan:(HLYears*)other;
+- (BOOL)isGreaterThanYears:(HLYears*)other;
 
 /**
  * Is this years instance less than the specified number of years.
@@ -259,16 +260,6 @@ extern HLYears* HL_YEARS_MIN_VALUE;
  * @param other  the other period, nil means zero
  * @return true if this years instance is less than the specified one
  */
-- (BOOL)isLessThan:(HLYears*)other;
-
-//-----------------------------------------------------------------------
-/**
- * Gets this instance as a String in the ISO8601 duration format.
- * <p>
- * For example, "P4Y" represents 4 years.
- *
- * @return the value as an ISO8601 string
- */
-- (NSString*)toString;
+- (BOOL)isLessThanYears:(HLYears*)other;
 
 @end

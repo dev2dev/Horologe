@@ -116,7 +116,7 @@ final class GJDayOfWeekDateTimeField extends PreciseDurationDateTimeField {
      * @return the value extracted from the text
      * @throws IllegalArgumentException if the text is invalid
      */
-    - (NSInteger)_convertText(String text locale:(NSLocale*)locale {
+    - (NSInteger)convertText(String text locale:(NSLocale*)locale {
         return GJLocaleSymbols.forLocale(locale).dayOfWeekTextToValue(text);
     }
 

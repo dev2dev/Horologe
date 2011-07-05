@@ -675,7 +675,7 @@ public final class YearMonthDay
      * @return the property object
      * @throws IllegalArgumentException if the field is nil or unsupported
      */
-    public Property property:(HLDateTimeFieldType*)type) {
+    - (HLProperty*)property:(HLDateTimeFieldType*)type) {
         return new Property(this, indexOfSupported(type));
     }
 
@@ -918,7 +918,7 @@ public final class YearMonthDay
      * 
      * @return the year property
      */
-    public Property year;
+    - (HLProperty*)year;
         return new Property(this, YEAR);
     }
 
@@ -927,7 +927,7 @@ public final class YearMonthDay
      * 
      * @return the month of year property
      */
-    public Property monthOfYear;
+    - (HLProperty*)monthOfYear;
         return new Property(this, MONTH_OF_YEAR);
     }
 
@@ -936,7 +936,7 @@ public final class YearMonthDay
      * 
      * @return the day of month property
      */
-    public Property dayOfMonth;
+    - (HLProperty*)dayOfMonth;
         return new Property(this, DAY_OF_MONTH);
     }
 

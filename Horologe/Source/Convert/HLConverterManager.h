@@ -155,7 +155,7 @@
  * 
  * @throws SecurityException if the user does not have the permission
  */
-- (void)_checkAlterInstantConverters;
+- (void)checkAlterInstantConverters;
 
 //-----------------------------------------------------------------------
 /**
@@ -204,7 +204,7 @@
  * 
  * @throws SecurityException if the user does not have the permission
  */
-- (void)_checkAlterPartialConverters;
+- (void)checkAlterPartialConverters;
 
 //-----------------------------------------------------------------------
 /**
@@ -253,7 +253,7 @@
  * 
  * @throws SecurityException if the user does not have the permission
  */
-- (void)_checkAlterDurationConverters;
+- (void)checkAlterDurationConverters;
 
 //-----------------------------------------------------------------------
 /**
@@ -302,7 +302,7 @@
  * 
  * @throws SecurityException if the user does not have the permission
  */
-- (void)_checkAlterPeriodConverters;
+- (void)checkAlterPeriodConverters;
 
 //-----------------------------------------------------------------------
 /**
@@ -351,7 +351,7 @@
  * 
  * @throws SecurityException if the user does not have the permission
  */
-- (void)_checkAlterIntervalConverters;
+- (void)checkAlterIntervalConverters;
 
 //-----------------------------------------------------------------------
 /**

@@ -284,7 +284,7 @@ static HLDurationFieldType* MILLIS_TYPE = [[HLStandardDurationFieldType alloc] i
  * 
  * @return the singleton type
  */
-- (id)_readResolve {
+- (id)readResolve {
     switch (_iOrdinal) {
         case HL_DURATION_FIELD_TYPE_ERAS:
             return ERAS_TYPE;

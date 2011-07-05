@@ -19,79 +19,36 @@
  * limitations under the License.
  */
 
-#import "Hours.h"
+#import "HLHours.h"
 
 
-@implementation Hours
+/** Constant representing zero hours. */
+static HLHours* HL_HOURS_ZERO = [[HLHours alloc] initWithPeriod:0];
+/** Constant representing one hour. */
+static HLHours* HL_HOURS_ONE = [[HLHours alloc] initWithPeriod:1];
+/** Constant representing two hours. */
+static HLHours* HL_HOURS_TWO = [[HLHours alloc] initWithPeriod:2];
+/** Constant representing three hours. */
+static HLHours* HL_HOURS_THREE = [[HLHours alloc] initWithPeriod:3];
+/** Constant representing four hours. */
+static HLHours* HL_HOURS_FOUR = [[HLHours alloc] initWithPeriod:4];
+/** Constant representing five hours. */
+static HLHours* HL_HOURS_FIVE = [[HLHours alloc] initWithPeriod:5];
+/** Constant representing six hours. */
+static HLHours* HL_HOURS_SIX = [[HLHours alloc] initWithPeriod:6];
+/** Constant representing seven hours. */
+static HLHours* HL_HOURS_SEVEN = [[HLHours alloc] initWithPeriod:7];
+/** Constant representing eight hours. */
+static HLHours* HL_HOURS_EIGHT = [[HLHours alloc] initWithPeriod:8];
+/** Constant representing the maximum number of hours that can be stored in this object. */
+                                  static HLHours* HL_HOURS_MAX_VALUE = [[HLHours alloc] initWithHours:NSIntegerMax];
+/** Constant representing the minimum number of hours that can be stored in this object. */
+                                  static HLHours* HL_HOURS_MIN_VALUE = [[HLHours alloc] initWithHours:NSIntegerMin];
 
-/*
- *  Copyright 2001-2006 Stephen Colebourne
- *
- *  Licensed under the Apache License, Version 2.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
- */
-package org.joda.time;
-
-import org.joda.time.base.BaseSingleFieldPeriod;
-import org.joda.time.field.FieldUtils;
-import org.joda.time.format.ISOPeriodFormat;
-import org.joda.time.format.PeriodFormatter;
-
-/**
- * An immutable time period representing a number of hours.
- * <p>
- * <code>Hours</code> is an immutable period that can only store hours.
- * It does not store years, months or minutes for example. As such it is a
- * type-safe way of representing a number of hours in an application.
- * <p>
- * The number of hours is set in the constructor, and may be queried using
- * <code>getHours()</code>. Basic mathematical operations are provided -
- * <code>plus()</code>, <code>minus()</code>, <code>multipliedBy()</code> and
- * <code>dividedBy()</code>.
- * <p>
- * <code>Hours</code> is thread-safe and immutable.
- *
- * @author Stephen Colebourne
- * @since 1.4
- */
-public final class Hours extends BaseSingleFieldPeriod {
-
-    /** Constant representing zero hours. */
-    public static final Hours ZERO = new Hours(0);
-    /** Constant representing one hour. */
-    public static final Hours ONE = new Hours(1);
-    /** Constant representing two hours. */
-    public static final Hours TWO = new Hours(2);
-    /** Constant representing three hours. */
-    public static final Hours THREE = new Hours(3);
-    /** Constant representing four hours. */
-    public static final Hours FOUR = new Hours(4);
-    /** Constant representing five hours. */
-    public static final Hours FIVE = new Hours(5);
-    /** Constant representing six hours. */
-    public static final Hours SIX = new Hours(6);
-    /** Constant representing seven hours. */
-    public static final Hours SEVEN = new Hours(7);
-    /** Constant representing eight hours. */
-    public static final Hours EIGHT = new Hours(8);
-    /** Constant representing the maximum number of hours that can be stored in this object. */
-    public static final Hours MAX_VALUE = new Hours(Integer.MAX_VALUE);
-    /** Constant representing the minimum number of hours that can be stored in this object. */
-    public static final Hours MIN_VALUE = new Hours(Integer.MIN_VALUE);
+@implementation HLHours
 
     /** The paser to use for this class. */
     private static final PeriodFormatter PARSER = ISOPeriodFormat.standard().withParseType(PeriodType.hours());
-    /** Serialization version. */
-    private static final long serialVersionUID = 87525275727380864L;
 
     //-----------------------------------------------------------------------
     /**

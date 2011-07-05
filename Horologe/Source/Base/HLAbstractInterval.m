@@ -48,7 +48,7 @@
 }
 
 //-----------------------------------------------------------------------
-- (void)_checkIntervalWithStart:(NSInteger)start 
+- (void)checkIntervalWithStart:(NSInteger)start 
                             end:(NSInteger)end {
     if (end < start) {
         [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION

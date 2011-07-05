@@ -673,7 +673,7 @@ public final class Partial
      * @return the property object
      * @throws IllegalArgumentException if the field is nil or unsupported
      */
-    public Property property:(HLDateTimeFieldType*)type) {
+    - (HLProperty*)property:(HLDateTimeFieldType*)type) {
         return new Property(this, indexOfSupported(type));
     }
 

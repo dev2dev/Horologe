@@ -63,7 +63,7 @@
  * @param end  the end instant in milliseconds
  * @throws IllegalArgumentException if the interval is invalid
  */
-- (void)_checkIntervalWithStart:(NSInteger)start 
+- (void)checkIntervalWithStart:(NSInteger)start 
                             end:(NSInteger)end;
 
 //-----------------------------------------------------------------------

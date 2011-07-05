@@ -22,6 +22,9 @@
 #import "HLDateTimeUtils.h"
 
 #import "HLISOChronology.h"
+#import "HLReadableInstant.h"
+#import "HLInterval.h"
+#import "HLDateTimeField.h"
 
 
 /** The singleton instance of the system millisecond provider. */
@@ -39,25 +42,13 @@ static volatile HLMillisProvider* cMillisProvider = SYSTEM_MILLIS_PROVIDER;
  */
 @implementation HLDateTimeUtils
 
-/**
- * Restrictive constructor
- */
-- (id)init {
-    self = [super init];
-    if(self) {
-        
-    }
-    
-    return self;
-}
-
 //-----------------------------------------------------------------------
 + (NSInteger)currentTimeMillis {
     return [cMillisProvider millis];
 }
 
 + (void)setCurrentMillisSystem {
-    [self _checkPermission];
+    [self checkPermission];
     cMillisProvider = SYSTEM_MILLIS_PROVIDER;
 }
 
@@ -67,7 +58,7 @@ static volatile HLMillisProvider* cMillisProvider = SYSTEM_MILLIS_PROVIDER;
 }
 
 + (void)setCurrentMillisOffset:(NSInteger)offsetMillis {
-    [self _checkPermission];
+    [self checkPermission];
     if (offsetMillis == 0) {
         cMillisProvider = SYSTEM_MILLIS_PROVIDER;
     } 
@@ -76,7 +67,7 @@ static volatile HLMillisProvider* cMillisProvider = SYSTEM_MILLIS_PROVIDER;
     }
 }
 
-+ (void)_checkPermission {
++ (void)checkPermission {
     // NOT IMPLEMENTED
 }
 

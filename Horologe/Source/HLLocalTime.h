@@ -1034,7 +1034,7 @@ public final class LocalTime
      * @return the property object
      * @throws IllegalArgumentException if the field is nil or unsupported
      */
-    public Property property:(HLDateTimeFieldType*)fieldType) {
+    - (HLProperty*)property:(HLDateTimeFieldType*)fieldType) {
         if (fieldType == nil) {
             [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
                     format:@"The DateTimeFieldType must not be nil"];
@@ -1174,7 +1174,7 @@ public final class LocalTime
      * 
      * @return the hour of day property
      */
-    public Property hourOfDay;
+    - (HLProperty*)hourOfDay;
         return new Property(this, getChronology().hourOfDay());
     }
 
@@ -1183,7 +1183,7 @@ public final class LocalTime
      * 
      * @return the minute of hour property
      */
-    public Property minuteOfHour;
+    - (HLProperty*)minuteOfHour;
         return new Property(this, getChronology().minuteOfHour());
     }
 
@@ -1192,7 +1192,7 @@ public final class LocalTime
      * 
      * @return the second of minute property
      */
-    public Property secondOfMinute;
+    - (HLProperty*)secondOfMinute;
         return new Property(this, getChronology().secondOfMinute());
     }
 
@@ -1201,7 +1201,7 @@ public final class LocalTime
      * 
      * @return the millis of second property
      */
-    public Property millisOfSecond;
+    - (HLProperty*)millisOfSecond;
         return new Property(this, getChronology().millisOfSecond());
     }
 
@@ -1210,7 +1210,7 @@ public final class LocalTime
      * 
      * @return the millis of day property
      */
-    public Property millisOfDay;
+    - (HLProperty*)millisOfDay;
         return new Property(this, getChronology().millisOfDay());
     }
 

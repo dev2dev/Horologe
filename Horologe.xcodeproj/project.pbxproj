@@ -258,8 +258,6 @@
 		5B69186A13A7194A00C913B7 /* HLInstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69173613A7194700C913B7 /* HLInstant.m */; };
 		5B69186B13A7194A00C913B7 /* HLInterval.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69173713A7194700C913B7 /* HLInterval.h */; };
 		5B69186C13A7194A00C913B7 /* HLInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69173813A7194700C913B7 /* HLInterval.m */; };
-		5B69186D13A7194A00C913B7 /* HLJodaTimePermission.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69173913A7194700C913B7 /* HLJodaTimePermission.h */; };
-		5B69186E13A7194A00C913B7 /* HLJodaTimePermission.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69173A13A7194700C913B7 /* HLJodaTimePermission.m */; };
 		5B69186F13A7194A00C913B7 /* HLLocalDate.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69173B13A7194700C913B7 /* HLLocalDate.h */; };
 		5B69187013A7194A00C913B7 /* HLLocalDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69173C13A7194700C913B7 /* HLLocalDate.m */; };
 		5B69187113A7194A00C913B7 /* HLLocalDateTime.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69173D13A7194700C913B7 /* HLLocalDateTime.h */; };
@@ -602,8 +600,6 @@
 		5B69173613A7194700C913B7 /* HLInstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLInstant.m; sourceTree = "<group>"; };
 		5B69173713A7194700C913B7 /* HLInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLInterval.h; sourceTree = "<group>"; };
 		5B69173813A7194700C913B7 /* HLInterval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLInterval.m; sourceTree = "<group>"; };
-		5B69173913A7194700C913B7 /* HLJodaTimePermission.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLJodaTimePermission.h; sourceTree = "<group>"; };
-		5B69173A13A7194700C913B7 /* HLJodaTimePermission.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLJodaTimePermission.m; sourceTree = "<group>"; };
 		5B69173B13A7194700C913B7 /* HLLocalDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLLocalDate.h; sourceTree = "<group>"; };
 		5B69173C13A7194700C913B7 /* HLLocalDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLLocalDate.m; sourceTree = "<group>"; };
 		5B69173D13A7194700C913B7 /* HLLocalDateTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLLocalDateTime.h; sourceTree = "<group>"; };
@@ -840,8 +836,6 @@
 				5B69173613A7194700C913B7 /* HLInstant.m */,
 				5B69173713A7194700C913B7 /* HLInterval.h */,
 				5B69173813A7194700C913B7 /* HLInterval.m */,
-				5B69173913A7194700C913B7 /* HLJodaTimePermission.h */,
-				5B69173A13A7194700C913B7 /* HLJodaTimePermission.m */,
 				5B69173B13A7194700C913B7 /* HLLocalDate.h */,
 				5B69173C13A7194700C913B7 /* HLLocalDate.m */,
 				5B69173D13A7194700C913B7 /* HLLocalDateTime.h */,
@@ -1325,7 +1319,6 @@
 				5B69186513A7194A00C913B7 /* HLHours.h in Headers */,
 				5B69186913A7194A00C913B7 /* HLInstant.h in Headers */,
 				5B69186B13A7194A00C913B7 /* HLInterval.h in Headers */,
-				5B69186D13A7194A00C913B7 /* HLJodaTimePermission.h in Headers */,
 				5B69186F13A7194A00C913B7 /* HLLocalDate.h in Headers */,
 				5B69187113A7194A00C913B7 /* HLLocalDateTime.h in Headers */,
 				5B69187313A7194A00C913B7 /* HLLocalTime.h in Headers */,
@@ -1661,7 +1654,6 @@
 				5B69186613A7194A00C913B7 /* HLHours.m in Sources */,
 				5B69186A13A7194A00C913B7 /* HLInstant.m in Sources */,
 				5B69186C13A7194A00C913B7 /* HLInterval.m in Sources */,
-				5B69186E13A7194A00C913B7 /* HLJodaTimePermission.m in Sources */,
 				5B69187013A7194A00C913B7 /* HLLocalDate.m in Sources */,
 				5B69187213A7194A00C913B7 /* HLLocalDateTime.m in Sources */,
 				5B69187413A7194A00C913B7 /* HLLocalTime.m in Sources */,

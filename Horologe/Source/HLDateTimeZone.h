@@ -828,7 +828,7 @@ public abstract class DateTimeZone implements Serializable {
      * @param instant  milliseconds from 1970-01-01T00:00:00Z to get the offset for
      * @return the millisecond offset to add to UTC to get local time
      */
-    - (NSInteger)_a_getOffset:(NSInteger)instant);
+    - (NSInteger)<*abstract*>getOffset:(NSInteger)instant);
 
     /**
      * Gets the millisecond offset to add to UTC to get local time.
@@ -850,7 +850,7 @@ public abstract class DateTimeZone implements Serializable {
      * @param instant  milliseconds from 1970-01-01T00:00:00Z to get the offset for
      * @return the millisecond offset to add to UTC to get local time
      */
-    - (NSInteger)_a_getStandardOffset:(NSInteger)instant);
+    - (NSInteger)<*abstract*>getStandardOffset:(NSInteger)instant);
 
     /**
      * Checks whether, at a particular instant, the offset is standard or not.

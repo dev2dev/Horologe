@@ -19,10 +19,10 @@
  * limitations under the License.
  */
 
-#import "Instant.h"
+#import "HLInstant.h"
 
 
-@implementation Instant
+@implementation HLInstant
 
 /*
  *  Copyright 2001-2006 Stephen Colebourne

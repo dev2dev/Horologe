@@ -1272,7 +1272,7 @@ public final class LocalDate
      * @return the property object
      * @throws IllegalArgumentException if the field is nil or unsupported
      */
-    public Property property:(HLDateTimeFieldType*)fieldType) {
+    - (HLProperty*)property:(HLDateTimeFieldType*)fieldType) {
         if (fieldType == nil) {
             [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
                     format:@"The DateTimeFieldType must not be nil"];
@@ -1566,7 +1566,7 @@ public final class LocalDate
      *
      * @return the era property
      */
-    public Property era {
+    - (HLProperty*)era {
         return new Property(this, getChronology().era());
     }
 
@@ -1575,7 +1575,7 @@ public final class LocalDate
      *
      * @return the year of era property
      */
-    public Property centuryOfEra {
+    - (HLProperty*)centuryOfEra {
         return new Property(this, getChronology().centuryOfEra());
     }
 
@@ -1584,7 +1584,7 @@ public final class LocalDate
      *
      * @return the year of era property
      */
-    public Property yearOfCentury {
+    - (HLProperty*)yearOfCentury {
         return new Property(this, getChronology().yearOfCentury());
     }
 
@@ -1593,7 +1593,7 @@ public final class LocalDate
      *
      * @return the year of era property
      */
-    public Property yearOfEra {
+    - (HLProperty*)yearOfEra {
         return new Property(this, getChronology().yearOfEra());
     }
 
@@ -1602,7 +1602,7 @@ public final class LocalDate
      *
      * @return the year property
      */
-    public Property year {
+    - (HLProperty*)year {
         return new Property(this, getChronology().year());
     }
 
@@ -1611,7 +1611,7 @@ public final class LocalDate
      *
      * @return the weekyear property
      */
-    public Property weekyear {
+    - (HLProperty*)weekyear {
         return new Property(this, getChronology().weekyear());
     }
 
@@ -1620,7 +1620,7 @@ public final class LocalDate
      *
      * @return the month of year property
      */
-    public Property monthOfYear {
+    - (HLProperty*)monthOfYear {
         return new Property(this, getChronology().monthOfYear());
     }
 
@@ -1629,7 +1629,7 @@ public final class LocalDate
      *
      * @return the week of a week based year property
      */
-    public Property weekOfWeekyear {
+    - (HLProperty*)weekOfWeekyear {
         return new Property(this, getChronology().weekOfWeekyear());
     }
 
@@ -1638,7 +1638,7 @@ public final class LocalDate
      *
      * @return the day of year property
      */
-    public Property dayOfYear {
+    - (HLProperty*)dayOfYear {
         return new Property(this, getChronology().dayOfYear());
     }
 
@@ -1647,7 +1647,7 @@ public final class LocalDate
      *
      * @return the day of month property
      */
-    public Property dayOfMonth {
+    - (HLProperty*)dayOfMonth {
         return new Property(this, getChronology().dayOfMonth());
     }
 
@@ -1656,7 +1656,7 @@ public final class LocalDate
      *
      * @return the day of week property
      */
-    public Property dayOfWeek {
+    - (HLProperty*)dayOfWeek {
         return new Property(this, getChronology().dayOfWeek());
     }
 

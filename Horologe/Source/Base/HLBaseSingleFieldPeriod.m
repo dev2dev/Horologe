@@ -34,7 +34,7 @@
 @implementation HLBaseSingleFieldPeriod
 
 //-----------------------------------------------------------------------
-+ (NSInteger)_betweenStart:(id<HLReadableInstant>)start
++ (NSInteger)betweenStart:(id<HLReadableInstant>)start
                        end:(id<HLReadableInstant>)end
                  fieldType:(HLDurationFieldType*)field {
     if (start == nil || end == nil) {
@@ -50,7 +50,7 @@
 }
 
 //-----------------------------------------------------------------------
-+ (NSInteger)_betweenStart:(id<HLReadablePartial>)start
++ (NSInteger)betweenStart:(id<HLReadablePartial>)start
                        end:(id<HLReadablePartial>)end 
                       zero:(id<HLReadablePeriod>)zeroInstance {
     if (start == nil || end == nil) {
@@ -80,7 +80,7 @@
     return [values objectAtIndex:0];
 }
 
-+ (NSInteger)_standardPeriodIn:(id<HLReadablePeriod>)period 
++ (NSInteger)standardPeriodIn:(id<HLReadablePeriod>)period 
                         millis:(NSInteger)millisPerUnit {
     if (period == nil) {
         return 0;
@@ -122,11 +122,11 @@
 }
 
 //-----------------------------------------------------------------------
-- (NSInteger)_value {
+- (NSInteger)value {
     return _iPeriod;
 }
 
-- (void)_setValue:(NSInteger)value {
+- (void)setValue:(NSInteger)value {
     _iPeriod = value;
 }
 

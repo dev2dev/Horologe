@@ -312,9 +312,6 @@
      * @return a duration equivalent to this number of seconds
      */
     - (HLDuration*)toStandardDuration;
-- (NSInteger)seconds = getValue();  // assign to a long
-        return new Duration(seconds * DateTimeConstants.MILLIS_PER_SECOND);
-    }
 
     //-----------------------------------------------------------------------
     /**
@@ -323,8 +320,6 @@
      * @return the number of seconds in the period
      */
     - (NSInteger)getSeconds;
-        return getValue();
-    }
 
     //-----------------------------------------------------------------------
     /**
@@ -457,20 +452,5 @@
         }
         return getValue() < other.getValue();
     }
-
-    //-----------------------------------------------------------------------
-    /**
-     * Gets this instance as a String in the ISO8601 duration format.
-     * <p>
-     * For example, "PT4S" represents 4 seconds.
-     *
-     * @return the value as an ISO8601 string
-     */
-    - (NSString*)toString;
-        return "PT" + String.valueOf(getValue()) + "S";
-    }
-
-}
-
 
 @end

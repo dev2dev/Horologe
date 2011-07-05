@@ -80,7 +80,7 @@
      * negative
      * @throws ArithmeticException if the value is too large for an int
      */
-    - (NSInteger)_a_getValue:(NSInteger)duration);
+    - (NSInteger)<*abstract*>getValue:(NSInteger)duration);
 
     /**
      * Get the value of this field from the milliseconds, which is approximate
@@ -106,7 +106,7 @@
      * negative
      * @throws ArithmeticException if the value is too large for an int
      */
-    - (NSInteger)_a_getValue:(NSInteger)duration :(NSInteger)instant);
+    - (NSInteger)<*abstract*>getValue:(NSInteger)duration :(NSInteger)instant);
 
     /**
      * Get the value of this field from the milliseconds relative to an
@@ -242,7 +242,7 @@
      * subtract off the minuend
      * @return the difference in the units of this field
      */
-    - (NSInteger)_a_getDifference:(NSInteger)minuendInstant :(NSInteger)subtrahendInstant);
+    - (NSInteger)<*abstract*>getDifference:(NSInteger)minuendInstant :(NSInteger)subtrahendInstant);
 
     /**
      * Computes the difference between two instants, as measured in the units
@@ -275,7 +275,7 @@
      * @throws NullPointerException if the object is nil
      * @throws ClassCastException if the object type is not supported
      */
-    - (NSInteger)_a_compareTo:(id)durationField);
+    - (NSInteger)<*abstract*>compareTo:(id)durationField);
 
     /**
      * Returns a localized unit name of this field, using the given value as an

@@ -22,40 +22,6 @@
 #import "HLBaseInterval.h"
 
 
-@implementation HLBaseInterval
-
-/*
- *  Copyright 2001-2005 Stephen Colebourne
- *
- *  Licensed under the Apache License, Version 2.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
- */
-package org.joda.time.base;
-
-import java.io.Serializable;
-
-import org.joda.time.Chronology;
-import org.joda.time.DateTimeUtils;
-import org.joda.time.MutableInterval;
-import org.joda.time.ReadWritableInterval;
-import org.joda.time.ReadableDuration;
-import org.joda.time.ReadableInstant;
-import org.joda.time.ReadableInterval;
-import org.joda.time.ReadablePeriod;
-import org.joda.time.chrono.ISOChronology;
-import org.joda.time.convert.ConverterManager;
-import org.joda.time.convert.IntervalConverter;
-import org.joda.time.field.FieldUtils;
-
 /**
  * BaseInterval is an abstract implementation of ReadableInterval that stores
  * data in two <code>long</code> millisecond fields.
@@ -71,19 +37,7 @@ import org.joda.time.field.FieldUtils;
  * @author Stephen Colebourne
  * @since 1.0
  */
-public abstract class BaseInterval
-        extends AbstractInterval
-        implements ReadableInterval, Serializable {
-
-    /** Serialization version */
-    private static final long serialVersionUID = 576586928732749278L;
-
-    /** The chronology of the interval */
-    private Chronology iChronology;
-    /** The start of the interval */
-    private long iStartMillis;
-    /** The end of the interval */
-    private long iEndMillis;
+@implementation HLBaseInterval
 
     /**
      * Constructs an interval from a start and end instant.
@@ -276,8 +230,5 @@ public abstract class BaseInterval
         iEndMillis = endInstant;
         iChronology = DateTimeUtils.getChronology(chrono);
     }
-
-}
-
 
 @end

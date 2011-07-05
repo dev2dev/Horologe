@@ -187,7 +187,7 @@ public abstract class PreciseDurationDateTimeField extends BaseDateTimeField {
      * returns getMaximumValue(instant). Override to provide a faster
      * implementation.
      */
-    - (NSInteger)_getMaximumValueForSet:(NSInteger)instant :(NSInteger)value) {
+    - (NSInteger)getMaximumValueForSet:(NSInteger)instant :(NSInteger)value) {
         return getMaximumValue(instant);
     }
 

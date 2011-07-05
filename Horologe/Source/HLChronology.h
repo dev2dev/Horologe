@@ -825,12 +825,4 @@
  */
 - (HLDateTimeField*)era;
 
-//-----------------------------------------------------------------------
-/**
- * Gets a debugging toString.
- * 
- * @return a debugging string
- */
-- (NSString*)description;
-
 @end

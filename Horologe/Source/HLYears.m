@@ -26,6 +26,7 @@
 #import "HLDurationFieldType.h"
 #import "HLPeriodType.h"
 #import "HLPeriodFormatter.h"
+#import "HLLocalDate.h"
 
 
 static HLYears* HL_YEARS_ZERO = [[HLYears alloc] initWithYears:0];
@@ -60,16 +61,16 @@ static HLPeriodFormatter* parser;
 }
 
 //-----------------------------------------------------------------------
-+ (HLYears*)yearsBetweenStart:(id<HLReadableInstant>)start
-                          end:(id<HLReadableInstant>)end {
++ (HLYears*)yearsBetweenStartInstant:(id<HLReadableInstant>)start
+                          endInstant:(id<HLReadableInstant>)end {
     NSInteger amount = [HLBaseSingleFieldPeriod betweenStart:start
                                                          end:end
                                                         type:[HLDurationFieldType years]];
     return [HLYears years:amount];
 }
 
-+ (HLYears*)yearsBetweenStart:(id<HLReadablePartial>)start
-                          end:(id<HLReadablePartial>)end {
++ (HLYears*)yearsBetweenStartPartial:(id<HLReadablePartial>)start
+                          endPartial:(id<HLReadablePartial>)end {
     if ([start isKindOfClass:[HLLocalDate class]] && 
         [end isKindOfClass:[HLLocalDate class]]) {
         HLChronology* chrono = [HLDateTimeUtils chronology:[start chronology]];
@@ -78,8 +79,8 @@ static HLPeriodFormatter* parser;
         return [HLYears years:years];
     }
     
-    NSInteger amount = [HLBaseSingleFieldPeriod betweenStart:start
-                                                         end:end
+    NSInteger amount = [HLBaseSingleFieldPeriod betweenStartPartial:start
+                                                         endPartial:end
                                                        years:HL_YEARS_ZERO];
     return [HLYears years:amount];
 }
@@ -89,8 +90,8 @@ static HLPeriodFormatter* parser;
         return HL_YEARS_ZERO;
     }
     
-    NSInteger amount = [HLBaseSingleFieldPeriod betweenStart:[interval start]
-                                                         end:[interval end]
+    NSInteger amount = [HLBaseSingleFieldPeriod betweenStartInstant:[interval start]
+                                                         endInstant:[interval end]
                                                        years:[HLDurationFieldType years]];
     return [HLYears years:amount];
 }
@@ -114,7 +115,7 @@ static HLPeriodFormatter* parser;
     return self;
 }
 
-- (id)_readResolve {
+- (id)readResolve {
     return [HLYears years:[self value]];
 }
 
@@ -133,7 +134,7 @@ static HLPeriodFormatter* parser;
 }
 
 //-----------------------------------------------------------------------
-- (HLYears*)plus:(NSInteger)years {
+- (HLYears*)plusYearsValue:(NSInteger)years {
     if (years == 0) {
         return self;
     }
@@ -142,7 +143,7 @@ static HLPeriodFormatter* parser;
                                             andValue:years]];
 }
 
-- (HLYears*)plus:(HLYears*)years {
+- (HLYears*)plusYears:(HLYears*)years {
     if (years == nil) {
         return self;
     }
@@ -151,11 +152,11 @@ static HLPeriodFormatter* parser;
 }
 
 //-----------------------------------------------------------------------
-- (HLYears*)minus:(NSInteger)years {
+- (HLYears*)minusYearsValue:(NSInteger)years {
     return [self plus:[HLFieldUtils safeNegate:years]]
 }
 
-- (HLYears*)minus:(HLYears*)years {
+- (HLYears*)minusYears:(HLYears*)years {
     if (years == nil) {
         return self;
     }
@@ -166,7 +167,7 @@ static HLPeriodFormatter* parser;
 //-----------------------------------------------------------------------
 - (HLYears*)multipliedBy:(NSInteger)scalar {
     return [HLYears years:[HLFieldUtils safeMultiplyValue:[self value]
-                                                   scalar:scalar]];
+                                                   andScalar:scalar]];
 }
 
 - (HLYears*)dividedBy:(NSInteger)divisor {
@@ -183,7 +184,7 @@ static HLPeriodFormatter* parser;
 }
 
 //-----------------------------------------------------------------------
-- (BOOL)isGreaterThan:(HLYears*)other {
+- (BOOL)isGreaterThanYears:(HLYears*)other {
     if (other == nil) {
         return [self value] > 0;
     }
@@ -191,7 +192,7 @@ static HLPeriodFormatter* parser;
     return [self value] > [other value];
 }
 
-- (BOOL)isLessThan:(HLYears*)other {
+- (BOOL)isLessThanYears:(HLYears*)other {
     if (other == nil) {
         return [self value] < 0;
     }

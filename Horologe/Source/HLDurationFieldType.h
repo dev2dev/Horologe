@@ -243,6 +243,6 @@ NSInteger _iOrdinal;
  * 
  * @return the singleton type
  */
-- (id)_readResolve;
+- (id)readResolve;
 
 @end
