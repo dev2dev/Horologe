@@ -203,7 +203,7 @@ public abstract class BaseChronology
      * @param values  the values to validate, not nil
      * @throws IllegalArgumentException if the instant is invalid
      */
-    public void validate:(id<HLReadablePartial>)partial, int[] values) {
+    - (void)validate:(id<HLReadablePartial>)partial, int[] values) {
         // check values in standard range, catching really stupid cases like -1
         // this means that the second check will not hit trouble
         int size = partial.size();

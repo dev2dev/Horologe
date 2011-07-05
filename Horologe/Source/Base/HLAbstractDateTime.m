@@ -27,7 +27,7 @@
 
 @implementation HLAbstractDateTime
 
-- (id)_init {
+- (id)init {
     self = [super init];
     if(self) {
         // Initialization.        
@@ -37,10 +37,10 @@
 }
 
 //-----------------------------------------------------------------------
-- (NSInteger)get:(HLDateTimeFieldType*)type {
+- (NSInteger)valueOfFieldType:(HLDateTimeFieldType*)type {
     if(type == nil) {
         [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
-                    format:@"The DateTimeFieldType must not be nil"];
+                    format:@"The type must not be nil"];
     }
     
     return [[type field:[self chronology]] get:[self millis]];

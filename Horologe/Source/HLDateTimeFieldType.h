@@ -22,31 +22,6 @@
 #import <Foundation/Foundation.h>
 
 
-@interface DateTimeFieldType {
-
-@private
-
-}
-
-/*
- *  Copyright 2001-2005 Stephen Colebourne
- *
- *  Licensed under the Apache License, Version 2.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
- */
-package org.joda.time;
-
-import java.io.Serializable;
-
 /**
  * Identifies a field, such as year or minuteOfHour, in a chronology-neutral way.
  * <p>
@@ -67,10 +42,11 @@ import java.io.Serializable;
  * @author Brian S O'Neill
  * @since 1.0
  */
-public abstract class DateTimeFieldType implements Serializable {
+@interface HLDateTimeFieldType {
 
-    /** Serialization version */
-    private static final long serialVersionUID = -42615285973990L;
+@private
+
+}
 
     /** Ordinal values for standard field types. */
     static final byte
@@ -189,7 +165,7 @@ public abstract class DateTimeFieldType implements Serializable {
      * 
      * @return the DateTimeFieldType constant
      */
-    public static DateTimeFieldType millisOfSecond;
+    + (HLDateTimeFieldType*)millisOfSecond;
         return MILLIS_OF_SECOND_TYPE;
     }
 
@@ -198,7 +174,7 @@ public abstract class DateTimeFieldType implements Serializable {
      * 
      * @return the DateTimeFieldType constant
      */
-    public static DateTimeFieldType millisOfDay;
+    + (HLDateTimeFieldType*)millisOfDay;
         return MILLIS_OF_DAY_TYPE;
     }
 
@@ -207,7 +183,7 @@ public abstract class DateTimeFieldType implements Serializable {
      * 
      * @return the DateTimeFieldType constant
      */
-    public static DateTimeFieldType secondOfMinute;
+    + (HLDateTimeFieldType*)secondOfMinute;
         return SECOND_OF_MINUTE_TYPE;
     }
 
@@ -216,7 +192,7 @@ public abstract class DateTimeFieldType implements Serializable {
      * 
      * @return the DateTimeFieldType constant
      */
-    public static DateTimeFieldType secondOfDay;
+    + (HLDateTimeFieldType*)secondOfDay;
         return SECOND_OF_DAY_TYPE;
     }
 
@@ -225,7 +201,7 @@ public abstract class DateTimeFieldType implements Serializable {
      * 
      * @return the DateTimeFieldType constant
      */
-    public static DateTimeFieldType minuteOfHour;
+    + (HLDateTimeFieldType*)minuteOfHour;
         return MINUTE_OF_HOUR_TYPE;
     }
 
@@ -234,7 +210,7 @@ public abstract class DateTimeFieldType implements Serializable {
      * 
      * @return the DateTimeFieldType constant
      */
-    public static DateTimeFieldType minuteOfDay;
+    + (HLDateTimeFieldType*)minuteOfDay;
         return MINUTE_OF_DAY_TYPE;
     }
 
@@ -243,7 +219,7 @@ public abstract class DateTimeFieldType implements Serializable {
      * 
      * @return the DateTimeFieldType constant
      */
-    public static DateTimeFieldType hourOfDay;
+    + (HLDateTimeFieldType*)hourOfDay;
         return HOUR_OF_DAY_TYPE;
     }
 
@@ -252,7 +228,7 @@ public abstract class DateTimeFieldType implements Serializable {
      * 
      * @return the DateTimeFieldType constant
      */
-    public static DateTimeFieldType clockhourOfDay;
+    + (HLDateTimeFieldType*)clockhourOfDay;
         return CLOCKHOUR_OF_DAY_TYPE;
     }
 
@@ -261,7 +237,7 @@ public abstract class DateTimeFieldType implements Serializable {
      * 
      * @return the DateTimeFieldType constant
      */
-    public static DateTimeFieldType hourOfHalfday;
+    + (HLDateTimeFieldType*)hourOfHalfday;
         return HOUR_OF_HALFDAY_TYPE;
     }
 
@@ -270,7 +246,7 @@ public abstract class DateTimeFieldType implements Serializable {
      * 
      * @return the DateTimeFieldType constant
      */
-    public static DateTimeFieldType clockhourOfHalfday;
+    + (HLDateTimeFieldType*)clockhourOfHalfday;
         return CLOCKHOUR_OF_HALFDAY_TYPE;
     }
 
@@ -279,7 +255,7 @@ public abstract class DateTimeFieldType implements Serializable {
      * 
      * @return the DateTimeFieldType constant
      */
-    public static DateTimeFieldType halfdayOfDay;
+    + (HLDateTimeFieldType*)halfdayOfDay;
         return HALFDAY_OF_DAY_TYPE;
     }
 
@@ -289,7 +265,7 @@ public abstract class DateTimeFieldType implements Serializable {
      * 
      * @return the DateTimeFieldType constant
      */
-    public static DateTimeFieldType dayOfWeek;
+    + (HLDateTimeFieldType*)dayOfWeek;
         return DAY_OF_WEEK_TYPE;
     }
 
@@ -298,7 +274,7 @@ public abstract class DateTimeFieldType implements Serializable {
      * 
      * @return the DateTimeFieldType constant
      */
-    public static DateTimeFieldType dayOfMonth;
+    + (HLDateTimeFieldType*)dayOfMonth;
         return DAY_OF_MONTH_TYPE;
     }
 
@@ -307,7 +283,7 @@ public abstract class DateTimeFieldType implements Serializable {
      * 
      * @return the DateTimeFieldType constant
      */
-    public static DateTimeFieldType dayOfYear;
+    + (HLDateTimeFieldType*)dayOfYear;
         return DAY_OF_YEAR_TYPE;
     }
 
@@ -316,7 +292,7 @@ public abstract class DateTimeFieldType implements Serializable {
      * 
      * @return the DateTimeFieldType constant
      */
-    public static DateTimeFieldType weekOfWeekyear;
+    + (HLDateTimeFieldType*)weekOfWeekyear;
         return WEEK_OF_WEEKYEAR_TYPE;
     }
 
@@ -325,7 +301,7 @@ public abstract class DateTimeFieldType implements Serializable {
      * 
      * @return the DateTimeFieldType constant
      */
-    public static DateTimeFieldType weekyear;
+    + (HLDateTimeFieldType*)weekyear;
         return WEEKYEAR_TYPE;
     }
 
@@ -334,7 +310,7 @@ public abstract class DateTimeFieldType implements Serializable {
      * 
      * @return the DateTimeFieldType constant
      */
-    public static DateTimeFieldType weekyearOfCentury;
+    + (HLDateTimeFieldType*)weekyearOfCentury;
         return WEEKYEAR_OF_CENTURY_TYPE;
     }
 
@@ -343,7 +319,7 @@ public abstract class DateTimeFieldType implements Serializable {
      * 
      * @return the DateTimeFieldType constant
      */
-    public static DateTimeFieldType monthOfYear;
+    + (HLDateTimeFieldType*)monthOfYear;
         return MONTH_OF_YEAR_TYPE;
     }
 
@@ -352,7 +328,7 @@ public abstract class DateTimeFieldType implements Serializable {
      * 
      * @return the DateTimeFieldType constant
      */
-    public static DateTimeFieldType year;
+    + (HLDateTimeFieldType*)year;
         return YEAR_TYPE;
     }
 
@@ -361,7 +337,7 @@ public abstract class DateTimeFieldType implements Serializable {
      * 
      * @return the DateTimeFieldType constant
      */
-    public static DateTimeFieldType yearOfEra;
+    + (HLDateTimeFieldType*)yearOfEra;
         return YEAR_OF_ERA_TYPE;
     }
 
@@ -370,7 +346,7 @@ public abstract class DateTimeFieldType implements Serializable {
      * 
      * @return the DateTimeFieldType constant
      */
-    public static DateTimeFieldType yearOfCentury;
+    + (HLDateTimeFieldType*)yearOfCentury;
         return YEAR_OF_CENTURY_TYPE;
     }
 
@@ -379,7 +355,7 @@ public abstract class DateTimeFieldType implements Serializable {
      * 
      * @return the DateTimeFieldType constant
      */
-    public static DateTimeFieldType centuryOfEra;
+    + (HLDateTimeFieldType*)centuryOfEra;
         return CENTURY_OF_ERA_TYPE;
     }
 
@@ -388,7 +364,7 @@ public abstract class DateTimeFieldType implements Serializable {
      * 
      * @return the DateTimeFieldType constant
      */
-    public static DateTimeFieldType era;
+    + (HLDateTimeFieldType*)era;
         return ERA_TYPE;
     }
 

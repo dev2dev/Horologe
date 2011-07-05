@@ -22,7 +22,7 @@
 #import "HLPeriod.h"
 
 
-static const HLPeriod* ZERO_PERIOD = [[HLPeriod alloc] init];
+static const HLPeriod* HL_PERIOD_ZERO = [[HLPeriod alloc] init];
 
 @implementation HLPeriod
 

@@ -53,7 +53,7 @@
 /**
  * Constructor.
  */
-- (id)_init;
+- (id)init;
 
 //-----------------------------------------------------------------------
 /**
@@ -217,7 +217,7 @@
  *  millisecond instant from 1970-01-01T00:00:00Z
  * @return true if this time interval is before the instant
  */
-- (BOOL)isBefore:(NSInteger)millisInstant;
+- (BOOL)isBeforeInstantValue:(NSInteger)millisInstant;
 
 /**
  * Is this time interval before the current instant.
@@ -236,7 +236,7 @@
  * @param instant  the instant to compare to, nil means now
  * @return true if this time interval is before the instant
  */
-- (BOOL)isBefore:(id<HLReadableInstant>)instant;
+- (BOOL)isBeforeInstant:(id<HLReadableInstant>)instant;
 
 /**
  * Is this time interval entirely before the specified instant.
@@ -246,7 +246,7 @@
  * @param interval  the interval to compare to, nil means now
  * @return true if this time interval is before the interval specified
  */
-- (BOOL)isBefore:(id<HLReadableInterval>)interval;
+- (BOOL)isBeforeInterval:(id<HLReadableInterval>)interval;
 
 //-----------------------------------------------------------------------
 /**
@@ -258,7 +258,7 @@
  *  millisecond instant from 1970-01-01T00:00:00Z
  * @return true if this time interval is after the instant
  */
-- (BOOL)isAfter:(NSInteger)millisInstant;
+- (BOOL)isAfterInstantValue:(NSInteger)millisInstant;
 
 /**
  * Is this time interval after the current instant.
@@ -277,7 +277,7 @@
  * @param instant  the instant to compare to, nil means now
  * @return true if this time interval is after the instant
  */
-- (BOOL)isAfter:(id<HLReadableInstant>)instant;
+- (BOOL)isAfterInstant:(id<HLReadableInstant>)instant;
 
 /**
  * Is this time interval entirely after the specified interval.
@@ -288,7 +288,7 @@
  * @param interval  the interval to compare to, nil means now
  * @return true if this time interval is after the interval specified
  */
-- (BOOL)isAfter:(id<HLReadableInterval>)interval;
+- (BOOL)isAfterInterval:(id<HLReadableInterval>)interval;
 
 //-----------------------------------------------------------------------
 /**
@@ -378,6 +378,6 @@
  *
  * @return re-parsable string
  */
-- (HLString*)description;
+- (NSString*)description;
 
 @end

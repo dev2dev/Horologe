@@ -118,7 +118,7 @@ public abstract class AbstractPartialFieldProperty {
      * 
      * @return the current value
      */
-    public abstract int get();
+    - (NSInteger)_a_get();
 
     /**
      * Gets the value of this property from the instant as a string.

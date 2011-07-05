@@ -45,8 +45,8 @@
  */
 @implementation HLBaseDuration
 
-- (id)_initWithDuration:(NSInteger)duration {
-    self = [super _init];
+- (id)initWithDuration:(NSInteger)duration {
+    self = [super init];
     if(self) {
         _iMillis = duration;
     }
@@ -54,9 +54,9 @@
     return self;
 }
 
-- (id)_initWithStart:(NSInteger)startInstant 
+- (id)initWithStart:(NSInteger)startInstant 
                  end:(NSInteger)endInstant {
-    self = [super _init];
+    self = [super init];
     if(self) {
         _iMillis = [HLFieldUtils safeAddValue:endInstant
                                      andValue:-startInstant];
@@ -65,9 +65,9 @@
     return self;
 }
 
-- (id)_initWithStartInstant:(id<HLReadableInstant>)start 
+- (id)initWithStartInstant:(id<HLReadableInstant>)start 
                  endInstant:(id<HLReadableInstant>)end {
-    self = [super _init];
+    self = [super init];
     if(self) {
         if (start == end) {
             _iMillis = 0L;
@@ -83,8 +83,8 @@
     return self;
 }
 
-- (id)_initWithDurationObject:(id)duration {
-    self = [super _init];
+- (id)initWithDurationObject:(id)duration {
+    self = [super init];
     if(self) {
         HLDurationConverter* converter = [[HLConverterManager instance] durationConverter:duration];
         _iMillis = [converter durationMillis:duration];

@@ -49,11 +49,6 @@
     
 }
 
-/**
- * Constructor.
- */
-- (id)_init;
-
 //-----------------------------------------------------------------------
 /**
  * Get the value of one of the fields of a datetime.
@@ -65,7 +60,7 @@
  * @return the value of that field
  * @throws IllegalArgumentException if the field type is nil
  */
-- (NSInteger)get:(HLDateTimeFieldType*)type;
+- (NSInteger)valueOfFieldType:(HLDateTimeFieldType*)type;
 
 //-----------------------------------------------------------------------
 /**

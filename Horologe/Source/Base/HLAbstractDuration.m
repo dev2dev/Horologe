@@ -23,21 +23,10 @@
 
 #import "HLPeriod.h"
 #import "HLDuration.h"
+#import "HLFormatUtils.h"
 
 
 @implementation HLAbstractDuration
-
-/**
- * Constructor.
- */
-- (id)_init {
-    self = [super init];
-    if(self) {
-        
-    }
-    
-    return self;
-}
 
 //-----------------------------------------------------------------------
 - (HLDuration*)toDuration {
@@ -51,6 +40,7 @@
 
 //-----------------------------------------------------------------------
 - (NSComparisonResult)compare:(id)obj {
+    
     // Comparable contract means we cannot handle nil or other types gracefully
     id<HLReadableDuration> thisDuration = (id<HLReadableDuration>)self;
     id<HLReadableDuration> otherDuration = (id<HLReadableDuration>)obj;
@@ -60,15 +50,16 @@
     
     // cannot do (thisMillis - otherMillis) as it can overflow
     if (thisMillis < otherMillis) {
-        return -1;
+        return NSOrderedDescending;
     }
     if (thisMillis > otherMillis) {
-        return 1;
+        return NSOrderedAscending;
     }
-    return 0;
+    
+    return NSOrderedSame;
 }
 
-- (BOOL)isEqual:(id<HLReadableDuration>)duration) {
+- (BOOL)isEqualToDuration:(id<HLReadableDuration>)duration {
     if (duration == nil) {
         duration = [HLDuration zeroDuration];
     }
@@ -76,29 +67,33 @@
     return [self compare:duration] == NSOrderedSame;
 }
 
-- (BOOL)isLongerThan:(id<HLReadableDuration>)duration) {
+- (BOOL)isLongerThanDuration:(id<HLReadableDuration>)duration {
     if (duration == nil) {
         duration = [HLDuration zeroDuration];
     }
+    
     return [self compare:duration] == NSOrderedAscending;
 }
 
-- (BOOL)isShorterThan:(id<HLReadableDuration>)duration) {
+- (BOOL)isShorterThanDuration:(id<HLReadableDuration>)duration {
     if (duration == nil) {
         duration = [HLDuration zeroDuration];
     }
+    
     return [self compare:duration] == NSOrderedDescending;
 }
 
 //-----------------------------------------------------------------------
-- (BOOL)isEqualToDuration:(id)duration) {
+- (BOOL)isEqualToDuration:(id)duration {
     if(self == duration) {
         return YES;
     }
     if([duration conformsToProtocol:@protocol(HLReadableDuration)] == NO) {
         return NO;
     }
+    
     id<HLReadableDuration> other = (id<HLReadableDuration>)duration;
+    
     return ([self millis] == [other millis]);
 }
 
@@ -109,6 +104,7 @@
 
 //-----------------------------------------------------------------------
 - (NSString*)description {
+    
     NSInteger millis = [self millis];
     NSMutableString* buf = [NSMutableString string];
     [buf appendString:@"PT"];
@@ -122,10 +118,8 @@
                            toMutableString:buf];
     }
     [buf appendString:@"S"];
+    
     return [[buf copy] autorelease];
 }
-
-}
-
 
 @end

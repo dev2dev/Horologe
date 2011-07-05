@@ -27,7 +27,7 @@
 
 @class HLPeriod;
 
-extern const HLPeriod* ZERO_PERIOD;
+extern const HLPeriod* HL_PERIOD_ZERO;
 
 /**
  * An immutable time period specifying a set of duration field values.

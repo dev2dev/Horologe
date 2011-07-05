@@ -161,7 +161,7 @@ public class DateTimeParserBucket {
      *
      * @param zone the date time zone to operate in, or nil if UTC
      */
-    public void setZone:(HLDateTimeZone*)zone) {
+    - (void)setZone:(HLDateTimeZone*)zone) {
         iSavedState = nil;
         iZone = zone == DateTimeZone.UTC ? nil : zone;
         iOffset = 0;
@@ -180,7 +180,7 @@ public class DateTimeParserBucket {
      * Set a time zone offset to be used when computeMillis is called, which
      * overrides the time zone.
      */
-    public void setOffset:(NSInteger) offset) {
+    - (void)setOffset:(NSInteger) offset) {
         iSavedState = nil;
         iOffset = offset;
         iZone = nil;
@@ -208,7 +208,7 @@ public class DateTimeParserBucket {
      * @param pivotYear  the pivot year to use
      * @since 1.1
      */
-    public void setPivotYear(Integer pivotYear) {
+    - (void)setPivotYear(Integer pivotYear) {
         iPivotYear = pivotYear;
     }
 
@@ -219,7 +219,7 @@ public class DateTimeParserBucket {
      * @param field  the field, whose chronology must match that of this bucket
      * @param value  the value
      */
-    public void saveField(DateTimeField field :(NSInteger)value) {
+    - (void)saveField(DateTimeField field :(NSInteger)value) {
         saveField(new SavedField(field, value));
     }
     
@@ -229,7 +229,7 @@ public class DateTimeParserBucket {
      * @param fieldType  the field type
      * @param value  the value
      */
-    public void saveField:(HLDateTimeFieldType*)fieldType :(NSInteger)value) {
+    - (void)saveField:(HLDateTimeFieldType*)fieldType :(NSInteger)value) {
         saveField(new SavedField(fieldType.getField(iChrono), value));
     }
     
@@ -240,7 +240,7 @@ public class DateTimeParserBucket {
      * @param text  the text value
      * @param locale  the locale to use
      */
-    public void saveField:(HLDateTimeFieldType*)fieldType, String text locale:(NSLocale*)locale {
+    - (void)saveField:(HLDateTimeFieldType*)fieldType, String text locale:(NSLocale*)locale {
         saveField(new SavedField(fieldType.getField(iChrono), text, locale));
     }
     

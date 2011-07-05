@@ -22,6 +22,7 @@
 #import <Foundation/Foundation.h>
 
 
+@class HLPeriod;
 @class HLPeriodType;
 @class HLDurationFieldType;
 @class HLMutablePeriod;
@@ -95,7 +96,7 @@
  * @param field  the field type to query, nil returns zero
  * @return the value of that field, zero if field not supported
  */
-- (NSInteger)get:(HLDurationFieldType*)field;
+- (NSInteger)valueOfFieldType:(HLDurationFieldType*)field;
 
 /**
  * Checks whether the field type specified is supported by this period.

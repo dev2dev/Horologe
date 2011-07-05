@@ -77,7 +77,7 @@
  * @return the value of that field
  * @throws IllegalArgumentException if the field type is nil
  */
-- (NSInteger)get:(HLDateTimeFieldType*)type;
+- (NSInteger)valueOfFieldType:(HLDateTimeFieldType*)type;
 
 /**
  * Checks whether the field type specified is supported by this implementation.
@@ -122,7 +122,7 @@
  * @param instant  an instant to check against, nil means now
  * @return true if the instant is equal to the instant passed in
  */
-- (BOOL)isEqual:(id<HLReadableInstant>)instant;
+- (BOOL)isEqualToInstant:(id<HLReadableInstant>)instant;
 
 /**
  * Is this instant after the instant passed in
@@ -131,7 +131,7 @@
  * @param instant  an instant to check against, nil means now
  * @return true if the instant is after the instant passed in
  */
-- (BOOL)isAfter:(id<HLReadableInstant>)instant;
+- (BOOL)isAfterInstant:(id<HLReadableInstant>)instant;
 
 /**
  * Is this instant before the instant passed in
@@ -140,7 +140,7 @@
  * @param instant  an instant to check against, nil means now
  * @return true if the instant is before the instant passed in
  */
-- (BOOL)isBefore:(id<HLReadableInstant>)instant;
+- (BOOL)isBeforeInstant:(id<HLReadableInstant>)instant;
 
 //-----------------------------------------------------------------------
 /**

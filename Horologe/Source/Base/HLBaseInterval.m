@@ -19,10 +19,10 @@
  * limitations under the License.
  */
 
-#import "BaseInterval.h"
+#import "HLBaseInterval.h"
 
 
-@implementation BaseInterval
+@implementation HLBaseInterval
 
 /*
  *  Copyright 2001-2005 Stephen Colebourne

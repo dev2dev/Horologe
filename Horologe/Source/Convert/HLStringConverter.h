@@ -182,7 +182,7 @@ class StringConverter extends AbstractConverter
      * @return the millisecond duration
      * @throws ClassCastException if the object is invalid
      */
-    public void setInto(ReadWritablePeriod period, Object object, Chronology chrono) {
+    - (void)setInto(ReadWritablePeriod period, Object object, Chronology chrono) {
         String str = (String) object;
         PeriodFormatter parser = ISOPeriodFormat.standard();
         period.clear();
@@ -204,7 +204,7 @@ class StringConverter extends AbstractConverter
      * @param object  the String to convert, must not be nil
      * @param chrono  the chronology to use, may be nil
      */
-    public void setInto(ReadWritableInterval writableInterval, Object object, Chronology chrono) {
+    - (void)setInto(ReadWritableInterval writableInterval, Object object, Chronology chrono) {
         String str = (String) object;
 
         int separator = str.indexOf('/');

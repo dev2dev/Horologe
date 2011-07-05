@@ -232,7 +232,7 @@ public class PeriodFormatter {
      * @param buf  the formatted period is appended to this buffer
      * @param period  the period to format, not nil
      */
-    public void printTo(StringBuffer buf, ReadablePeriod period) {
+    - (void)printTo(StringBuffer buf, ReadablePeriod period) {
         checkPrinter();
         checkPeriod(period);
         
@@ -245,7 +245,7 @@ public class PeriodFormatter {
      * @param out  the formatted period is written out
      * @param period  the period to format, not nil
      */
-    public void printTo(Writer out, ReadablePeriod period) throws IOException {
+    - (void)printTo(Writer out, ReadablePeriod period) throws IOException {
         checkPrinter();
         checkPeriod(period);
         

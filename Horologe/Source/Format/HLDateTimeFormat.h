@@ -813,26 +813,26 @@ public class DateTimeFormat {
             return 40;  // guess
         }
 
-        public void printTo(
+        - (void)printTo(
                 StringBuffer buf :(NSInteger)instant, Chronology chrono,
                 int displayOffset, DateTimeZone displayZone locale:(NSLocale*)locale {
             DateTimePrinter p = getFormatter(locale).getPrinter();
             p.printTo(buf, instant, chrono, displayOffset, displayZone, locale);
         }
 
-        public void printTo(
+        - (void)printTo(
                 Writer out :(NSInteger)instant, Chronology chrono,
                 int displayOffset, DateTimeZone displayZone locale:(NSLocale*)locale throws IOException {
             DateTimePrinter p = getFormatter(locale).getPrinter();
             p.printTo(out, instant, chrono, displayOffset, displayZone, locale);
         }
 
-        public void printTo(StringBuffer buf, ReadablePartial partial locale:(NSLocale*)locale {
+        - (void)printTo(StringBuffer buf, ReadablePartial partial locale:(NSLocale*)locale {
             DateTimePrinter p = getFormatter(locale).getPrinter();
             p.printTo(buf, partial, locale);
         }
 
-        public void printTo(Writer out, ReadablePartial partial locale:(NSLocale*)locale throws IOException {
+        - (void)printTo(Writer out, ReadablePartial partial locale:(NSLocale*)locale throws IOException {
             DateTimePrinter p = getFormatter(locale).getPrinter();
             p.printTo(out, partial, locale);
         }

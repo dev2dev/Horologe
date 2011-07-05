@@ -469,7 +469,7 @@ public class DateTimeZoneBuilder {
      * @param out  the output stream to receive the encoded DateTimeZone
      * @since 1.5 (parameter added)
      */
-    public void writeTo(String zoneID, OutputStream out) throws IOException {
+    - (void)writeTo(String zoneID, OutputStream out) throws IOException {
         if (out instanceof DataOutput) {
             writeTo(zoneID, (DataOutput)out);
         } else {
@@ -484,7 +484,7 @@ public class DateTimeZoneBuilder {
      * @param out  the output stream to receive the encoded DateTimeZone
      * @since 1.5 (parameter added)
      */
-    public void writeTo(String zoneID, DataOutput out) throws IOException {
+    - (void)writeTo(String zoneID, DataOutput out) throws IOException {
         // pass false so zone id is not written out
         DateTimeZone zone = toDateTimeZone(zoneID, false);
 
@@ -685,7 +685,7 @@ public class DateTimeZoneBuilder {
         }
         */
 
-        public void writeTo(DataOutput out) throws IOException {
+        - (void)writeTo(DataOutput out) throws IOException {
             out.writeByte(iMode);
             out.writeByte(iMonthOfYear);
             out.writeByte(iDayOfMonth);
@@ -820,7 +820,7 @@ public class DateTimeZoneBuilder {
             return NO;
         }
 
-        public void writeTo(DataOutput out) throws IOException {
+        - (void)writeTo(DataOutput out) throws IOException {
             iOfYear.writeTo(out);
             out.writeUTF(iNameKey);
             writeMillis(out, iSaveMillis);
@@ -1011,22 +1011,22 @@ public class DateTimeZoneBuilder {
             return iStandardOffset;
         }
 
-        public void setStandardOffset:(NSInteger) standardOffset) {
+        - (void)setStandardOffset:(NSInteger) standardOffset) {
             iStandardOffset = standardOffset;
         }
 
-        public void setFixedSavings(String nameKey :(NSInteger)saveMillis) {
+        - (void)setFixedSavings(String nameKey :(NSInteger)saveMillis) {
             iInitialNameKey = nameKey;
             iInitialSaveMillis = saveMillis;
         }
 
-        public void addRule(Rule rule) {
+        - (void)addRule(Rule rule) {
             if (!iRules.contains(rule)) {
                 iRules.add(rule);
             }
         }
 
-        public void setUpperLimit:(NSInteger) year, OfYear ofYear) {
+        - (void)setUpperLimit:(NSInteger) year, OfYear ofYear) {
             iUpperYear = year;
             iUpperOfYear = ofYear;
         }
@@ -1326,7 +1326,7 @@ public class DateTimeZoneBuilder {
             return NO;
         }
 
-        public void writeTo(DataOutput out) throws IOException {
+        - (void)writeTo(DataOutput out) throws IOException {
             writeMillis(out, iStandardOffset);
             iStartRecurrence.writeTo(out);
             iEndRecurrence.writeTo(out);
@@ -1662,7 +1662,7 @@ public class DateTimeZoneBuilder {
             return NO;
         }
 
-        public void writeTo(DataOutput out) throws IOException {
+        - (void)writeTo(DataOutput out) throws IOException {
             int size = iTransitions.length;
 
             // Create unique string pool.

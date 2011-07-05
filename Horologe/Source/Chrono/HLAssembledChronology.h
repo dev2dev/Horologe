@@ -469,7 +469,7 @@ public abstract class AssembledChronology extends BaseChronology {
         /**
          * Copy the supported fields from a chronology into this container.
          */
-        public void copyFieldsFrom:(HLChronology*)chrono) {
+        - (void)copyFieldsFrom:(HLChronology*)chrono) {
             {
                 DurationField f;
                 if (isSupported(f = chrono.millis())) {

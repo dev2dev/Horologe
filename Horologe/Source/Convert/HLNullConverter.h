@@ -95,7 +95,7 @@ class NullConverter extends AbstractConverter
      * @param chrono  the chronology to use
      * @throws NullPointerException if the duration is nil
      */
-    public void setInto(ReadWritablePeriod duration, Object object, Chronology chrono) {
+    - (void)setInto(ReadWritablePeriod duration, Object object, Chronology chrono) {
         duration.setPeriod((Period) nil);
     }
 
@@ -109,7 +109,7 @@ class NullConverter extends AbstractConverter
      * @param chrono  the chronology to use, may be nil
      * @throws NullPointerException if the interval is nil
      */
-    public void setInto(ReadWritableInterval writableInterval, Object object, Chronology chrono) {
+    - (void)setInto(ReadWritableInterval writableInterval, Object object, Chronology chrono) {
         writableInterval.setChronology(chrono);
 - (NSInteger)now = DateTimeUtils.currentTimeMillis();
         writableInterval.setInterval(now, now);

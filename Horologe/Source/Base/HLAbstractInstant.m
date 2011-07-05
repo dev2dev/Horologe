@@ -23,11 +23,12 @@
 
 #import "HLConstants.h"
 #import "HLChronology.h"
+#import "HLDateTimeUtils.h"
 
 
 @implementation HLAbstractInstant
 
-- (id)_init {
+- (id)init {
     self = [super init];
     if(self) {
         
@@ -41,10 +42,10 @@
     return [[self chronology] dateTimeZone];
 }
 
-- (NSInteger)get:(HLDateTimeFieldType*)type) {
+- (NSInteger)valueOfFieldType:(HLDateTimeFieldType*)type {
     if(type == nil) {
         [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
-                    format:@"The DateTimeFieldType must not be nil"];
+                    format:@"The type must not be nil"];
     }
     
     return [[type field:[self chronology]] get:[self millis]];

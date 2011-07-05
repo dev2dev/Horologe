@@ -22,77 +22,7 @@
 #import "HLChronology.h"
 
 
-@implementation Chronology
-
-/*
- *  Copyright 2001-2005 Stephen Colebourne
- *
- *  Licensed under the Apache License, Version 2.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
- */
-package org.joda.time;
-
-import org.joda.time.chrono.BuddhistChronology;
-import org.joda.time.chrono.CopticChronology;
-import org.joda.time.chrono.GJChronology;
-import org.joda.time.chrono.GregorianChronology;
-import org.joda.time.chrono.ISOChronology;
-import org.joda.time.chrono.JulianChronology;
-
-/**
- * Chronology provides access to the individual date time fields for a
- * chronological calendar system.
- * <p>
- * Various chronologies are supported by subclasses including ISO
- * and GregorianJulian. To construct a Chronology you should use the
- * factory methods on the chronology subclass in the chrono package.
- * <p>
- * For example, to obtain the current time in the coptic calendar system:
- * <pre>
- * DateTime dt = [[[HLDateTime alloc] initWithMillis:[self CopticChronology.getInstance());
- * </pre>
- * <p>
- * The provided chronology implementations are:
- * <ul>
- * <li>ISO - Based on the ISO8601 standard and suitable for use after about 1600
- * <li>GJ - Historically accurate calendar with Julian followed by Gregorian
- * <li>Gregorian - The Gregorian calendar system used for all time (proleptic)
- * <li>Julian - The Julian calendar system used for all time (proleptic)
- * <li>Buddhist - The Buddhist calendar system which is an offset in years from GJ
- * <li>Coptic - The Coptic calendar system which defines 30 day months
- * <li>Ethiopic - The Ethiopic calendar system which defines 30 day months
- * </ul>
- * Hopefully future releases will contain more chronologies.
- * <p>
- * This class defines a number of fields with names from the ISO8601 standard.
- * It does not 'strongly' define these fields however, thus implementations
- * are free to interpret the field names as they wish.
- * For example, a week could be defined as 10 days and a month as 40 days in a
- * special WeirdChronology implementation. Clearly the GJ and ISO
- * implementations provided use the field names as you would expect.
- *
- * @see org.joda.time.chrono.ISOChronology
- * @see org.joda.time.chrono.GJChronology
- * @see org.joda.time.chrono.GregorianChronology
- * @see org.joda.time.chrono.JulianChronology
- * @see org.joda.time.chrono.CopticChronology
- * @see org.joda.time.chrono.BuddhistChronology
- * @see org.joda.time.chrono.EthiopicChronology
- *
- * @author Stephen Colebourne
- * @author Brian S O'Neill
- * @since 1.0
- */
-public abstract class Chronology {
+@implementation HLChronology
 
     /**
      * Gets an instance of the ISOChronology in the default zone.

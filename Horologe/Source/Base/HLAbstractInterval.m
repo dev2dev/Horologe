@@ -38,7 +38,7 @@
 /**
  * Constructor.
  */
-- (id)_init {
+- (id)init {
     self = [super init];
     if(self) {
         
@@ -115,7 +115,7 @@
 }
 
 //-----------------------------------------------------------------------
-- (BOOL)isBefore:(NSInteger)millisInstant {
+- (BOOL)isBeforeInstantValue:(NSInteger)millisInstant {
     return ([self endMillis] <= millisInstant);
 }
 
@@ -123,7 +123,7 @@
     return [self isBefore:[HLDateTimeUtils currentTimeMillis]];
 }
 
-- (BOOL)isBefore:(id<HLReadableInstant>)instant {
+- (BOOL)isBeforeInstant:(id<HLReadableInstant>)instant {
     if (instant == nil) {
         return [self isBeforeNow];
     }
@@ -131,7 +131,7 @@
     return [self isBefore:[instant millis]];
 }
 
-- (BOOL)isBefore:(id<HLReadableInterval>)interval {
+- (BOOL)isBeforeInterval:(id<HLReadableInterval>)interval {
     if (interval == nil) {
         return [self isBeforeNow];
     }
@@ -140,7 +140,7 @@
 }
 
 //-----------------------------------------------------------------------
-- (BOOL)isAfter:(NSInteger)millisInstant {
+- (BOOL)isAfterInstantValue:(NSInteger)millisInstant {
     return ([self startMillis] > millisInstant);
 }
 
@@ -148,7 +148,7 @@
     return [self isAfter:[HLDateTimeUtils currentTimeMillis]];
 }
 
-- (BOOL)isAfter:(id<HLReadableInstant>)instant {
+- (BOOL)isAfterInstant:(id<HLReadableInstant>)instant {
     if (instant == nil) {
         return [self isAfterNow];
     }
@@ -156,7 +156,7 @@
     return [self isAfter:[instant millis]];
 }
 
-- (BOOL)isAfter:(id<HLReadableInterval>)interval {
+- (BOOL)isAfterInterval:(id<HLReadableInterval>)interval {
     NSInteger endMillis;
     if (interval == nil) {
         endMillis = [HLDateTimeUtils currentTimeMillis]

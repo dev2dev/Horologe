@@ -58,7 +58,7 @@
 /**
  * Constructor.
  */
-- (id)_init;
+- (id)init;
 
 //-----------------------------------------------------------------------
 /**
@@ -82,7 +82,7 @@
  * @return the field type
  * @throws IndexOutOfBoundsException if the index is invalid
  */
-- (HLDateTimeFieldType*)getFieldType:(NSInteger)index;
+- (HLDateTimeFieldType*)fieldTypeAtIndex:(NSInteger)index;
 
 /**
  * Gets an array of the field types that this partial supports.
@@ -100,7 +100,7 @@
  * @return the field
  * @throws IndexOutOfBoundsException if the index is invalid
  */
-- (HLDateTimeField*)getFieldAtIndex:(NSInteger)index;
+- (HLDateTimeField*)fieldAtIndex:(NSInteger)index;
 
 /**
  * Gets an array of the fields that this partial supports.
@@ -131,7 +131,7 @@
  * @return the value of that field
  * @throws IllegalArgumentException if the field is nil or not supported
  */
-- (NSInteger)get:(HLDateTimeFieldType*)type;
+- (NSInteger)valueOfFieldType:(HLDateTimeFieldType*)type;
 
 /**
  * Checks whether the field specified is supported by this partial.
@@ -201,7 +201,7 @@
  * @param partial  an object to check against
  * @return true if fields and values are equal
  */
-- (BOOL)equals:(id)partial;
+- (BOOL)isEqualTo:(id)partial;
 
 /**
  * Gets a hash code for the ReadablePartial that is compatible with the 
@@ -254,7 +254,7 @@
  * @throws ClassCastException if the partial has field types that don't match
  * @since 1.1
  */
-- (BOOL)isAfter:(id<HLReadablePartial>)partial;
+- (BOOL)isAfterPartial:(id<HLReadablePartial>)partial;
 
 /**
  * Is this partial earlier than the specified partial.
@@ -271,7 +271,7 @@
  * @throws ClassCastException if the partial has field types that don't match
  * @since 1.1
  */
-- (BOOL)isBefore:(id<HLReadablePartial>)partial;
+- (BOOL)isBeforePartial:(id<HLReadablePartial>)partial;
 
 /**
  * Is this partial the same as the specified partial.
@@ -288,7 +288,7 @@
  * @throws ClassCastException if the partial has field types that don't match
  * @since 1.1
  */
-- (BOOL)isEqual:(id<HLReadablePartial>)partial;
+- (BOOL)isEqualToPartial:(id<HLReadablePartial>)partial;
 
 //-----------------------------------------------------------------------
 /**

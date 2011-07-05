@@ -58,7 +58,7 @@
  *
  * @param duration  the duration, in milliseconds
  */
-- (id)_initWithDuration:(NSInteger)duration;
+- (id)initWithDuration:(NSInteger)duration;
 
 /**
  * Creates a duration from the given interval endpoints.
@@ -67,7 +67,7 @@
  * @param endInstant  interval end, in milliseconds
  * @throws ArithmeticException if the duration exceeds a 64 bit long
  */
-- (id)_initWithStart:(NSInteger)startInstant 
+- (id)initWithStart:(NSInteger)startInstant 
                  end:(NSInteger)endInstant;
 
 /**
@@ -77,7 +77,7 @@
  * @param end  interval end, nil means now
  * @throws ArithmeticException if the duration exceeds a 64 bit long
  */
-- (id)_initWithStartInstant:(id<HLReadableInstant>)start
+- (id)initWithStartInstant:(id<HLReadableInstant>)start
                  endInstant:(id<HLReadableInstant>)end;
 
 /**
@@ -87,7 +87,7 @@
  * @param duration  duration to convert
  * @throws IllegalArgumentException if duration is invalid
  */
-- (id)_initWithDurationObject:(id)duration;
+- (id)initWithDurationObject:(id)duration;
 
 //-----------------------------------------------------------------------
 /**

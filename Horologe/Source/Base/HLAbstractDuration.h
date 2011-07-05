@@ -40,16 +40,11 @@
  * @author Stephen Colebourne
  * @since 1.0
  */
-@interface HLAbstractDuration <HLReadableDuration> {
+@interface HLAbstractDuration : NSObject <HLReadableDuration> {
     
 @private
     
 }
-
-/**
- * Constructor.
- */
-- (id)_init;
 
 //-----------------------------------------------------------------------
 /**
@@ -100,7 +95,7 @@
  * @param duration  another duration to compare to, nil means zero milliseconds
  * @return true if this duration is equal to than the duration passed in
  */
-- (BOOL)isEqual:(id<HLReadableDuration>)duration;
+- (BOOL)isEqualToDuration:(id<HLReadableDuration>)duration;
 
 /**
  * Is the length of this duration longer than the duration passed in.
@@ -108,7 +103,7 @@
  * @param duration  another duration to compare to, nil means zero milliseconds
  * @return true if this duration is equal to than the duration passed in
  */
-- (BOOL)isLongerThan:(id<HLReadableDuration>)duration;
+- (BOOL)isLongerThanDuration:(id<HLReadableDuration>)duration;
 
 /**
  * Is the length of this duration shorter than the duration passed in.
@@ -116,7 +111,7 @@
  * @param duration  another duration to compare to, nil means zero milliseconds
  * @return true if this duration is equal to than the duration passed in
  */
-- (BOOL)isShorterThan:(id<HLReadableDuration>)duration;
+- (BOOL)isShorterThanDuration:(id<HLReadableDuration>)duration;
 
 //-----------------------------------------------------------------------
 /**
@@ -126,14 +121,6 @@
  * @param duration  a readable duration to check against
  * @return true if the length of the duration is equal
  */
-- (BOOL)isEqualToDuration:(id)duration;
-
-/**
- * Gets a hash code for the duration that is compatible with the 
- * equals method.
- *
- * @return a hash code
- */
-- (NSUInteger)hash;
+- (BOOL)isEqualTo:(id)duration;
 
 @end

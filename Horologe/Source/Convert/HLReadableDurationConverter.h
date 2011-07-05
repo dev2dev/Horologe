@@ -98,7 +98,7 @@ class ReadableDurationConverter extends AbstractConverter
      * @throws ClassCastException if the object is an invalid type
      * @throws IllegalArgumentException if the object is invalid
      */
-    public void setInto(ReadWritablePeriod writablePeriod, Object object, Chronology chrono) {
+    - (void)setInto(ReadWritablePeriod writablePeriod, Object object, Chronology chrono) {
         ReadableDuration dur = (id<HLReadableDuration>) object;
         chrono = DateTimeUtils.getChronology(chrono);
 - (NSInteger)duration = dur.getMillis();

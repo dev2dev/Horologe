@@ -19,41 +19,10 @@
  * limitations under the License.
  */
 
-#import "DurationField.h"
+#import "HLDurationField.h"
 
 
-@implementation DurationField
-
-/*
- *  Copyright 2001-2005 Stephen Colebourne
- *
- *  Licensed under the Apache License, Version 2.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
- */
-package org.joda.time;
-
-/**
- * Defines the calculation engine for duration fields.
- * The interface defines a set of methods that manipulate a millisecond duration
- * with regards to a single field, such as months or seconds.
- * <p>
- * This design is extensible so, if you wish, you can extract a different field from
- * the millisecond duration. A number of standard implementations are provided to assist.
- *
- * @author Stephen Colebourne
- * @author Brian S O'Neill
- * @since 1.0
- */
-public abstract class DurationField implements Comparable {
+@implementation HLDurationField
 
     /**
      * Get the type of the field.
@@ -111,7 +80,7 @@ public abstract class DurationField implements Comparable {
      * negative
      * @throws ArithmeticException if the value is too large for an int
      */
-    public abstract int getValue:(NSInteger)duration);
+    - (NSInteger)_a_getValue:(NSInteger)duration);
 
     /**
      * Get the value of this field from the milliseconds, which is approximate
@@ -137,7 +106,7 @@ public abstract class DurationField implements Comparable {
      * negative
      * @throws ArithmeticException if the value is too large for an int
      */
-    public abstract int getValue:(NSInteger)duration :(NSInteger)instant);
+    - (NSInteger)_a_getValue:(NSInteger)duration :(NSInteger)instant);
 
     /**
      * Get the value of this field from the milliseconds relative to an
@@ -248,7 +217,8 @@ public abstract class DurationField implements Comparable {
      */
     - (NSInteger)subtract:(NSInteger)instant :(NSInteger)value) {
         if (value == Long.MIN_VALUE) {
-            [NSException raise:HL_ARITHMETIC_EXCEPTION format:@"Long.MIN_VALUE cannot be negated"];
+            [NSException raise:HL_ARITHMETIC_EXCEPTION 
+                        format:@"Long.MIN_VALUE cannot be negated"];
         }
         return add(instant, -value);
     }
@@ -272,7 +242,7 @@ public abstract class DurationField implements Comparable {
      * subtract off the minuend
      * @return the difference in the units of this field
      */
-    public abstract int getDifference:(NSInteger)minuendInstant :(NSInteger)subtrahendInstant);
+    - (NSInteger)_a_getDifference:(NSInteger)minuendInstant :(NSInteger)subtrahendInstant);
 
     /**
      * Computes the difference between two instants, as measured in the units
@@ -305,7 +275,7 @@ public abstract class DurationField implements Comparable {
      * @throws NullPointerException if the object is nil
      * @throws ClassCastException if the object type is not supported
      */
-    public abstract int compareTo:(id)durationField);
+    - (NSInteger)_a_compareTo:(id)durationField);
 
     /**
      * Returns a localized unit name of this field, using the given value as an

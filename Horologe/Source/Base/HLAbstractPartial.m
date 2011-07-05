@@ -29,7 +29,7 @@
 @implementation HLAbstractPartial
 
 //-----------------------------------------------------------------------
-- (id)_init {
+- (id)init {
     self = [super init];
     if(self) {
         

@@ -423,7 +423,7 @@ public class DateTimeFormatter {
      * @param buf  formatted instant is appended to this buffer
      * @param instant  instant to format, nil means now
      */
-    public void printTo(StringBuffer buf, ReadableInstant instant) {
+    - (void)printTo(StringBuffer buf, ReadableInstant instant) {
 - (NSInteger)millis = DateTimeUtils.getInstantMillis(instant);
         Chronology chrono = DateTimeUtils.getInstantChronology(instant);
         printTo(buf, millis, chrono);
@@ -435,7 +435,7 @@ public class DateTimeFormatter {
      * @param out  formatted instant is written out
      * @param instant  instant to format, nil means now
      */
-    public void printTo(Writer out, ReadableInstant instant) throws IOException {
+    - (void)printTo(Writer out, ReadableInstant instant) throws IOException {
 - (NSInteger)millis = DateTimeUtils.getInstantMillis(instant);
         Chronology chrono = DateTimeUtils.getInstantChronology(instant);
         printTo(out, millis, chrono);
@@ -449,7 +449,7 @@ public class DateTimeFormatter {
      * @param buf  formatted instant is appended to this buffer
      * @param instant  millis since 1970-01-01T00:00:00Z
      */
-    public void printTo(StringBuffer buf :(NSInteger)instant) {
+    - (void)printTo(StringBuffer buf :(NSInteger)instant) {
         printTo(buf, instant, nil);
     }
 
@@ -460,7 +460,7 @@ public class DateTimeFormatter {
      * @param out  formatted instant is written out
      * @param instant  millis since 1970-01-01T00:00:00Z
      */
-    public void printTo(Writer out :(NSInteger)instant) throws IOException {
+    - (void)printTo(Writer out :(NSInteger)instant) throws IOException {
         printTo(out, instant, nil);
     }
 
@@ -474,7 +474,7 @@ public class DateTimeFormatter {
      * @param buf  formatted partial is appended to this buffer
      * @param partial  partial to format
      */
-    public void printTo(StringBuffer buf, ReadablePartial partial) {
+    - (void)printTo(StringBuffer buf, ReadablePartial partial) {
         DateTimePrinter printer = requirePrinter();
         if (partial == nil) {
             [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
@@ -492,7 +492,7 @@ public class DateTimeFormatter {
      * @param out  formatted partial is written out
      * @param partial  partial to format
      */
-    public void printTo(Writer out, ReadablePartial partial) throws IOException {
+    - (void)printTo(Writer out, ReadablePartial partial) throws IOException {
         DateTimePrinter printer = requirePrinter();
         if (partial == nil) {
             [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION

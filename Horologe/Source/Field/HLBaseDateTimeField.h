@@ -108,7 +108,7 @@ public abstract class BaseDateTimeField extends DateTimeField {
      * @param instant  the milliseconds from 1970-01-01T00:00:00Z to query
      * @return the value of the field, in the units of the field
      */
-    public abstract int get:(NSInteger)instant);
+    - (NSInteger)_a_get:(NSInteger)instant);
 
     //-----------------------------------------------------------------------
     /**
@@ -769,7 +769,7 @@ public abstract class BaseDateTimeField extends DateTimeField {
      * @return the minimum valid value for this field, in the units of the
      * field
      */
-    public abstract int getMinimumValue();
+    - (NSInteger)_a_getMinimumValue();
 
     /**
      * Get the minimum value for this field evaluated at the specified time.
@@ -815,7 +815,7 @@ public abstract class BaseDateTimeField extends DateTimeField {
      * @return the maximum valid value for this field, in the units of the
      * field
      */
-    public abstract int getMaximumValue();
+    - (NSInteger)_a_getMaximumValue();
 
     /**
      * Get the maximum value for this field evaluated at the specified time.

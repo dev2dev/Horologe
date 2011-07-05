@@ -19,10 +19,10 @@
  * limitations under the License.
  */
 
-#import "AbstractPeriod.h"
+#import "HLAbstractPeriod.h"
 
 
-@implementation AbstractPeriod
+@implementation HLAbstractPeriod
 
 /*
  *  Copyright 2001-2005 Stephen Colebourne

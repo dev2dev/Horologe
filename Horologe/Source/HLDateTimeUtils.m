@@ -42,7 +42,7 @@ static volatile HLMillisProvider* cMillisProvider = SYSTEM_MILLIS_PROVIDER;
 /**
  * Restrictive constructor
  */
-- (id)_init {
+- (id)init {
     self = [super init];
     if(self) {
         

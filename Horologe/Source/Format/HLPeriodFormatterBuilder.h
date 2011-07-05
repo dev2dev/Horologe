@@ -197,7 +197,7 @@ public class PeriodFormatterBuilder {
     /**
      * Clears out all the appended elements, allowing this builder to be reused.
      */
-    public void clear;
+    - (void)clear;
         iMinPrintedDigits = 1;
         iPrintZeroSetting = PRINT_ZERO_RARELY_LAST;
         iMaxParsedDigits = 10;
@@ -895,11 +895,11 @@ public class PeriodFormatterBuilder {
             return iText.length();
         }
 
-        public void printTo(StringBuffer buf :(NSInteger)value) {
+        - (void)printTo(StringBuffer buf :(NSInteger)value) {
             buf.append(iText);
         }
 
-        public void printTo(Writer out :(NSInteger)value) throws IOException {
+        - (void)printTo(Writer out :(NSInteger)value) throws IOException {
             out.write(iText);
         }
 
@@ -953,11 +953,11 @@ public class PeriodFormatterBuilder {
             return (value == 1 ? iSingularText : iPluralText).length();
         }
 
-        public void printTo(StringBuffer buf :(NSInteger)value) {
+        - (void)printTo(StringBuffer buf :(NSInteger)value) {
             buf.append(value == 1 ? iSingularText : iPluralText);
         }
 
-        public void printTo(Writer out :(NSInteger)value) throws IOException {
+        - (void)printTo(Writer out :(NSInteger)value) throws IOException {
             out.write(value == 1 ? iSingularText : iPluralText);
         }
 
@@ -1029,12 +1029,12 @@ public class PeriodFormatterBuilder {
                 + iRight.calculatePrintedLength(value);
         }
 
-        public void printTo(StringBuffer buf :(NSInteger)value) {
+        - (void)printTo(StringBuffer buf :(NSInteger)value) {
             iLeft.printTo(buf, value);
             iRight.printTo(buf, value);
         }
 
-        public void printTo(Writer out :(NSInteger)value) throws IOException {
+        - (void)printTo(Writer out :(NSInteger)value) throws IOException {
             iLeft.printTo(out, value);
             iRight.printTo(out, value);
         }
@@ -1148,7 +1148,7 @@ public class PeriodFormatterBuilder {
             return sum;
         }
         
-        public void printTo(StringBuffer buf, ReadablePeriod period locale:(NSLocale*)locale {
+        - (void)printTo(StringBuffer buf, ReadablePeriod period locale:(NSLocale*)locale {
 - (NSInteger)valueLong = getFieldValue(period);
             if (valueLong == Long.MAX_VALUE) {
                 return;
@@ -1179,7 +1179,7 @@ public class PeriodFormatterBuilder {
             }
         }
 
-        public void printTo(Writer out, ReadablePeriod period locale:(NSLocale*)locale throws IOException {
+        - (void)printTo(Writer out, ReadablePeriod period locale:(NSLocale*)locale throws IOException {
 - (NSInteger)valueLong = getFieldValue(period);
             if (valueLong == Long.MAX_VALUE) {
                 return;
@@ -1584,11 +1584,11 @@ public class PeriodFormatterBuilder {
             return iText.length();
         }
 
-        public void printTo(StringBuffer buf, ReadablePeriod period locale:(NSLocale*)locale {
+        - (void)printTo(StringBuffer buf, ReadablePeriod period locale:(NSLocale*)locale {
             buf.append(iText);
         }
 
-        public void printTo(Writer out, ReadablePeriod period locale:(NSLocale*)locale throws IOException {
+        - (void)printTo(Writer out, ReadablePeriod period locale:(NSLocale*)locale throws IOException {
             out.write(iText);
         }
 
@@ -1685,7 +1685,7 @@ public class PeriodFormatterBuilder {
             return sum;
         }
 
-        public void printTo(StringBuffer buf, ReadablePeriod period locale:(NSLocale*)locale {
+        - (void)printTo(StringBuffer buf, ReadablePeriod period locale:(NSLocale*)locale {
             PeriodPrinter before = iBeforePrinter;
             PeriodPrinter after = iAfterPrinter;
             
@@ -1707,7 +1707,7 @@ public class PeriodFormatterBuilder {
             after.printTo(buf, period, locale);
         }
 
-        public void printTo(Writer out, ReadablePeriod period locale:(NSLocale*)locale throws IOException {
+        - (void)printTo(Writer out, ReadablePeriod period locale:(NSLocale*)locale throws IOException {
             PeriodPrinter before = iBeforePrinter;
             PeriodPrinter after = iAfterPrinter;
             
@@ -1833,7 +1833,7 @@ public class PeriodFormatterBuilder {
             return sum;
         }
 
-        public void printTo(StringBuffer buf, ReadablePeriod period locale:(NSLocale*)locale {
+        - (void)printTo(StringBuffer buf, ReadablePeriod period locale:(NSLocale*)locale {
             PeriodPrinter[] printers = iPrinters;
             int len = printers.length;
             for(NSInteger i=0; i<len; i++) {
@@ -1841,7 +1841,7 @@ public class PeriodFormatterBuilder {
             }
         }
 
-        public void printTo(Writer out, ReadablePeriod period locale:(NSLocale*)locale throws IOException {
+        - (void)printTo(Writer out, ReadablePeriod period locale:(NSLocale*)locale throws IOException {
             PeriodPrinter[] printers = iPrinters;
             int len = printers.length;
             for(NSInteger i=0; i<len; i++) {

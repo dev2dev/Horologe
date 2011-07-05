@@ -83,7 +83,7 @@ public abstract class ImpreciseDateTimeField extends BaseDateTimeField {
         iDurationField = new LinkedDurationField(type.getDurationType());
     }
 
-    public abstract int get:(NSInteger)instant);
+    - (NSInteger)_a_get:(NSInteger)instant);
 
     public abstract long set:(NSInteger)instant :(NSInteger)value);
 

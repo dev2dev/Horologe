@@ -44,8 +44,8 @@
  * @param endInstant  the start of the time interval
  * @throws IllegalArgumentException if the end is before the start
  */
-- (void)setIntervalStart:(NSInteger)startInstant 
-                     end:(NSInteger)endInstant);
+- (void)setIntervalStartValue:(NSInteger)startInstant 
+                     endValue:(NSInteger)endInstant);
 
 /**
  * Sets this interval to be the same as another.
@@ -89,7 +89,7 @@
  * @param instant  the start of the time interval
  * @throws IllegalArgumentException if the end is before the start
  */
-- (void)setStart:(id<HLReadableInstant>)instant;
+- (void)setStartInstant:(id<HLReadableInstant>)instant;
 
 //-----------------------------------------------------------------------
 /** 
@@ -107,7 +107,7 @@
  * @param instant  the end of the time interval
  * @throws IllegalArgumentException if the end is before the start
  */
-- (void)setEnd:(id<HLReadableInstant>)instant;
+- (void)setEndInstant:(id<HLReadableInstant>)instant;
 
 //-----------------------------------------------------------------------
 /**

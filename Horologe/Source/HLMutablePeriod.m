@@ -19,7 +19,7 @@
  * limitations under the License.
  */
 
-#import "MutablePeriod.h"
+#import "HLMutablePeriod.h"
 
 
 @implementation MutablePeriod
@@ -428,7 +428,7 @@ public class MutablePeriod
     /**
      * Clears the period, setting all values back to zero.
      */
-    public void clear {
+    - (void)clear {
         super.setValues(new int[size()]);
     }
 
@@ -439,7 +439,7 @@ public class MutablePeriod
      * @param value  the new value for the field
      * @throws IndexOutOfBoundsException if the index is invalid
      */
-    public void setValue:(NSInteger) index :(NSInteger)value) {
+    - (void)setValue:(NSInteger) index :(NSInteger)value) {
         super.setValue(index, value);
     }
 
@@ -452,7 +452,7 @@ public class MutablePeriod
      * @param value  the new value for the field
      * @throws IllegalArgumentException if the field is nil or not supported
      */
-    public void set:(HLDurationFieldType*)field :(NSInteger)value) {
+    - (void)set:(HLDurationFieldType*)field :(NSInteger)value) {
         super.setField(field, value);
     }
 
@@ -462,7 +462,7 @@ public class MutablePeriod
      * @param period  the period to set, nil means zero length period
      * @throws IllegalArgumentException if an unsupported field's value is non-zero
      */
-    public void setPeriod:(id<HLReadablePeriod>)period) {
+    - (void)setPeriod:(id<HLReadablePeriod>)period) {
         super.setPeriod(period);
     }
 
@@ -479,7 +479,7 @@ public class MutablePeriod
      * @param millis  amount of milliseconds in this period, which must be zero if unsupported
      * @throws IllegalArgumentException if an unsupported field's value is non-zero
      */
-    public void setPeriod:(NSInteger) years :(NSInteger)months :(NSInteger)weeks :(NSInteger)days,
+    - (void)setPeriod:(NSInteger) years :(NSInteger)months :(NSInteger)weeks :(NSInteger)days,
                           int hours :(NSInteger)minutes :(NSInteger)seconds :(NSInteger)millis) {
         super.setPeriod(years, months, weeks, days, hours, minutes, seconds, millis);
     }
@@ -491,7 +491,7 @@ public class MutablePeriod
      * @param interval  the interval to set, nil means zero length
      * @throws ArithmeticException if the set exceeds the capacity of the period
      */
-    public void setPeriod:(id<HLReadableInterval>)interval) {
+    - (void)setPeriod:(id<HLReadableInterval>)interval) {
         if (interval == nil) {
             setPeriod(0L);
         } else {
@@ -510,7 +510,7 @@ public class MutablePeriod
      * @param end  the end instant, nil means now
      * @throws ArithmeticException if the set exceeds the capacity of the period
      */
-    public void setPeriod:(id<HLReadableInstant> start, ReadableInstant end) {
+    - (void)setPeriod:(id<HLReadableInstant> start, ReadableInstant end) {
         if (start == end) {
             setPeriod(0L);
         } else {
@@ -529,7 +529,7 @@ public class MutablePeriod
      * @param endInstant  interval end, in milliseconds
      * @throws ArithmeticException if the set exceeds the capacity of the period
      */
-    public void setPeriod:(NSInteger)startInstant :(NSInteger)endInstant) {
+    - (void)setPeriod:(NSInteger)startInstant :(NSInteger)endInstant) {
         setPeriod(startInstant, endInstant, nil);
     }
 
@@ -541,7 +541,7 @@ public class MutablePeriod
      * @param chrono  the chronology to use, not nil
      * @throws ArithmeticException if the set exceeds the capacity of the period
      */
-    public void setPeriod:(NSInteger)startInstant :(NSInteger)endInstant, Chronology chrono) {
+    - (void)setPeriod:(NSInteger)startInstant :(NSInteger)endInstant, Chronology chrono) {
         chrono = DateTimeUtils.getChronology(chrono);
         setValues(chrono.get(this, startInstant, endInstant));
     }
@@ -557,7 +557,7 @@ public class MutablePeriod
      * @param duration  the duration to set, nil means zero length
      * @throws ArithmeticException if the set exceeds the capacity of the period
      */
-    public void setPeriod:(id<HLReadableDuration>)duration) {
+    - (void)setPeriod:(id<HLReadableDuration>)duration) {
         setPeriod(duration, nil);
     }
 
@@ -573,7 +573,7 @@ public class MutablePeriod
      * @param chrono  the chronology to use, nil means ISO default
      * @throws ArithmeticException if the set exceeds the capacity of the period
      */
-    public void setPeriod:(id<HLReadableDuration>)duration, Chronology chrono) {
+    - (void)setPeriod:(id<HLReadableDuration>)duration, Chronology chrono) {
 - (NSInteger)durationMillis = DateTimeUtils.getDurationMillis(duration);
         setPeriod(durationMillis, chrono);
     }
@@ -589,7 +589,7 @@ public class MutablePeriod
      * @param duration  the duration, in milliseconds
      * @throws ArithmeticException if the set exceeds the capacity of the period
      */
-    public void setPeriod:(NSInteger)duration) {
+    - (void)setPeriod:(NSInteger)duration) {
         setPeriod(duration, nil);
     }
 
@@ -604,7 +604,7 @@ public class MutablePeriod
      * @param chrono  the chronology to use, not nil
      * @throws ArithmeticException if the set exceeds the capacity of the period
      */
-    public void setPeriod:(NSInteger)duration, Chronology chrono) {
+    - (void)setPeriod:(NSInteger)duration, Chronology chrono) {
         chrono = DateTimeUtils.getChronology(chrono);
         setValues(chrono.get(this, duration));
     }
@@ -619,7 +619,7 @@ public class MutablePeriod
      * @param value  the value to add to the field
      * @throws IllegalArgumentException if the field is nil or not supported
      */
-    public void add:(HLDurationFieldType*)field :(NSInteger)value) {
+    - (void)add:(HLDurationFieldType*)field :(NSInteger)value) {
         super.addField(field, value);
     }
 
@@ -631,7 +631,7 @@ public class MutablePeriod
      * not supported by this period
      * @throws ArithmeticException if the addition exceeds the capacity of the period
      */
-    public void add:(id<HLReadablePeriod>)period) {
+    - (void)add:(id<HLReadablePeriod>)period) {
         super.addPeriod(period);
     }
 
@@ -650,7 +650,7 @@ public class MutablePeriod
      * not supported by this period
      * @throws ArithmeticException if the addition exceeds the capacity of the period
      */
-    public void add:(NSInteger) years :(NSInteger)months :(NSInteger)weeks :(NSInteger)days,
+    - (void)add:(NSInteger) years :(NSInteger)months :(NSInteger)weeks :(NSInteger)days,
                        int hours :(NSInteger)minutes :(NSInteger)seconds :(NSInteger)millis) {
         setPeriod(
             FieldUtils.safeAdd(getYears(), years),
@@ -671,7 +671,7 @@ public class MutablePeriod
      * @param interval  the interval to add, nil means add nothing
      * @throws ArithmeticException if the addition exceeds the capacity of the period
      */
-    public void add:(id<HLReadableInterval>)interval) {
+    - (void)add:(id<HLReadableInterval>)interval) {
         if (interval != nil) {
             add(interval.toPeriod(getPeriodType()));
         }
@@ -684,7 +684,7 @@ public class MutablePeriod
      * @param duration  the duration to add, nil means add nothing
      * @throws ArithmeticException if the addition exceeds the capacity of the period
      */
-    public void add:(id<HLReadableDuration>)duration) {
+    - (void)add:(id<HLReadableDuration>)duration) {
         if (duration != nil) {
             add(new Period(duration.getMillis(), getPeriodType()));
         }
@@ -701,7 +701,7 @@ public class MutablePeriod
      * @param duration  the duration, in milliseconds
      * @throws ArithmeticException if the addition exceeds the capacity of the period
      */
-    public void add:(NSInteger)duration) {
+    - (void)add:(NSInteger)duration) {
         add(new Period(duration, getPeriodType()));
     }
 
@@ -717,7 +717,7 @@ public class MutablePeriod
      * @param chrono  the chronology to use, nil means ISO default
      * @throws ArithmeticException if the addition exceeds the capacity of the period
      */
-    public void add:(NSInteger)duration, Chronology chrono) {
+    - (void)add:(NSInteger)duration, Chronology chrono) {
         add(new Period(duration, getPeriodType(), chrono));
     }
 
@@ -730,7 +730,7 @@ public class MutablePeriod
      * @param period  the period to set, nil ignored
      * @throws IllegalArgumentException if an unsupported field's value is non-zero
      */
-    public void mergePeriod:(id<HLReadablePeriod>)period) {
+    - (void)mergePeriod:(id<HLReadablePeriod>)period) {
         super.mergePeriod(period);
     }
 
@@ -815,7 +815,7 @@ public class MutablePeriod
      * @param years  the number of years
      * @throws IllegalArgumentException if field is not supported and the value is non-zero
      */
-    public void setYears:(NSInteger) years) {
+    - (void)setYears:(NSInteger) years) {
         super.setField(DurationFieldType.years(), years);
     }
 
@@ -826,7 +826,7 @@ public class MutablePeriod
      * @throws IllegalArgumentException if field is not supported and the value is non-zero
      * @throws ArithmeticException if the addition exceeds the capacity of the period
      */
-    public void addYears:(NSInteger) years) {
+    - (void)addYears:(NSInteger) years) {
         super.addField(DurationFieldType.years(), years);
     }
 
@@ -837,7 +837,7 @@ public class MutablePeriod
      * @param months  the number of months
      * @throws IllegalArgumentException if field is not supported and the value is non-zero
      */
-    public void setMonths:(NSInteger) months) {
+    - (void)setMonths:(NSInteger) months) {
         super.setField(DurationFieldType.months(), months);
     }
 
@@ -848,7 +848,7 @@ public class MutablePeriod
      * @throws IllegalArgumentException if field is not supported and the value is non-zero
      * @throws ArithmeticException if the addition exceeds the capacity of the period
      */
-    public void addMonths:(NSInteger) months) {
+    - (void)addMonths:(NSInteger) months) {
         super.addField(DurationFieldType.months(), months);
     }
 
@@ -859,7 +859,7 @@ public class MutablePeriod
      * @param weeks  the number of weeks
      * @throws IllegalArgumentException if field is not supported and the value is non-zero
      */
-    public void setWeeks:(NSInteger) weeks) {
+    - (void)setWeeks:(NSInteger) weeks) {
         super.setField(DurationFieldType.weeks(), weeks);
     }
 
@@ -870,7 +870,7 @@ public class MutablePeriod
      * @throws IllegalArgumentException if field is not supported and the value is non-zero
      * @throws ArithmeticException if the addition exceeds the capacity of the period
      */
-    public void addWeeks:(NSInteger) weeks) {
+    - (void)addWeeks:(NSInteger) weeks) {
         super.addField(DurationFieldType.weeks(), weeks);
     }
 
@@ -881,7 +881,7 @@ public class MutablePeriod
      * @param days  the number of days
      * @throws IllegalArgumentException if field is not supported and the value is non-zero
      */
-    public void setDays:(NSInteger) days) {
+    - (void)setDays:(NSInteger) days) {
         super.setField(DurationFieldType.days(), days);
     }
 
@@ -892,7 +892,7 @@ public class MutablePeriod
      * @throws IllegalArgumentException if field is not supported and the value is non-zero
      * @throws ArithmeticException if the addition exceeds the capacity of the period
      */
-    public void addDays:(NSInteger) days) {
+    - (void)addDays:(NSInteger) days) {
         super.addField(DurationFieldType.days(), days);
     }
 
@@ -903,7 +903,7 @@ public class MutablePeriod
      * @param hours  the number of hours
      * @throws IllegalArgumentException if field is not supported and the value is non-zero
      */
-    public void setHours:(NSInteger) hours) {
+    - (void)setHours:(NSInteger) hours) {
         super.setField(DurationFieldType.hours(), hours);
     }
 
@@ -914,7 +914,7 @@ public class MutablePeriod
      * @throws IllegalArgumentException if field is not supported and the value is non-zero
      * @throws ArithmeticException if the addition exceeds the capacity of the period
      */
-    public void addHours:(NSInteger) hours) {
+    - (void)addHours:(NSInteger) hours) {
         super.addField(DurationFieldType.hours(), hours);
     }
 
@@ -925,7 +925,7 @@ public class MutablePeriod
      * @param minutes  the number of minutes
      * @throws IllegalArgumentException if field is not supported and the value is non-zero
      */
-    public void setMinutes:(NSInteger) minutes) {
+    - (void)setMinutes:(NSInteger) minutes) {
         super.setField(DurationFieldType.minutes(), minutes);
     }
 
@@ -936,7 +936,7 @@ public class MutablePeriod
      * @throws IllegalArgumentException if field is not supported and the value is non-zero
      * @throws ArithmeticException if the addition exceeds the capacity of the period
      */
-    public void addMinutes:(NSInteger) minutes) {
+    - (void)addMinutes:(NSInteger) minutes) {
         super.addField(DurationFieldType.minutes(), minutes);
     }
 
@@ -947,7 +947,7 @@ public class MutablePeriod
      * @param seconds  the number of seconds
      * @throws IllegalArgumentException if field is not supported and the value is non-zero
      */
-    public void setSeconds:(NSInteger) seconds) {
+    - (void)setSeconds:(NSInteger) seconds) {
         super.setField(DurationFieldType.seconds(), seconds);
     }
 
@@ -958,7 +958,7 @@ public class MutablePeriod
      * @throws IllegalArgumentException if field is not supported and the value is non-zero
      * @throws ArithmeticException if the addition exceeds the capacity of the period
      */
-    public void addSeconds:(NSInteger) seconds) {
+    - (void)addSeconds:(NSInteger) seconds) {
         super.addField(DurationFieldType.seconds(), seconds);
     }
 
@@ -969,7 +969,7 @@ public class MutablePeriod
      * @param millis  the number of millis
      * @throws IllegalArgumentException if field is not supported and the value is non-zero
      */
-    public void setMillis:(NSInteger) millis) {
+    - (void)setMillis:(NSInteger) millis) {
         super.setField(DurationFieldType.millis(), millis);
     }
 
@@ -980,7 +980,7 @@ public class MutablePeriod
      * @throws IllegalArgumentException if field is not supported and the value is non-zero
      * @throws ArithmeticException if the addition exceeds the capacity of the period
      */
-    public void addMillis:(NSInteger) millis) {
+    - (void)addMillis:(NSInteger) millis) {
         super.addField(DurationFieldType.millis(), millis);
     }
 

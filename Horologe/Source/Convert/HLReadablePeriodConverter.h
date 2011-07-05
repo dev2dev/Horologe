@@ -84,7 +84,7 @@ class ReadablePeriodConverter extends AbstractConverter
      * @throws ClassCastException if the object is an invalid type
      * @throws IllegalArgumentException if the object is invalid
      */
-    public void setInto(ReadWritablePeriod duration, Object object, Chronology chrono) {
+    - (void)setInto(ReadWritablePeriod duration, Object object, Chronology chrono) {
         duration.setPeriod((ReadablePeriod) object);
     }
 

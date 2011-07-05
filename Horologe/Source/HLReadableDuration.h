@@ -100,7 +100,7 @@
  * @param duration  another duration to compare to, nil means zero milliseconds
  * @return true if this duration is equal to than the duration passed in
  */
-- (BOOL)isEqual:(id<HLReadableDuration>)duration;
+- (BOOL)isEqualToDuration:(id<HLReadableDuration>)duration;
 
 /**
  * Is the length of this duration longer than the duration passed in.
@@ -108,7 +108,7 @@
  * @param duration  another duration to compare to, nil means zero milliseconds
  * @return true if this duration is equal to than the duration passed in
  */
-- (BOOL)isLongerThan:(id<HLReadableDuration>)duration;
+- (BOOL)isLongerThanDuration:(id<HLReadableDuration>)duration;
 
 /**
  * Is the length of this duration shorter than the duration passed in.
@@ -116,7 +116,7 @@
  * @param duration  another duration to compare to, nil means zero milliseconds
  * @return true if this duration is equal to than the duration passed in
  */
-- (BOOL)isShorterThan:(id<HLReadableDuration>)duration;
+- (BOOL)isShorterThanDuration:(id<HLReadableDuration>)duration;
 
 //-----------------------------------------------------------------------
 /**
@@ -126,7 +126,7 @@
  * @param readableDuration  a readable duration to check against
  * @return true if the length of the duration is equal
  */
-- (BOOL)isEqualToDuration:(id)readableDuration;
+- (BOOL)isEqualTo:(id)readableDuration;
 
 /**
  * Gets a hash code for the duration that is compatable with the 

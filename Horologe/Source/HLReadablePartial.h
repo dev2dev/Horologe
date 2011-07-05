@@ -27,7 +27,7 @@
 @class HLChronology;
 @class HLDateTime;
 @protocol HLReadablePartial;
-
+@protocol HLReadableInstant;
 
 /**
  * Defines a partial time that does not support every datetime field, and is
@@ -61,7 +61,7 @@
  * @return the field at the specified index
  * @throws IndexOutOfBoundsException if the index is invalid
  */
-- (HLDateTimeFieldType*)fieldType:(NSInteger)index;
+- (HLDateTimeFieldType*)fieldTypeAtIndex:(NSInteger)index;
 
 /**
  * Gets the field at the specified index.
@@ -70,7 +70,7 @@
  * @return the field at the specified index
  * @throws IndexOutOfBoundsException if the index is invalid
  */
-- (HLDateTimeField*)field:(NSInteger)index;
+- (HLDateTimeField*)fieldAtIndex:(NSInteger)index;
 
 /**
  * Gets the value at the specified index.
@@ -79,7 +79,7 @@
  * @return the value of the field at the specified index
  * @throws IndexOutOfBoundsException if the index is invalid
  */
-- (NSInteger)value:(NSInteger)index;
+- (NSInteger)valueAtIndex:(NSInteger)index;
 
 /**
  * Gets the chronology of the partial which is never nil.
@@ -100,7 +100,7 @@
  * @return the value of that field
  * @throws IllegalArgumentException if the field is nil or not supported
  */
-- (NSInteger)get:(HLDateTimeFieldType*)field;
+- (NSInteger)valueOfFieldType:(HLDateTimeFieldType*)field;
 
 /**
  * Checks whether the field type specified is supported by this partial.
@@ -137,7 +137,7 @@
  * @param partial  the object to compare to
  * @return true if equal
  */
-- (BOOL)isEqualToPartial:(id)partial;
+- (BOOL)isEqualTo:(id)partial;
 
 /**
  * Gets a hash code for the partial that is compatible with the 

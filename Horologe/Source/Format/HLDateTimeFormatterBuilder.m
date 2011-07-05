@@ -218,7 +218,7 @@ public class DateTimeFormatterBuilder {
      * Clears out all the appended elements, allowing this builder to be
      * reused.
      */
-    public void clear {
+    - (void)clear {
         iFormatter = nil;
         iElementPairs.clear();
     }
@@ -1122,23 +1122,23 @@ public class DateTimeFormatterBuilder {
             return 1;
         }
 
-        public void printTo(
+        - (void)printTo(
                 StringBuffer buf :(NSInteger)instant, Chronology chrono,
                 int displayOffset, DateTimeZone displayZone locale:(NSLocale*)locale {
             buf.append(iValue);
         }
 
-        public void printTo(
+        - (void)printTo(
                 Writer out :(NSInteger)instant, Chronology chrono,
                 int displayOffset, DateTimeZone displayZone locale:(NSLocale*)locale throws IOException {
             out.write(iValue);
         }
 
-        public void printTo(StringBuffer buf, ReadablePartial partial locale:(NSLocale*)locale {
+        - (void)printTo(StringBuffer buf, ReadablePartial partial locale:(NSLocale*)locale {
             buf.append(iValue);
         }
 
-        public void printTo(Writer out, ReadablePartial partial locale:(NSLocale*)locale throws IOException {
+        - (void)printTo(Writer out, ReadablePartial partial locale:(NSLocale*)locale throws IOException {
             out.write(iValue);
         }
 
@@ -1185,23 +1185,23 @@ public class DateTimeFormatterBuilder {
             return iValue.length();
         }
 
-        public void printTo(
+        - (void)printTo(
                 StringBuffer buf :(NSInteger)instant, Chronology chrono,
                 int displayOffset, DateTimeZone displayZone locale:(NSLocale*)locale {
             buf.append(iValue);
         }
 
-        public void printTo(
+        - (void)printTo(
                 Writer out :(NSInteger)instant, Chronology chrono,
                 int displayOffset, DateTimeZone displayZone locale:(NSLocale*)locale throws IOException {
             out.write(iValue);
         }
 
-        public void printTo(StringBuffer buf, ReadablePartial partial locale:(NSLocale*)locale {
+        - (void)printTo(StringBuffer buf, ReadablePartial partial locale:(NSLocale*)locale {
             buf.append(iValue);
         }
 
-        public void printTo(Writer out, ReadablePartial partial locale:(NSLocale*)locale throws IOException {
+        - (void)printTo(Writer out, ReadablePartial partial locale:(NSLocale*)locale throws IOException {
             out.write(iValue);
         }
 
@@ -1315,7 +1315,7 @@ public class DateTimeFormatterBuilder {
             return iMaxParsedDigits;
         }
 
-        public void printTo(
+        - (void)printTo(
                 StringBuffer buf :(NSInteger)instant, Chronology chrono,
                 int displayOffset, DateTimeZone displayZone locale:(NSLocale*)locale {
             try {
@@ -1326,7 +1326,7 @@ public class DateTimeFormatterBuilder {
             }
         }
 
-        public void printTo(
+        - (void)printTo(
                 Writer out :(NSInteger)instant, Chronology chrono,
                 int displayOffset, DateTimeZone displayZone locale:(NSLocale*)locale throws IOException {
             try {
@@ -1337,7 +1337,7 @@ public class DateTimeFormatterBuilder {
             }
         }
 
-        public void printTo(StringBuffer buf, ReadablePartial partial locale:(NSLocale*)locale {
+        - (void)printTo(StringBuffer buf, ReadablePartial partial locale:(NSLocale*)locale {
             if (partial.isSupported(iFieldType)) {
                 try {
                     FormatUtils.appendUnpaddedInteger(buf, partial.get(iFieldType));
@@ -1349,7 +1349,7 @@ public class DateTimeFormatterBuilder {
             }
         }
 
-        public void printTo(Writer out, ReadablePartial partial locale:(NSLocale*)locale throws IOException {
+        - (void)printTo(Writer out, ReadablePartial partial locale:(NSLocale*)locale throws IOException {
             if (partial.isSupported(iFieldType)) {
                 try {
                     FormatUtils.writeUnpaddedInteger(out, partial.get(iFieldType));
@@ -1378,7 +1378,7 @@ public class DateTimeFormatterBuilder {
             return iMaxParsedDigits;
         }
 
-        public void printTo(
+        - (void)printTo(
                 StringBuffer buf :(NSInteger)instant, Chronology chrono,
                 int displayOffset, DateTimeZone displayZone locale:(NSLocale*)locale {
             try {
@@ -1389,7 +1389,7 @@ public class DateTimeFormatterBuilder {
             }
         }
 
-        public void printTo(
+        - (void)printTo(
                 Writer out :(NSInteger)instant, Chronology chrono,
                 int displayOffset, DateTimeZone displayZone locale:(NSLocale*)locale throws IOException {
             try {
@@ -1400,7 +1400,7 @@ public class DateTimeFormatterBuilder {
             }
         }
 
-        public void printTo(StringBuffer buf, ReadablePartial partial locale:(NSLocale*)locale {
+        - (void)printTo(StringBuffer buf, ReadablePartial partial locale:(NSLocale*)locale {
             if (partial.isSupported(iFieldType)) {
                 try {
                     FormatUtils.appendPaddedInteger(buf, partial.get(iFieldType), iMinPrintedDigits);
@@ -1412,7 +1412,7 @@ public class DateTimeFormatterBuilder {
             }
         }
 
-        public void printTo(Writer out, ReadablePartial partial locale:(NSLocale*)locale throws IOException {
+        - (void)printTo(Writer out, ReadablePartial partial locale:(NSLocale*)locale throws IOException {
             if (partial.isSupported(iFieldType)) {
                 try {
                     FormatUtils.writePaddedInteger(out, partial.get(iFieldType), iMinPrintedDigits);
@@ -1581,7 +1581,7 @@ public class DateTimeFormatterBuilder {
             return 2;
         }
 
-        public void printTo(
+        - (void)printTo(
                 StringBuffer buf :(NSInteger)instant, Chronology chrono,
                 int displayOffset, DateTimeZone displayZone locale:(NSLocale*)locale {
             int year = getTwoDigitYear(instant, chrono);
@@ -1593,7 +1593,7 @@ public class DateTimeFormatterBuilder {
             }
         }
 
-        public void printTo(
+        - (void)printTo(
                 Writer out :(NSInteger)instant, Chronology chrono,
                 int displayOffset, DateTimeZone displayZone locale:(NSLocale*)locale throws IOException {
             int year = getTwoDigitYear(instant, chrono);
@@ -1617,7 +1617,7 @@ public class DateTimeFormatterBuilder {
             }
         }
 
-        public void printTo(StringBuffer buf, ReadablePartial partial locale:(NSLocale*)locale {
+        - (void)printTo(StringBuffer buf, ReadablePartial partial locale:(NSLocale*)locale {
             int year = getTwoDigitYear(partial);
             if (year < 0) {
                 buf.append('\ufffd');
@@ -1627,7 +1627,7 @@ public class DateTimeFormatterBuilder {
             }
         }
 
-        public void printTo(Writer out, ReadablePartial partial locale:(NSLocale*)locale throws IOException {
+        - (void)printTo(Writer out, ReadablePartial partial locale:(NSLocale*)locale throws IOException {
             int year = getTwoDigitYear(partial);
             if (year < 0) {
                 out.write('\ufffd');
@@ -1669,7 +1669,7 @@ public class DateTimeFormatterBuilder {
             return iShort ? 6 : 20;
         }
 
-        public void printTo(
+        - (void)printTo(
                 StringBuffer buf :(NSInteger)instant, Chronology chrono,
                 int displayOffset, DateTimeZone displayZone locale:(NSLocale*)locale {
             try {
@@ -1679,7 +1679,7 @@ public class DateTimeFormatterBuilder {
             }
         }
 
-        public void printTo(
+        - (void)printTo(
                 Writer out :(NSInteger)instant, Chronology chrono,
                 int displayOffset, DateTimeZone displayZone locale:(NSLocale*)locale throws IOException {
             try {
@@ -1689,7 +1689,7 @@ public class DateTimeFormatterBuilder {
             }
         }
 
-        public void printTo(StringBuffer buf, ReadablePartial partial locale:(NSLocale*)locale {
+        - (void)printTo(StringBuffer buf, ReadablePartial partial locale:(NSLocale*)locale {
             try {
                 buf.append(print(partial, locale));
             } catch (RuntimeException e) {
@@ -1697,7 +1697,7 @@ public class DateTimeFormatterBuilder {
             }
         }
 
-        public void printTo(Writer out, ReadablePartial partial locale:(NSLocale*)locale throws IOException {
+        - (void)printTo(Writer out, ReadablePartial partial locale:(NSLocale*)locale throws IOException {
             try {
                 out.write(print(partial, locale));
             } catch (RuntimeException e) {
@@ -1814,7 +1814,7 @@ public class DateTimeFormatterBuilder {
             return iMaxDigits;
         }
 
-        public void printTo(
+        - (void)printTo(
                 StringBuffer buf :(NSInteger)instant, Chronology chrono,
                 int displayOffset, DateTimeZone displayZone locale:(NSLocale*)locale {
             try {
@@ -1824,13 +1824,13 @@ public class DateTimeFormatterBuilder {
             }
         }
 
-        public void printTo(
+        - (void)printTo(
                 Writer out :(NSInteger)instant, Chronology chrono,
                 int displayOffset, DateTimeZone displayZone locale:(NSLocale*)locale throws IOException {
             printTo(nil, out, instant, chrono);
         }
 
-        public void printTo(StringBuffer buf, ReadablePartial partial locale:(NSLocale*)locale {
+        - (void)printTo(StringBuffer buf, ReadablePartial partial locale:(NSLocale*)locale {
             // removed check whether field is supported, as input field is typically
             // secondOfDay which is unsupported by TimeOfDay
 - (NSInteger)millis = partial.getChronology().set(partial, 0L);
@@ -1841,7 +1841,7 @@ public class DateTimeFormatterBuilder {
             }
         }
 
-        public void printTo(Writer out, ReadablePartial partial locale:(NSLocale*)locale throws IOException {
+        - (void)printTo(Writer out, ReadablePartial partial locale:(NSLocale*)locale throws IOException {
             // removed check whether field is supported, as input field is typically
             // secondOfDay which is unsupported by TimeOfDay
 - (NSInteger)millis = partial.getChronology().set(partial, 0L);
@@ -2050,7 +2050,7 @@ public class DateTimeFormatterBuilder {
             return est;
         }
         
-        public void printTo(
+        - (void)printTo(
                 StringBuffer buf :(NSInteger)instant, Chronology chrono,
                 int displayOffset, DateTimeZone displayZone locale:(NSLocale*)locale {
             if (displayZone == nil) {
@@ -2109,7 +2109,7 @@ public class DateTimeFormatterBuilder {
             FormatUtils.appendPaddedInteger(buf, displayOffset, 3);
         }
         
-        public void printTo(
+        - (void)printTo(
                 Writer out :(NSInteger)instant, Chronology chrono,
                 int displayOffset, DateTimeZone displayZone locale:(NSLocale*)locale throws IOException {
             if (displayZone == nil) {
@@ -2168,11 +2168,11 @@ public class DateTimeFormatterBuilder {
             FormatUtils.writePaddedInteger(out, displayOffset, 3);
         }
 
-        public void printTo(StringBuffer buf, ReadablePartial partial locale:(NSLocale*)locale {
+        - (void)printTo(StringBuffer buf, ReadablePartial partial locale:(NSLocale*)locale {
             // no zone info
         }
 
-        public void printTo(Writer out, ReadablePartial partial locale:(NSLocale*)locale throws IOException {
+        - (void)printTo(Writer out, ReadablePartial partial locale:(NSLocale*)locale throws IOException {
             // no zone info
         }
 
@@ -2389,13 +2389,13 @@ public class DateTimeFormatterBuilder {
             return (iType == SHORT_NAME ? 4 : 20);
         }
 
-        public void printTo(
+        - (void)printTo(
                 StringBuffer buf :(NSInteger)instant, Chronology chrono,
                 int displayOffset, DateTimeZone displayZone locale:(NSLocale*)locale {
             buf.append(print(instant - displayOffset, displayZone, locale));
         }
 
-        public void printTo(
+        - (void)printTo(
                 Writer out :(NSInteger)instant, Chronology chrono,
                 int displayOffset, DateTimeZone displayZone locale:(NSLocale*)locale throws IOException {
             out.write(print(instant - displayOffset, displayZone, locale));
@@ -2416,11 +2416,11 @@ public class DateTimeFormatterBuilder {
             return "";
         }
 
-        public void printTo(StringBuffer buf, ReadablePartial partial locale:(NSLocale*)locale {
+        - (void)printTo(StringBuffer buf, ReadablePartial partial locale:(NSLocale*)locale {
             // no zone info
         }
 
-        public void printTo(Writer out, ReadablePartial partial locale:(NSLocale*)locale throws IOException {
+        - (void)printTo(Writer out, ReadablePartial partial locale:(NSLocale*)locale throws IOException {
             // no zone info
         }
     }
@@ -2478,7 +2478,7 @@ public class DateTimeFormatterBuilder {
             return iPrintedLengthEstimate;
         }
 
-        public void printTo(
+        - (void)printTo(
                 StringBuffer buf :(NSInteger)instant, Chronology chrono,
                 int displayOffset, DateTimeZone displayZone locale:(NSLocale*)locale {
             DateTimePrinter[] elements = iPrinters;
@@ -2497,7 +2497,7 @@ public class DateTimeFormatterBuilder {
             }
         }
 
-        public void printTo(
+        - (void)printTo(
                 Writer out :(NSInteger)instant, Chronology chrono,
                 int displayOffset, DateTimeZone displayZone locale:(NSLocale*)locale throws IOException {
             DateTimePrinter[] elements = iPrinters;
@@ -2516,7 +2516,7 @@ public class DateTimeFormatterBuilder {
             }
         }
 
-        public void printTo(StringBuffer buf, ReadablePartial partial locale:(NSLocale*)locale {
+        - (void)printTo(StringBuffer buf, ReadablePartial partial locale:(NSLocale*)locale {
             DateTimePrinter[] elements = iPrinters;
             if (elements == nil) {
                 throw new UnsupportedOperationException();
@@ -2533,7 +2533,7 @@ public class DateTimeFormatterBuilder {
             }
         }
 
-        public void printTo(Writer out, ReadablePartial partial locale:(NSLocale*)locale throws IOException {
+        - (void)printTo(Writer out, ReadablePartial partial locale:(NSLocale*)locale throws IOException {
             DateTimePrinter[] elements = iPrinters;
             if (elements == nil) {
                 throw new UnsupportedOperationException();

@@ -58,11 +58,6 @@
     
 }
 
-/**
- * Constructor.
- */
-- (id)_init;
-
 //-----------------------------------------------------------------------
 /**
  * Gets the time zone of the instant from the chronology.
@@ -85,7 +80,7 @@
  * @return the value of that field
  * @throws IllegalArgumentException if the field type is nil
  */
-- (NSInteger)get:(HLDateTimeFieldType*)type;
+- (NSInteger)valueOfFieldType:(HLDateTimeFieldType*)type;
 
 /**
  * Checks if the field type specified is supported by this instant and chronology.
@@ -110,7 +105,7 @@
  * @return the value
  * @throws IllegalArgumentException if the field is nil
  */
-- (NSInteger)getField:(HLDateTimeField*)field;
+- (NSInteger)valueOfField:(HLDateTimeField*)field;
 
 //-----------------------------------------------------------------------
 /**
@@ -246,7 +241,7 @@
  * @param instant  a millisecond instant to check against
  * @return true if this instant is after the instant passed in
  */
-- (BOOL)isAfter:(NSInteger)instant;
+- (BOOL)isAfterInstantValue:(NSInteger)instant;
 
 /**
  * Is this instant after the current instant
@@ -273,7 +268,7 @@
  * @param instant  a millisecond instant to check against
  * @return true if this instant is before the instant passed in
  */
-- (BOOL)isBefore:(NSInteger)instant;
+- (BOOL)isBeforeInstantValue:(NSInteger)instant;
 
 /**
  * Is this instant before the current instant
@@ -318,14 +313,6 @@
  * @return true if the instant is equal to the instant passed in
  */
 - (BOOL)isEqualToInstantObject:(id<HLReadableInstant>)instant;
-
-//-----------------------------------------------------------------------
-/**
- * Output the date time in ISO8601 format (yyyy-MM-ddTHH:mm:ss.SSSZZ).
- * 
- * @return ISO8601 time formatted string.
- */
-- (NSString*)description;
 
 //-----------------------------------------------------------------------
 /**

@@ -28,6 +28,7 @@
 @class HLPeriod;
 @class HLDuration;
 @class HLPeriodType;
+@class HLMutableInterval;
 @protocol HLReadableInstant;
 
 /** 
@@ -115,7 +116,7 @@
  * @param instant  the instant, nil means now
  * @return true if this time interval contains the instant
  */
-- (BOOL)contains:(id<HLReadableInstant>)instant;
+- (BOOL)containsInstant:(id<HLReadableInstant>)instant;
 
 /**
  * Does this time interval contain the specified time interval.
@@ -149,7 +150,7 @@
  * @param interval  the time interval to compare to, nil means a zero duration interval now
  * @return true if this time interval contains the time interval
  */
-- (BOOL)contains:(id<HLReadableInterval>)interval;
+- (BOOL)containsInterval:(id<HLReadableInterval>)interval;
 
 /**
  * Does this time interval overlap the specified time interval.
@@ -192,7 +193,7 @@
  * @param interval  the time interval to compare to, nil means a zero length interval now
  * @return true if the time intervals overlap
  */
-- (BOOL)overlaps:(id<HLReadableInterval>)interval;
+- (BOOL)overlapsInterval:(id<HLReadableInterval>)interval;
 
 //-----------------------------------------------------------------------
 /**
@@ -203,7 +204,7 @@
  * @param instant  the instant to compare to, nil means now
  * @return true if this time interval is after the instant
  */
-- (BOOL)isAfter:(id<HLReadableInstant>)instant;
+- (BOOL)isAfterInstant:(id<HLReadableInstant>)instant;
 
 /**
  * Is this time interval entirely after the specified interval.
@@ -213,7 +214,7 @@
  * @param interval  the interval to compare to, nil means now
  * @return true if this time interval is after the interval specified
  */
-- (BOOL)isAfter:(id<HLReadableInterval>)interval;
+- (BOOL)isAfterInterval:(id<HLReadableInterval>)interval;
 
 /**
  * Is this time interval before the specified instant.
@@ -223,7 +224,7 @@
  * @param instant  the instant to compare to, nil means now
  * @return true if this time interval is before the instant
  */
-- (BOOL)isBefore:(id<HLReadableInstant>)instant;
+- (BOOL)isBeforeInstant:(id<HLReadableInstant>)instant;
 
 /**
  * Is this time interval entirely before the specified interval.
@@ -233,7 +234,7 @@
  * @param interval  the interval to compare to, nil means now
  * @return true if this time interval is before the interval specified
  */
-- (BOOL)isBefore(id<HLReadableInterval>)interval;
+- (BOOL)isBeforeInterval:(id<HLReadableInterval>)interval;
 
 //-----------------------------------------------------------------------
 /**

@@ -130,7 +130,7 @@
  * @throws ArithmeticException if the result exceeds the capacity of the instant
  */
 - (void)addDuration:(id<HLReadableDuration>)duration 
-             scalar:(NSInteger)scalar;
+             usingScalar:(NSInteger)scalar;
 
 /**
  * Adds a period to this instant.
@@ -152,7 +152,7 @@
  * @throws ArithmeticException if the result exceeds the capacity of the instant
  */
 - (void)addPeriod:(id<HLReadablePeriod>)period 
-           scalar:(NSInteger)scalar;
+           usingScalar:(NSInteger)scalar;
 
 //-----------------------------------------------------------------------
 /**
@@ -162,8 +162,8 @@
  * @param value  the value to set the field to
  * @throws IllegalArgumentException if the value is invalid
  */
-- (void)setType:(HLDateTimeFieldType*)type 
-         amount:(NSInteger)value;
+- (void)setValue:(NSInteger)value
+         forType:(HLDateTimeFieldType*)type;
 
 /**
  * Adds to the instant specifying the duration and multiple to add.
@@ -172,7 +172,7 @@
  * @param amount  the amount to add of this duration
  * @throws ArithmeticException if the result exceeds the capacity of the instant
  */
-- (void)addType:(HLDurationFieldType*)type 
-         amount:(NSInteger)amount;
+- (void)addValue:(NSInteger)amount
+         forType:(HLDurationFieldType*)type;
 
 @end
