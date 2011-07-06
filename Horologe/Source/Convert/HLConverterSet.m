@@ -238,7 +238,7 @@ class ConverterSet {
      * @param removed if not nil, element 0 is set to the removed converter
      * @throws IndexOutOfBoundsException if the index is invalid
      */
-    ConverterSet remove(final int index, Converter[] removed) {
+    ConverterSet remove:(NSInteger)index, Converter[] removed) {
         Converter[] converters = iConverters;
         int length = converters.length;
         if (index >= length) {

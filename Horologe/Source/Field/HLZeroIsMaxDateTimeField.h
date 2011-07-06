@@ -21,34 +21,13 @@
 
 #import <Foundation/Foundation.h>
 
+#import "HLDecoratedDateTimeField.h"
 
-@interface ZeroIsMaxDateTimeField {
 
-@private
-
-}
-
-/*
- *  Copyright 2001-2005 Stephen Colebourne
- *
- *  Licensed under the Apache License, Version 2.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
- */
-package org.joda.time.field;
-
-import org.joda.time.DateTimeField;
-import org.joda.time.DateTimeFieldType;
-import org.joda.time.DurationField;
-import org.joda.time.ReadablePartial;
+@class HLDateTimeField;
+@class HLDateTimeFieldType;
+@class HLDurationField;
+@protocol HLReadablePartial;
 
 /**
  * Wraps another field such that zero values are replaced with one more than
@@ -60,179 +39,119 @@ import org.joda.time.ReadablePartial;
  * @author Brian S O'Neill
  * @since 1.0
  */
-public final class ZeroIsMaxDateTimeField extends DecoratedDateTimeField {
-
-    private static final long serialVersionUID = 961749798233026866L;
-
-    /**
-     * Constructor.
-     * 
-     * @param field  the base field
-     * @param type  the field type this field will actually use
-     * @throws IllegalArgumentException if wrapped field's minimum value is not zero
-     */
-    public ZeroIsMaxDateTimeField(DateTimeField field, DateTimeFieldType type) {
-        super(field, type);
-        if (field.getMinimumValue() != 0) {
-            [NSException raise:HL_ILLEGAL_ARGUMENT_EXCEPTION
-                    format:@"Wrapped field's minumum value must be zero"];
-        }
-    }
-
-    - (NSInteger)get:(NSInteger)instant) {
-        int value = getWrappedField().get(instant);
-        if (value == 0) {
-            value = getMaximumValue();
-        }
-        return value;
-    }
-
-    - (NSInteger)add:(NSInteger)instant :(NSInteger)value) {
-        return getWrappedField().add(instant, value);
-    }
-
-    - (NSInteger)add:(NSInteger)instant :(NSInteger)value) {
-        return getWrappedField().add(instant, value);
-    }
-
-    - (NSInteger)addWrapField:(NSInteger)instant :(NSInteger)value) {
-        return getWrappedField().addWrapField(instant, value);
-    }
-
-    public int[] addWrapField:(id<HLReadablePartial>)instant :(NSInteger)fieldIndex, int[] values :(NSInteger)valueToAdd) {
-        return getWrappedField().addWrapField(instant, fieldIndex, values, valueToAdd);
-    }
-
-    - (NSInteger)getDifference:(NSInteger)minuendInstant :(NSInteger)subtrahendInstant) {
-        return getWrappedField().getDifference(minuendInstant, subtrahendInstant);
-    }
-
-    - (NSInteger)getDifferenceAsLong:(NSInteger)minuendInstant :(NSInteger)subtrahendInstant) {
-        return getWrappedField().getDifferenceAsLong(minuendInstant, subtrahendInstant);
-    }
-
-    - (NSInteger)set:(NSInteger)instant :(NSInteger)value) {
-        int max = getMaximumValue();
-        FieldUtils.verifyValueBounds(this, value, 1, max);
-        if (value == max) {
-            value = 0;
-        }
-        return getWrappedField().set(instant, value);
-    }
-
-    - (BOOL)isLeap:(NSInteger)instant) {
-        return getWrappedField().isLeap(instant);
-    }
-
-    - (NSInteger)getLeapAmount:(NSInteger)instant) {
-        return getWrappedField().getLeapAmount(instant);
-    }
-
-    public DurationField getLeapDurationField;
-        return getWrappedField().getLeapDurationField();
-    }
-
-    /**
-     * Always returns 1.
-     * 
-     * @return the minimum value of 1
-     */
-    - (NSInteger)getMinimumValue;
-        return 1;
-    }
-
-    /**
-     * Always returns 1.
-     * 
-     * @return the minimum value of 1
-     */
-    - (NSInteger)getMinimumValue:(NSInteger)instant) {
-        return 1;
-    }
-
-    /**
-     * Always returns 1.
-     * 
-     * @return the minimum value of 1
-     */
-    - (NSInteger)getMinimumValue:(id<HLReadablePartial>)instant) {
-        return 1;
-    }
-
-    /**
-     * Always returns 1.
-     * 
-     * @return the minimum value of 1
-     */
-    - (NSInteger)getMinimumValue:(id<HLReadablePartial>)instant, int[] values) {
-        return 1;
-    }
-
-    /**
-     * Get the maximum value for the field, which is one more than the wrapped
-     * field's maximum value.
-     * 
-     * @return the maximum value
-     */
-    - (NSInteger)getMaximumValue;
-        return getWrappedField().getMaximumValue() + 1;
-    }
-
-    /**
-     * Get the maximum value for the field, which is one more than the wrapped
-     * field's maximum value.
-     * 
-     * @return the maximum value
-     */
-    - (NSInteger)getMaximumValue:(NSInteger)instant) {
-        return getWrappedField().getMaximumValue(instant) + 1;
-    }
-
-    /**
-     * Get the maximum value for the field, which is one more than the wrapped
-     * field's maximum value.
-     * 
-     * @return the maximum value
-     */
-    - (NSInteger)getMaximumValue:(id<HLReadablePartial>)instant) {
-        return getWrappedField().getMaximumValue(instant) + 1;
-    }
-
-    /**
-     * Get the maximum value for the field, which is one more than the wrapped
-     * field's maximum value.
-     * 
-     * @return the maximum value
-     */
-    - (NSInteger)getMaximumValue:(id<HLReadablePartial>)instant, int[] values) {
-        return getWrappedField().getMaximumValue(instant, values) + 1;
-    }
-
-    - (NSInteger)roundFloor:(NSInteger)instant) {
-        return getWrappedField().roundFloor(instant);
-    }
-
-    - (NSInteger)roundCeiling:(NSInteger)instant) {
-        return getWrappedField().roundCeiling(instant);
-    }
-
-    - (NSInteger)roundHalfFloor:(NSInteger)instant) {
-        return getWrappedField().roundHalfFloor(instant);
-    }
-
-    - (NSInteger)roundHalfCeiling:(NSInteger)instant) {
-        return getWrappedField().roundHalfCeiling(instant);
-    }
-
-    - (NSInteger)roundHalfEven:(NSInteger)instant) {
-        return getWrappedField().roundHalfEven(instant);
-    }
-
-    - (NSInteger)remainder:(NSInteger)instant) {
-        return getWrappedField().remainder(instant);
-    }
-
+@interface HLZeroIsMaxDateTimeField : HLDecoratedDateTimeField {
+    
+@private
+    
 }
 
+/**
+ * Constructor.
+ * 
+ * @param field  the base field
+ * @param type  the field type this field will actually use
+ * @throws IllegalArgumentException if wrapped field's minimum value is not zero
+ */
+- (id)initWithDateTimeField:(HLDateTimeField*)field
+                       type:(HLDateTimeFieldType*)type;
+
+- (NSInteger)valueWithInstantValue:(NSInteger)instant;
+
+- (NSInteger)addValue:(NSInteger)value
+       toInstantValue:(NSInteger)instant;
+
+- (NSInteger)addWrapFieldInstantValue:(NSInteger)instant 
+                                value:(NSInteger)value;
+
+- (NSArray*)addWrapFieldPartial:(id<HLReadablePartial>)instant 
+                          index:(NSInteger)fieldIndex
+                         values:(NSArray*)values 
+                     valueToAdd:(NSInteger)valueToAdd;
+
+- (NSInteger)differenceWithMinuend:(NSInteger)minuendInstant 
+                        subtrahend:(NSInteger)subtrahendInstant;
+
+- (NSInteger)setInstantValue:(NSInteger)instant 
+                       value:(NSInteger)value;
+
+- (BOOL)isLeap:(NSInteger)instant;
+
+- (NSInteger)leapAmountWithInstantValue:(NSInteger)instant;
+
+- (HLDurationField*)leapDurationField;
+
+/**
+ * Always returns 1.
+ * 
+ * @return the minimum value of 1
+ */
+- (NSInteger)minimumValue;
+
+/**
+ * Always returns 1.
+ * 
+ * @return the minimum value of 1
+ */
+- (NSInteger)minimumValue:(NSInteger)instant;
+
+/**
+ * Always returns 1.
+ * 
+ * @return the minimum value of 1
+ */
+- (NSInteger)minimumValueWithPartial:(id<HLReadablePartial>)instant;
+
+/**
+ * Always returns 1.
+ * 
+ * @return the minimum value of 1
+ */
+- (NSInteger)minimumValueWithPartial:(id<HLReadablePartial>)instant
+                              values:(NSArray*)values;
+
+/**
+ * Get the maximum value for the field, which is one more than the wrapped
+ * field's maximum value.
+ * 
+ * @return the maximum value
+ */
+- (NSInteger)maximumValue;
+
+/**
+ * Get the maximum value for the field, which is one more than the wrapped
+ * field's maximum value.
+ * 
+ * @return the maximum value
+ */
+- (NSInteger)maximumValueWithInstantValue:(NSInteger)instant;
+
+/**
+ * Get the maximum value for the field, which is one more than the wrapped
+ * field's maximum value.
+ * 
+ * @return the maximum value
+ */
+- (NSInteger)maximumValueWithPartial:(id<HLReadablePartial>)instant;
+
+/**
+ * Get the maximum value for the field, which is one more than the wrapped
+ * field's maximum value.
+ * 
+ * @return the maximum value
+ */
+- (NSInteger)maximumValue:(id<HLReadablePartial>)instant
+                   values:(NSArray*)values;
+
+- (NSInteger)roundFloor:(NSInteger)instant;
+
+- (NSInteger)roundCeiling:(NSInteger)instant;
+
+- (NSInteger)roundHalfFloor:(NSInteger)instant;
+
+- (NSInteger)roundHalfCeiling:(NSInteger)instant;
+
+- (NSInteger)roundHalfEven:(NSInteger)instant;
+
+- (NSInteger)remainder:(NSInteger)instant;
 
 @end

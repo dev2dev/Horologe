@@ -103,11 +103,6 @@
 
 + (HLConverterManager*)instance;
 
-/**
- * Restricted constructor.
- */
-- (id)init;
-
 //-----------------------------------------------------------------------
 /**
  * Gets the best converter for the object specified.

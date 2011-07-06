@@ -19,10 +19,10 @@
  * limitations under the License.
  */
 
-#import "UnsupportedDurationField.h"
+#import "HLUnsupportedDurationField.h"
 
 
-@implementation UnsupportedDurationField
+@implementation HLUnsupportedDurationField
 
 /*
  *  Copyright 2001-2005 Stephen Colebourne

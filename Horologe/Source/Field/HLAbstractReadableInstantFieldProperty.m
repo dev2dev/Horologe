@@ -19,10 +19,10 @@
  * limitations under the License.
  */
 
-#import "AbstractReadableInstantFieldProperty.h"
+#import "HLAbstractReadableInstantFieldProperty.h"
 
 
-@implementation AbstractReadableInstantFieldProperty
+@implementation HLAbstractReadableInstantFieldProperty
 
 /*
  *  Copyright 2001-2005 Stephen Colebourne

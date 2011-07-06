@@ -19,10 +19,10 @@
  * limitations under the License.
  */
 
-#import "MutableDateTime.h"
+#import "HLMutableDateTime.h"
 
 
-@implementation MutableDateTime
+@implementation HLMutableDateTime
 
 /*
  *  Copyright 2001-2005 Stephen Colebourne
@@ -601,7 +601,7 @@ public class MutableDateTime
      * @param year  the year
      * @throws IllegalArgumentException if the value is invalid
      */
-    - (void)setYear(final int year) {
+    - (void)setYear:(NSInteger)year) {
         setMillis(getChronology().year().set(getMillis(), year));
     }
 
@@ -611,7 +611,7 @@ public class MutableDateTime
      * @param years  the years to add
      * @throws IllegalArgumentException if the value is invalid
      */
-    - (void)addYears(final int years) {
+    - (void)addYears:(NSInteger)years) {
         setMillis(getChronology().years().add(getMillis(), years));
     }
 
@@ -622,7 +622,7 @@ public class MutableDateTime
      * @param weekyear  the weekyear
      * @throws IllegalArgumentException if the value is invalid
      */
-    - (void)setWeekyear(final int weekyear) {
+    - (void)setWeekyear:(NSInteger)weekyear) {
         setMillis(getChronology().weekyear().set(getMillis(), weekyear));
     }
 
@@ -632,7 +632,7 @@ public class MutableDateTime
      * @param weekyears  the weekyears to add
      * @throws IllegalArgumentException if the value is invalid
      */
-    - (void)addWeekyears(final int weekyears) {
+    - (void)addWeekyears:(NSInteger)weekyears) {
         setMillis(getChronology().weekyears().add(getMillis(), weekyears));
     }
 
@@ -643,7 +643,7 @@ public class MutableDateTime
      * @param monthOfYear  the month of the year
      * @throws IllegalArgumentException if the value is invalid
      */
-    - (void)setMonthOfYear(final int monthOfYear) {
+    - (void)setMonthOfYear:(NSInteger)monthOfYear) {
         setMillis(getChronology().monthOfYear().set(getMillis(), monthOfYear));
     }
 
@@ -653,7 +653,7 @@ public class MutableDateTime
      * @param months  the months to add
      * @throws IllegalArgumentException if the value is invalid
      */
-    - (void)addMonths(final int months) {
+    - (void)addMonths:(NSInteger)months) {
         setMillis(getChronology().months().add(getMillis(), months));
     }
 
@@ -664,7 +664,7 @@ public class MutableDateTime
      * @param weekOfWeekyear the week of the weekyear
      * @throws IllegalArgumentException if the value is invalid
      */
-    - (void)setWeekOfWeekyear(final int weekOfWeekyear) {
+    - (void)setWeekOfWeekyear:(NSInteger)weekOfWeekyear) {
         setMillis(getChronology().weekOfWeekyear().set(getMillis(), weekOfWeekyear));
     }
 
@@ -674,7 +674,7 @@ public class MutableDateTime
      * @param weeks  the weeks to add
      * @throws IllegalArgumentException if the value is invalid
      */
-    - (void)addWeeks(final int weeks) {
+    - (void)addWeeks:(NSInteger)weeks) {
         setMillis(getChronology().weeks().add(getMillis(), weeks));
     }
 
@@ -685,7 +685,7 @@ public class MutableDateTime
      * @param dayOfYear the day of the year
      * @throws IllegalArgumentException if the value is invalid
      */
-    - (void)setDayOfYear(final int dayOfYear) {
+    - (void)setDayOfYear:(NSInteger)dayOfYear) {
         setMillis(getChronology().dayOfYear().set(getMillis(), dayOfYear));
     }
 
@@ -695,7 +695,7 @@ public class MutableDateTime
      * @param dayOfMonth  the day of the month
      * @throws IllegalArgumentException if the value is invalid
      */
-    - (void)setDayOfMonth(final int dayOfMonth) {
+    - (void)setDayOfMonth:(NSInteger)dayOfMonth) {
         setMillis(getChronology().dayOfMonth().set(getMillis(), dayOfMonth));
     }
 
@@ -705,7 +705,7 @@ public class MutableDateTime
      * @param dayOfWeek  the day of the week
      * @throws IllegalArgumentException if the value is invalid
      */
-    - (void)setDayOfWeek(final int dayOfWeek) {
+    - (void)setDayOfWeek:(NSInteger)dayOfWeek) {
         setMillis(getChronology().dayOfWeek().set(getMillis(), dayOfWeek));
     }
 
@@ -715,7 +715,7 @@ public class MutableDateTime
      * @param days  the days to add
      * @throws IllegalArgumentException if the value is invalid
      */
-    - (void)addDays(final int days) {
+    - (void)addDays:(NSInteger)days) {
         setMillis(getChronology().days().add(getMillis(), days));
     }
 
@@ -726,7 +726,7 @@ public class MutableDateTime
      * @param hourOfDay  the hour of day
      * @throws IllegalArgumentException if the value is invalid
      */
-    - (void)setHourOfDay(final int hourOfDay) {
+    - (void)setHourOfDay:(NSInteger)hourOfDay) {
         setMillis(getChronology().hourOfDay().set(getMillis(), hourOfDay));
     }
 
@@ -736,7 +736,7 @@ public class MutableDateTime
      * @param hours  the hours to add
      * @throws IllegalArgumentException if the value is invalid
      */
-    - (void)addHours(final int hours) {
+    - (void)addHours:(NSInteger)hours) {
         setMillis(getChronology().hours().add(getMillis(), hours));
     }
     
@@ -747,7 +747,7 @@ public class MutableDateTime
      * @param minuteOfDay  the minute of day
      * @throws IllegalArgumentException if the value is invalid
      */
-    - (void)setMinuteOfDay(final int minuteOfDay) {
+    - (void)setMinuteOfDay:(NSInteger)minuteOfDay) {
         setMillis(getChronology().minuteOfDay().set(getMillis(), minuteOfDay));
     }
 
@@ -757,7 +757,7 @@ public class MutableDateTime
      * @param minuteOfHour  the minute of hour
      * @throws IllegalArgumentException if the value is invalid
      */
-    - (void)setMinuteOfHour(final int minuteOfHour) {
+    - (void)setMinuteOfHour:(NSInteger)minuteOfHour) {
         setMillis(getChronology().minuteOfHour().set(getMillis(), minuteOfHour));
     }
 
@@ -767,7 +767,7 @@ public class MutableDateTime
      * @param minutes  the minutes to add
      * @throws IllegalArgumentException if the value is invalid
      */
-    - (void)addMinutes(final int minutes) {
+    - (void)addMinutes:(NSInteger)minutes) {
         setMillis(getChronology().minutes().add(getMillis(), minutes));
     }
 
@@ -778,7 +778,7 @@ public class MutableDateTime
      * @param secondOfDay  the second of day
      * @throws IllegalArgumentException if the value is invalid
      */
-    - (void)setSecondOfDay(final int secondOfDay) {
+    - (void)setSecondOfDay:(NSInteger)secondOfDay) {
         setMillis(getChronology().secondOfDay().set(getMillis(), secondOfDay));
     }
 
@@ -788,7 +788,7 @@ public class MutableDateTime
      * @param secondOfMinute  the second of minute
      * @throws IllegalArgumentException if the value is invalid
      */
-    - (void)setSecondOfMinute(final int secondOfMinute) {
+    - (void)setSecondOfMinute:(NSInteger)secondOfMinute) {
         setMillis(getChronology().secondOfMinute().set(getMillis(), secondOfMinute));
     }
 
@@ -798,7 +798,7 @@ public class MutableDateTime
      * @param seconds  the seconds to add
      * @throws IllegalArgumentException if the value is invalid
      */
-    - (void)addSeconds(final int seconds) {
+    - (void)addSeconds:(NSInteger)seconds) {
         setMillis(getChronology().seconds().add(getMillis(), seconds));
     }
 
@@ -809,7 +809,7 @@ public class MutableDateTime
      * @param millisOfDay  the millis of day
      * @throws IllegalArgumentException if the value is invalid
      */
-    - (void)setMillisOfDay(final int millisOfDay) {
+    - (void)setMillisOfDay:(NSInteger)millisOfDay) {
         setMillis(getChronology().millisOfDay().set(getMillis(), millisOfDay));
     }
 
@@ -819,7 +819,7 @@ public class MutableDateTime
      * @param millisOfSecond  the millis of second
      * @throws IllegalArgumentException if the value is invalid
      */
-    - (void)setMillisOfSecond(final int millisOfSecond) {
+    - (void)setMillisOfSecond:(NSInteger)millisOfSecond) {
         setMillis(getChronology().millisOfSecond().set(getMillis(), millisOfSecond));
     }
 
@@ -831,7 +831,7 @@ public class MutableDateTime
      * @param millis  the milliseconds to add
      * @throws IllegalArgumentException if the value is invalid
      */
-    - (void)addMillis(final int millis) {
+    - (void)addMillis:(NSInteger)millis) {
         setMillis(getChronology().millis().add(getMillis(), millis));
     }
 
@@ -874,9 +874,9 @@ public class MutableDateTime
      * @throws IllegalArgumentException if the value is invalid
      */
     - (void)setDate(
-            final int year,
-            final int monthOfYear,
-            final int dayOfMonth) {
+year:(NSInteger)year
+monthOfYear:(NSInteger)monthOfYear
+dayOfMonth:(NSInteger)dayOfMonth;
         Chronology c = getChronology();
 - (NSInteger)instantMidnight = c.getDateTimeMillis(year, monthOfYear, dayOfMonth, 0);
         setDate(instantMidnight);
@@ -923,10 +923,10 @@ public class MutableDateTime
      * @throws IllegalArgumentException if the value is invalid
      */
     - (void)setTime(
-            final int hour,
-            final int minuteOfHour,
-            final int secondOfMinute,
-            final int millisOfSecond) {
+hour:(NSInteger)hour
+minuteOfHour:(NSInteger)minuteOfHour
+secondOfMinute:(NSInteger)secondOfMinute
+millisOfSecond:(NSInteger)millisOfSecond;
 - (NSInteger)instant = getChronology().getDateTimeMillis(
             getMillis(), hour, minuteOfHour, secondOfMinute, millisOfSecond);
         setMillis(instant);
@@ -945,13 +945,13 @@ public class MutableDateTime
      * @throws IllegalArgumentException if the value is invalid
      */
     - (void)setDateTime(
-            final int year,
-            final int monthOfYear,
-            final int dayOfMonth,
-            final int hourOfDay,
-            final int minuteOfHour,
-            final int secondOfMinute,
-            final int millisOfSecond) {
+year:(NSInteger)year
+monthOfYear:(NSInteger)monthOfYear
+dayOfMonth:(NSInteger)dayOfMonth
+hourOfDay:(NSInteger)hourOfDay
+minuteOfHour:(NSInteger)minuteOfHour
+secondOfMinute:(NSInteger)secondOfMinute
+millisOfSecond:(NSInteger)millisOfSecond;
 - (NSInteger)instant = getChronology().getDateTimeMillis(
             year, monthOfYear, dayOfMonth, hourOfDay, minuteOfHour, secondOfMinute, millisOfSecond);
         setMillis(instant);

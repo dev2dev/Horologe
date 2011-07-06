@@ -19,10 +19,10 @@
  * limitations under the License.
  */
 
-#import "AbstractConverter.h"
+#import "HLAbstractConverter.h"
 
 
-@implementation AbstractConverter
+@implementation HLAbstractConverter
 
 /*
  *  Copyright 2001-2006 Stephen Colebourne

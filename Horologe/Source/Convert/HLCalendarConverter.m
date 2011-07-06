@@ -19,10 +19,10 @@
  * limitations under the License.
  */
 
-#import "CalendarConverter.h"
+#import "HLCalendarConverter.h"
 
 
-@implementation CalendarConverter
+@implementation HLCalendarConverter
 
 /*
  *  Copyright 2001-2005 Stephen Colebourne

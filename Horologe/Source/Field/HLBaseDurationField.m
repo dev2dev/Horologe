@@ -19,10 +19,10 @@
  * limitations under the License.
  */
 
-#import "BaseDurationField.h"
+#import "HLBaseDurationField.h"
 
 
-@implementation BaseDurationField
+@implementation HLBaseDurationField
 
 /*
  *  Copyright 2001-2005 Stephen Colebourne

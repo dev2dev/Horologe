@@ -30,6 +30,7 @@
  */
 @protocol HLConverter 
 
+@required
 /**
  * Returns the object type that this converter supports, which may
  * specified by a class, superclass, abstract class, interface, or nil.

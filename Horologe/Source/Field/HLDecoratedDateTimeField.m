@@ -19,10 +19,10 @@
  * limitations under the License.
  */
 
-#import "DecoratedDateTimeField.h"
+#import "HLDecoratedDateTimeField.h"
 
 
-@implementation DecoratedDateTimeField
+@implementation HLDecoratedDateTimeField
 
 /*
  *  Copyright 2001-2005 Stephen Colebourne

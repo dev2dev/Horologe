@@ -19,10 +19,10 @@
  * limitations under the License.
  */
 
-#import "ZeroIsMaxDateTimeField.h"
+#import "HLZeroIsMaxDateTimeField.h"
 
 
-@implementation ZeroIsMaxDateTimeField
+@implementation HLZeroIsMaxDateTimeField
 
 /*
  *  Copyright 2001-2005 Stephen Colebourne

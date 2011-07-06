@@ -19,10 +19,10 @@
  * limitations under the License.
  */
 
-#import "StrictChronology.h"
+#import "HLStrictChronology.h"
 
 
-@implementation StrictChronology
+@implementation HLStrictChronology
 
 /*
  *  Copyright 2001-2005 Stephen Colebourne

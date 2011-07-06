@@ -19,10 +19,10 @@
  * limitations under the License.
  */
 
-#import "AbstractPartialFieldProperty.h"
+#import "HLAbstractPartialFieldProperty.h"
 
 
-@implementation AbstractPartialFieldProperty
+@implementation HLAbstractPartialFieldProperty
 
 /*
  *  Copyright 2001-2006 Stephen Colebourne

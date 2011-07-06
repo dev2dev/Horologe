@@ -21,8 +21,10 @@
 
 #import <Foundation/Foundation.h>
 
+#import "HLDurationField.h"
 
-@interface UnsupportedDurationField {
+
+@interface HLUnsupportedDurationField : HLDurationField {
 
 @private
 
