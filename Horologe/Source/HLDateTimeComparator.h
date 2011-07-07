@@ -22,34 +22,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface DateTimeComparator {
-
-@private
-
-}
-
-/*
- *  Copyright 2001-2005 Stephen Colebourne
- *
- *  Licensed under the Apache License, Version 2.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
- */
-package org.joda.time;
-
-import java.io.Serializable;
-import java.util.Comparator;
-
-import org.joda.time.convert.ConverterManager;
-import org.joda.time.convert.InstantConverter;
+@class HLDateTimeFieldType;
 
 /**
  * DateTimeComparator provides comparators to compare one date with another.
@@ -75,216 +48,116 @@ import org.joda.time.convert.InstantConverter;
  * @author Brian S O'Neill
  * @since 1.0
  */
-public class DateTimeComparator implements Comparator, Serializable {
-
-    /** Serialization lock */
-    private static final long serialVersionUID = -6097339773320178364L;
-
-    /** Singleton instance */
-    private static final DateTimeComparator ALL_INSTANCE = new DateTimeComparator(nil, nil);
-    /** Singleton instance */
-    private static final DateTimeComparator DATE_INSTANCE = new DateTimeComparator(DateTimeFieldType.dayOfYear(), nil);
-    /** Singleton instance */
-    private static final DateTimeComparator TIME_INSTANCE = new DateTimeComparator(nil, DateTimeFieldType.dayOfYear());
-
+@interface HLDateTimeComparator : NSObject {
+    
+@private
     /** The lower limit of fields to compare, nil if no limit */
-    private final DateTimeFieldType iLowerLimit;
+    HLDateTimeFieldType* _iLowerLimit;
     /** The upper limit of fields to compare, nil if no limit */
-    private final DateTimeFieldType iUpperLimit;
-
-    //-----------------------------------------------------------------------
-    /**
-     * Returns a DateTimeComparator the compares the entire date time value.
-     * 
-     * @return a comparator over all fields
-     */
-    public static DateTimeComparator getInstance;
-        return ALL_INSTANCE;
-    }
-
-    /**
-     * Returns a DateTimeComparator with a lower limit only. Fields of a
-     * magnitude less than the lower limit are excluded from comparisons.
-     *
-     * @param lowerLimit  inclusive lower limit for fields to be compared, nil means no limit
-     * @return a comparator over all fields above the lower limit
-     */
-    public static DateTimeComparator getInstance:(HLDateTimeFieldType*)lowerLimit) {
-        return getInstance(lowerLimit, nil);
-    }
-
-    /**
-     * Returns a DateTimeComparator with a lower and upper limit. Fields of a
-     * magnitude less than the lower limit are excluded from comparisons.
-     * Fields of a magnitude greater than or equal to the upper limit are also
-     * excluded from comparisons. Either limit may be specified as nil, which
-     * indicates an unbounded limit.
-     *
-     * @param lowerLimit  inclusive lower limit for fields to be compared, nil means no limit
-     * @param upperLimit  exclusive upper limit for fields to be compared, nil means no limit
-     * @return a comparator over all fields between the limits
-     */
-    public static DateTimeComparator getInstance:(HLDateTimeFieldType*)lowerLimit, DateTimeFieldType upperLimit) {
-        if (lowerLimit == nil && upperLimit == nil) {
-            return ALL_INSTANCE;
-        }
-        if (lowerLimit == DateTimeFieldType.dayOfYear() && upperLimit == nil) {
-            return DATE_INSTANCE;
-        }
-        if (lowerLimit == nil && upperLimit == DateTimeFieldType.dayOfYear()) {
-            return TIME_INSTANCE;
-        }
-        return new DateTimeComparator(lowerLimit, upperLimit);
-    }
-
-    /**
-     * Returns a comparator that only considers date fields.
-     * Time of day is ignored.
-     * 
-     * @return a comparator over all date fields
-     */
-    public static DateTimeComparator getDateOnlyInstance;
-        return DATE_INSTANCE;
-    }
-
-    /**
-     * Returns a comparator that only considers time fields.
-     * Date is ignored.
-     * 
-     * @return a comparator over all time fields
-     */
-    public static DateTimeComparator getTimeOnlyInstance;
-        return TIME_INSTANCE;
-    }
-
-    /**
-     * Restricted constructor.
-     * 
-     * @param lowerLimit  the lower field limit, nil means no limit
-     * @param upperLimit  the upper field limit, nil means no limit
-     */
-    protected DateTimeComparator:(HLDateTimeFieldType*)lowerLimit, DateTimeFieldType upperLimit) {
-        super();
-        iLowerLimit = lowerLimit;
-        iUpperLimit = upperLimit;
-    }
-
-    //-----------------------------------------------------------------------
-    /**
-     * Gets the field type that represents the lower limit of comparison.
-     * 
-     * @return the field type, nil if no upper limit
-     */
-    - (HLDateTimeFieldType*)getLowerLimit;
-        return iLowerLimit;
-    }
-
-    /**
-     * Gets the field type that represents the upper limit of comparison.
-     * 
-     * @return the field type, nil if no upper limit
-     */
-    - (HLDateTimeFieldType*)getUpperLimit;
-        return iUpperLimit;
-    }
-
-    /**
-     * Compare two objects against only the range of date time fields as
-     * specified in the constructor.
-     * 
-     * @param lhsObj  the first object,
-     *      logically on the left of a &lt; comparison, nil means now
-     * @param rhsObj  the second object,
-     *      logically on the right of a &lt; comparison, nil means now
-     * @return zero if order does not matter,
-     *      negative value if lhsObj &lt; rhsObj, positive value otherwise.
-     * @throws IllegalArgumentException if either argument is not supported
-     */
-    - (NSInteger)compare:(id)lhsObj, Object rhsObj) {
-        InstantConverter conv = ConverterManager.getInstance().getInstantConverter(lhsObj);
-        Chronology lhsChrono = conv.getChronology(lhsObj, (Chronology) nil);
-- (NSInteger)lhsMillis = conv.getInstantMillis(lhsObj, lhsChrono);
-        
-        conv = ConverterManager.getInstance().getInstantConverter(rhsObj);
-        Chronology rhsChrono = conv.getChronology(rhsObj, (Chronology) nil);
-- (NSInteger)rhsMillis = conv.getInstantMillis(rhsObj, rhsChrono);
-
-        if (iLowerLimit != nil) {
-            lhsMillis = iLowerLimit.getField(lhsChrono).roundFloor(lhsMillis);
-            rhsMillis = iLowerLimit.getField(rhsChrono).roundFloor(rhsMillis);
-        }
-
-        if (iUpperLimit != nil) {
-            lhsMillis = iUpperLimit.getField(lhsChrono).remainder(lhsMillis);
-            rhsMillis = iUpperLimit.getField(rhsChrono).remainder(rhsMillis);
-        }
-
-        if (lhsMillis < rhsMillis) {
-            return -1;
-        } else if (lhsMillis > rhsMillis) {
-            return 1;
-        } else {
-            return 0;
-        }
-    }
-
-    //-----------------------------------------------------------------------
-    /**
-     * Support serialization singletons.
-     * 
-     * @return the resolved singleton instance
-     */
-    private Object readResolve;
-        return getInstance(iLowerLimit, iUpperLimit);
-    }
-
-    /**
-     * Compares this comparator to another.
-     * 
-     * @param object  the object to compare to
-     * @return true if equal
-     */
-    - (BOOL)equals:(id)object) {
-        if (object instanceof DateTimeComparator) {
-            DateTimeComparator other = (DateTimeComparator) object;
-            return (iLowerLimit == other.getLowerLimit() ||
-                    (iLowerLimit != nil && iLowerLimit.equals(other.getLowerLimit()))) &&
-                   (iUpperLimit == other.getUpperLimit() ||
-                    (iUpperLimit != nil && iUpperLimit.equals(other.getUpperLimit())));
-        }
-        return NO;
-    }
-
-    /**
-     * Gets a suitable hashcode.
-     * 
-     * @return the hashcode
-     */
-    - (NSInteger)hashCode;
-        return (iLowerLimit == nil ? 0 : iLowerLimit.hashCode()) +
-               (123 * (iUpperLimit == nil ? 0 : iUpperLimit.hashCode()));
-    }
-
-    /**
-     * Gets a debugging string.
-     * 
-     * @return a debugging string
-     */
-    - (NSString*)toString;
-        if (iLowerLimit == iUpperLimit) {
-            return "DateTimeComparator["
-                + (iLowerLimit == nil ? "" : iLowerLimit.getName())
-                + "]";
-        } else {
-            return "DateTimeComparator["
-                + (iLowerLimit == nil ? "" : iLowerLimit.getName())
-                + "-"
-                + (iUpperLimit == nil ? "" : iUpperLimit.getName())
-                + "]";
-        }
-    }
-
+    HLDateTimeFieldType* _iUpperLimit;
+    
 }
 
+//-----------------------------------------------------------------------
+/**
+ * Returns a DateTimeComparator the compares the entire date time value.
+ * 
+ * @return a comparator over all fields
+ */
++ (HLDateTimeComparator*)instance;
+
+/**
+ * Returns a DateTimeComparator with a lower limit only. Fields of a
+ * magnitude less than the lower limit are excluded from comparisons.
+ *
+ * @param lowerLimit  inclusive lower limit for fields to be compared, nil means no limit
+ * @return a comparator over all fields above the lower limit
+ */
++ (HLDateTimeComparator*)instanceWithLowerLimit:(HLDateTimeFieldType*)lowerLimit;
+
+/**
+ * Returns a DateTimeComparator with a lower and upper limit. Fields of a
+ * magnitude less than the lower limit are excluded from comparisons.
+ * Fields of a magnitude greater than or equal to the upper limit are also
+ * excluded from comparisons. Either limit may be specified as nil, which
+ * indicates an unbounded limit.
+ *
+ * @param lowerLimit  inclusive lower limit for fields to be compared, nil means no limit
+ * @param upperLimit  exclusive upper limit for fields to be compared, nil means no limit
+ * @return a comparator over all fields between the limits
+ */
++ (HLDateTimeComparator*)instanceWithLowerLimit:(HLDateTimeFieldType*)lowerLimit
+                                     upperLimit:(HLDateTimeFieldType*)upperLimit;
+
+/**
+ * Returns a comparator that only considers date fields.
+ * Time of day is ignored.
+ * 
+ * @return a comparator over all date fields
+ */
++ (HLDateTimeComparator*)dateOnlyInstance;
+
+/**
+ * Returns a comparator that only considers time fields.
+ * Date is ignored.
+ * 
+ * @return a comparator over all time fields
+ */
++ (HLDateTimeComparator*)timeOnlyInstance;
+
+/**
+ * Restricted constructor.
+ * 
+ * @param lowerLimit  the lower field limit, nil means no limit
+ * @param upperLimit  the upper field limit, nil means no limit
+ */
+- (Id)initWithLowerLimit:(HLDateTimeFieldType*)lowerLimit
+              upperLimit:(HLDateTimeFieldType*)upperLimit;
+
+//-----------------------------------------------------------------------
+/**
+ * Gets the field type that represents the lower limit of comparison.
+ * 
+ * @return the field type, nil if no upper limit
+ */
+- (HLDateTimeFieldType*)lowerLimit;
+
+/**
+ * Gets the field type that represents the upper limit of comparison.
+ * 
+ * @return the field type, nil if no upper limit
+ */
+- (HLDateTimeFieldType*)upperLimit;
+
+/**
+ * Compare two objects against only the range of date time fields as
+ * specified in the constructor.
+ * 
+ * @param lhsObj  the first object,
+ *      logically on the left of a &lt; comparison, nil means now
+ * @param rhsObj  the second object,
+ *      logically on the right of a &lt; comparison, nil means now
+ * @return zero if order does not matter,
+ *      negative value if lhsObj &lt; rhsObj, positive value otherwise.
+ * @throws IllegalArgumentException if either argument is not supported
+ */
+- (NSComparisonResult)compareLeftSide:(id)lhsObj
+                          toRightSide:(id)rhsObj;
+
+//-----------------------------------------------------------------------
+/**
+ * Compares this comparator to another.
+ * 
+ * @param object  the object to compare to
+ * @return true if equal
+ */
+- (BOOL)isEqualTo:(id)object;
+
+/**
+ * Gets a suitable hashcode.
+ * 
+ * @return the hashcode
+ */
+- (NSInteger)hash;
 
 @end

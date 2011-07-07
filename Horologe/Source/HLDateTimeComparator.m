@@ -19,10 +19,10 @@
  * limitations under the License.
  */
 
-#import "DateTimeComparator.h"
+#import "HLDateTimeComparator.h"
 
 
-@implementation DateTimeComparator
+@implementation HLDateTimeComparator
 
 /*
  *  Copyright 2001-2005 Stephen Colebourne
