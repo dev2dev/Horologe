@@ -47,32 +47,6 @@
     
 }
 
-/** Constant representing zero days. */
-public static final Days ZERO = new Days(0);
-/** Constant representing one day. */
-public static final Days ONE = new Days(1);
-/** Constant representing two days. */
-public static final Days TWO = new Days(2);
-/** Constant representing three days. */
-public static final Days THREE = new Days(3);
-/** Constant representing four days. */
-public static final Days FOUR = new Days(4);
-/** Constant representing five days. */
-public static final Days FIVE = new Days(5);
-/** Constant representing six days. */
-public static final Days SIX = new Days(6);
-/** Constant representing seven days. */
-public static final Days SEVEN = new Days(7);
-/** Constant representing the maximum number of days that can be stored in this object. */
-public static final Days MAX_VALUE = new Days(Integer.MAX_VALUE);
-/** Constant representing the minimum number of days that can be stored in this object. */
-public static final Days MIN_VALUE = new Days(Integer.MIN_VALUE);
-
-/** The paser to use for this class. */
-private static final PeriodFormatter PARSER = ISOPeriodFormat.standard().withParseType(PeriodType.days());
-/** Serialization version. */
-private static final long serialVersionUID = 87525275727380865L;
-
 //-----------------------------------------------------------------------
 /**
  * Obtains an instance of <code>Days</code> that may be cached.
@@ -357,3 +331,25 @@ private static final long serialVersionUID = 87525275727380865L;
 - (BOOL)isLessThanDays:(HLDays*)other;
 
 @end
+
+/** Constant representing zero days. */
+extern const HLDays* HL_DAYS_ZERO;
+/** Constant representing one day. */
+extern const HLDays* HL_DAYS_ONE;
+/** Constant representing two days. */
+extern const HLDays* HL_DAYS_TWO;
+/** Constant representing three days. */
+extern const HLDays* HL_DAYS_THREE;
+/** Constant representing four days. */
+extern const HLDays* HL_DAYS_FOUR;
+/** Constant representing five days. */
+extern const HLDays* HL_DAYS_FIVE;
+/** Constant representing six days. */
+extern const HLDays* HL_DAYS_SIX;
+/** Constant representing seven days. */
+extern const HLDays* HL_DAYS_SEVEN;
+/** Constant representing the maximum number of days that can be stored in this object. */
+extern const HLDays* HL_DAYS_MAX_VALUE;
+/** Constant representing the minimum number of days that can be stored in this object. */
+extern const HLDays* HL_DAYS_MIN_VALUE;
+

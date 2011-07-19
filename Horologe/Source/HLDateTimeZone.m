@@ -19,10 +19,10 @@
  * limitations under the License.
  */
 
-#import "DateTimeZone.h"
+#import "HLDateTimeZone.h"
 
 
-@implementation DateTimeZone
+@implementation HLDateTimeZone
 
 /*
  *  Copyright 2001-2006 Stephen Colebourne

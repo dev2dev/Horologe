@@ -44,8 +44,6 @@
 @interface HLDuration : HLBaseDuration <HLReadableDuration> {
     
 @private
-    /** Constant representing zero millisecond duration */
-    HLDuration* _ZERO;
     
 }
 
@@ -274,3 +272,6 @@
 - (HLDuration*)minusDuration:(id<HLReadableDuration>)amount;
 
 @end
+
+extern const HLSeconds* HL_SECONDS_ZERO;
+

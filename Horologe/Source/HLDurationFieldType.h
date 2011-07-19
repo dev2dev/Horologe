@@ -24,7 +24,6 @@
 
 @class HLChronology;
 @class HLDurationField;
-@class HLDurationFieldType;
 
 #define HL_DURATION_FIELD_TYPE_ERAS (1)
 #define HL_DURATION_FIELD_TYPE_CENTURIES (2)
@@ -38,31 +37,6 @@
 #define HL_DURATION_FIELD_TYPE_MINUTES (10)
 #define HL_DURATION_FIELD_TYPE_SECONDS (11)
 #define HL_DURATION_FIELD_TYPE_MILLIS (12)
-
-/** The eras field type. */
-extern HLDurationFieldType* ERAS_TYPE;
-/** The centuries field type. */
-extern HLDurationFieldType* CENTURIES_TYPE;
-/** The weekyears field type. */
-extern HLDurationFieldType* WEEKYEARS_TYPE;
-/** The years field type. */
-extern HLDurationFieldType* YEARS_TYPE;
-/** The months field type. */
-extern HLDurationFieldType* MONTHS_TYPE;
-/** The weeks field type. */
-extern HLDurationFieldType* WEEKS_TYPE;
-/** The days field type. */
-extern HLDurationFieldType* DAYS_TYPE;
-/** The halfdays field type. */
-extern HLDurationFieldType* HALFDAYS_TYPE;
-/** The hours field type. */
-extern HLDurationFieldType* HOURS_TYPE;
-/** The minutes field type. */
-extern HLDurationFieldType* MINUTES_TYPE;
-/** The seconds field type. */
-extern HLDurationFieldType* SECONDS_TYPE;
-/** The millis field type. */
-extern HLDurationFieldType* MILLIS_TYPE;
 
 /**
  * Identifies a duration field, such as years or minutes, in a chronology-neutral way.
@@ -105,35 +79,35 @@ extern HLDurationFieldType* MILLIS_TYPE;
  * 
  * @return the DateTimeFieldType constant
  */
-+ (HLDurationFieldType*)millis;
++ (const HLDurationFieldType*)millis;
 
 /**
  * Get the seconds field type.
  * 
  * @return the DateTimeFieldType constant
  */
-+ (HLDurationFieldType*)seconds;
++ (const HLDurationFieldType*)seconds;
 
 /**
  * Get the minutes field type.
  * 
  * @return the DateTimeFieldType constant
  */
-+ (HLDurationFieldType*)minutes;
++ (const HLDurationFieldType*)minutes;
 
 /**
  * Get the hours field type.
  * 
  * @return the DateTimeFieldType constant
  */
-+ (HLDurationFieldType*)hours;
++ (const HLDurationFieldType*)hours;
 
 /**
  * Get the halfdays field type.
  * 
  * @return the DateTimeFieldType constant
  */
-+ (HLDurationFieldType*)halfdays;
++ (const HLDurationFieldType*)halfdays;
 
 //-----------------------------------------------------------------------
 /**
@@ -141,49 +115,49 @@ extern HLDurationFieldType* MILLIS_TYPE;
  * 
  * @return the DateTimeFieldType constant
  */
-+ (HLDurationFieldType*)days;
++ (const HLDurationFieldType*)days;
 
 /**
  * Get the weeks field type.
  * 
  * @return the DateTimeFieldType constant
  */
-+ (HLDurationFieldType*)weeks;
++ (const HLDurationFieldType*)weeks;
 
 /**
  * Get the weekyears field type.
  * 
  * @return the DateTimeFieldType constant
  */
-+ (HLDurationFieldType*)weekyears;
++ (const HLDurationFieldType*)weekyears;
 
 /**
  * Get the months field type.
  * 
  * @return the DateTimeFieldType constant
  */
-+ (HLDurationFieldType*)months;
++ (const HLDurationFieldType*)months;
 
 /**
  * Get the years field type.
  * 
  * @return the DateTimeFieldType constant
  */
-+ (HLDurationFieldType*)years;
++ (const HLDurationFieldType*)years;
 
 /**
  * Get the centuries field type.
  * 
  * @return the DateTimeFieldType constant
  */
-+ (HLDurationFieldType*)centuries;
++ (const HLDurationFieldType*)centuries;
 
 /**
  * Get the eras field type.
  * 
  * @return the DateTimeFieldType constant
  */
-+ (HLDurationFieldType*)eras;
++ (const HLDurationFieldType*)eras;
 
 //-----------------------------------------------------------------------
 /**
@@ -246,3 +220,29 @@ NSInteger _iOrdinal;
 - (id)readResolve;
 
 @end
+
+/** The eras field type. */
+extern const HLDurationFieldType* HL_DURATION_FIELD_ERAS_TYPE;
+/** The centuries field type. */
+extern const HLDurationFieldType* HL_DURATION_FIELD_CENTURIES_TYPE;
+/** The weekyears field type. */
+extern const HLDurationFieldType* HL_DURATION_FIELD_WEEKYEARS_TYPE;
+/** The years field type. */
+extern const HLDurationFieldType* HL_DURATION_FIELD_YEARS_TYPE;
+/** The months field type. */
+extern const HLDurationFieldType* HL_DURATION_FIELD_MONTHS_TYPE;
+/** The weeks field type. */
+extern const HLDurationFieldType* HL_DURATION_FIELD_WEEKS_TYPE;
+/** The days field type. */
+extern const HLDurationFieldType* HL_DURATION_FIELD_DAYS_TYPE;
+/** The halfdays field type. */
+extern const HLDurationFieldType* HL_DURATION_FIELD_HALFDAYS_TYPE;
+/** The hours field type. */
+extern const HLDurationFieldType* HL_DURATION_FIELD_HOURS_TYPE;
+/** The minutes field type. */
+extern const HLDurationFieldType* HL_DURATION_FIELD_MINUTES_TYPE;
+/** The seconds field type. */
+extern const HLDurationFieldType* HL_DURATION_FIELD_SECONDS_TYPE;
+/** The millis field type. */
+extern const HLDurationFieldType* HL_DURATION_FIELD_MILLIS_TYPE;
+

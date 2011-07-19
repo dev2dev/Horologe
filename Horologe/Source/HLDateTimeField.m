@@ -19,10 +19,10 @@
  * limitations under the License.
  */
 
-#import "DateTimeField.h"
+#import "HLDateTimeField.h"
 
 
-@implementation DateTimeField
+@implementation HLDateTimeField
 
 /*
  *  Copyright 2001-2005 Stephen Colebourne

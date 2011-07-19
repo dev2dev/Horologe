@@ -22,6 +22,8 @@
 #import <Foundation/Foundation.h>
 
 
+@class HLDurationFieldType;
+
 /**
  * Defines the calculation engine for duration fields.
  * The interface defines a set of methods that manipulate a millisecond duration

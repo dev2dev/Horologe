@@ -29,43 +29,59 @@
 @class HLStandardDurationFieldType;
 
 /** The eras field type. */
-HLDurationFieldType* ERAS_TYPE = [[HLStandardDurationFieldType alloc] initWithName:@"eras"
-                                                                                  ordinal:HL_DURATION_FIELD_TYPE_ERAS];
+const HLDurationFieldType* HL_DURATION_FIELD_ERAS_TYPE;
 /** The centuries field type. */
-static HLDurationFieldType* CENTURIES_TYPE = [[HLStandardDurationFieldType alloc] initWithName:@"centuries"
-                                                                                       ordinal:HL_DURATION_FIELD_TYPE_CENTURIES];
+const HLDurationFieldType* HL_DURATION_FIELD_CENTURIES_TYPE;
 /** The weekyears field type. */
-static HLDurationFieldType* WEEKYEARS_TYPE = [[HLStandardDurationFieldType alloc] initWithName:@"weekyears"
-                                                                                       ordinal:HL_DURATION_FIELD_TYPE_WEEKYEARS];
+const HLDurationFieldType* HL_DURATION_FIELD_WEEKYEARS_TYPE;
 /** The years field type. */
-static HLDurationFieldType* YEARS_TYPE = [[HLStandardDurationFieldType alloc] initWithName:@"years"
-                                                                                   ordinal:HL_DURATION_FIELD_TYPE_YEARS];
+const HLDurationFieldType* HL_DURATION_FIELD_YEARS_TYPE;
 /** The months field type. */
-static HLDurationFieldType* MONTHS_TYPE = [[HLStandardDurationFieldType alloc] initWithName:@"months"
-                                                                                    ordinal:HL_DURATION_FIELD_TYPE_MONTHS];
+const HLDurationFieldType* HL_DURATION_FIELD_MONTHS_TYPE;
 /** The weeks field type. */
-static HLDurationFieldType* WEEKS_TYPE = [[HLStandardDurationFieldType alloc] initWithName:@"weeks"
-                                                                                   ordinal:HL_DURATION_FIELD_TYPE_WEEKS];
+const HLDurationFieldType* HL_DURATION_FIELD_WEEKS_TYPE;
 /** The days field type. */
-static HLDurationFieldType* DAYS_TYPE = [[HLStandardDurationFieldType alloc] initWithName:@"days"
-                                                                                  ordinal:HL_DURATION_FIELD_TYPE_DAYS];
+const HLDurationFieldType* HL_DURATION_FIELD_DAYS_TYPE;
 /** The halfdays field type. */
-static HLDurationFieldType* HALFDAYS_TYPE = [[HLStandardDurationFieldType alloc] initWithName:@"halfdays"
-                                                                                      ordinal:HL_DURATION_FIELD_TYPE_HALFDAYS];
+const HLDurationFieldType* HL_DURATION_FIELD_HALFDAYS_TYPE;
 /** The hours field type. */
-static HLDurationFieldType* HOURS_TYPE = [[HLStandardDurationFieldType alloc] initWithName:@"hours"
-                                                                                   ordinal:HL_DURATION_FIELD_TYPE_HOURS];
+const HLDurationFieldType* HL_DURATION_FIELD_HOURS_TYPE;
 /** The minutes field type. */
-static HLDurationFieldType* MINUTES_TYPE = [[HLStandardDurationFieldType alloc] initWithName:@"minutes"
-                                                                                     ordinal:HL_DURATION_FIELD_TYPE_MINUTES];
+const HLDurationFieldType* HL_DURATION_FIELD_MINUTES_TYPE;
 /** The seconds field type. */
-static HLDurationFieldType* SECONDS_TYPE = [[HLStandardDurationFieldType alloc] initWithName:@"seconds"
-                                                                                     ordinal:HL_DURATION_FIELD_TYPE_SECONDS];
+const HLDurationFieldType* HL_DURATION_FIELD_SECONDS_TYPE;
 /** The millis field type. */
-static HLDurationFieldType* MILLIS_TYPE = [[HLStandardDurationFieldType alloc] initWithName:@"millis"
-                                                                                    ordinal:HL_DURATION_FIELD_TYPE_MILLIS];
+const HLDurationFieldType* HL_DURATION_FIELD_MILLIS_TYPE;
 
 @implementation HLDurationFieldType
+
++ (void)initialize {
+    
+     HL_DURATION_FIELD_ERAS_TYPE = [[HLStandardDurationFieldType alloc] initWithName:@"eras"
+                                                                                                              ordinal:HL_DURATION_FIELD_TYPE_ERAS];
+     HL_DURATION_FIELD_CENTURIES_TYPE = [[HLStandardDurationFieldType alloc] initWithName:@"centuries"
+                                                                                                             ordinal:HL_DURATION_FIELD_TYPE_CENTURIES];
+     HL_DURATION_FIELD_WEEKYEARS_TYPE = [[HLStandardDurationFieldType alloc] initWithName:@"weekyears"
+                                                                                                             ordinal:HL_DURATION_FIELD_TYPE_WEEKYEARS];
+     HL_DURATION_FIELD_YEARS_TYPE = [[HLStandardDurationFieldType alloc] initWithName:@"years"
+                                                                                                         ordinal:HL_DURATION_FIELD_TYPE_YEARS];
+     HL_DURATION_FIELD_MONTHS_TYPE = [[HLStandardDurationFieldType alloc] initWithName:@"months"
+                                                                                                          ordinal:HL_DURATION_FIELD_TYPE_MONTHS];
+    HL_DURATION_FIELD_WEEKS_TYPE = [[HLStandardDurationFieldType alloc] initWithName:@"weeks"
+                                                                                                         ordinal:HL_DURATION_FIELD_TYPE_WEEKS];
+     HL_DURATION_FIELD_DAYS_TYPE = [[HLStandardDurationFieldType alloc] initWithName:@"days"
+                                                                                                        ordinal:HL_DURATION_FIELD_TYPE_DAYS];
+    HL_DURATION_FIELD_HALFDAYS_TYPE = [[HLStandardDurationFieldType alloc] initWithName:@"halfdays"
+                                                                                                            ordinal:HL_DURATION_FIELD_TYPE_HALFDAYS];
+    HL_DURATION_FIELD_HOURS_TYPE = [[HLStandardDurationFieldType alloc] initWithName:@"hours"
+                                                                                                         ordinal:HL_DURATION_FIELD_TYPE_HOURS];
+    HL_DURATION_FIELD_MINUTES_TYPE = [[HLStandardDurationFieldType alloc] initWithName:@"minutes"
+                                                                                                           ordinal:HL_DURATION_FIELD_TYPE_MINUTES];
+    HL_DURATION_FIELD_SECONDS_TYPE = [[HLStandardDurationFieldType alloc] initWithName:@"seconds"
+                                                                                                           ordinal:HL_DURATION_FIELD_TYPE_SECONDS];
+    HL_DURATION_FIELD_MILLIS_TYPE = [[HLStandardDurationFieldType alloc] initWithName:@"millis"
+                                                                                                          ordinal:HL_DURATION_FIELD_TYPE_MILLIS];
+}
 
 //-----------------------------------------------------------------------
 - (id)initWithName:(NSString*)name {
@@ -78,8 +94,8 @@ static HLDurationFieldType* MILLIS_TYPE = [[HLStandardDurationFieldType alloc] i
 }
 
 //-----------------------------------------------------------------------
-+ (HLDurationFieldType*)millis {
-    return MILLIS_TYPE;
++ (const HLDurationFieldType*)millis {
+    return HL_DURATION_FIELD_MILLIS_TYPE;
 }
 
 /**
@@ -87,8 +103,8 @@ static HLDurationFieldType* MILLIS_TYPE = [[HLStandardDurationFieldType alloc] i
  * 
  * @return the DateTimeFieldType constant
  */
-- (HLDurationFieldType*)seconds {
-    return SECONDS_TYPE;
+- (const HLDurationFieldType*)seconds {
+    return HL_DURATION_FIELD_SECONDS_TYPE;
 }
 
 /**
@@ -96,8 +112,8 @@ static HLDurationFieldType* MILLIS_TYPE = [[HLStandardDurationFieldType alloc] i
  * 
  * @return the DateTimeFieldType constant
  */
-- (HLDurationFieldType*)minutes {
-    return MINUTES_TYPE;
+- (const HLDurationFieldType*)minutes {
+    return HL_DURATION_FIELD_MINUTES_TYPE;
 }
 
 /**
@@ -105,8 +121,8 @@ static HLDurationFieldType* MILLIS_TYPE = [[HLStandardDurationFieldType alloc] i
  * 
  * @return the DateTimeFieldType constant
  */
-- (HLDurationFieldType*)hours {
-    return HOURS_TYPE;
+- (const HLDurationFieldType*)hours {
+    return HL_DURATION_FIELD_HOURS_TYPE;
 }
 
 /**
@@ -114,8 +130,8 @@ static HLDurationFieldType* MILLIS_TYPE = [[HLStandardDurationFieldType alloc] i
  * 
  * @return the DateTimeFieldType constant
  */
-- (HLDurationFieldType*)halfdays {
-    return HALFDAYS_TYPE;
+- (const HLDurationFieldType*)halfdays {
+    return HL_DURATION_FIELD_HALFDAYS_TYPE;
 }
 
 //-----------------------------------------------------------------------
@@ -124,8 +140,8 @@ static HLDurationFieldType* MILLIS_TYPE = [[HLStandardDurationFieldType alloc] i
  * 
  * @return the DateTimeFieldType constant
  */
-- (HLDurationFieldType*)days {
-    return DAYS_TYPE;
+- (const HLDurationFieldType*)days {
+    return HL_DURATION_FIELD_DAYS_TYPE;
 }
 
 /**
@@ -133,8 +149,8 @@ static HLDurationFieldType* MILLIS_TYPE = [[HLStandardDurationFieldType alloc] i
  * 
  * @return the DateTimeFieldType constant
  */
-- (HLDurationFieldType*)weeks {
-    return WEEKS_TYPE;
+- (const HLDurationFieldType*)weeks {
+    return HL_DURATION_FIELD_WEEKS_TYPE;
 }
 
 /**
@@ -142,8 +158,8 @@ static HLDurationFieldType* MILLIS_TYPE = [[HLStandardDurationFieldType alloc] i
  * 
  * @return the DateTimeFieldType constant
  */
-- (HLDurationFieldType*)weekyears {
-    return WEEKYEARS_TYPE;
+- (const HLDurationFieldType*)weekyears {
+    return HL_DURATION_FIELD_WEEKYEARS_TYPE;
 }
 
 /**
@@ -151,8 +167,8 @@ static HLDurationFieldType* MILLIS_TYPE = [[HLStandardDurationFieldType alloc] i
  * 
  * @return the DateTimeFieldType constant
  */
-- (HLDurationFieldType*)months {
-    return MONTHS_TYPE;
+- (const HLDurationFieldType*)months {
+    return HL_DURATION_FIELD_MONTHS_TYPE;
 }
 
 /**
@@ -160,8 +176,8 @@ static HLDurationFieldType* MILLIS_TYPE = [[HLStandardDurationFieldType alloc] i
  * 
  * @return the DateTimeFieldType constant
  */
-- (HLDurationFieldType*)years {
-    return YEARS_TYPE;
+- (const HLDurationFieldType*)years {
+    return HL_DURATION_FIELD_YEARS_TYPE;
 }
 
 /**
@@ -169,8 +185,8 @@ static HLDurationFieldType* MILLIS_TYPE = [[HLStandardDurationFieldType alloc] i
  * 
  * @return the DateTimeFieldType constant
  */
-- (HLDurationFieldType*)centuries {
-    return CENTURIES_TYPE;
+- (const HLDurationFieldType*)centuries {
+    return HL_DURATION_FIELD_CENTURIES_TYPE;
 }
 
 /**
@@ -178,8 +194,8 @@ static HLDurationFieldType* MILLIS_TYPE = [[HLStandardDurationFieldType alloc] i
  * 
  * @return the DateTimeFieldType constant
  */
-- (HLDurationFieldType*)eras {
-    return ERAS_TYPE;
+- (const HLDurationFieldType*)eras {
+    return HL_DURATION_FIELD_ERAS_TYPE;
 }
 
 //-----------------------------------------------------------------------

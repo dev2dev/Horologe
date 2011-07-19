@@ -235,7 +235,6 @@
 		5B69185113A7194A00C913B7 /* HLDateTimeComparator.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69171D13A7194600C913B7 /* HLDateTimeComparator.h */; };
 		5B69185213A7194A00C913B7 /* HLDateTimeComparator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69171E13A7194600C913B7 /* HLDateTimeComparator.m */; };
 		5B69185313A7194A00C913B7 /* HLDateTimeConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69171F13A7194600C913B7 /* HLDateTimeConstants.h */; };
-		5B69185413A7194A00C913B7 /* HLDateTimeConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69172013A7194600C913B7 /* HLDateTimeConstants.m */; };
 		5B69185513A7194A00C913B7 /* HLDateTimeField.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69172113A7194600C913B7 /* HLDateTimeField.h */; };
 		5B69185613A7194A00C913B7 /* HLDateTimeField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69172213A7194600C913B7 /* HLDateTimeField.m */; };
 		5B69185713A7194A00C913B7 /* HLDateTimeFieldType.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B69172313A7194600C913B7 /* HLDateTimeFieldType.h */; };
@@ -577,7 +576,6 @@
 		5B69171D13A7194600C913B7 /* HLDateTimeComparator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLDateTimeComparator.h; sourceTree = "<group>"; };
 		5B69171E13A7194600C913B7 /* HLDateTimeComparator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLDateTimeComparator.m; sourceTree = "<group>"; };
 		5B69171F13A7194600C913B7 /* HLDateTimeConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLDateTimeConstants.h; sourceTree = "<group>"; };
-		5B69172013A7194600C913B7 /* HLDateTimeConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLDateTimeConstants.m; sourceTree = "<group>"; };
 		5B69172113A7194600C913B7 /* HLDateTimeField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLDateTimeField.h; sourceTree = "<group>"; };
 		5B69172213A7194600C913B7 /* HLDateTimeField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLDateTimeField.m; sourceTree = "<group>"; };
 		5B69172313A7194600C913B7 /* HLDateTimeFieldType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLDateTimeFieldType.h; sourceTree = "<group>"; };
@@ -1097,7 +1095,6 @@
 				5B69171D13A7194600C913B7 /* HLDateTimeComparator.h */,
 				5B69171E13A7194600C913B7 /* HLDateTimeComparator.m */,
 				5B69171F13A7194600C913B7 /* HLDateTimeConstants.h */,
-				5B69172013A7194600C913B7 /* HLDateTimeConstants.m */,
 				5B69172113A7194600C913B7 /* HLDateTimeField.h */,
 				5B69172213A7194600C913B7 /* HLDateTimeField.m */,
 				5B69172313A7194600C913B7 /* HLDateTimeFieldType.h */,
@@ -1650,7 +1647,6 @@
 				5B69184E13A7194A00C913B7 /* HLDateMidnight.m in Sources */,
 				5B69185013A7194A00C913B7 /* HLDateTime.m in Sources */,
 				5B69185213A7194A00C913B7 /* HLDateTimeComparator.m in Sources */,
-				5B69185413A7194A00C913B7 /* HLDateTimeConstants.m in Sources */,
 				5B69185613A7194A00C913B7 /* HLDateTimeField.m in Sources */,
 				5B69185813A7194A00C913B7 /* HLDateTimeFieldType.m in Sources */,
 				5B69185A13A7194A00C913B7 /* HLDateTimeUtils.m in Sources */,
