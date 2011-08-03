@@ -24,7 +24,6 @@
 #import "HLBaseSingleFieldPeriod.h"
 
 
-@class HLHours;
 @class HLPeriodFormatter;
 @class HLWeeks;
 @class HLDays;
@@ -32,29 +31,6 @@
 @class HLDuration;
 @class HLMinutes;
 @protocol HLReadableInterval;
-
-/** Constant representing zero hours. */
-extern const HLHours* HL_HOURS_ZERO;
-/** Constant representing one hour. */
-extern const HLHours* HL_HOURS_ONE;
-/** Constant representing two hours. */
-extern const HLHours* HL_HOURS_TWO;
-/** Constant representing three hours. */
-extern const HLHours* HL_HOURS_THREE;
-/** Constant representing four hours. */
-extern const HLHours* HL_HOURS_FOUR;
-/** Constant representing five hours. */
-extern const HLHours* HL_HOURS_FIVE;
-/** Constant representing six hours. */
-extern const HLHours* HL_HOURS_SIX;
-/** Constant representing seven hours. */
-extern const HLHours* HL_HOURS_SEVEN;
-/** Constant representing eight hours. */
-extern const HLHours* HL_HOURS_EIGHT;
-/** Constant representing the maximum number of hours that can be stored in this object. */
-extern const HLHours* HL_HOURS_MAX_VALUE;
-/** Constant representing the minimum number of hours that can be stored in this object. */
-extern const HLHours* HL_HOURS_MIN_VALUE;
 
 /**
  * An immutable time period representing a number of hours.
@@ -361,3 +337,27 @@ extern const HLHours* HL_HOURS_MIN_VALUE;
 - (BOOL)isLessThanHours:(HLHours*)other;
 
 @end
+
+/** Constant representing zero hours. */
+extern const HLHours* HL_HOURS_ZERO;
+/** Constant representing one hour. */
+extern const HLHours* HL_HOURS_ONE;
+/** Constant representing two hours. */
+extern const HLHours* HL_HOURS_TWO;
+/** Constant representing three hours. */
+extern const HLHours* HL_HOURS_THREE;
+/** Constant representing four hours. */
+extern const HLHours* HL_HOURS_FOUR;
+/** Constant representing five hours. */
+extern const HLHours* HL_HOURS_FIVE;
+/** Constant representing six hours. */
+extern const HLHours* HL_HOURS_SIX;
+/** Constant representing seven hours. */
+extern const HLHours* HL_HOURS_SEVEN;
+/** Constant representing eight hours. */
+extern const HLHours* HL_HOURS_EIGHT;
+/** Constant representing the maximum number of hours that can be stored in this object. */
+extern const HLHours* HL_HOURS_MAX_VALUE;
+/** Constant representing the minimum number of hours that can be stored in this object. */
+extern const HLHours* HL_HOURS_MIN_VALUE;
+

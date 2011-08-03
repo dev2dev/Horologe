@@ -27,17 +27,9 @@
 @class HLPeriodType;
 @class HLDurationFieldType;
 @class HLPeriodFormatter;
-@class HLYears;
 @protocol HLReadableInstant;
 @protocol HLReadablePartial;
 @protocol HLReadableInterval;
-
-extern const HLYears* HL_YEARS_ZERO;
-extern const HLYears* HL_YEARS_ONE;
-extern const HLYears* HL_YEARS_TWO;
-extern const HLYears* HL_YEARS_THREE;
-extern const HLYears* HL_YEARS_MAX_VALUE;
-extern const HLYears* HL_YEARS_MIN_VALUE;
 
 /**
  * An immutable time period representing a number of years.
@@ -263,3 +255,11 @@ extern const HLYears* HL_YEARS_MIN_VALUE;
 - (BOOL)isLessThanYears:(HLYears*)other;
 
 @end
+
+extern const HLYears* HL_YEARS_ZERO;
+extern const HLYears* HL_YEARS_ONE;
+extern const HLYears* HL_YEARS_TWO;
+extern const HLYears* HL_YEARS_THREE;
+extern const HLYears* HL_YEARS_MAX_VALUE;
+extern const HLYears* HL_YEARS_MIN_VALUE;
+

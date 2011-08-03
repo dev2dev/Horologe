@@ -109,7 +109,8 @@
 }
 
 + (NSInteger)safeToInteger:(NSInteger)value {
-    if (NSIntegerMin <= value && value <= NSIntegerMax) {
+    if (NSIntegerMin <= value &&
+        value <= NSIntegerMax) {
         return (NSInteger) value;
     }
     
@@ -129,7 +130,8 @@
                       lowerBound:(NSInteger)lowerBound 
                       upperBound:(NSInteger)upperBound {
     
-    if ((value < lowerBound) || (value > upperBound)) {
+    if ((value < lowerBound) || 
+        (value > upperBound)) {
         [NSException raise:HL_ILLEGAL_FIELD_VALUE_EXCEPTION
                     format:@"Type: %@, value: %ld, lower-bound: %ld, upper-bound: %ld",
          [field type], value, lowerBound, upperBound];
@@ -141,7 +143,8 @@
                           lowerBound:(NSInteger)lowerBound 
                           upperBound:(NSInteger)upperBound {
     
-    if ((value < lowerBound) || (value > upperBound)) {
+    if ((value < lowerBound) || 
+        (value > upperBound)) {
         [NSException raise:HL_ILLEGAL_FIELD_VALUE_EXCEPTION
                     format:@"Type: %@, value: %ld, lower-bound: %ld, upper-bound: %ld",
          [field type], value, lowerBound, upperBound];
@@ -153,7 +156,8 @@
                           lowerBound:(NSInteger)lowerBound 
                           upperBound:(NSInteger)upperBound {
     
-    if ((value < lowerBound) || (value > upperBound)) {
+    if ((value < lowerBound) || 
+        (value > upperBound)) {
         [NSException raise:HL_ILLEGAL_FIELD_VALUE_EXCEPTION
                     format:@"Type: %@, value: %ld, lower-bound: %ld, upper-bound: %ld",
          [field type], value, lowerBound, upperBound];

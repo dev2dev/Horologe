@@ -22,6 +22,9 @@
 #import <Foundation/Foundation.h>
 
 
+@class HLDateTimeFieldType;
+@protocol HLReadablePartial;
+
 /**
  * Defines the calculation engine for date and time fields.
  * The interface defines a set of methods that manipulate a millisecond datetime
@@ -84,7 +87,7 @@
  * @param instant  the milliseconds from 1970-01-01T00:00:00Z to query
  * @return the value of the field, in the units of the field
  */
-- (NSInteger)valueWithMillis:(NSInteger)instant);
+- (NSInteger)valueWithMillis:(NSInteger)instant;
 
 /**
  * Get the human-readable, text value of this field from the milliseconds.
@@ -94,7 +97,7 @@
  * @param locale the locale to use for selecting a text symbol, nil for default
  * @return the text value of the field
  */
-- (NSString*)valueAsText:(NSInteger)instant 
+- (NSString*)valueAsTextWithInstantValue:(NSInteger)instant 
                   locale:(NSLocale*)locale;
 
 /**
@@ -103,7 +106,7 @@
  * @param instant  the milliseconds from 1970-01-01T00:00:00Z to query
  * @return the text value of the field
  */
-- (NSString*)valueAsText:(NSInteger)instant;
+- (NSString*)valueAsTextWithInstantValue:(NSInteger)instant;
 
 /**
  * Get the human-readable, text value of this field from a partial instant.
@@ -137,7 +140,7 @@
  * @param locale the locale to use for selecting a text symbol, nil for default
  * @return the text value of the field
  */
-- (NSString*)valueAsText:(NSInteger)fieldValue
+- (NSString*)valueAsTextWithFieldValue:(NSInteger)fieldValue
                   locale:(NSLocale*)locale;
 
 /**
@@ -148,7 +151,7 @@
  * @param locale the locale to use for selecting a text symbol, nil for default
  * @return the short text value of the field
  */
-- (NSString*)valueAsShortText:(NSInteger)instant
+- (NSString*)valueAsShortTextWithInstantValue:(NSInteger)instant
                        locale:(NSLocale*)locale;
 
 /**
@@ -158,7 +161,7 @@
  * @param instant  the milliseconds from 1970-01-01T00:00:00Z to query
  * @return the short text value of the field
  */
-- (NSString*)valueAsShortText:(NSInteger)instant;
+- (NSString*)valueAsShortTextWithInstantValue:(NSInteger)instant;
 
 /**
  * Get the human-readable, short text value of this field from a partial instant.
@@ -169,7 +172,7 @@
  * @param locale  the locale to use for selecting a text symbol, nil for default
  * @return the text value of the field
  */
-- (NSString*)valueAsShortText:(id<HLReadablePartial>)partial 
+- (NSString*)valueAsShortTextWithPartial:(id<HLReadablePartial>)partial 
                    fieldValue:(NSInteger)fieldValue 
                        locale:(NSLocale*)locale;
 
@@ -181,7 +184,7 @@
  * @param locale  the locale to use for selecting a text symbol, nil for default
  * @return the text value of the field
  */
-- (NSString*)valueAsShortText:(id<HLReadablePartial>)partial 
+- (NSString*)valueAsShortTextWithPartial:(id<HLReadablePartial>)partial 
                        locale:(NSLocale*)locale;
 
 /**
@@ -192,7 +195,7 @@
  * @param locale the locale to use for selecting a text symbol, nil for default
  * @return the text value of the field
  */
-- (NSString*)valueAsShortText:(NSInteger)fieldValue 
+- (NSString*)valueAsShortTextWithValue:(NSInteger)fieldValue 
                        locale:(NSLocale*)locale;
 
 /**
@@ -281,7 +284,7 @@
 - (NSArray*)addWrapPartial:(id<HLReadablePartial>)instant 
                 fieldIndex:(NSInteger)fieldIndex 
                     values:(NSArray*)values 
-                valueToAdd:(NSInteger)valueToAdd);
+                valueToAdd:(NSInteger)valueToAdd;
 
 /**
  * Adds a value (which may be negative) to the millis value,
@@ -334,7 +337,7 @@
 - (NSArray*)addWrapField:(id<HLReadablePartial>)instant 
               fieldIndex:(NSInteger)fieldIndex 
                   values:(NSArray*)values 
-              valueToAdd:(NSInteger)valueToAdd);
+              valueToAdd:(NSInteger)valueToAdd;
 
 /**
  * Computes the difference between two instants, as measured in the units
@@ -356,7 +359,7 @@
  * @return the difference in the units of this field
  */
 - (NSInteger)differenceWithMinuend:(NSInteger)minuendInstant
-                        subtrahend:(NSInteger)subtrahendInstant);
+                        subtrahend:(NSInteger)subtrahendInstant;
 
 /**
  * Sets a value in the milliseconds supplied.
@@ -375,7 +378,7 @@
  * @throws IllegalArgumentException if the value is invalid
  */
 - (NSInteger)set:(NSInteger)instant 
-           value:(NSInteger)value);
+           value:(NSInteger)value;
 
 /**
  * Sets a value using the specified partial instant.
@@ -529,7 +532,7 @@
  * @param instant  the partial instant to query
  * @return the minimum value for this field, in the units of the field
  */
-- (NSInteger)minimumValue:(id<HLReadablePartial>)instant;
+- (NSInteger)minimumValueWithInstant:(id<HLReadablePartial>)instant;
 
 /**
  * Get the minimum value for this field using the partial instant and
@@ -540,7 +543,7 @@
  * @return the minimum value for this field, in the units of the field
  */
 - (NSInteger)minimumValue:(id<HLReadablePartial>)instant 
-                   values:(NSArray*)values);
+                   values:(NSArray*)values;
 
 /**
  * Get the maximum allowable value for this field.
@@ -583,7 +586,7 @@
  * @param locale  the locale to use for selecting a text symbol
  * @return the maximum text length
  */
-- (NSInteger)maximumTextLength:(NSLocale*)locale;
+- (NSInteger)maximumTextLengthWithLocale:(NSLocale*)locale;
 
 /**
  * Get the maximum short text value for this field.
@@ -591,7 +594,7 @@
  * @param locale  the locale to use for selecting a text symbol
  * @return the maximum short text length
  */
-- (NSInteger)maximumShortTextLength:(NSLocale*)locale;
+- (NSInteger)maximumShortTextLengthWithLocale:(NSLocale*)locale;
 
 // Calculation API
 //------------------------------------------------------------------------

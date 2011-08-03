@@ -19,10 +19,10 @@
  * limitations under the License.
  */
 
-#import "TimeOfDay.h"
+#import "HLTimeOfDay.h"
 
 
-@implementation TimeOfDay
+@implementation HLTimeOfDay
 
 /*
  *  Copyright 2001-2006 Stephen Colebourne

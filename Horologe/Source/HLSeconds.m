@@ -22,66 +22,23 @@
 #import "HLSeconds.h"
 
 
-@implementation Seconds
+/** Constant representing zero seconds. */
+public static final Seconds ZERO = new Seconds(0);
+/** Constant representing one second. */
+public static final Seconds ONE = new Seconds(1);
+/** Constant representing two seconds. */
+public static final Seconds TWO = new Seconds(2);
+/** Constant representing three seconds. */
+public static final Seconds THREE = new Seconds(3);
+/** Constant representing the maximum number of seconds that can be stored in this object. */
+public static final Seconds MAX_VALUE = new Seconds(Integer.MAX_VALUE);
+/** Constant representing the minimum number of seconds that can be stored in this object. */
+public static final Seconds MIN_VALUE = new Seconds(Integer.MIN_VALUE);
 
-/*
- *  Copyright 2001-2006 Stephen Colebourne
- *
- *  Licensed under the Apache License, Version 2.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
- */
-package org.joda.time;
+/** The paser to use for this class. */
+private static final PeriodFormatter PARSER = ISOPeriodFormat.standard().withParseType(PeriodType.seconds());
 
-import org.joda.time.base.BaseSingleFieldPeriod;
-import org.joda.time.field.FieldUtils;
-import org.joda.time.format.ISOPeriodFormat;
-import org.joda.time.format.PeriodFormatter;
-
-/**
- * An immutable time period representing a number of seconds.
- * <p>
- * <code>Seconds</code> is an immutable period that can only store seconds.
- * It does not store years, months or hours for example. As such it is a
- * type-safe way of representing a number of seconds in an application.
- * <p>
- * The number of seconds is set in the constructor, and may be queried using
- * <code>getSeconds()</code>. Basic mathematical operations are provided -
- * <code>plus()</code>, <code>minus()</code>, <code>multipliedBy()</code> and
- * <code>dividedBy()</code>.
- * <p>
- * <code>Seconds</code> is thread-safe and immutable.
- *
- * @author Stephen Colebourne
- * @since 1.4
- */
-public final class Seconds extends BaseSingleFieldPeriod {
-
-    /** Constant representing zero seconds. */
-    public static final Seconds ZERO = new Seconds(0);
-    /** Constant representing one second. */
-    public static final Seconds ONE = new Seconds(1);
-    /** Constant representing two seconds. */
-    public static final Seconds TWO = new Seconds(2);
-    /** Constant representing three seconds. */
-    public static final Seconds THREE = new Seconds(3);
-    /** Constant representing the maximum number of seconds that can be stored in this object. */
-    public static final Seconds MAX_VALUE = new Seconds(Integer.MAX_VALUE);
-    /** Constant representing the minimum number of seconds that can be stored in this object. */
-    public static final Seconds MIN_VALUE = new Seconds(Integer.MIN_VALUE);
-
-    /** The paser to use for this class. */
-    private static final PeriodFormatter PARSER = ISOPeriodFormat.standard().withParseType(PeriodType.seconds());
-    /** Serialization version. */
-    private static final long serialVersionUID = 87525275727380862L;
+@implementation HLSeconds
 
     //-----------------------------------------------------------------------
     /**

@@ -19,77 +19,10 @@
  * limitations under the License.
  */
 
-#import "YearMonthDay.h"
+#import "HLYearMonthDay.h"
 
 
-@implementation YearMonthDay
-
-/*
- *  Copyright 2001-2006 Stephen Colebourne
- *
- *  Licensed under the Apache License, Version 2.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
- */
-package org.joda.time;
-
-import java.io.Serializable;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
-
-import org.joda.time.base.BasePartial;
-import org.joda.time.chrono.ISOChronology;
-import org.joda.time.field.AbstractPartialFieldProperty;
-import org.joda.time.field.FieldUtils;
-import org.joda.time.format.ISODateTimeFormat;
-
-/**
- * YearMonthDay is an immutable partial supporting the year, monthOfYear
- * and dayOfMonth fields.
- * <p>
- * NOTE: This class only supports the three fields listed above. Thus, you
- * cannot query the dayOfWeek or centuryOfEra fields for example.
- * The new <code>LocalDate</code> class removes this restriction.
- * <p>
- * Calculations on YearMonthDay are performed using a {@link Chronology}.
- * This chronology is set to be in the UTC time zone for all calculations.
- * <p>
- * Each individual field can be queried in two ways:
- * <ul>
- * <li><code>getMonthOfYear()</code>
- * <li><code>monthOfYear().get()</code>
- * </ul>
- * The second technique also provides access to other useful methods on the
- * field:
- * <ul>
- * <li>numeric value - <code>monthOfYear().get()</code>
- * <li>text value - <code>monthOfYear().getAsText()</code>
- * <li>short text value - <code>monthOfYear().getAsShortText()</code>
- * <li>maximum/minimum values - <code>monthOfYear().getMaximumValue()</code>
- * <li>add/subtract - <code>monthOfYear().addToCopy()</code>
- * <li>set - <code>monthOfYear().setCopy()</code>
- * </ul>
- * <p>
- * YearMonthDay is thread-safe and immutable, provided that the Chronology is as well.
- * All standard Chronology classes supplied are thread-safe and immutable.
- *
- * @author Stephen Colebourne
- * @since 1.0
- * @deprecated Use LocalDate which has a much better internal implementation and
- *  has been available since 1.3
- */
-public final class YearMonthDay
-        extends BasePartial
-        implements ReadablePartial, Serializable {
+@implementation HLYearMonthDay
 
     /** Serialization version */
     private static final long serialVersionUID = 797544782896179L;

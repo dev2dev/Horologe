@@ -22,30 +22,45 @@
 #import "HLHours.h"
 
 
-/** Constant representing zero hours. */
-static HLHours* HL_HOURS_ZERO = [[HLHours alloc] initWithPeriod:0];
-/** Constant representing one hour. */
-static HLHours* HL_HOURS_ONE = [[HLHours alloc] initWithPeriod:1];
-/** Constant representing two hours. */
-static HLHours* HL_HOURS_TWO = [[HLHours alloc] initWithPeriod:2];
-/** Constant representing three hours. */
-static HLHours* HL_HOURS_THREE = [[HLHours alloc] initWithPeriod:3];
-/** Constant representing four hours. */
-static HLHours* HL_HOURS_FOUR = [[HLHours alloc] initWithPeriod:4];
-/** Constant representing five hours. */
-static HLHours* HL_HOURS_FIVE = [[HLHours alloc] initWithPeriod:5];
-/** Constant representing six hours. */
-static HLHours* HL_HOURS_SIX = [[HLHours alloc] initWithPeriod:6];
-/** Constant representing seven hours. */
-static HLHours* HL_HOURS_SEVEN = [[HLHours alloc] initWithPeriod:7];
-/** Constant representing eight hours. */
-static HLHours* HL_HOURS_EIGHT = [[HLHours alloc] initWithPeriod:8];
-/** Constant representing the maximum number of hours that can be stored in this object. */
-                                  static HLHours* HL_HOURS_MAX_VALUE = [[HLHours alloc] initWithHours:NSIntegerMax];
-/** Constant representing the minimum number of hours that can be stored in this object. */
-                                  static HLHours* HL_HOURS_MIN_VALUE = [[HLHours alloc] initWithHours:NSIntegerMin];
+ HLHours* HL_HOURS_ZERO;
+ HLHours* HL_HOURS_ONE;
+ HLHours* HL_HOURS_TWO;
+ HLHours* HL_HOURS_THREE;
+ HLHours* HL_HOURS_FOUR;
+ HLHours* HL_HOURS_FIVE;
+ HLHours* HL_HOURS_SIX;
+ HLHours* HL_HOURS_SEVEN;
+ HLHours* HL_HOURS_EIGHT;
+ HLHours* HL_HOURS_MAX_VALUE;
+ HLHours* HL_HOURS_MIN_VALUE;
 
 @implementation HLHours
+
++ (void)initialize {
+    
+    /** Constant representing zero hours. */    
+     HL_HOURS_ZERO = [[HLHours alloc] initWithPeriod:0];
+    /** Constant representing one hour. */
+ HL_HOURS_ONE = [[HLHours alloc] initWithPeriod:1];
+    /** Constant representing two hours. */
+ HL_HOURS_TWO = [[HLHours alloc] initWithPeriod:2];
+    /** Constant representing three hours. */
+HL_HOURS_THREE = [[HLHours alloc] initWithPeriod:3];
+    /** Constant representing four hours. */
+HL_HOURS_FOUR = [[HLHours alloc] initWithPeriod:4];
+    /** Constant representing five hours. */
+HL_HOURS_FIVE = [[HLHours alloc] initWithPeriod:5];
+    /** Constant representing six hours. */
+HL_HOURS_SIX = [[HLHours alloc] initWithPeriod:6];
+    /** Constant representing seven hours. */
+ HL_HOURS_SEVEN = [[HLHours alloc] initWithPeriod:7];
+    /** Constant representing eight hours. */
+HL_HOURS_EIGHT = [[HLHours alloc] initWithPeriod:8];
+    /** Constant representing the maximum number of hours that can be stored in this object. */
+ HL_HOURS_MAX_VALUE = [[HLHours alloc] initWithHours:NSIntegerMax];
+    /** Constant representing the minimum number of hours that can be stored in this object. */
+HL_HOURS_MIN_VALUE = [[HLHours alloc] initWithHours:NSIntegerMin];    
+}
 
     /** The paser to use for this class. */
     private static final PeriodFormatter PARSER = ISOPeriodFormat.standard().withParseType(PeriodType.hours());

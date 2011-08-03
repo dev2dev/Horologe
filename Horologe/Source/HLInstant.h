@@ -113,7 +113,7 @@
  * @return a copy of this instant with the duration added
  * @throws ArithmeticException if the new instant exceeds the capacity of a long
  */
-- (HLInstant*)withDurationAdded:(NSInteger)durationToAdd 
+- (HLInstant*)withDurationValueAdded:(NSInteger)durationToAdd 
                     usingScalar:(NSInteger)scalar;
 
 /**
